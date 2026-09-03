@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design System: Deep Obsidian & Aurora Cobalt ─── */
+:root {
+  /* Superficies Obsidian */
+  --bg-root:       #0A0C10;
+  --surface-base:  #10141D;
+  --surface-hover: #161C28;
+  --surface-modal: #1C2333;
+
+  /* Bordes & Separadores */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-card:   rgba(255, 255, 255, 0.10);
+  --border-glow:   rgba(59, 111, 212, 0.35);
+
+  /* Tipografía & Contraste */
+  --text-primary:   #F3F4F8;
+  --text-secondary: #9BA3B8;
+  --text-muted:     #525A70;
+
+  /* Acentos Horizon */
+  --accent-core:    #3B6FD4;
+  --accent-light:   #6B95E8;
+  --accent-electric:#38BDF8;
+  --accent-halo:    rgba(59, 111, 212, 0.15);
+
+  /* Laboratorios Sectoriales */
+  --lab-finanzas:     #3B6FD4;
+  --lab-medicina:     #0D9488;
+  --lab-contabilidad: #10B981;
+  --lab-matematicas:  #6366F1;
+  --lab-ingenieria:   #F97316;
+  --lab-derecho:      #B91C1C;
+  --lab-diseno:       #EC4899;
+  --lab-psicologia:   #D97706;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-root); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-core); }
+
+/* ─── Selection ─── */
+::selection { background: rgba(59,111,212,0.22); color: var(--text-primary); }
+
+/* ─── Focus ─── */
+*:focus-visible { outline: 2px solid var(--accent-core); outline-offset: 3px; border-radius: 2px; }
+
+/* ─── Grain overlay (micro-noise SVG 2.2%) ─── */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.022;
+  mix-blend-mode: overlay;
+}
+
+/* ─── Nav active dot ─── */
+.nav-active-dot { position: relative; }
+.nav-active-dot::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-core);
+}
+
+/* ─── Neon card glow on hover ─── */
+.bento-card {
+  background: var(--surface-base);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.bento-card:hover {
+  border-color: rgba(59,111,212,0.35);
+  box-shadow: 0 0 24px -6px rgba(59,111,212,0.2), 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* ─── Header border shimmer ─── */
+@keyframes shimmer-x {
+  0% { background-position: -400% 0; }
+  100% { background-position: 400% 0; }
+}
+.header-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(59,111,212,0.4) 50%, transparent 100%);
+  background-size: 400% 100%;
+  animation: shimmer-x 4s ease-in-out infinite;
+}
+
+/* ─── Prompt box styling ─── */
+.prompt-box {
+  background: var(--surface-base);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', 'DM Mono', monospace;
+}
+.prompt-box .placeholder {
+  color: var(--accent-electric);
+  font-weight: 500;
+}
