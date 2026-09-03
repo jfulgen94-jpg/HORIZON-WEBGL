@@ -1,1 +1,0 @@
-Line 4:  * HeroCanvas — WebGL2 Floating Neon Squares

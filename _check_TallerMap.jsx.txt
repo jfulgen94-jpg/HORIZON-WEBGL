@@ -1,1 +1,0 @@
-Line 7:  * TallerMap — Three.js 3D Interactive Map
