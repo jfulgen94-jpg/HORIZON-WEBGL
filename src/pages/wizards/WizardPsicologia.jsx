@@ -10,112 +10,112 @@ import { AlertTriangle } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Heart } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (PsicologÃ­a & Creatividad) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€â”€ Constantes de datos (Psicología & Creatividad) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PRIMARY_TASKS = [
   {
     id: "P1.1",
-    label: "Sistema de AcompaÃ±amiento y Escucha Activa No ClÃ­nica (Ãnima AI)",
-    desc: "DetecciÃ³n de seÃ±ales emocionales implÃ­citas en el lenguaje, modulaciÃ³n adaptativa del tono (validar / acompaÃ±ar / orientar) y protocolo de desescalada de crisis no clÃ­nica.",
+    label: "Sistema de Acompañamiento y Escucha Activa No Clínica (Ánima AI)",
+    desc: "Detección de señales emocionales implícitas en el lenguaje, modulación adaptativa del tono (validar / acompañar / orientar) y protocolo de desescalada de crisis no clínica.",
     audience: "Equipos de bienestar corporativo, usuarios individuales, plataformas de teleasistencia no sanitaria.",
   },
   {
     id: "P1.2",
-    label: "Motor de Pensamiento Divergente e IdeaciÃ³n Creativa (Mente Abierta)",
-    desc: "GeneraciÃ³n de soluciones de alta distancia semÃ¡ntica (DAT), superaciÃ³n de la fijaciÃ³n funcional mediante Denial Prompting y evaluaciÃ³n de novedad conceptual.",
-    audience: "Equipos de innovaciÃ³n, facilitadores de design thinking, creativos, investigadores y estrategas.",
+    label: "Motor de Pensamiento Divergente e Ideación Creativa (Mente Abierta)",
+    desc: "Generación de soluciones de alta distancia semántica (DAT), superación de la fijación funcional mediante Denial Prompting y evaluación de novedad conceptual.",
+    audience: "Equipos de innovación, facilitadores de design thinking, creativos, investigadores y estrategas.",
   },
   {
     id: "P1.3",
-    label: "Simulador de NegociaciÃ³n EstratÃ©gica con TeorÃ­a de la Mente (Ãgora TÃ¡ctica)",
-    desc: "Modelado de asimetrÃ­as de informaciÃ³n, seguimiento epistÃ©mico turno a turno y anticipaciÃ³n de las reacciones y creencias de la contraparte (ToM).",
-    audience: "Negociadores, mediadores, directivos, equipos comerciales y profesionales de resoluciÃ³n de conflictos.",
+    label: "Simulador de Negociación Estratégica con Teoría de la Mente (Ágora Táctica)",
+    desc: "Modelado de asimetrías de información, seguimiento epistémico turno a turno y anticipación de las reacciones y creencias de la contraparte (ToM).",
+    audience: "Negociadores, mediadores, directivos, equipos comerciales y profesionales de resolución de conflictos.",
   },
   {
     id: "P1.4",
     label: "Analizador de Clima Afectivo y Resonancia Emocional en Comunicaciones (Vox Emotiva)",
-    desc: "AuditorÃ­a de tono, detecciÃ³n de sesgos lingÃ¼Ã­sticos implÃ­citos, nivel de agresividad/empatÃ­a y carga emocional en comunicaciones escritas de equipo.",
-    audience: "Departamentos de recursos humanos, lÃ­deres de equipo, consultores de clima laboral.",
+    desc: "Auditoría de tono, detección de sesgos lingüísticos implícitos, nivel de agresividad/empatía y carga emocional en comunicaciones escritas de equipo.",
+    audience: "Departamentos de recursos humanos, líderes de equipo, consultores de clima laboral.",
   },
   {
     id: "P1.5",
-    label: "Evaluador de Sesgos Cognitivos y Trampas HeurÃ­sticas en Decisiones",
-    desc: "IdentificaciÃ³n sistemÃ¡tica de sesgos de confirmaciÃ³n, anclaje, aversiÃ³n a la pÃ©rdida y efecto encuadre en procesos de toma de decisiÃ³n individual y grupal.",
-    audience: "ComitÃ©s de direcciÃ³n, analistas de riesgos, gestores de proyectos, consultores estratÃ©gicos.",
+    label: "Evaluador de Sesgos Cognitivos y Trampas Heurísticas en Decisiones",
+    desc: "Identificación sistemática de sesgos de confirmación, anclaje, aversión a la pérdida y efecto encuadre en procesos de toma de decisión individual y grupal.",
+    audience: "Comités de dirección, analistas de riesgos, gestores de proyectos, consultores estratégicos.",
   },
   {
     id: "P1.6",
-    label: "Asistente de PsicoeducaciÃ³n y ReflexiÃ³n Guiada (Coaching No Directivo)",
-    desc: "FacilitaciÃ³n de preguntas reflexivas abiertas basadas en el mÃ©todo socrÃ¡tico para autoconocimiento, sin emitir diagnÃ³sticos ni directrices prescriptivas.",
+    label: "Asistente de Psicoeducación y Reflexión Guiada (Coaching No Directivo)",
+    desc: "Facilitación de preguntas reflexivas abiertas basadas en el método socrático para autoconocimiento, sin emitir diagnósticos ni directrices prescriptivas.",
     audience: "Coaches profesionales, mentores, educadores y personas en procesos de desarrollo personal.",
   },
 ];
 
 const SECONDARY_TASKS = [
-  { id: "SEC-PSI-01", label: "Guardrail DeontolÃ³gico No ClÃ­nico y Protocolo de DerivaciÃ³n Sanitaria", desc: "Bloqueo estricto ante detecciÃ³n de ideaciÃ³n autolÃ­tica o patologÃ­a clÃ­nica severa con entrega de telÃ©fonos de emergencia oficiales." },
-  { id: "SEC-PSI-02", label: "Calculador de Distancia SemÃ¡ntica (DAT) y Novedad Conceptual", desc: "MediciÃ³n de distancia coseno en espacio vectorial para garantizar que las ideas generadas superen el pensamiento obvio." },
-  { id: "SEC-PSI-03", label: "Registro Inmutable de Sesiones y Estado Emocional en DuckDB", desc: "Trazabilidad de turnos conversacionales, modos de acompaÃ±amiento y flags de seguridad con cifrado local." },
-  { id: "SEC-PSI-04", label: "Persistencia Columnar UltrarrÃ¡pida y Modo Offline (DuckDB + Parquet)", desc: "Almacenamiento local seguro de transcripciones, mÃ©tricas psicomÃ©tricas y Ã¡rboles de negociaciÃ³n." },
-  { id: "SEC-PSI-05", label: "Exportador de Informes de Clima y Mapas de EmpatÃ­a (PDF / Markdown)", desc: "GeneraciÃ³n de resÃºmenes de tono, anÃ¡lisis de sentimiento agregado y recomendaciones no directivas." },
-  { id: "SEC-PSI-06", label: "Detector de Falsas Creencias y AsimetrÃ­a de InformaciÃ³n (ToMBench / ATOMS)", desc: "Rastreo explÃ­cito de quÃ© sabe cada parte y quÃ© informaciÃ³n permanece oculta en la interacciÃ³n." },
-  { id: "SEC-PSI-07", label: "Filtro AntialucinaciÃ³n Emocional y ProhibiciÃ³n de Pseudo-Terapia", desc: "RestricciÃ³n severa que impide fingir afecto humano real o emitir juicios de valor moral sobre el usuario." },
-  { id: "SEC-PSI-08", label: "Analizador Multidimensional de Emociones (Plutchik / Valence-Arousal)", desc: "ClasificaciÃ³n granular en ejes de valencia afectiva, nivel de activaciÃ³n (arousal) y familias emocionales." },
+  { id: "SEC-PSI-01", label: "Guardrail Deontológico No Clínico y Protocolo de Derivación Sanitaria", desc: "Bloqueo estricto ante detección de ideación autolítica o patología clínica severa con entrega de teléfonos de emergencia oficiales." },
+  { id: "SEC-PSI-02", label: "Calculador de Distancia Semántica (DAT) y Novedad Conceptual", desc: "Medición de distancia coseno en espacio vectorial para garantizar que las ideas generadas superen el pensamiento obvio." },
+  { id: "SEC-PSI-03", label: "Registro Inmutable de Sesiones y Estado Emocional en DuckDB", desc: "Trazabilidad de turnos conversacionales, modos de acompañamiento y flags de seguridad con cifrado local." },
+  { id: "SEC-PSI-04", label: "Persistencia Columnar Ultrarrápida y Modo Offline (DuckDB + Parquet)", desc: "Almacenamiento local seguro de transcripciones, métricas psicométricas y árboles de negociación." },
+  { id: "SEC-PSI-05", label: "Exportador de Informes de Clima y Mapas de Empatía (PDF / Markdown)", desc: "Generación de resúmenes de tono, análisis de sentimiento agregado y recomendaciones no directivas." },
+  { id: "SEC-PSI-06", label: "Detector de Falsas Creencias y Asimetría de Información (ToMBench / ATOMS)", desc: "Rastreo explícito de qué sabe cada parte y qué información permanece oculta en la interacción." },
+  { id: "SEC-PSI-07", label: "Filtro Antialucinación Emocional y Prohibición de Pseudo-Terapia", desc: "Restricción severa que impide fingir afecto humano real o emitir juicios de valor moral sobre el usuario." },
+  { id: "SEC-PSI-08", label: "Analizador Multidimensional de Emociones (Plutchik / Valence-Arousal)", desc: "Clasificación granular en ejes de valencia afectiva, nivel de activación (arousal) y familias emocionales." },
 ];
 
 const PSYCHOLOGY_DOMAINS = [
-  "Bienestar Conversacional & Escucha Activa No ClÃ­nica",
-  "Creatividad Aplicada, Pensamiento Lateral & InnovaciÃ³n",
-  "NegociaciÃ³n EstratÃ©gica, DinÃ¡mica de Grupos & TeorÃ­a de la Mente",
-  "PsicologÃ­a Organizacional, Clima de Equipo & Liderazgo EmpÃ¡tico",
-  "PsicologÃ­a Cognitiva & AnÃ¡lisis de Sesgos en Decisiones",
-  "PsicoeducaciÃ³n, Coaching No Directivo & HÃ¡bitos Saludables",
+  "Bienestar Conversacional & Escucha Activa No Clínica",
+  "Creatividad Aplicada, Pensamiento Lateral & Innovación",
+  "Negociación Estratégica, Dinámica de Grupos & Teoría de la Mente",
+  "Psicología Organizacional, Clima de Equipo & Liderazgo Empático",
+  "Psicología Cognitiva & Análisis de Sesgos en Decisiones",
+  "Psicoeducación, Coaching No Directivo & Hábitos Saludables",
 ];
 
 const COMPUTATION_ENGINES = [
-  "Sentence-Transformers / SciPy (CÃ¡lculo de distancia semÃ¡ntica DAT y similitud coseno)",
-  "DuckDB + Parquet (AlmacÃ©n analÃ­tico columnar cifrado para logs de diÃ¡logo y sesiones)",
-  "Pydantic v2 (Modelos de validaciÃ³n para estados emocionales y turnos conversacionales)",
-  "NLTK / spaCy (ExtracciÃ³n de marcadores lingÃ¼Ã­sticos implÃ­citos y hedges)",
-  "Matplotlib / Seaborn (VisualizaciÃ³n de mapas de valencia-arousal y grÃ¡ficos radar)",
-  "ReportLab / Markdown Renderer (GeneraciÃ³n de informes de clima emocional y reflexiÃ³n)",
+  "Sentence-Transformers / SciPy (Cálculo de distancia semántica DAT y similitud coseno)",
+  "DuckDB + Parquet (Almacén analítico columnar cifrado para logs de diálogo y sesiones)",
+  "Pydantic v2 (Modelos de validación para estados emocionales y turnos conversacionales)",
+  "NLTK / spaCy (Extracción de marcadores lingüísticos implícitos y hedges)",
+  "Matplotlib / Seaborn (Visualización de mapas de valencia-arousal y gráficos radar)",
+  "ReportLab / Markdown Renderer (Generación de informes de clima emocional y reflexión)",
 ];
 
 const PSYCHOLOGY_METRICS = [
-  { id: "active_listening_score", label: "Ãndice de Escucha Activa y ValidaciÃ³n (Empathetic Scale)", cat: "Inteligencia Emocional", desc: "Calidad y calidez en la respuesta empÃ¡tica sin invalidaciÃ³n afectiva ni consejos no solicitados." },
-  { id: "implicit_emotion_f1", label: "F1-Score en Reconocimiento Emocional ImplÃ­cito", cat: "Inteligencia Emocional", desc: "DetecciÃ³n de estados afectivos subyacentes en mensajes con texto aparentemente neutro." },
-  { id: "dat_semantic_distance", label: "Distancia SemÃ¡ntica Divergente (DAT Score)", cat: "Creatividad", desc: "Grado de novedad e imprevisibilidad entre conceptos generados en espacio vectorial." },
-  { id: "tom_false_belief_acc", label: "Acierto en Razonamiento de Falsas Creencias (BigToM)", cat: "TeorÃ­a de la Mente", desc: "PrecisiÃ³n al inferir creencias errÃ³neas de la contraparte en la interacciÃ³n estratÃ©gica." },
-  { id: "epistemic_tracking_score", label: "Seguimiento EpistÃ©mico Conversacional (CogToM)", cat: "TeorÃ­a de la Mente", desc: "Consistencia en rastrear la evoluciÃ³n del conocimiento de cada interlocutor turno a turno." },
-  { id: "deescalation_safety_rate", label: "Tasa de Desescalada Segura en Crisis Emocional", cat: "Seguridad & DeontologÃ­a", desc: "Eficacia en modular la tensiÃ³n sin validar conductas lesivas ni cruzar a territorio clÃ­nico." },
-  { id: "cognitive_bias_detection", label: "Sensibilidad en DetecciÃ³n de Sesgos HeurÃ­sticos", cat: "PsicologÃ­a Cognitiva", desc: "Capacidad para identificar trampas de razonamiento como el sesgo de confirmaciÃ³n o anclaje." },
-  { id: "empathic_resonance_index", label: "Ãndice de Resonancia y Clima Afectivo (Vox Emotiva)", cat: "ComunicaciÃ³n & Clima", desc: "Equilibrio entre asertividad, claridad y consideraciÃ³n interpersonal en textos corporativos." },
+  { id: "active_listening_score", label: "Índice de Escucha Activa y Validación (Empathetic Scale)", cat: "Inteligencia Emocional", desc: "Calidad y calidez en la respuesta empática sin invalidación afectiva ni consejos no solicitados." },
+  { id: "implicit_emotion_f1", label: "F1-Score en Reconocimiento Emocional Implícito", cat: "Inteligencia Emocional", desc: "Detección de estados afectivos subyacentes en mensajes con texto aparentemente neutro." },
+  { id: "dat_semantic_distance", label: "Distancia Semántica Divergente (DAT Score)", cat: "Creatividad", desc: "Grado de novedad e imprevisibilidad entre conceptos generados en espacio vectorial." },
+  { id: "tom_false_belief_acc", label: "Acierto en Razonamiento de Falsas Creencias (BigToM)", cat: "Teoría de la Mente", desc: "Precisión al inferir creencias erróneas de la contraparte en la interacción estratégica." },
+  { id: "epistemic_tracking_score", label: "Seguimiento Epistémico Conversacional (CogToM)", cat: "Teoría de la Mente", desc: "Consistencia en rastrear la evolución del conocimiento de cada interlocutor turno a turno." },
+  { id: "deescalation_safety_rate", label: "Tasa de Desescalada Segura en Crisis Emocional", cat: "Seguridad & Deontología", desc: "Eficacia en modular la tensión sin validar conductas lesivas ni cruzar a territorio clínico." },
+  { id: "cognitive_bias_detection", label: "Sensibilidad en Detección de Sesgos Heurísticos", cat: "Psicología Cognitiva", desc: "Capacidad para identificar trampas de razonamiento como el sesgo de confirmación o anclaje." },
+  { id: "empathic_resonance_index", label: "Índice de Resonancia y Clima Afectivo (Vox Emotiva)", cat: "Comunicación & Clima", desc: "Equilibrio entre asertividad, claridad y consideración interpersonal en textos corporativos." },
 ];
 
 const VALIDATION_MODELS = [
-  "Doble Etapa: Razonamiento Afectivo Claude 3.7 Sonnet + Agente de Escalada de Crisis Ãnima",
-  "ValidaciÃ³n HeurÃ­stica Determinista de Marcadores LingÃ¼Ã­sticos de Tono y TensiÃ³n",
-  "CÃ¡lculo MatemÃ¡tico Vectorial de Distancia SemÃ¡ntica DAT para Respuestas Creativas",
-  "AuditorÃ­a de Protocolos de Seguridad y Desescalada No ClÃ­nica",
+  "Doble Etapa: Razonamiento Afectivo Claude 3.7 Sonnet + Agente de Escalada de Crisis Ánima",
+  "Validación Heurística Determinista de Marcadores Lingüísticos de Tono y Tensión",
+  "Cálculo Matemático Vectorial de Distancia Semántica DAT para Respuestas Creativas",
+  "Auditoría de Protocolos de Seguridad y Desescalada No Clínica",
 ];
 
 const SAFETY_GUARDRAILS = [
-  "Aislamiento DeontolÃ³gico: ProhibiciÃ³n Absoluta de DiagnÃ³stico ClÃ­nico o PrescripciÃ³n TerapÃ©utica",
-  "Protocolo Inmutable de DerivaciÃ³n: Bloqueo de DiÃ¡logo y Entrega de TelÃ©fonos de Emergencia ante Crisis",
+  "Aislamiento Deontológico: Prohibición Absoluta de Diagnóstico Clínico o Prescripción Terapéutica",
+  "Protocolo Inmutable de Derivación: Bloqueo de Diálogo y Entrega de Teléfonos de Emergencia ante Crisis",
   "Transparencia de Identidad: Recordatorio de Naturaleza Artificial del Asistente sin Fingir Consciencia",
-  "ProhibiciÃ³n de Pseudo-Terapia: Enfoque Exclusivo en Escucha Activa y Coaching Reflexivo No Directivo",
+  "Prohibición de Pseudo-Terapia: Enfoque Exclusivo en Escucha Activa y Coaching Reflexivo No Directivo",
 ];
 
 const UI_FRAMEWORKS = [
-  "Streamlit (Dashboard interactivo con visores de estado emocional, radar de empatÃ­a y chat adaptativo)",
-  "FastAPI + React / Next.js (Portal de bienestar y reflexiÃ³n guiada con perfiles de privacidad estricta)",
-  "Flet (AplicaciÃ³n de escritorio local .exe para sesiones de coaching sin conexiÃ³n externa)",
+  "Streamlit (Dashboard interactivo con visores de estado emocional, radar de empatía y chat adaptativo)",
+  "FastAPI + React / Next.js (Portal de bienestar y reflexión guiada con perfiles de privacidad estricta)",
+  "Flet (Aplicación de escritorio local .exe para sesiones de coaching sin conexión externa)",
 ];
 
 const STORAGE_ENGINES = [
-  "DuckDB + Ficheros Parquet (AlmacÃ©n analÃ­tico columnar cifrado para series de estado emocional)",
+  "DuckDB + Ficheros Parquet (Almacén analítico columnar cifrado para series de estado emocional)",
   "SQLite con Cifrado Local SQLCipher para Privacidad Absoluta de Sesiones",
-  "AlmacÃ©n Estructurado en Ficheros JSON-LD y Markdown de ReflexiÃ³n",
-  "Base de Datos en Memoria para Sesiones de SimulaciÃ³n de NegociaciÃ³n Temporales",
+  "Almacén Estructurado en Ficheros JSON-LD y Markdown de Reflexión",
+  "Base de Datos en Memoria para Sesiones de Simulación de Negociación Temporales",
 ];
 
 // â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -173,36 +173,36 @@ function generateReport(data) {
     appSlug + "/",
     "â”œâ”€â”€ src/",
     "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # ParÃ¡metros de diÃ¡logo, umbrales de carga emocional y protocolos de seguridad",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para estados emocionales, turnos y Ã¡rboles de negociaciÃ³n" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails DeontolÃ³gicos No ClÃ­nicos (BR-PSI-05)" : ""),
-    data.primaryTask === "P1.1" ? "â”‚   â”œâ”€â”€ empathic_engine.py        # Modulador de escucha activa y respuestas no clÃ­nicas (BR-PSI-01)" : null,
-    hasSEC01 || data.primaryTask === "P1.1" ? "â”‚   â”œâ”€â”€ crisis_guardrail.py       # Detector de seÃ±ales crÃ­ticas y protocolo de derivaciÃ³n oficial" : null,
-    data.primaryTask === "P1.2" || hasSEC02 ? "â”‚   â”œâ”€â”€ divergent_ideation.py     # Motor de pensamiento divergente y cÃ¡lculo de distancia DAT (BR-PSI-02)" : null,
-    data.primaryTask === "P1.3" || hasSEC06 ? "â”‚   â”œâ”€â”€ tom_simulator.py          # Simulador de negociaciÃ³n con TeorÃ­a de la Mente y asimetrÃ­as (BR-PSI-03)" : null,
+    "â”‚   â”œâ”€â”€ config.py                 # Parámetros de diálogo, umbrales de carga emocional y protocolos de seguridad",
+    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para estados emocionales, turnos y árboles de negociación" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails Deontológicos No Clínicos (BR-PSI-05)" : ""),
+    data.primaryTask === "P1.1" ? "â”‚   â”œâ”€â”€ empathic_engine.py        # Modulador de escucha activa y respuestas no clínicas (BR-PSI-01)" : null,
+    hasSEC01 || data.primaryTask === "P1.1" ? "â”‚   â”œâ”€â”€ crisis_guardrail.py       # Detector de señales críticas y protocolo de derivación oficial" : null,
+    data.primaryTask === "P1.2" || hasSEC02 ? "â”‚   â”œâ”€â”€ divergent_ideation.py     # Motor de pensamiento divergente y cálculo de distancia DAT (BR-PSI-02)" : null,
+    data.primaryTask === "P1.3" || hasSEC06 ? "â”‚   â”œâ”€â”€ tom_simulator.py          # Simulador de negociación con Teoría de la Mente y asimetrías (BR-PSI-03)" : null,
     data.primaryTask === "P1.4" || hasSEC08 ? "â”‚   â”œâ”€â”€ tone_auditor.py           # Analizador de resonancia afectiva, hedges y clima de comunicaciones" : null,
-    data.primaryTask === "P1.5" ? "â”‚   â”œâ”€â”€ bias_detector.py          # Evaluador de sesgos cognitivos y trampas heurÃ­sticas" : null,
-    data.primaryTask === "P1.6" ? "â”‚   â”œâ”€â”€ reflective_coaching.py    # Facilitador de preguntas reflexivas socrÃ¡ticas no directivas" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-PSI-04) con registro inmutable de sesiones y estado" : "Capa de persistencia psicolÃ³gica"),
-    "â”‚   â”œâ”€â”€ reporting.py              # Generador de informes de clima emocional y mapas de empatÃ­a (PDF / Markdown)",
+    data.primaryTask === "P1.5" ? "â”‚   â”œâ”€â”€ bias_detector.py          # Evaluador de sesgos cognitivos y trampas heurísticas" : null,
+    data.primaryTask === "P1.6" ? "â”‚   â”œâ”€â”€ reflective_coaching.py    # Facilitador de preguntas reflexivas socráticas no directivas" : null,
+    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-PSI-04) con registro inmutable de sesiones y estado" : "Capa de persistencia psicológica"),
+    "â”‚   â”œâ”€â”€ reporting.py              # Generador de informes de clima emocional y mapas de empatía (PDF / Markdown)",
     "â”‚   â””â”€â”€ ui/",
     "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visores de tono emocional, grÃ¡ficos radar de empatÃ­a y paneles de diÃ¡logo",
+    "â”‚       â”œâ”€â”€ components.py         # Visores de tono emocional, gráficos radar de empatía y paneles de diálogo",
     "â”‚       â””â”€â”€ main_view.py          # Dashboard interactivo y panel del facilitador/usuario",
     "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # ValidaciÃ³n de modelos de datos conversacionales",
-    hasSEC01 ? "â”‚   â”œâ”€â”€ test_crisis_guardrail.py  # BaterÃ­a de pruebas de seguridad y derivaciÃ³n inmediata ante ideaciÃ³n crÃ­tica" : null,
-    data.primaryTask === "P1.2" ? "â”‚   â””â”€â”€ test_dat_distance.py      # Casos de prueba de cÃ¡lculo de distancia semÃ¡ntica vectorial" : null,
-    "â”œâ”€â”€ data/                         # Datasets de validaciÃ³n emocional, ontologÃ­as y cachÃ© local",
+    "â”‚   â”œâ”€â”€ test_schemas.py           # Validación de modelos de datos conversacionales",
+    hasSEC01 ? "â”‚   â”œâ”€â”€ test_crisis_guardrail.py  # Batería de pruebas de seguridad y derivación inmediata ante ideación crítica" : null,
+    data.primaryTask === "P1.2" ? "â”‚   â””â”€â”€ test_dat_distance.py      # Casos de prueba de cálculo de distancia semántica vectorial" : null,
+    "â”œâ”€â”€ data/                         # Datasets de validación emocional, ontologías y caché local",
     "â”œâ”€â”€ requirements.txt              # pydantic, duckdb, scipy, requests, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicaciÃ³n de psicologÃ­a/creatividad",
+    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación de psicología/creatividad",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
-    data.primaryTask === "P1.1" ? "- **BR-PSI-01 (Ãnima AI):** Modulador empÃ¡tico activado; adaptaciÃ³n de tono por turno; protocolo de desescalada activo." : null,
-    data.primaryTask === "P1.2" ? "- **BR-PSI-02 (Mente Abierta):** Motor divergente activado; cÃ¡lculo de distancia DAT en espacio vectorial; denial prompting habilitado." : null,
-    data.primaryTask === "P1.3" ? "- **BR-PSI-03 (Ãgora TÃ¡ctica):** Simulador ToM activado; seguimiento epistÃ©mico de asimetrÃ­as de informaciÃ³n turno a turno." : null,
-    hasSEC04 ? "- **BR-PSI-04 (Persistencia AnalÃ­tica):** AlmacÃ©n columnar preconfigurado en DuckDB + Parquet para series de estado emocional cifradas." : null,
-    hasSEC07 ? "- **BR-PSI-05 (Guardrail DeontolÃ³gico):** ProhibiciÃ³n estricta de emitir diagnÃ³sticos clÃ­nicos o fingir relaciÃ³n terapÃ©utica humana." : null,
+    data.primaryTask === "P1.1" ? "- **BR-PSI-01 (Ánima AI):** Modulador empático activado; adaptación de tono por turno; protocolo de desescalada activo." : null,
+    data.primaryTask === "P1.2" ? "- **BR-PSI-02 (Mente Abierta):** Motor divergente activado; cálculo de distancia DAT en espacio vectorial; denial prompting habilitado." : null,
+    data.primaryTask === "P1.3" ? "- **BR-PSI-03 (Ágora Táctica):** Simulador ToM activado; seguimiento epistémico de asimetrías de información turno a turno." : null,
+    hasSEC04 ? "- **BR-PSI-04 (Persistencia Analítica):** Almacén columnar preconfigurado en DuckDB + Parquet para series de estado emocional cifradas." : null,
+    hasSEC07 ? "- **BR-PSI-05 (Guardrail Deontológico):** Prohibición estricta de emitir diagnósticos clínicos o fingir relación terapéutica humana." : null,
   ].filter(Boolean).join("\n");
 
   const metricsSection = Object.entries(metricsByCategory).map(([cat, ms]) =>
@@ -211,72 +211,72 @@ function generateReport(data) {
 
   const validationSection = hasValidation
     ? [
-        "- **Modelo de verificaciÃ³n y rigor deontolÃ³gico:** " + data.validationModel,
+        "- **Modelo de verificación y rigor deontológico:** " + data.validationModel,
         "- **Guardrail de seguridad profesional:** " + data.safetyGuardrail,
-        "- **Principio de No-IntervenciÃ³n ClÃ­nica:** El sistema opera exclusivamente en el Ã¡mbito del bienestar, la escucha activa y la creatividad; nunca en la psicoterapia clÃ­nica.",
-        "- **Protocolo Inmutable de DerivaciÃ³n:** Ante cualquier indicador de ideaciÃ³n autolÃ­tica o crisis severa, el sistema detiene el diÃ¡logo y entrega recursos de ayuda profesional oficiales.",
-        "- **Trazabilidad Inmutable:** Cada sesiÃ³n y evaluaciÃ³n queda registrada con sellado temporal en DuckDB respetando la privacidad del usuario.",
+        "- **Principio de No-Intervención Clínica:** El sistema opera exclusivamente en el ámbito del bienestar, la escucha activa y la creatividad; nunca en la psicoterapia clínica.",
+        "- **Protocolo Inmutable de Derivación:** Ante cualquier indicador de ideación autolítica o crisis severa, el sistema detiene el diálogo y entrega recursos de ayuda profesional oficiales.",
+        "- **Trazabilidad Inmutable:** Cada sesión y evaluación queda registrada con sellado temporal en DuckDB respetando la privacidad del usuario.",
       ].join("\n")
-    : "La aplicaciÃ³n opera en modo de cÃ¡lculo divergente o simulaciÃ³n estratÃ©gica de negociaciÃ³n.";
+    : "La aplicación opera en modo de cálculo divergente o simulación estratégica de negociación.";
 
   const qaLines = [
-    "1. **Pruebas de Red-Teaming de Seguridad en Crisis:** BaterÃ­a de 100+ escenarios de alta carga emocional simulada; el sistema debe derivar a recursos oficiales en el 100% de los casos crÃ­ticos.",
-    "2. **ValidaciÃ³n de Distancia SemÃ¡ntica DAT:** ComprobaciÃ³n matemÃ¡tica de cÃ¡lculo de distancia coseno frente a benchmarks de creatividad divergente.",
-    "3. **Prueba de Consistencia en TeorÃ­a de la Mente:** VerificaciÃ³n de seguimiento epistÃ©mico en diÃ¡logos asimÃ©tricos sin filtraciÃ³n de informaciÃ³n oculta.",
-    "4. **Prueba de Privacidad y Cifrado:** ComprobaciÃ³n de almacenamiento seguro y anonimizado en DuckDB.",
+    "1. **Pruebas de Red-Teaming de Seguridad en Crisis:** Batería de 100+ escenarios de alta carga emocional simulada; el sistema debe derivar a recursos oficiales en el 100% de los casos críticos.",
+    "2. **Validación de Distancia Semántica DAT:** Comprobación matemática de cálculo de distancia coseno frente a benchmarks de creatividad divergente.",
+    "3. **Prueba de Consistencia en Teoría de la Mente:** Verificación de seguimiento epistémico en diálogos asimétricos sin filtración de información oculta.",
+    "4. **Prueba de Privacidad y Cifrado:** Comprobación de almacenamiento seguro y anonimizado en DuckDB.",
   ].filter(Boolean).join("\n");
 
   return [
     "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
-    "## Proyecto de Software de PsicologÃ­a & Creatividad: " + data.appName,
+    "## Proyecto de Software de Psicología & Creatividad: " + data.appName,
     "",
-    "**Fecha de GeneraciÃ³n:** " + now,
-    "**Ãrea Horizon:** PsicologÃ­a, Creatividad & AnÃ¡lisis del Comportamiento",
-    "**Arquitecto / DiseÃ±ador:** " + (data.authorName || "Horizon User"),
-    "**VersiÃ³n del Documento:** v1.0.0 (EspecificaciÃ³n Formal PsicomÃ©trica y Creativa)",
+    "**Fecha de Generación:** " + now,
+    "**Área Horizon:** Psicología, Creatividad & Análisis del Comportamiento",
+    "**Arquitecto / Diseñador:** " + (data.authorName || "Horizon User"),
+    "**Versión del Documento:** v1.0.0 (Especificación Formal Psicométrica y Creativa)",
     "",
     "---",
     "",
-    "### 1. Resumen Ejecutivo y PropÃ³sito del Software",
+    "### 1. Resumen Ejecutivo y Propósito del Software",
     "",
     "- **Tarea Principal (" + data.primaryTask + "):** " + (primary?.label || ""),
-    "- **DescripciÃ³n del nÃºcleo funcional:** " + (primary?.desc || ""),
-    "- **PÃºblico objetivo:** " + (primary?.audience || ""),
-    "- **Dominios psicolÃ³gicos y aplicados:** " + data.psychologyDomains.join(", "),
-    "- **Motores y librerÃ­as de procesamiento:** " + data.computationEngines.join(", "),
+    "- **Descripción del núcleo funcional:** " + (primary?.desc || ""),
+    "- **Público objetivo:** " + (primary?.audience || ""),
+    "- **Dominios psicológicos y aplicados:** " + data.psychologyDomains.join(", "),
+    "- **Motores y librerías de procesamiento:** " + data.computationEngines.join(", "),
     "",
-    "**Exclusiones explÃ­citas:** El sistema NO realiza diagnÃ³sticos psiquiÃ¡tricos ni psicolÃ³gicos clÃ­nicos, NO proporciona psicoterapia reglada y NO sustituye la atenciÃ³n mÃ©dica o psicolÃ³gica de un facultativo colegiado.",
-    "",
-    "---",
-    "",
-    "### 2. Matriz de Arquitectura y MÃ³dulos Complementarios",
-    "",
-    secondaries.length === 0 ? "_No se han seleccionado mÃ³dulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
-    "",
-    "**Reglas de lÃ³gica condicional aplicadas (Branching Rules):**",
-    branchingLines || "_Ninguna regla de branching activada con la configuraciÃ³n actual._",
+    "**Exclusiones explícitas:** El sistema NO realiza diagnósticos psiquiátricos ni psicológicos clínicos, NO proporciona psicoterapia reglada y NO sustituye la atención médica o psicológica de un facultativo colegiado.",
     "",
     "---",
     "",
-    "### 3. CatÃ¡logo de MÃ©tricas y Rigor CientÃ­fico",
+    "### 2. Matriz de Arquitectura y Módulos Complementarios",
     "",
-    "El sistema implementarÃ¡ y monitorizarÃ¡ las siguientes mÃ©tricas de empatÃ­a, creatividad y cogniciÃ³n:",
+    secondaries.length === 0 ? "_No se han seleccionado módulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
     "",
-    metricsSection || "_No se han seleccionado mÃ©tricas._",
+    "**Reglas de lógica condicional aplicadas (Branching Rules):**",
+    branchingLines || "_Ninguna regla de branching activada con la configuración actual._",
     "",
     "---",
     "",
-    "### 4. Protocolos de Seguridad DeontolÃ³gica y DerivaciÃ³n en Crisis",
+    "### 3. Catálogo de Métricas y Rigor Científico",
+    "",
+    "El sistema implementará y monitorizará las siguientes métricas de empatía, creatividad y cognición:",
+    "",
+    metricsSection || "_No se han seleccionado métricas._",
+    "",
+    "---",
+    "",
+    "### 4. Protocolos de Seguridad Deontológica y Derivación en Crisis",
     "",
     validationSection,
     "",
     "---",
     "",
-    "### 5. Stack TecnolÃ³gico y Estructura de Scripts Python",
+    "### 5. Stack Tecnológico y Estructura de Scripts Python",
     "",
-    "- **Capa de PresentaciÃ³n (UI):** " + data.uiFramework,
+    "- **Capa de Presentación (UI):** " + data.uiFramework,
     "- **Capa de Persistencia y Datos:** " + data.storageEngine,
-    "- **ValidaciÃ³n de Datos:** Pydantic v2 con esquemas de estado emocional y tipado estricto.",
+    "- **Validación de Datos:** Pydantic v2 con esquemas de estado emocional y tipado estricto.",
     "- **Lenguaje:** Python 3.11+",
     "",
     "```text",
@@ -285,27 +285,27 @@ function generateReport(data) {
     "",
     "---",
     "",
-    "### 6. Protocolo de Pruebas y ValidaciÃ³n (QA DeontolÃ³gico)",
+    "### 6. Protocolo de Pruebas y Validación (QA Deontológico)",
     "",
     qaLines,
     "",
     "---",
     "",
-    "### 7. ClÃ¡usula de DeontologÃ­a y Descargo de Responsabilidad No ClÃ­nica",
+    "### 7. Cláusula de Deontología y Descargo de Responsabilidad No Clínica",
     "",
     "> **AVISO Ã‰TICO, DEONTOLÃ“GICO Y SANITARIO OBLIGATORIO**",
     ">",
-    "> Esta especificaciÃ³n tÃ©cnica y cualquier software desarrollado a partir de ella tiene carÃ¡cter **exclusivamente de herramienta de apoyo al bienestar conversacional, la creatividad aplicada y el entrenamiento en negociaciÃ³n**.",
+    "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de herramienta de apoyo al bienestar conversacional, la creatividad aplicada y el entrenamiento en negociación**.",
     ">",
-    "> - **NO constituye tratamiento psicolÃ³gico, psicoterapia ni diagnÃ³stico de salud mental**.",
-    "> - Si el usuario experimenta malestar psicolÃ³gico severo, ideaciÃ³n lesiva o crisis emocional, el sistema estÃ¡ obligado a **derivar inmediatamente a los servicios de salud y lÃ­neas telefÃ³nicas oficiales de emergencia** (ej. 024 / 112 en EspaÃ±a).",
-    "> - El asistente recuerda en todo momento su condiciÃ³n de software basado en IA y no finge consciencia ni afecto humano real.",
+    "> - **NO constituye tratamiento psicológico, psicoterapia ni diagnóstico de salud mental**.",
+    "> - Si el usuario experimenta malestar psicológico severo, ideación lesiva o crisis emocional, el sistema está obligado a **derivar inmediatamente a los servicios de salud y líneas telefónicas oficiales de emergencia** (ej. 024 / 112 en España).",
+    "> - El asistente recuerda en todo momento su condición de software basado en IA y no finge consciencia ni afecto humano real.",
     ">",
-    "> DiseÃ±ado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de PsicologÃ­a & Creatividad.",
+    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Psicología & Creatividad.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de EspecificaciÃ³n TÃ©cnica â€” Generado automÃ¡ticamente por Horizon PsychAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon PsychAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
@@ -542,14 +542,14 @@ export default function WizardPsicologia() {
       if (!data.primaryTask) e.primaryTask = "Selecciona una tarea principal.";
     }
     if (step === 3) {
-      if (data.psychologyDomains.length === 0) e.psychologyDomains = "Selecciona al menos un dominio psicolÃ³gico.";
+      if (data.psychologyDomains.length === 0) e.psychologyDomains = "Selecciona al menos un dominio psicológico.";
       if (data.computationEngines.length === 0) e.computationEngines = "Selecciona al menos un motor de procesamiento.";
     }
     if (step === 4) {
-      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una mÃ©trica psicomÃ©trica/cognitiva.";
+      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una métrica psicométrica/cognitiva.";
     }
     if (step === 5 && needsValidationStep(data.primaryTask, data.secondaryTasks)) {
-      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificaciÃ³n deontolÃ³gica.";
+      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificación deontológica.";
       if (!data.safetyGuardrail) e.safetyGuardrail = "Selecciona el guardrail de seguridad profesional.";
     }
     if (step === 6) {
@@ -593,16 +593,16 @@ export default function WizardPsicologia() {
         {/* Header */}
         <div className="mb-8">
           <Link to="/areas/psicologia" className="inline-flex items-center gap-1.5 text-xs text-dark/40 hover:text-dark transition-colors mb-6">
-            <ArrowLeft size={13} /> Laboratorio de PsicologÃ­a
+            <ArrowLeft size={13} /> Laboratorio de Psicología
           </Link>
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-rose-500/10 border border-rose-500/20 rounded-xl flex items-center justify-center shrink-0 text-rose-600 font-display text-xl">ðŸ§ </div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                DiseÃ±ador de Proyectos â€” PsicologÃ­a & Creatividad
+                Diseñador de Proyectos â€” Psicología & Creatividad
               </h1>
               <p className="text-dark/50 text-sm mt-1">
-                Define tu aplicaciÃ³n psicolÃ³gica y creativa paso a paso con escucha activa, distancia semÃ¡ntica y rigor deontolÃ³gico.
+                Define tu aplicación psicológica y creativa paso a paso con escucha activa, distancia semántica y rigor deontológico.
               </p>
             </div>
           </div>
@@ -617,20 +617,20 @@ export default function WizardPsicologia() {
             {step === 1 && (
               <StepCard>
                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona el nÃºcleo funcional que definirÃ¡ la arquitectura de tu aplicaciÃ³n de psicologÃ­a o creatividad.</p>
+                <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación de psicología o creatividad.</p>
 
                 <div className="space-y-5">
                   <div>
-                    <FieldLabel hint="SerÃ¡ el tÃ­tulo de tu especificaciÃ³n tÃ©cnica psicomÃ©trica y creativa.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Ãnima AI, Mente Abierta, Ãgora TÃ¡ctica, Vox Emotivaâ€¦" />
+                    <FieldLabel hint="Será el título de tu especificación técnica psicométrica y creativa.">Nombre del proyecto</FieldLabel>
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Ánima AI, Mente Abierta, Ágora Táctica, Vox Emotivaâ€¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="Tu nombre, alias, equipo de investigaciÃ³n o consultorÃ­a.">DiseÃ±ador / Equipo de PsicologÃ­a</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Facilitador de Bienestar, Consultor de InnovaciÃ³nâ€¦" />
+                    <FieldLabel hint="Tu nombre, alias, equipo de investigación o consultoría.">Diseñador / Equipo de Psicología</FieldLabel>
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Facilitador de Bienestar, Consultor de Innovaciónâ€¦" />
                   </div>
                   <div>
-                    <FieldLabel hint="Elige la funciÃ³n psicolÃ³gica o creativa principal. Esto determinarÃ¡ los guardrails deontolÃ³gicos y mÃ©tricas requeridas.">Tarea principal de la aplicaciÃ³n</FieldLabel>
+                    <FieldLabel hint="Elige la función psicológica o creativa principal. Esto determinará los guardrails deontológicos y métricas requeridas.">Tarea principal de la aplicación</FieldLabel>
                     <RadioGroup options={PRIMARY_TASKS} value={data.primaryTask} onChange={handlePrimaryChange} />
                     {errors.primaryTask && <p className="text-red-500 text-xs mt-2">{errors.primaryTask}</p>}
                   </div>
@@ -643,17 +643,17 @@ export default function WizardPsicologia() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” MÃ³dulos Complementarios</h2>
-                <p className="text-dark/45 text-sm mb-6">AÃ±ade hasta <strong>4 capacidades cognitivas y de seguridad</strong> para robustecer el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades cognitivas y de seguridad</strong> para robustecer el sistema.</p>
 
                 <div className="bg-rose-500/[0.04] border border-rose-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
                   <strong className="text-dark">Tarea principal seleccionada:</strong> [{data.primaryTask}]{" "}
                   {PRIMARY_TASKS.find(t => t.id === data.primaryTask)?.label}
                 </div>
 
-                <FieldLabel hint="Selecciona entre 0 y 4 mÃ³dulos secundarios.">MÃ³dulos secundarios</FieldLabel>
+                <FieldLabel hint="Selecciona entre 0 y 4 módulos secundarios.">Módulos secundarios</FieldLabel>
                 <CheckGroup options={SECONDARY_TASKS} selected={data.secondaryTasks} onChange={handleSecondaryChange} max={4} />
-                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 mÃ³dulos seleccionados</p>
+                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 módulos seleccionados</p>
 
                 <NavButtons onPrev={prev} onNext={next} nextLabel="Siguiente" />
               </StepCard>
@@ -662,17 +662,17 @@ export default function WizardPsicologia() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ãmbito PsicolÃ³gico & Motores</h2>
-                <p className="text-dark/45 text-sm mb-6">Configura los campos de la cogniciÃ³n y las librerÃ­as de procesamiento del lenguaje y cÃ¡lculo vectorial.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ámbito Psicológico & Motores</h2>
+                <p className="text-dark/45 text-sm mb-6">Configura los campos de la cognición y las librerías de procesamiento del lenguaje y cálculo vectorial.</p>
 
                 <div className="space-y-6">
                   <div>
-                    <FieldLabel hint="Ãreas teÃ³ricas y ramas aplicadas de la psicologÃ­a.">Dominios psicolÃ³gicos y aplicados</FieldLabel>
+                    <FieldLabel hint="Áreas teóricas y ramas aplicadas de la psicología.">Dominios psicológicos y aplicados</FieldLabel>
                     <CheckGroup options={PSYCHOLOGY_DOMAINS.map(a => ({ id: a, label: a, desc: "" }))} selected={data.psychologyDomains} onChange={set("psychologyDomains")} max={6} />
                     {errors.psychologyDomains && <p className="text-red-500 text-xs mt-1.5">{errors.psychologyDomains}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="LibrerÃ­as de anÃ¡lisis vectorial, estado conversacional y cÃ¡lculo psicomÃ©trico.">Motores y librerÃ­as de procesamiento</FieldLabel>
+                    <FieldLabel hint="Librerías de análisis vectorial, estado conversacional y cálculo psicométrico.">Motores y librerías de procesamiento</FieldLabel>
                     <CheckGroup options={COMPUTATION_ENGINES.map(a => ({ id: a, label: a, desc: "" }))} selected={data.computationEngines} onChange={set("computationEngines")} max={6} />
                     {errors.computationEngines && <p className="text-red-500 text-xs mt-1.5">{errors.computationEngines}</p>}
                   </div>
@@ -685,16 +685,16 @@ export default function WizardPsicologia() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” CatÃ¡logo de MÃ©tricas PsicomÃ©tricas</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona las mÃ©tricas de empatÃ­a, creatividad divergente y TeorÃ­a de la Mente que evaluarÃ¡ el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas Psicométricas</h2>
+                <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de empatía, creatividad divergente y Teoría de la Mente que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-rose-800">
-                    âœ“ {data.selectedMetrics.length} mÃ©trica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automÃ¡ticamente segÃºn tu tarea principal.
+                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
-                {["Inteligencia Emocional", "Creatividad", "TeorÃ­a de la Mente", "Seguridad & DeontologÃ­a", "PsicologÃ­a Cognitiva", "ComunicaciÃ³n & Clima"].map(cat => (
+                {["Inteligencia Emocional", "Creatividad", "Teoría de la Mente", "Seguridad & Deontología", "Psicología Cognitiva", "Comunicación & Clima"].map(cat => (
                   <div key={cat} className="mb-5">
                     <p className="text-[11px] font-bold uppercase tracking-widest text-dark/40 mb-2.5">{cat}</p>
                     <div className="space-y-1.5">
@@ -727,31 +727,31 @@ export default function WizardPsicologia() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” DeontologÃ­a y Guardrails de Seguridad</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Deontología y Guardrails de Seguridad</h2>
 
                 {hasValidation ? (
                   <>
                     <div className="bg-rose-50 border border-rose-200 rounded-xl px-4 py-3 mb-6 text-[13px] text-rose-800 flex items-start gap-2">
                       <Heart size={16} className="shrink-0 mt-0.5 text-rose-600" />
-                      Este paso estÃ¡ activo para garantizar la no-intervenciÃ³n clÃ­nica, la derivaciÃ³n inmediata en crisis y la transparencia del sistema.
+                      Este paso está activo para garantizar la no-intervención clínica, la derivación inmediata en crisis y la transparencia del sistema.
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <FieldLabel hint="Estrategia de modulaciÃ³n afectiva y supervisiÃ³n de seguridad.">Modelo de verificaciÃ³n deontolÃ³gica</FieldLabel>
+                        <FieldLabel hint="Estrategia de modulación afectiva y supervisión de seguridad.">Modelo de verificación deontológica</FieldLabel>
                         <SelectGroup options={VALIDATION_MODELS} value={data.validationModel} onChange={set("validationModel")} />
                         {errors.validationModel && <p className="text-red-500 text-xs mt-1">{errors.validationModel}</p>}
                       </div>
                       <div>
-                        <FieldLabel hint="RestricciÃ³n de seguridad activa para evitar extralimitaciones clÃ­nicas.">Guardrail de seguridad profesional</FieldLabel>
+                        <FieldLabel hint="Restricción de seguridad activa para evitar extralimitaciones clínicas.">Guardrail de seguridad profesional</FieldLabel>
                         <SelectGroup options={SAFETY_GUARDRAILS} value={data.safetyGuardrail} onChange={set("safetyGuardrail")} />
                         {errors.safetyGuardrail && <p className="text-red-500 text-xs mt-1">{errors.safetyGuardrail}</p>}
                       </div>
                       <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios Ã©ticos y deontolÃ³gicos (activados por diseÃ±o)</p>
+                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios éticos y deontológicos (activados por diseño)</p>
                         {[
-                          "Principio de No-IntervenciÃ³n ClÃ­nica: acompaÃ±amiento y reflexiÃ³n no directiva sin diagnÃ³sticos psiquiÃ¡tricos.",
-                          "Protocolo de DerivaciÃ³n Inmediata: entrega de nÃºmeros oficiales de ayuda en situaciones de crisis emocional severa.",
-                          "Trazabilidad Inmutable: registro cifrado de sesiones y estados de Ã¡nimo en DuckDB con privacidad total.",
+                          "Principio de No-Intervención Clínica: acompañamiento y reflexión no directiva sin diagnósticos psiquiátricos.",
+                          "Protocolo de Derivación Inmediata: entrega de números oficiales de ayuda en situaciones de crisis emocional severa.",
+                          "Trazabilidad Inmutable: registro cifrado de sesiones y estados de ánimo en DuckDB con privacidad total.",
                         ].map(c => (
                           <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
                             <div className="w-4 h-4 rounded bg-rose-100 border border-rose-300 flex items-center justify-center shrink-0 mt-0.5">
@@ -765,9 +765,9 @@ export default function WizardPsicologia() {
                   </>
                 ) : (
                   <div>
-                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo ideaciÃ³n creativa o simulaciÃ³n estratÃ©gica</strong> sin acompaÃ±amiento directo de bienestar personal.</p>
+                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo ideación creativa o simulación estratégica</strong> sin acompañamiento directo de bienestar personal.</p>
                     <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4 text-[13px] text-dark/50">
-                      Si decides aÃ±adir escucha activa o coaching reflexivo, vuelve al <strong>Paso 2</strong> y activa el mÃ³dulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-PSI-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-PSI-07</code>.
+                      Si decides añadir escucha activa o coaching reflexivo, vuelve al <strong>Paso 2</strong> y activa el módulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-PSI-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-PSI-07</code>.
                     </div>
                   </div>
                 )}
@@ -779,12 +779,12 @@ export default function WizardPsicologia() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack TecnolÃ³gico & Persistencia</h2>
-                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerÃ­as que darÃ¡n soporte a tu aplicaciÃ³n de psicologÃ­a y creatividad.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación de psicología y creatividad.</p>
 
                 {data.secondaryTasks.includes("SEC-PSI-04") && (
                   <div className="bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-rose-800">
-                    âœ“ Persistencia analÃ­tica preconfigurada en <strong>DuckDB + Parquet</strong> por el mÃ³dulo SEC-PSI-04.
+                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-PSI-04.
                   </div>
                 )}
 
@@ -795,13 +795,13 @@ export default function WizardPsicologia() {
                     {errors.uiFramework && <p className="text-red-500 text-xs mt-1">{errors.uiFramework}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="DÃ³nde y cÃ³mo se almacenarÃ¡n los registros de sesiones y mÃ©tricas psicomÃ©tricas.">Motor de persistencia y datos</FieldLabel>
+                    <FieldLabel hint="Dónde y cómo se almacenarán los registros de sesiones y métricas psicométricas.">Motor de persistencia y datos</FieldLabel>
                     <SelectGroup options={STORAGE_ENGINES} value={data.storageEngine} onChange={set("storageEngine")} />
                     {errors.storageEngine && <p className="text-red-500 text-xs mt-1">{errors.storageEngine}</p>}
                   </div>
                 </div>
 
-                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar EspecificaciÃ³n PsicolÃ³gica" />
+                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar Especificación Psicológica" />
               </StepCard>
             )}
           </>
@@ -815,10 +815,10 @@ export default function WizardPsicologia() {
                 <div className="w-8 h-8 bg-rose-100 border border-rose-300 rounded-full flex items-center justify-center">
                   <Check size={16} className="text-rose-700" />
                 </div>
-                <h2 className="font-display text-[24px] text-dark">EspecificaciÃ³n psicolÃ³gica y creativa generada con Ã©xito</h2>
+                <h2 className="font-display text-[24px] text-dark">Especificación psicológica y creativa generada con éxito</h2>
               </div>
               <p className="text-dark/50 text-sm ml-11">
-                La memoria tÃ©cnica para <strong className="text-dark">{data.appName}</strong> estÃ¡ lista para desarrollo y auditorÃ­a deontolÃ³gica.
+                La memoria técnica para <strong className="text-dark">{data.appName}</strong> está lista para desarrollo y auditoría deontológica.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <button
@@ -831,7 +831,7 @@ export default function WizardPsicologia() {
                   onClick={reset}
                   className="flex items-center gap-2 px-5 py-2.5 border border-dark/15 hover:border-dark/30 text-dark/70 hover:text-dark text-sm font-medium rounded-sm transition-colors"
                 >
-                  <RefreshCw size={15} /> Crear otro diseÃ±o
+                  <RefreshCw size={15} /> Crear otro diseño
                 </button>
               </div>
             </div>
@@ -843,7 +843,7 @@ export default function WizardPsicologia() {
             <div className="mt-6 bg-rose-50 border border-rose-200 rounded-2xl px-6 py-5 flex gap-3">
               <Heart size={18} className="text-rose-600 shrink-0 mt-0.5" />
               <p className="text-[13px] text-rose-800 leading-relaxed">
-                <strong>Aviso Ã©tico y de salud:</strong> Este informe especifica una arquitectura de software de bienestar conversacional y creatividad. No constituye tratamiento clÃ­nico ni sustituye la atenciÃ³n de un psicÃ³logo o psiquiatra colegiado.
+                <strong>Aviso ético y de salud:</strong> Este informe especifica una arquitectura de software de bienestar conversacional y creatividad. No constituye tratamiento clínico ni sustituye la atención de un psicólogo o psiquiatra colegiado.
               </p>
             </div>
           </div>

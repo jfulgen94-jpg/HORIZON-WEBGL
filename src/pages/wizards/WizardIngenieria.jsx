@@ -9,109 +9,109 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { HardHat } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (IngenierÃ­a & Arquitectura) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€â”€ Constantes de datos (Ingeniería & Arquitectura) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PRIMARY_TASKS = [
   {
     id: "I1.1",
-    label: "Generador de Distribuciones Espaciales y Layouts ArquitectÃ³nicos (Vitruvio IA)",
-    desc: "GeneraciÃ³n de propuestas de distribuciÃ³n espacial en cuadrÃ­cula paramÃ©trica a partir de programa de necesidades, orientaciÃ³n solar y matriz de adyacencias, con exportaciÃ³n vectorial SVG.",
-    audience: "Estudios de arquitectura, proyectistas, diseÃ±adores de interiores, promotoras inmobiliarias.",
+    label: "Generador de Distribuciones Espaciales y Layouts Arquitectónicos (Vitruvio IA)",
+    desc: "Generación de propuestas de distribución espacial en cuadrícula paramétrica a partir de programa de necesidades, orientación solar y matriz de adyacencias, con exportación vectorial SVG.",
+    audience: "Estudios de arquitectura, proyectistas, diseñadores de interiores, promotoras inmobiliarias.",
   },
   {
     id: "I1.2",
-    label: "Simulador de Eficiencia EnergÃ©tica y Envolvente TÃ©rmica (Gaia Eficiencia)",
-    desc: "Modelado higrotÃ©rmico, cÃ¡lculo de transmitancias tÃ©rmicas (valores U), puentes tÃ©rmicos y optimizaciÃ³n de demanda energÃ©tica segÃºn CÃ³digo TÃ©cnico (CTE DB-HE) y estÃ¡ndares Passivhaus.",
-    audience: "Consultores de sostenibilidad, ingenieros de edificaciÃ³n, certificadores energÃ©ticos, proyectistas HVAC.",
+    label: "Simulador de Eficiencia Energética y Envolvente Térmica (Gaia Eficiencia)",
+    desc: "Modelado higrotérmico, cálculo de transmitancias térmicas (valores U), puentes térmicos y optimización de demanda energética según Código Técnico (CTE DB-HE) y estándares Passivhaus.",
+    audience: "Consultores de sostenibilidad, ingenieros de edificación, certificadores energéticos, proyectistas HVAC.",
   },
   {
     id: "I1.3",
-    label: "Monitor de PlanificaciÃ³n de Obras, Control de Costes y Desviaciones (Atlas Constructor)",
-    desc: "Cuadro de mando para seguimiento de hitos constructivos, anÃ¡lisis de camino crÃ­tico (PERT/CPM), control de certificaciones acumuladas y prevenciÃ³n de sobrecostes.",
-    audience: "Directores de obra, jefes de producciÃ³n, project managers de construcciÃ³n, empresas constructoras.",
+    label: "Monitor de Planificación de Obras, Control de Costes y Desviaciones (Atlas Constructor)",
+    desc: "Cuadro de mando para seguimiento de hitos constructivos, análisis de camino crítico (PERT/CPM), control de certificaciones acumuladas y prevención de sobrecostes.",
+    audience: "Directores de obra, jefes de producción, project managers de construcción, empresas constructoras.",
   },
   {
     id: "I1.4",
-    label: "Transformador AutomÃ¡tico de Requisitos PRD a Diagramas UML y Modelo C4 (R2A Engine)",
-    desc: "ConversiÃ³n de especificaciones funcionales en diagramas de arquitectura de software (Componentes, Secuencia, Contenedores C4, PlantUML / Mermaid) con consistencia de interfaces.",
+    label: "Transformador Automático de Requisitos PRD a Diagramas UML y Modelo C4 (R2A Engine)",
+    desc: "Conversión de especificaciones funcionales en diagramas de arquitectura de software (Componentes, Secuencia, Contenedores C4, PlantUML / Mermaid) con consistencia de interfaces.",
     audience: "Arquitectos de software, tech leads, ingenieros de sistemas, consultores de desarrollo.",
   },
   {
     id: "I1.5",
-    label: "Motor de OptimizaciÃ³n de DiseÃ±o Multidisciplinar (MDO) y SimulaciÃ³n FÃ­sica",
-    desc: "ExploraciÃ³n paramÃ©trica en bucle cerrado que equilibra variables estructurales, aerodinÃ¡micas, tÃ©rmicas y de masa con solucionadores SciPy y modelos sustitutos.",
-    audience: "Ingenieros mecÃ¡nicos, diseÃ±adores aeroespaciales, analistas de simulaciÃ³n multifÃ­sica.",
+    label: "Motor de Optimización de Diseño Multidisciplinar (MDO) y Simulación Física",
+    desc: "Exploración paramétrica en bucle cerrado que equilibra variables estructurales, aerodinámicas, térmicas y de masa con solucionadores SciPy y modelos sustitutos.",
+    audience: "Ingenieros mecánicos, diseñadores aeroespaciales, analistas de simulación multifísica.",
   },
   {
     id: "I1.6",
-    label: "Generador de Registros de DecisiÃ³n ArquitectÃ³nica (ADRs) y AnÃ¡lisis de Trade-Offs",
-    desc: "FormalizaciÃ³n estructurada de decisiones tÃ©cnicas en software o ingenierÃ­a civil, evaluando alternativas descartadas, consecuencias esperadas y riesgos operacionales.",
-    audience: "ComitÃ©s de arquitectura tÃ©cnica, directores de ingenierÃ­a (CTO/VP Eng), consultores estratÃ©gicos.",
+    label: "Generador de Registros de Decisión Arquitectónica (ADRs) y Análisis de Trade-Offs",
+    desc: "Formalización estructurada de decisiones técnicas en software o ingeniería civil, evaluando alternativas descartadas, consecuencias esperadas y riesgos operacionales.",
+    audience: "Comités de arquitectura técnica, directores de ingeniería (CTO/VP Eng), consultores estratégicos.",
   },
 ];
 
 const SECONDARY_TASKS = [
-  { id: "SEC-ENG-01", label: "Validador de Cumplimiento Normativo (CTE DB-HE / EurocÃ³digos / ISO 19650)", desc: "VerificaciÃ³n automÃ¡tica de restricciones de edificaciÃ³n, retranqueos, coeficientes de seguridad y normativas constructivas." },
-  { id: "SEC-ENG-02", label: "Generador de Planos EsquemÃ¡ticos y ExportaciÃ³n GrÃ¡fica (SVG / DXF / PlantUML)", desc: "Renderizado visual directo de layouts y diagramas de flujo/arquitectura listos para CAD o documentaciÃ³n tÃ©cnica." },
-  { id: "SEC-ENG-03", label: "Pista de Trazabilidad Requisito-CÃ³digo y AuditorÃ­a de CertificaciÃ³n en DuckDB", desc: "Mapeo bidireccional inmutable entre requisitos tÃ©cnicos, decisiones tomadas y artefactos generados." },
-  { id: "SEC-ENG-04", label: "Persistencia Columnar UltrarrÃ¡pida y Modo Offline (DuckDB + Parquet)", desc: "Almacenamiento analÃ­tico local de proyectos, variantes de diseÃ±o y simulaciones numÃ©ricas." },
-  { id: "SEC-ENG-05", label: "Exportador a Formatos BIM / IFC e Interoperabilidad CAD", desc: "GeneraciÃ³n de esquemas JSON estructurados compatibles con exportadores a Revit, ArchiCAD o FreeCAD." },
-  { id: "SEC-ENG-06", label: "Detector de Riesgos Operacionales y Seguridad en Obra (Safety Red-Teaming)", desc: "IdentificaciÃ³n preventiva de interferencias constructivas, riesgos de colisiÃ³n y puntos crÃ­ticos de seguridad laboral." },
-  { id: "SEC-ENG-07", label: "Asistente TÃ©cnico con Guardrails AntialucinaciÃ³n y Aislamiento de Firma", desc: "RestricciÃ³n severa que impide la validaciÃ³n autÃ³noma de cÃ¡lculos estructurales sin visado de tÃ©cnico colegiado." },
-  { id: "SEC-ENG-08", label: "Conector de SimulaciÃ³n TÃ©rmica y MeteorolÃ³gica (EPW / EnergyPlus / OpenStudio)", desc: "IntegraciÃ³n de series meteorolÃ³gicas horarias y datos climÃ¡ticos para simulaciones dinÃ¡micas." },
+  { id: "SEC-ENG-01", label: "Validador de Cumplimiento Normativo (CTE DB-HE / Eurocódigos / ISO 19650)", desc: "Verificación automática de restricciones de edificación, retranqueos, coeficientes de seguridad y normativas constructivas." },
+  { id: "SEC-ENG-02", label: "Generador de Planos Esquemáticos y Exportación Gráfica (SVG / DXF / PlantUML)", desc: "Renderizado visual directo de layouts y diagramas de flujo/arquitectura listos para CAD o documentación técnica." },
+  { id: "SEC-ENG-03", label: "Pista de Trazabilidad Requisito-Código y Auditoría de Certificación en DuckDB", desc: "Mapeo bidireccional inmutable entre requisitos técnicos, decisiones tomadas y artefactos generados." },
+  { id: "SEC-ENG-04", label: "Persistencia Columnar Ultrarrápida y Modo Offline (DuckDB + Parquet)", desc: "Almacenamiento analítico local de proyectos, variantes de diseño y simulaciones numéricas." },
+  { id: "SEC-ENG-05", label: "Exportador a Formatos BIM / IFC e Interoperabilidad CAD", desc: "Generación de esquemas JSON estructurados compatibles con exportadores a Revit, ArchiCAD o FreeCAD." },
+  { id: "SEC-ENG-06", label: "Detector de Riesgos Operacionales y Seguridad en Obra (Safety Red-Teaming)", desc: "Identificación preventiva de interferencias constructivas, riesgos de colisión y puntos críticos de seguridad laboral." },
+  { id: "SEC-ENG-07", label: "Asistente Técnico con Guardrails Antialucinación y Aislamiento de Firma", desc: "Restricción severa que impide la validación autónoma de cálculos estructurales sin visado de técnico colegiado." },
+  { id: "SEC-ENG-08", label: "Conector de Simulación Térmica y Meteorológica (EPW / EnergyPlus / OpenStudio)", desc: "Integración de series meteorológicas horarias y datos climáticos para simulaciones dinámicas." },
 ];
 
 const ENGINEERING_DOMAINS = [
-  "Arquitectura, DistribuciÃ³n Espacial & Urbanismo",
-  "IngenierÃ­a Estructural & CÃ¡lculo de Estructuras (EurocÃ³digos / CTE)",
-  "Eficiencia EnergÃ©tica, ClimatizaciÃ³n (HVAC) & Sostenibilidad",
-  "IngenierÃ­a de Software, Arquitectura de Sistemas & Modelo C4",
-  "IngenierÃ­a MecÃ¡nica, MDO & SimulaciÃ³n Aeroespacial",
-  "GestiÃ³n y DirecciÃ³n de Obras de ConstrucciÃ³n & BIM",
+  "Arquitectura, Distribución Espacial & Urbanismo",
+  "Ingeniería Estructural & Cálculo de Estructuras (Eurocódigos / CTE)",
+  "Eficiencia Energética, Climatización (HVAC) & Sostenibilidad",
+  "Ingeniería de Software, Arquitectura de Sistemas & Modelo C4",
+  "Ingeniería Mecánica, MDO & Simulación Aeroespacial",
+  "Gestión y Dirección de Obras de Construcción & BIM",
 ];
 
 const COMPUTATION_ENGINES = [
-  "Python + NumPy / SciPy (CÃ¡lculo numÃ©rico y optimizaciÃ³n fÃ­sica)",
-  "svgwrite / ezdxf (GeneraciÃ³n y manipulaciÃ³n de planos vectoriales SVG/DXF)",
-  "PlantUML / Mermaid (GeneraciÃ³n de diagramas de arquitectura C4 y UML)",
-  "EnergyPlus / OpenStudio API (SimulaciÃ³n energÃ©tica de edificios)",
-  "NetworkX / PuLP (OptimizaciÃ³n de cronogramas PERT/CPM y caminos crÃ­ticos)",
-  "DuckDB + Parquet (AlmacÃ©n analÃ­tico de especificaciones y modelos)",
+  "Python + NumPy / SciPy (Cálculo numérico y optimización física)",
+  "svgwrite / ezdxf (Generación y manipulación de planos vectoriales SVG/DXF)",
+  "PlantUML / Mermaid (Generación de diagramas de arquitectura C4 y UML)",
+  "EnergyPlus / OpenStudio API (Simulación energética de edificios)",
+  "NetworkX / PuLP (Optimización de cronogramas PERT/CPM y caminos críticos)",
+  "DuckDB + Parquet (Almacén analítico de especificaciones y modelos)",
 ];
 
 const ENGINEERING_METRICS = [
-  { id: "circulation_eff", label: "Eficiencia de CirculaciÃ³n Espacial (Ratio Ãštil/Pasillos)", cat: "DiseÃ±o Espacial", desc: "Porcentaje de superficie Ãºtil respecto al Ã¡rea total construida del proyecto." },
-  { id: "orientation_solar_score", label: "Ãndice de CaptaciÃ³n y OrientaciÃ³n Solar", cat: "DiseÃ±o Espacial", desc: "Grado de concordancia entre la orientaciÃ³n de estancias principales y la radiaciÃ³n solar Ã³ptima." },
-  { id: "thermal_transmittance_u", label: "Transmitancia TÃ©rmica Global U (W/mÂ²K)", cat: "Eficiencia EnergÃ©tica", desc: "Aislamiento tÃ©rmico medio ponderado de la envolvente del edificio segÃºn CTE DB-HE." },
-  { id: "energy_demand_kwh", label: "Demanda EnergÃ©tica Anual Estimada (kWh/mÂ²Â·aÃ±o)", cat: "Eficiencia EnergÃ©tica", desc: "Consumo previsto para calefacciÃ³n, refrigeraciÃ³n y ACS del inmueble." },
-  { id: "schedule_variance_sv", label: "Varianza de Cronograma (Schedule Variance - EVM)", cat: "GestiÃ³n de Obra", desc: "DesviaciÃ³n temporal entre el valor ganado (EV) y el valor planificado (PV) en la planificaciÃ³n." },
-  { id: "prd_to_uml_f1", label: "F1-Score en SÃ­ntesis de Diagramas (R2ABench)", cat: "Arquitectura Software", desc: "PrecisiÃ³n y exhaustividad en la traducciÃ³n de requisitos funcionales a componentes UML/C4." },
-  { id: "mdo_optimality_gap", label: "Convergencia Multidisciplinar (MDO Gap %)", cat: "IngenierÃ­a FÃ­sica", desc: "AlineaciÃ³n y equilibrio Ã³ptimo entre variables fÃ­sicas contrapuestas (peso vs. resistencia)." },
-  { id: "traceability_coverage", label: "Cobertura de Trazabilidad Requisito-DiseÃ±o", cat: "Seguridad & Calidad", desc: "Porcentaje de requisitos tÃ©cnicos con validaciÃ³n verificable y artefacto de diseÃ±o asociado." },
+  { id: "circulation_eff", label: "Eficiencia de Circulación Espacial (Ratio Ãštil/Pasillos)", cat: "Diseño Espacial", desc: "Porcentaje de superficie útil respecto al área total construida del proyecto." },
+  { id: "orientation_solar_score", label: "Índice de Captación y Orientación Solar", cat: "Diseño Espacial", desc: "Grado de concordancia entre la orientación de estancias principales y la radiación solar óptima." },
+  { id: "thermal_transmittance_u", label: "Transmitancia Térmica Global U (W/m²K)", cat: "Eficiencia Energética", desc: "Aislamiento térmico medio ponderado de la envolvente del edificio según CTE DB-HE." },
+  { id: "energy_demand_kwh", label: "Demanda Energética Anual Estimada (kWh/m²·año)", cat: "Eficiencia Energética", desc: "Consumo previsto para calefacción, refrigeración y ACS del inmueble." },
+  { id: "schedule_variance_sv", label: "Varianza de Cronograma (Schedule Variance - EVM)", cat: "Gestión de Obra", desc: "Desviación temporal entre el valor ganado (EV) y el valor planificado (PV) en la planificación." },
+  { id: "prd_to_uml_f1", label: "F1-Score en Síntesis de Diagramas (R2ABench)", cat: "Arquitectura Software", desc: "Precisión y exhaustividad en la traducción de requisitos funcionales a componentes UML/C4." },
+  { id: "mdo_optimality_gap", label: "Convergencia Multidisciplinar (MDO Gap %)", cat: "Ingeniería Física", desc: "Alineación y equilibrio óptimo entre variables físicas contrapuestas (peso vs. resistencia)." },
+  { id: "traceability_coverage", label: "Cobertura de Trazabilidad Requisito-Diseño", cat: "Seguridad & Calidad", desc: "Porcentaje de requisitos técnicos con validación verificable y artefacto de diseño asociado." },
 ];
 
 const VALIDATION_MODELS = [
-  "Doble Etapa: Razonamiento Multidominio GPT-4.5 + VerificaciÃ³n de Trazabilidad Claude 3.7 Sonnet",
-  "ValidaciÃ³n Determinista contra Normativa TÃ©cnica de la EdificaciÃ³n (CTE / EurocÃ³digos)",
-  "VerificaciÃ³n NumÃ©rica de Transmitancias y Puentes TÃ©rmicos con FÃ³rmulas TermodinÃ¡micas",
-  "AuditorÃ­a de Grafos de Dependencia y Matriz de Adyacencias Espaciales",
+  "Doble Etapa: Razonamiento Multidominio GPT-4.5 + Verificación de Trazabilidad Claude 3.7 Sonnet",
+  "Validación Determinista contra Normativa Técnica de la Edificación (CTE / Eurocódigos)",
+  "Verificación Numérica de Transmitancias y Puentes Térmicos con Fórmulas Termodinámicas",
+  "Auditoría de Grafos de Dependencia y Matriz de Adyacencias Espaciales",
 ];
 
 const SAFETY_GUARDRAILS = [
-  "Aislamiento de Responsabilidad TÃ©cnica: ProhibiciÃ³n de Visado AutomÃ¡tico sin TÃ©cnico Colegiado",
-  "Bloqueo Obligatorio ante Incumplimiento de Retranqueos Normativos o Superficies MÃ­nimas",
-  "Alerta de Seguridad CrÃ­tica en Interferencias de Estructura o Rutas de EvacuaciÃ³n",
-  "Registro Inmutable de Trade-offs y LÃ­mites de Carga en Todo Informe de DiseÃ±o",
+  "Aislamiento de Responsabilidad Técnica: Prohibición de Visado Automático sin Técnico Colegiado",
+  "Bloqueo Obligatorio ante Incumplimiento de Retranqueos Normativos o Superficies Mínimas",
+  "Alerta de Seguridad Crítica en Interferencias de Estructura o Rutas de Evacuación",
+  "Registro Inmutable de Trade-offs y Límites de Carga en Todo Informe de Diseño",
 ];
 
 const UI_FRAMEWORKS = [
-  "Streamlit (Dashboard interactivo con visores SVG de planos y grÃ¡ficos energÃ©ticos)",
+  "Streamlit (Dashboard interactivo con visores SVG de planos y gráficos energéticos)",
   "FastAPI + React / Next.js (Plataforma colaborativa BIM con visor 2D/3D y roles de equipo)",
-  "Flet (AplicaciÃ³n de escritorio local .exe para estaciones de ingenierÃ­a aisladas)",
+  "Flet (Aplicación de escritorio local .exe para estaciones de ingeniería aisladas)",
 ];
 
 const STORAGE_ENGINES = [
-  "DuckDB + Ficheros Parquet (AlmacÃ©n analÃ­tico columnar para histÃ³rico de variantes y mÃ©tricas)",
+  "DuckDB + Ficheros Parquet (Almacén analítico columnar para histórico de variantes y métricas)",
   "SQLite con Esquemas JSON para Grafo de Dependencias y Fichas de Estancias",
   "Repositorio de Ficheros SVG / DXF / PlantUML con Control de Versiones",
   "Almacenamiento Estructurado de Proyectos en Ficheros JSON-LD y Markdown",
@@ -171,37 +171,37 @@ function generateReport(data) {
     appSlug + "/",
     "â”œâ”€â”€ src/",
     "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # ParÃ¡metros del proyecto, tolerancias geomÃ©tricas y rutas",
+    "â”‚   â”œâ”€â”€ config.py                 # Parámetros del proyecto, tolerancias geométricas y rutas",
     "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para estancias, envolventes y diagramas" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de Aislamiento de Firma (BR-ENG-05)" : ""),
-    data.primaryTask === "I1.1" ? "â”‚   â”œâ”€â”€ spatial_layout.py         # Motor de distribuciÃ³n en cuadrÃ­cula paramÃ©trica (BR-ENG-01)" : null,
+    data.primaryTask === "I1.1" ? "â”‚   â”œâ”€â”€ spatial_layout.py         # Motor de distribución en cuadrícula paramétrica (BR-ENG-01)" : null,
     data.primaryTask === "I1.1" || hasSEC02 ? "â”‚   â”œâ”€â”€ svg_renderer.py           # Renderizador vectorial de planos y diagramas con svgwrite" : null,
-    data.primaryTask === "I1.2" || hasSEC08 ? "â”‚   â”œâ”€â”€ thermal_engine.py         # Simulador de transmitancia U y cÃ¡lculo higrotÃ©rmico (BR-ENG-02)" : null,
+    data.primaryTask === "I1.2" || hasSEC08 ? "â”‚   â”œâ”€â”€ thermal_engine.py         # Simulador de transmitancia U y cálculo higrotérmico (BR-ENG-02)" : null,
     data.primaryTask === "I1.3" ? "â”‚   â”œâ”€â”€ construction_monitor.py   # Motor de seguimiento PERT/CPM y varianza de costes" : null,
     data.primaryTask === "I1.4" ? "â”‚   â”œâ”€â”€ prd_to_c4.py              # Sintetizador de requisitos funcionales a PlantUML / C4 (BR-ENG-03)" : null,
     data.primaryTask === "I1.5" ? "â”‚   â”œâ”€â”€ mdo_optimizer.py          # Optimizador multidisciplinar con modelos sustitutos" : null,
     data.primaryTask === "I1.6" ? "â”‚   â”œâ”€â”€ adr_generator.py          # Generador de Architecture Decision Records y trade-offs" : null,
-    hasSEC01 ? "â”‚   â”œâ”€â”€ normative_checker.py      # Validador de cumplimiento de CTE y normativas tÃ©cnicas" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-ENG-04) con trazabilidad inmutable" : "Capa de persistencia tÃ©cnica"),
-    "â”‚   â”œâ”€â”€ technical_reporting.py    # Generador de memorias tÃ©cnicas y memorias de cÃ¡lculo (PDF / Markdown)",
+    hasSEC01 ? "â”‚   â”œâ”€â”€ normative_checker.py      # Validador de cumplimiento de CTE y normativas técnicas" : null,
+    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-ENG-04) con trazabilidad inmutable" : "Capa de persistencia técnica"),
+    "â”‚   â”œâ”€â”€ technical_reporting.py    # Generador de memorias técnicas y memorias de cálculo (PDF / Markdown)",
     "â”‚   â””â”€â”€ ui/",
     "â”‚       â”œâ”€â”€ __init__.py",
     "â”‚       â”œâ”€â”€ components.py         # Visores de planos SVG, tablas de transmitancias y tarjetas de estancias",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de ingenierÃ­a y panel de proyecto",
+    "â”‚       â””â”€â”€ main_view.py          # Dashboard de ingeniería y panel de proyecto",
     "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas y validaciones geomÃ©tricas",
+    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas y validaciones geométricas",
     data.primaryTask === "I1.1" ? "â”‚   â”œâ”€â”€ test_spatial_layout.py    # Casos de prueba de adyacencias y retranqueos" : null,
-    data.primaryTask === "I1.2" ? "â”‚   â””â”€â”€ test_thermal_calc.py      # ValidaciÃ³n de fÃ³rmulas de transmitancia tÃ©rmica" : null,
-    "â”œâ”€â”€ data/                         # Ficheros SVG, series climÃ¡ticas EPW y cachÃ© de proyecto",
+    data.primaryTask === "I1.2" ? "â”‚   â””â”€â”€ test_thermal_calc.py      # Validación de fórmulas de transmitancia térmica" : null,
+    "â”œâ”€â”€ data/                         # Ficheros SVG, series climáticas EPW y caché de proyecto",
     "â”œâ”€â”€ requirements.txt              # svgwrite, numpy, scipy, duckdb, pydantic, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicaciÃ³n de ingenierÃ­a",
+    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación de ingeniería",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
-    data.primaryTask === "I1.1" ? "- **BR-ENG-01 (Vitruvio IA):** Generador de layout espacial activado; exportaciÃ³n SVG habilitada; matriz de adyacencias obligatoria." : null,
-    data.primaryTask === "I1.2" ? "- **BR-ENG-02 (Gaia Eficiencia):** Motor de cÃ¡lculo higrotÃ©rmico activado; verificaciÃ³n de transmitancia U segÃºn CTE DB-HE." : null,
-    data.primaryTask === "I1.4" ? "- **BR-ENG-03 (PRD to C4):** SÃ­ntesis de diagramas activada; formato PlantUML / Mermaid estructurado." : null,
-    hasSEC04 ? "- **BR-ENG-04 (Persistencia AnalÃ­tica):** AlmacÃ©n columnar preconfigurado en DuckDB + Parquet para proyectos y variantes." : null,
-    hasSEC07 ? "- **BR-ENG-05 (Guardrail de Visado):** RestricciÃ³n severa que impide atribuir validez de visado oficial a cÃ¡lculos no revisados por facultativo." : null,
+    data.primaryTask === "I1.1" ? "- **BR-ENG-01 (Vitruvio IA):** Generador de layout espacial activado; exportación SVG habilitada; matriz de adyacencias obligatoria." : null,
+    data.primaryTask === "I1.2" ? "- **BR-ENG-02 (Gaia Eficiencia):** Motor de cálculo higrotérmico activado; verificación de transmitancia U según CTE DB-HE." : null,
+    data.primaryTask === "I1.4" ? "- **BR-ENG-03 (PRD to C4):** Síntesis de diagramas activada; formato PlantUML / Mermaid estructurado." : null,
+    hasSEC04 ? "- **BR-ENG-04 (Persistencia Analítica):** Almacén columnar preconfigurado en DuckDB + Parquet para proyectos y variantes." : null,
+    hasSEC07 ? "- **BR-ENG-05 (Guardrail de Visado):** Restricción severa que impide atribuir validez de visado oficial a cálculos no revisados por facultativo." : null,
   ].filter(Boolean).join("\n");
 
   const metricsSection = Object.entries(metricsByCategory).map(([cat, ms]) =>
@@ -210,58 +210,58 @@ function generateReport(data) {
 
   const validationSection = hasValidation
     ? [
-        "- **Modelo de verificaciÃ³n y control tÃ©cnico:** " + data.validationModel,
+        "- **Modelo de verificación y control técnico:** " + data.validationModel,
         "- **Guardrail de seguridad profesional:** " + data.safetyGuardrail,
-        "- **Principio de Asistencia al Proyectista:** El sistema genera variantes de diseÃ±o y memorias de apoyo; la decisiÃ³n final y firma corresponde exclusivamente al tÃ©cnico competente.",
-        "- **VerificaciÃ³n Estricta de Restricciones:** ComprobaciÃ³n automÃ¡tica de retranqueos mÃ­nimos, superficies Ãºtiles y limitaciones normativas del CTE.",
-        "- **Trazabilidad Inmutable:** Cada propuesta tÃ©cnica queda vinculada a su documento de requisitos de entrada con registro en DuckDB.",
+        "- **Principio de Asistencia al Proyectista:** El sistema genera variantes de diseño y memorias de apoyo; la decisión final y firma corresponde exclusivamente al técnico competente.",
+        "- **Verificación Estricta de Restricciones:** Comprobación automática de retranqueos mínimos, superficies útiles y limitaciones normativas del CTE.",
+        "- **Trazabilidad Inmutable:** Cada propuesta técnica queda vinculada a su documento de requisitos de entrada con registro en DuckDB.",
       ].join("\n")
-    : "La aplicaciÃ³n opera en modo de consulta o generaciÃ³n de documentaciÃ³n arquitectÃ³nica preliminar.";
+    : "La aplicación opera en modo de consulta o generación de documentación arquitectónica preliminar.";
 
   const qaLines = [
-    "1. **Pruebas de ValidaciÃ³n GeomÃ©trica:** VerificaciÃ³n de solapamiento nulo entre estancias y respeto estricto del perÃ­metro edificable.",
-    "2. **ValidaciÃ³n de FÃ³rmulas TÃ©rmicas:** ComprobaciÃ³n cruzada de valores de transmitancia U frente a tablas oficiales del CTE DB-HE.",
-    "3. **Prueba de GeneraciÃ³n de Diagramas:** VerificaciÃ³n sintÃ¡ctica de diagramas PlantUML y Mermaid generados desde PRDs de prueba.",
-    "4. **Prueba de Rendimiento Espacial:** GeneraciÃ³n y evaluaciÃ³n de 20 distribuciones espaciales completas en menos de 5 segundos.",
+    "1. **Pruebas de Validación Geométrica:** Verificación de solapamiento nulo entre estancias y respeto estricto del perímetro edificable.",
+    "2. **Validación de Fórmulas Térmicas:** Comprobación cruzada de valores de transmitancia U frente a tablas oficiales del CTE DB-HE.",
+    "3. **Prueba de Generación de Diagramas:** Verificación sintáctica de diagramas PlantUML y Mermaid generados desde PRDs de prueba.",
+    "4. **Prueba de Rendimiento Espacial:** Generación y evaluación de 20 distribuciones espaciales completas en menos de 5 segundos.",
   ].filter(Boolean).join("\n");
 
   return [
     "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
-    "## Proyecto de Software de IngenierÃ­a / Arquitectura: " + data.appName,
+    "## Proyecto de Software de Ingeniería / Arquitectura: " + data.appName,
     "",
-    "**Fecha de GeneraciÃ³n:** " + now,
-    "**Ãrea Horizon:** IngenierÃ­a, Arquitectura & SimulaciÃ³n TÃ©cnica",
-    "**Arquitecto / DiseÃ±ador:** " + (data.authorName || "Horizon User"),
-    "**VersiÃ³n del Documento:** v1.0.0 (EspecificaciÃ³n Formal de IngenierÃ­a)",
+    "**Fecha de Generación:** " + now,
+    "**Área Horizon:** Ingeniería, Arquitectura & Simulación Técnica",
+    "**Arquitecto / Diseñador:** " + (data.authorName || "Horizon User"),
+    "**Versión del Documento:** v1.0.0 (Especificación Formal de Ingeniería)",
     "",
     "---",
     "",
-    "### 1. Resumen Ejecutivo y PropÃ³sito del Software",
+    "### 1. Resumen Ejecutivo y Propósito del Software",
     "",
     "- **Tarea Principal (" + data.primaryTask + "):** " + (primary?.label || ""),
-    "- **DescripciÃ³n del nÃºcleo funcional:** " + (primary?.desc || ""),
-    "- **PÃºblico objetivo:** " + (primary?.audience || ""),
-    "- **Especialidades de ingenierÃ­a:** " + data.engineeringDomains.join(", "),
-    "- **Motores y librerÃ­as de cÃ¡lculo:** " + data.computationEngines.join(", "),
+    "- **Descripción del núcleo funcional:** " + (primary?.desc || ""),
+    "- **Público objetivo:** " + (primary?.audience || ""),
+    "- **Especialidades de ingeniería:** " + data.engineeringDomains.join(", "),
+    "- **Motores y librerías de cálculo:** " + data.computationEngines.join(", "),
     "",
-    "**Exclusiones explÃ­citas:** El sistema NO sustituye el visado colegial de proyectos tÃ©cnicos de edificaciÃ³n o ingenierÃ­a, NO asume responsabilidad civil por colapso estructural y NO emite dictÃ¡menes periciales vinculantes.",
-    "",
-    "---",
-    "",
-    "### 2. Matriz de Arquitectura y MÃ³dulos Complementarios",
-    "",
-    secondaries.length === 0 ? "_No se han seleccionado mÃ³dulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
-    "",
-    "**Reglas de lÃ³gica condicional aplicadas (Branching Rules):**",
-    branchingLines || "_Ninguna regla de branching activada con la configuraciÃ³n actual._",
+    "**Exclusiones explícitas:** El sistema NO sustituye el visado colegial de proyectos técnicos de edificación o ingeniería, NO asume responsabilidad civil por colapso estructural y NO emite dictámenes periciales vinculantes.",
     "",
     "---",
     "",
-    "### 3. CatÃ¡logo de MÃ©tricas y Control de Calidad TÃ©cnico",
+    "### 2. Matriz de Arquitectura y Módulos Complementarios",
     "",
-    "El sistema implementarÃ¡ y monitorizarÃ¡ las siguientes mÃ©tricas de diseÃ±o y eficiencia:",
+    secondaries.length === 0 ? "_No se han seleccionado módulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
     "",
-    metricsSection || "_No se han seleccionado mÃ©tricas._",
+    "**Reglas de lógica condicional aplicadas (Branching Rules):**",
+    branchingLines || "_Ninguna regla de branching activada con la configuración actual._",
+    "",
+    "---",
+    "",
+    "### 3. Catálogo de Métricas y Control de Calidad Técnico",
+    "",
+    "El sistema implementará y monitorizará las siguientes métricas de diseño y eficiencia:",
+    "",
+    metricsSection || "_No se han seleccionado métricas._",
     "",
     "---",
     "",
@@ -271,11 +271,11 @@ function generateReport(data) {
     "",
     "---",
     "",
-    "### 5. Stack TecnolÃ³gico y Estructura de Scripts Python",
+    "### 5. Stack Tecnológico y Estructura de Scripts Python",
     "",
-    "- **Capa de PresentaciÃ³n (UI):** " + data.uiFramework,
+    "- **Capa de Presentación (UI):** " + data.uiFramework,
     "- **Capa de Persistencia y Datos:** " + data.storageEngine,
-    "- **ValidaciÃ³n de Datos:** Pydantic v2 con tipado estricto para modelos geomÃ©tricos y fÃ­sicos.",
+    "- **Validación de Datos:** Pydantic v2 con tipado estricto para modelos geométricos y físicos.",
     "- **Lenguaje:** Python 3.11+",
     "",
     "```text",
@@ -284,27 +284,27 @@ function generateReport(data) {
     "",
     "---",
     "",
-    "### 6. Protocolo de Pruebas y ValidaciÃ³n (QA de IngenierÃ­a)",
+    "### 6. Protocolo de Pruebas y Validación (QA de Ingeniería)",
     "",
     qaLines,
     "",
     "---",
     "",
-    "### 7. ClÃ¡usula de Responsabilidad Profesional y Descargo Legal",
+    "### 7. Cláusula de Responsabilidad Profesional y Descargo Legal",
     "",
     "> **AVISO PROFESIONAL Y LEGAL OBLIGATORIO**",
     ">",
-    "> Esta especificaciÃ³n tÃ©cnica y cualquier software desarrollado a partir de ella tiene carÃ¡cter **exclusivamente de herramienta de apoyo al diseÃ±o, optimizaciÃ³n y simulaciÃ³n preliminar**.",
+    "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de herramienta de apoyo al diseño, optimización y simulación preliminar**.",
     ">",
-    "> - **NO sustituye el criterio, dimensionamiento definitivo ni visado de un arquitecto, ingeniero o tÃ©cnico competente colegiado**.",
-    "> - Toda distribuciÃ³n espacial, dimensionamiento de envolvente tÃ©rmica o estimaciÃ³n de costes debe ser **verificada y aprobada por el responsable facultativo del proyecto** antes de su ejecuciÃ³n material.",
-    "> - Las herramientas de IA generan variantes exploratorias bajo el principio de supervisiÃ³n humana (Human-in-the-Loop).",
+    "> - **NO sustituye el criterio, dimensionamiento definitivo ni visado de un arquitecto, ingeniero o técnico competente colegiado**.",
+    "> - Toda distribución espacial, dimensionamiento de envolvente térmica o estimación de costes debe ser **verificada y aprobada por el responsable facultativo del proyecto** antes de su ejecución material.",
+    "> - Las herramientas de IA generan variantes exploratorias bajo el principio de supervisión humana (Human-in-the-Loop).",
     ">",
-    "> DiseÃ±ado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de IngenierÃ­a & Arquitectura.",
+    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Ingeniería & Arquitectura.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de EspecificaciÃ³n TÃ©cnica â€” Generado automÃ¡ticamente por Horizon EngAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon EngAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
@@ -541,14 +541,14 @@ export default function WizardIngenieria() {
       if (!data.primaryTask) e.primaryTask = "Selecciona una tarea principal.";
     }
     if (step === 3) {
-      if (data.engineeringDomains.length === 0) e.engineeringDomains = "Selecciona al menos una especialidad de ingenierÃ­a.";
-      if (data.computationEngines.length === 0) e.computationEngines = "Selecciona al menos un motor de cÃ¡lculo.";
+      if (data.engineeringDomains.length === 0) e.engineeringDomains = "Selecciona al menos una especialidad de ingeniería.";
+      if (data.computationEngines.length === 0) e.computationEngines = "Selecciona al menos un motor de cálculo.";
     }
     if (step === 4) {
-      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una mÃ©trica de diseÃ±o.";
+      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una métrica de diseño.";
     }
     if (step === 5 && needsValidationStep(data.primaryTask, data.secondaryTasks)) {
-      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificaciÃ³n tÃ©cnica.";
+      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificación técnica.";
       if (!data.safetyGuardrail) e.safetyGuardrail = "Selecciona el guardrail de seguridad profesional.";
     }
     if (step === 6) {
@@ -592,16 +592,16 @@ export default function WizardIngenieria() {
         {/* Header */}
         <div className="mb-8">
           <Link to="/areas/ingenieria" className="inline-flex items-center gap-1.5 text-xs text-dark/40 hover:text-dark transition-colors mb-6">
-            <ArrowLeft size={13} /> Laboratorio de IngenierÃ­a & Arquitectura
+            <ArrowLeft size={13} /> Laboratorio de Ingeniería & Arquitectura
           </Link>
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 rounded-xl flex items-center justify-center shrink-0 text-cyan-600 font-display text-xl">ðŸ“</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                DiseÃ±ador de Proyectos â€” IngenierÃ­a & Arquitectura
+                Diseñador de Proyectos â€” Ingeniería & Arquitectura
               </h1>
               <p className="text-dark/50 text-sm mt-1">
-                Define tu aplicaciÃ³n tÃ©cnica paso a paso con optimizaciÃ³n espacial, simulaciÃ³n fÃ­sica y trazabilidad de requisitos.
+                Define tu aplicación técnica paso a paso con optimización espacial, simulación física y trazabilidad de requisitos.
               </p>
             </div>
           </div>
@@ -616,20 +616,20 @@ export default function WizardIngenieria() {
             {step === 1 && (
               <StepCard>
                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona el nÃºcleo funcional que definirÃ¡ la arquitectura de tu aplicaciÃ³n tÃ©cnica.</p>
+                <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación técnica.</p>
 
                 <div className="space-y-5">
                   <div>
-                    <FieldLabel hint="SerÃ¡ el tÃ­tulo de tu especificaciÃ³n tÃ©cnica de ingenierÃ­a.">Nombre del proyecto</FieldLabel>
+                    <FieldLabel hint="Será el título de tu especificación técnica de ingeniería.">Nombre del proyecto</FieldLabel>
                     <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Vitruvio IA, Gaia Eficiencia, Atlas Constructor, PRD to C4â€¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="Tu nombre, alias o estudio de arquitectura / ingenierÃ­a.">DiseÃ±ador / Estudio TÃ©cnico</FieldLabel>
+                    <FieldLabel hint="Tu nombre, alias o estudio de arquitectura / ingeniería.">Diseñador / Estudio Técnico</FieldLabel>
                     <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Estudio de Arquitectura, Departamento de Proyectosâ€¦" />
                   </div>
                   <div>
-                    <FieldLabel hint="Elige la funciÃ³n principal. Esto determinarÃ¡ los motores computacionales y normativas tÃ©cnicas requeridas.">Tarea principal de la aplicaciÃ³n</FieldLabel>
+                    <FieldLabel hint="Elige la función principal. Esto determinará los motores computacionales y normativas técnicas requeridas.">Tarea principal de la aplicación</FieldLabel>
                     <RadioGroup options={PRIMARY_TASKS} value={data.primaryTask} onChange={handlePrimaryChange} />
                     {errors.primaryTask && <p className="text-red-500 text-xs mt-2">{errors.primaryTask}</p>}
                   </div>
@@ -642,17 +642,17 @@ export default function WizardIngenieria() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” MÃ³dulos Complementarios</h2>
-                <p className="text-dark/45 text-sm mb-6">AÃ±ade hasta <strong>4 capacidades tÃ©cnicas y de exportaciÃ³n</strong> para robustecer el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades técnicas y de exportación</strong> para robustecer el sistema.</p>
 
                 <div className="bg-cyan-500/[0.04] border border-cyan-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
                   <strong className="text-dark">Tarea principal seleccionada:</strong> [{data.primaryTask}]{" "}
                   {PRIMARY_TASKS.find(t => t.id === data.primaryTask)?.label}
                 </div>
 
-                <FieldLabel hint="Selecciona entre 0 y 4 mÃ³dulos secundarios.">MÃ³dulos secundarios</FieldLabel>
+                <FieldLabel hint="Selecciona entre 0 y 4 módulos secundarios.">Módulos secundarios</FieldLabel>
                 <CheckGroup options={SECONDARY_TASKS} selected={data.secondaryTasks} onChange={handleSecondaryChange} max={4} />
-                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 mÃ³dulos seleccionados</p>
+                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 módulos seleccionados</p>
 
                 <NavButtons onPrev={prev} onNext={next} nextLabel="Siguiente" />
               </StepCard>
@@ -661,17 +661,17 @@ export default function WizardIngenieria() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Especialidades & Motores de CÃ¡lculo</h2>
-                <p className="text-dark/45 text-sm mb-6">Configura las ramas de la ingenierÃ­a y los motores de cÃ¡lculo vectorial y tÃ©rmico que emplearÃ¡ el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Especialidades & Motores de Cálculo</h2>
+                <p className="text-dark/45 text-sm mb-6">Configura las ramas de la ingeniería y los motores de cálculo vectorial y térmico que empleará el sistema.</p>
 
                 <div className="space-y-6">
                   <div>
-                    <FieldLabel hint="Especialidades tÃ©cnicas donde operarÃ¡ la soluciÃ³n.">Especialidades de ingenierÃ­a</FieldLabel>
+                    <FieldLabel hint="Especialidades técnicas donde operará la solución.">Especialidades de ingeniería</FieldLabel>
                     <CheckGroup options={ENGINEERING_DOMAINS.map(a => ({ id: a, label: a, desc: "" }))} selected={data.engineeringDomains} onChange={set("engineeringDomains")} max={6} />
                     {errors.engineeringDomains && <p className="text-red-500 text-xs mt-1.5">{errors.engineeringDomains}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="LibrerÃ­as de cÃ¡lculo fÃ­sico, tÃ©rmico, cronogramas y grÃ¡ficos vectoriales.">Motores y librerÃ­as de cÃ¡lculo</FieldLabel>
+                    <FieldLabel hint="Librerías de cálculo físico, térmico, cronogramas y gráficos vectoriales.">Motores y librerías de cálculo</FieldLabel>
                     <CheckGroup options={COMPUTATION_ENGINES.map(a => ({ id: a, label: a, desc: "" }))} selected={data.computationEngines} onChange={set("computationEngines")} max={6} />
                     {errors.computationEngines && <p className="text-red-500 text-xs mt-1.5">{errors.computationEngines}</p>}
                   </div>
@@ -684,16 +684,16 @@ export default function WizardIngenieria() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” CatÃ¡logo de MÃ©tricas de IngenierÃ­a</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona las mÃ©tricas de eficiencia espacial, transmitancia tÃ©rmica y planificaciÃ³n que evaluarÃ¡ el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas de Ingeniería</h2>
+                <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de eficiencia espacial, transmitancia térmica y planificación que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-cyan-50 border border-cyan-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-cyan-800">
-                    âœ“ {data.selectedMetrics.length} mÃ©trica{data.selectedMetrics.length !== 1 ? "s" : ""} tÃ©cnica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automÃ¡ticamente segÃºn tu tarea principal.
+                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} técnica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
-                {["DiseÃ±o Espacial", "Eficiencia EnergÃ©tica", "GestiÃ³n de Obra", "Arquitectura Software", "IngenierÃ­a FÃ­sica", "Seguridad & Calidad"].map(cat => (
+                {["Diseño Espacial", "Eficiencia Energética", "Gestión de Obra", "Arquitectura Software", "Ingeniería Física", "Seguridad & Calidad"].map(cat => (
                   <div key={cat} className="mb-5">
                     <p className="text-[11px] font-bold uppercase tracking-widest text-dark/40 mb-2.5">{cat}</p>
                     <div className="space-y-1.5">
@@ -726,31 +726,31 @@ export default function WizardIngenieria() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” VerificaciÃ³n TÃ©cnica y Guardrails de Seguridad</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Verificación Técnica y Guardrails de Seguridad</h2>
 
                 {hasValidation ? (
                   <>
                     <div className="bg-cyan-50 border border-cyan-200 rounded-xl px-4 py-3 mb-6 text-[13px] text-cyan-800 flex items-start gap-2">
                       <HardHat size={16} className="shrink-0 mt-0.5 text-cyan-600" />
-                      Este paso estÃ¡ activo para garantizar la trazabilidad de requisitos, el cumplimiento normativo (CTE) y la no sustituciÃ³n del visado tÃ©cnico.
+                      Este paso está activo para garantizar la trazabilidad de requisitos, el cumplimiento normativo (CTE) y la no sustitución del visado técnico.
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <FieldLabel hint="Estrategia de validaciÃ³n de variantes espaciales o cÃ¡lculos de envolvente.">Modelo de verificaciÃ³n tÃ©cnica</FieldLabel>
+                        <FieldLabel hint="Estrategia de validación de variantes espaciales o cálculos de envolvente.">Modelo de verificación técnica</FieldLabel>
                         <SelectGroup options={VALIDATION_MODELS} value={data.validationModel} onChange={set("validationModel")} />
                         {errors.validationModel && <p className="text-red-500 text-xs mt-1">{errors.validationModel}</p>}
                       </div>
                       <div>
-                        <FieldLabel hint="RestricciÃ³n de seguridad activa para evitar riesgos constructivos o normativos.">Guardrail de seguridad profesional</FieldLabel>
+                        <FieldLabel hint="Restricción de seguridad activa para evitar riesgos constructivos o normativos.">Guardrail de seguridad profesional</FieldLabel>
                         <SelectGroup options={SAFETY_GUARDRAILS} value={data.safetyGuardrail} onChange={set("safetyGuardrail")} />
                         {errors.safetyGuardrail && <p className="text-red-500 text-xs mt-1">{errors.safetyGuardrail}</p>}
                       </div>
                       <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios de responsabilidad y rigor tÃ©cnico (activados por diseÃ±o)</p>
+                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios de responsabilidad y rigor técnico (activados por diseño)</p>
                         {[
-                          "Principio de Asistencia al Proyectista: la IA propone variantes; la firma y decisiÃ³n es 100% humana.",
-                          "VerificaciÃ³n Estricta CTE: comprobaciÃ³n automÃ¡tica de retranqueos, superficies mÃ­nimas y aislamiento.",
-                          "Trazabilidad Requisito-DiseÃ±o: cada artefacto queda vinculado a su especificaciÃ³n de entrada en DuckDB.",
+                          "Principio de Asistencia al Proyectista: la IA propone variantes; la firma y decisión es 100% humana.",
+                          "Verificación Estricta CTE: comprobación automática de retranqueos, superficies mínimas y aislamiento.",
+                          "Trazabilidad Requisito-Diseño: cada artefacto queda vinculado a su especificación de entrada en DuckDB.",
                         ].map(c => (
                           <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
                             <div className="w-4 h-4 rounded bg-cyan-100 border border-cyan-300 flex items-center justify-center shrink-0 mt-0.5">
@@ -764,9 +764,9 @@ export default function WizardIngenieria() {
                   </>
                 ) : (
                   <div>
-                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo generaciÃ³n preliminar / documentaciÃ³n</strong> sin cÃ¡lculo numÃ©rico crÃ­tico en tiempo real.</p>
+                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo generación preliminar / documentación</strong> sin cálculo numérico crítico en tiempo real.</p>
                     <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4 text-[13px] text-dark/50">
-                      Si decides aÃ±adir simulaciÃ³n energÃ©tica o verificaciÃ³n de layouts, vuelve al <strong>Paso 2</strong> y activa el mÃ³dulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-ENG-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-ENG-07</code>.
+                      Si decides añadir simulación energética o verificación de layouts, vuelve al <strong>Paso 2</strong> y activa el módulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-ENG-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-ENG-07</code>.
                     </div>
                   </div>
                 )}
@@ -778,12 +778,12 @@ export default function WizardIngenieria() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack TecnolÃ³gico & Persistencia</h2>
-                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerÃ­as que darÃ¡n soporte a tu aplicaciÃ³n de ingenierÃ­a.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación de ingeniería.</p>
 
                 {data.secondaryTasks.includes("SEC-ENG-04") && (
                   <div className="bg-cyan-50 border border-cyan-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-cyan-800">
-                    âœ“ Persistencia analÃ­tica preconfigurada en <strong>DuckDB + Parquet</strong> por el mÃ³dulo SEC-ENG-04.
+                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-ENG-04.
                   </div>
                 )}
 
@@ -794,13 +794,13 @@ export default function WizardIngenieria() {
                     {errors.uiFramework && <p className="text-red-500 text-xs mt-1">{errors.uiFramework}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="AlmacÃ©n de especificaciones, planos vectoriales, grafos y variantes de diseÃ±o.">Motor de persistencia y datos</FieldLabel>
+                    <FieldLabel hint="Almacén de especificaciones, planos vectoriales, grafos y variantes de diseño.">Motor de persistencia y datos</FieldLabel>
                     <SelectGroup options={STORAGE_ENGINES} value={data.storageEngine} onChange={set("storageEngine")} />
                     {errors.storageEngine && <p className="text-red-500 text-xs mt-1">{errors.storageEngine}</p>}
                   </div>
                 </div>
 
-                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar EspecificaciÃ³n de IngenierÃ­a" />
+                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar Especificación de Ingeniería" />
               </StepCard>
             )}
           </>
@@ -814,10 +814,10 @@ export default function WizardIngenieria() {
                 <div className="w-8 h-8 bg-cyan-100 border border-cyan-300 rounded-full flex items-center justify-center">
                   <Check size={16} className="text-cyan-700" />
                 </div>
-                <h2 className="font-display text-[24px] text-dark">EspecificaciÃ³n de ingenierÃ­a generada con Ã©xito</h2>
+                <h2 className="font-display text-[24px] text-dark">Especificación de ingeniería generada con éxito</h2>
               </div>
               <p className="text-dark/50 text-sm ml-11">
-                La memoria tÃ©cnica para <strong className="text-dark">{data.appName}</strong> estÃ¡ lista para desarrollo y ejecuciÃ³n tÃ©cnica.
+                La memoria técnica para <strong className="text-dark">{data.appName}</strong> está lista para desarrollo y ejecución técnica.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <button
@@ -830,7 +830,7 @@ export default function WizardIngenieria() {
                   onClick={reset}
                   className="flex items-center gap-2 px-5 py-2.5 border border-dark/15 hover:border-dark/30 text-dark/70 hover:text-dark text-sm font-medium rounded-sm transition-colors"
                 >
-                  <RefreshCw size={15} /> Crear otro diseÃ±o
+                  <RefreshCw size={15} /> Crear otro diseño
                 </button>
               </div>
             </div>
@@ -842,7 +842,7 @@ export default function WizardIngenieria() {
             <div className="mt-6 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-5 flex gap-3">
               <AlertTriangle size={18} className="text-amber-600 shrink-0 mt-0.5" />
               <p className="text-[13px] text-amber-800 leading-relaxed">
-                <strong>Aviso profesional y legal:</strong> Este informe especifica una arquitectura de software de apoyo al diseÃ±o y simulaciÃ³n. No constituye proyecto visado ni sustituye el dimensionamiento y firma de un arquitecto o ingeniero colegiado.
+                <strong>Aviso profesional y legal:</strong> Este informe especifica una arquitectura de software de apoyo al diseño y simulación. No constituye proyecto visado ni sustituye el dimensionamiento y firma de un arquitecto o ingeniero colegiado.
               </p>
             </div>
           </div>

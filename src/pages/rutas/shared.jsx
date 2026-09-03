@@ -42,7 +42,7 @@ export function CopyBtn({ text }) {
 
 // â”€â”€â”€ Prompt block â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function PromptBlock({ label, children }) {
-  const text = children || "Copia aquÃ­ el texto del prompt";
+  const text = children || "Copia aquí el texto del prompt";
   const isEmpty = !children;
   return (
     <div className="mt-4 rounded-xl border overflow-hidden"
@@ -132,21 +132,21 @@ export function HumanValidationWarning() {
       <div className="flex items-start gap-4 px-6 py-5">
         <div className="shrink-0 mt-0.5 w-9 h-9 rounded-full flex items-center justify-center text-lg"
           style={{ background: "rgba(217,119,6,0.15)" }}>
-          âš ï¸
+          âš ️
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-semibold text-[15px] mb-1" style={{ color: "#92400E" }}>
-            La validaciÃ³n humana es parte del proceso
+            La validación humana es parte del proceso
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "rgba(146,64,14,0.75)" }}>
-            NingÃºn agente de IA construye una aplicaciÃ³n perfecta desde el primer intento. Esta ruta estÃ¡ diseÃ±ada para trabajar <em>con</em> esa realidad, no contra ella.
+            Ningún agente de IA construye una aplicación perfecta desde el primer intento. Esta ruta está diseñada para trabajar <em>con</em> esa realidad, no contra ella.
           </p>
         </div>
         <button
           onClick={() => setOpen(v => !v)}
           className="shrink-0 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors"
           style={{ background: "rgba(217,119,6,0.15)", color: "#92400E" }}>
-          {open ? "Ocultar" : "Leer mÃ¡s"}
+          {open ? "Ocultar" : "Leer más"}
         </button>
       </div>
 
@@ -157,40 +157,40 @@ export function HumanValidationWarning() {
 
             <div>
               <h4 className="font-semibold text-sm mb-2" style={{ color: "#92400E" }}>
-                Â¿Por quÃ© ocurre esto?
+                ¿Por qué ocurre esto?
               </h4>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(146,64,14,0.8)" }}>
-                Los modelos de IA generan cÃ³digo funcional en la mayorÃ­a de los casos, pero cometen errores predecibles: asumen dependencias que no estÃ¡n instaladas, generan rutas de archivo que no existen, usan APIs de una versiÃ³n incorrecta, o producen lÃ³gica que pasa los tests pero falla en producciÃ³n con datos reales. Esto no es un defecto puntual â€” es el estado actual de la tecnologÃ­a.
+                Los modelos de IA generan código funcional en la mayoría de los casos, pero cometen errores predecibles: asumen dependencias que no están instaladas, generan rutas de archivo que no existen, usan APIs de una versión incorrecta, o producen lógica que pasa los tests pero falla en producción con datos reales. Esto no es un defecto puntual â€” es el estado actual de la tecnología.
               </p>
             </div>
 
             <div>
               <h4 className="font-semibold text-sm mb-2" style={{ color: "#92400E" }}>
-                QuÃ© significa en la prÃ¡ctica
+                Qué significa en la práctica
               </h4>
               <ul className="text-sm leading-relaxed space-y-2" style={{ color: "rgba(146,64,14,0.8)" }}>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0" style={{ color: C.amber }}>â†’</span>
-                  <span><strong>Cada bloque de cÃ³digo que generes necesita revisiÃ³n.</strong> Ejecuta siempre el cÃ³digo antes de continuar al siguiente paso. Un error no detectado se multiplica hacia abajo.</span>
+                  <span><strong>Cada bloque de código que generes necesita revisión.</strong> Ejecuta siempre el código antes de continuar al siguiente paso. Un error no detectado se multiplica hacia abajo.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0" style={{ color: C.amber }}>â†’</span>
-                  <span><strong>Los prompts son un punto de partida, no una respuesta definitiva.</strong> Adapta los resultados a tu entorno, a tu versiÃ³n de las librerÃ­as y a tus datos reales.</span>
+                  <span><strong>Los prompts son un punto de partida, no una respuesta definitiva.</strong> Adapta los resultados a tu entorno, a tu versión de las librerías y a tus datos reales.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0" style={{ color: C.amber }}>â†’</span>
-                  <span><strong>Los pasos de prueba (Capa 6) no son opcionales.</strong> Son el momento en que tÃº, como desarrollador, validas que lo construido funciona. Sin ellos, no hay app terminada.</span>
+                  <span><strong>Los pasos de prueba (Capa 6) no son opcionales.</strong> Son el momento en que tú, como desarrollador, validas que lo construido funciona. Sin ellos, no hay app terminada.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0" style={{ color: C.amber }}>â†’</span>
-                  <span><strong>El foro existe para esto.</strong> Cuando un paso no funcione como esperas, publicar tu versiÃ³n con el problema concreto es la forma mÃ¡s rÃ¡pida de avanzar.</span>
+                  <span><strong>El foro existe para esto.</strong> Cuando un paso no funcione como esperas, publicar tu versión con el problema concreto es la forma más rápida de avanzar.</span>
                 </li>
               </ul>
             </div>
 
             <div className="rounded-xl p-4" style={{ background: "rgba(217,119,6,0.10)", borderLeft: "3px solid " + C.amber }}>
               <p className="text-sm font-medium" style={{ color: "#92400E" }}>
-                Una aplicaciÃ³n funcional creada con IA y revisada por un humano vale mÃ¡s que diez apps generadas y nunca probadas. El valor de esta ruta estÃ¡ en que tÃº la ejecutas, no en que alguien la ejecute por ti.
+                Una aplicación funcional creada con IA y revisada por un humano vale más que diez apps generadas y nunca probadas. El valor de esta ruta está en que tú la ejecutas, no en que alguien la ejecute por ti.
               </p>
             </div>
           </div>
@@ -213,7 +213,7 @@ export function VersionExtensions({ versions }) {
         <div className="h-px flex-1" style={{ background: "rgba(17,17,17,0.08)" }} />
       </div>
       <p className="text-sm text-center mb-8" style={{ color: "rgba(17,17,17,0.45)" }}>
-        Misma esencia, aplicada a otros contextos del Ã¡rea. Ãšsalas como punto de partida para una segunda ronda.
+        Misma esencia, aplicada a otros contextos del área. Ãšsalas como punto de partida para una segunda ronda.
       </p>
       <div className="grid sm:grid-cols-3 gap-4">
         {versions.map((v, i) => (
@@ -234,7 +234,7 @@ export function VersionExtensions({ versions }) {
               onClick={() => setOpen(open === i ? null : i)}
               className="w-full flex items-center justify-between px-5 py-3 border-t text-sm font-medium transition-colors hover:bg-black/[0.02]"
               style={{ borderColor: "rgba(17,17,17,0.08)", color: "rgba(17,17,17,0.5)" }}>
-              {open === i ? "Ocultar cambios clave" : "Ver quÃ© cambia"}
+              {open === i ? "Ocultar cambios clave" : "Ver qué cambia"}
               <ChevronDown size={14} style={{ transform: open === i ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
             </button>
             {open === i && (
@@ -242,7 +242,7 @@ export function VersionExtensions({ versions }) {
                 <ul className="mt-4 space-y-2">
                   {v.changes.map((c, j) => (
                     <li key={j} className="flex items-start gap-2 text-[13px]" style={{ color: "rgba(17,17,17,0.65)" }}>
-                      <span className="shrink-0 mt-0.5" style={{ color: C.accent }}>Â·</span>
+                      <span className="shrink-0 mt-0.5" style={{ color: C.accent }}>·</span>
                       {c}
                     </li>
                   ))}

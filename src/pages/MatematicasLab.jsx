@@ -17,18 +17,18 @@ const RESEARCH_LINES = [
   {
     id: "competition",
     number: "01",
-    title: "MatemÃ¡ticas de competiciÃ³n y razonamiento formal",
+    title: "Matemáticas de competición y razonamiento formal",
     color: "indigo",
     summary:
-      "Los problemas de olimpiada matemÃ¡tica â€” AMC, AIME y competiciones Olympiad â€” son los mÃ¡s duros del canon matemÃ¡tico preuniversitario. No son problemas de cÃ¡lculo mecÃ¡nico: requieren elegancia, intuiciÃ³n y un salto creativo no trivial.",
+      "Los problemas de olimpiada matemática â€” AMC, AIME y competiciones Olympiad â€” son los más duros del canon matemático preuniversitario. No son problemas de cálculo mecánico: requieren elegancia, intuición y un salto creativo no trivial.",
     detail:
-      "MATH_Competition evalÃºa la resoluciÃ³n de problemas de olimpiada con distintos niveles de dificultad. MATH_500 es un subconjunto depurado de 500 problemas representativos de todo el espectro. AIME_2025 mide el desempeÃ±o en los problemas mÃ¡s recientes del examen de invitaciÃ³n americano, el nivel inmediatamente anterior a la Olimpiada Internacional. Estos benchmarks miden si el modelo acierta el resultado, no si el camino es correcto.",
+      "MATH_Competition evalúa la resolución de problemas de olimpiada con distintos niveles de dificultad. MATH_500 es un subconjunto depurado de 500 problemas representativos de todo el espectro. AIME_2025 mide el desempeño en los problemas más recientes del examen de invitación americano, el nivel inmediatamente anterior a la Olimpiada Internacional. Estos benchmarks miden si el modelo acierta el resultado, no si el camino es correcto.",
     benchmarks: [
-      { name: "MATH_Competition", desc: "ResoluciÃ³n de problemas de olimpiada de distintos niveles" },
+      { name: "MATH_Competition", desc: "Resolución de problemas de olimpiada de distintos niveles" },
       { name: "MATH_500", desc: "500 problemas representativos del espectro completo de dificultad" },
-      { name: "AIME_2025", desc: "Examen de invitaciÃ³n americano â€” problemas 2025" },
+      { name: "AIME_2025", desc: "Examen de invitación americano â€” problemas 2025" },
     ],
-    topModel: { name: "DeepSeek-R1", score: "97.08", detail: "LÃ­der en matemÃ¡ticas de competiciÃ³n con razonamiento extendido en tiempo de inferencia" },
+    topModel: { name: "DeepSeek-R1", score: "97.08", detail: "Líder en matemáticas de competición con razonamiento extendido en tiempo de inferencia" },
   },
   {
     id: "chain-of-thought",
@@ -38,46 +38,46 @@ const RESEARCH_LINES = [
     summary:
       "Un problema de ocho pasos con un error en el paso tres produce un resultado final incorrecto, aunque los pasos cuatro a ocho sean impecables. El Chain-of-Thought obliga al modelo a escribir cada paso intermedio antes de dar el resultado, exponiendo los razonamientos intermedios para que puedan verificarse.",
     detail:
-      "GSM8K (Grade School Math) evalÃºa aritmÃ©tica verbal con soluciÃ³n en mÃºltiples pasos. GSM8K-Platinum es la variante mÃ¡s depurada y difÃ­cil. Socratic_Math mide la coherencia del razonamiento mediante preguntas socrÃ¡ticas que obligan al modelo a justificar cada transiciÃ³n. El diferencial entre DeepSeek-R1 (97.18/100) y Claude 3.7 Sonnet (96.95/100) es de 0.23 puntos â€” ver MÃ³dulo 4, punto 4.2.",
+      "GSM8K (Grade School Math) evalúa aritmética verbal con solución en múltiples pasos. GSM8K-Platinum es la variante más depurada y difícil. Socratic_Math mide la coherencia del razonamiento mediante preguntas socráticas que obligan al modelo a justificar cada transición. El diferencial entre DeepSeek-R1 (97.18/100) y Claude 3.7 Sonnet (96.95/100) es de 0.23 puntos â€” ver Módulo 4, punto 4.2.",
     benchmarks: [
-      { name: "GSM8K_ChainOfThought", desc: "AritmÃ©tica verbal multi-paso con razonamiento explÃ­cito" },
-      { name: "GSM8K_Platinum", desc: "Variante depurada y mÃ¡s difÃ­cil de GSM8K" },
-      { name: "Socratic_Math", desc: "VerificaciÃ³n socrÃ¡tica de la coherencia del razonamiento paso a paso" },
+      { name: "GSM8K_ChainOfThought", desc: "Aritmética verbal multi-paso con razonamiento explícito" },
+      { name: "GSM8K_Platinum", desc: "Variante depurada y más difícil de GSM8K" },
+      { name: "Socratic_Math", desc: "Verificación socrática de la coherencia del razonamiento paso a paso" },
     ],
-    topModel: { name: "DeepSeek-R1", score: "97.18", detail: "98.4 GSM8K_ChainOfThought Â· 97.8 GSM8K_Platinum Â· 95.0 Socratic_Math" },
+    topModel: { name: "DeepSeek-R1", score: "97.18", detail: "98.4 GSM8K_ChainOfThought · 97.8 GSM8K_Platinum · 95.0 Socratic_Math" },
     warning: true,
   },
   {
     id: "quantitative",
     number: "03",
-    title: "Razonamiento cuantitativo y abstracciÃ³n simbÃ³lica con sentido comÃºn",
+    title: "Razonamiento cuantitativo y abstracción simbólica con sentido común",
     color: "teal",
     summary:
-      "Hay una clase de problemas donde la dificultad no es la operaciÃ³n, sino entender quÃ© se estÃ¡ preguntando: problemas verbales que mezclan contexto fÃ­sico, lÃ³gica espacial y aritmÃ©tica aplicada. Son los que mÃ¡s se parecen a los problemas reales de ingenierÃ­a o anÃ¡lisis de datos.",
+      "Hay una clase de problemas donde la dificultad no es la operación, sino entender qué se está preguntando: problemas verbales que mezclan contexto físico, lógica espacial y aritmética aplicada. Son los que más se parecen a los problemas reales de ingeniería o análisis de datos.",
     detail:
-      "CSQA-Math mide el razonamiento matemÃ¡tico con sentido comÃºn en contextos del mundo real. ARC (Abstraction and Reasoning Corpus) evalÃºa la abstracciÃ³n y el razonamiento analÃ³gico aplicados a problemas cuantitativos. SVAMP (Simple Variations on Arithmetic Math Problems) evalÃºa la robustez ante variaciones de formulaciÃ³n de problemas de aritmÃ©tica verbal â€” si el modelo entiende el problema o solo reconoce su patrÃ³n superficial.",
+      "CSQA-Math mide el razonamiento matemático con sentido común en contextos del mundo real. ARC (Abstraction and Reasoning Corpus) evalúa la abstracción y el razonamiento analógico aplicados a problemas cuantitativos. SVAMP (Simple Variations on Arithmetic Math Problems) evalúa la robustez ante variaciones de formulación de problemas de aritmética verbal â€” si el modelo entiende el problema o solo reconoce su patrón superficial.",
     benchmarks: [
-      { name: "CSQA_Math_Reasoning", desc: "Razonamiento matemÃ¡tico con sentido comÃºn en contexto real" },
-      { name: "ARC_Math_Challenge", desc: "AbstracciÃ³n y razonamiento analÃ³gico en problemas cuantitativos" },
-      { name: "SVAMP_Math_Word_Problems", desc: "Robustez ante variaciones de formulaciÃ³n en aritmÃ©tica verbal" },
+      { name: "CSQA_Math_Reasoning", desc: "Razonamiento matemático con sentido común en contexto real" },
+      { name: "ARC_Math_Challenge", desc: "Abstracción y razonamiento analógico en problemas cuantitativos" },
+      { name: "SVAMP_Math_Word_Problems", desc: "Robustez ante variaciones de formulación en aritmética verbal" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "94.34", detail: "95.2 CSQA_Math_Reasoning Â· 97.2 SVAMP_Math_Word_Problems" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "94.34", detail: "95.2 CSQA_Math_Reasoning · 97.2 SVAMP_Math_Word_Problems" },
   },
   {
     id: "multi-agent",
     number: "04",
-    title: "PlanificaciÃ³n y coordinaciÃ³n multi-agente en resoluciÃ³n distribuida",
+    title: "Planificación y coordinación multi-agente en resolución distribuida",
     color: "indigo",
     summary:
-      "Algunos problemas matemÃ¡ticos son demasiado grandes para un Ãºnico contexto de modelo: requieren descomposiciÃ³n en subproblemas que agentes especializados resuelven en paralelo y cuyos resultados se integran sin bloqueos ni inconsistencias.",
+      "Algunos problemas matemáticos son demasiado grandes para un único contexto de modelo: requieren descomposición en subproblemas que agentes especializados resuelven en paralelo y cuyos resultados se integran sin bloqueos ni inconsistencias.",
     detail:
-      "MAFBench (Multi-Agent Framework Benchmark) mide exactamente eso: la capacidad de un sistema multi-agente para coordinar la resoluciÃ³n distribuida de un problema complejo. MAFBench_Planning evalÃºa la descomposiciÃ³n estratÃ©gica del problema. MAFBench_Coordination evalÃºa la sincronizaciÃ³n entre agentes. MAFBench_Integration evalÃºa la capacidad de integrar resultados parciales en una soluciÃ³n coherente.",
+      "MAFBench (Multi-Agent Framework Benchmark) mide exactamente eso: la capacidad de un sistema multi-agente para coordinar la resolución distribuida de un problema complejo. MAFBench_Planning evalúa la descomposición estratégica del problema. MAFBench_Coordination evalúa la sincronización entre agentes. MAFBench_Integration evalúa la capacidad de integrar resultados parciales en una solución coherente.",
     benchmarks: [
-      { name: "MAFBench_Planning", desc: "DescomposiciÃ³n estratÃ©gica de problemas para agentes especializados" },
-      { name: "MAFBench_Coordination", desc: "SincronizaciÃ³n entre agentes sin bloqueos ni inconsistencias" },
-      { name: "MAFBench_Integration", desc: "IntegraciÃ³n de resultados parciales en soluciÃ³n coherente" },
+      { name: "MAFBench_Planning", desc: "Descomposición estratégica de problemas para agentes especializados" },
+      { name: "MAFBench_Coordination", desc: "Sincronización entre agentes sin bloqueos ni inconsistencias" },
+      { name: "MAFBench_Integration", desc: "Integración de resultados parciales en solución coherente" },
     ],
-    topModel: { name: "AutoGen-Sonnet-Team", score: "92.30", detail: "93.5 MAFBench_Planning â€” lÃ­der en planificaciÃ³n y coordinaciÃ³n multi-agente matemÃ¡tica" },
+    topModel: { name: "AutoGen-Sonnet-Team", score: "92.30", detail: "93.5 MAFBench_Planning â€” líder en planificación y coordinación multi-agente matemática" },
     warning: true,
   },
   {
@@ -86,73 +86,73 @@ const RESEARCH_LINES = [
     title: "Memoria a largo plazo y uso de herramientas computacionales",
     color: "teal",
     summary:
-      "Un modelo que calcula âˆš2 por su cuenta comete errores de precisiÃ³n acumulados. Un modelo que llama a un intÃ©rprete Python con NumPy o SymPy y devuelve el resultado computado externaliza el cÃ¡lculo al motor correcto. La herramienta adecuada en el momento correcto con los argumentos correctos.",
+      "Un modelo que calcula âˆš2 por su cuenta comete errores de precisión acumulados. Un modelo que llama a un intérprete Python con NumPy o SymPy y devuelve el resultado computado externaliza el cálculo al motor correcto. La herramienta adecuada en el momento correcto con los argumentos correctos.",
     detail:
-      "StableToolBench_Math mide la fiabilidad y robustez en el uso de herramientas matemÃ¡ticas. ToolUse_Calculator_Python evalÃºa especÃ­ficamente la capacidad de generar y ejecutar cÃ³digo Python correcto para cÃ¡lculos matemÃ¡ticos. MemoryAgentBench mide si el modelo mantiene el estado del problema a lo largo de un diÃ¡logo matemÃ¡tico extendido. NingÃºn modelo alcanza el 100% de cobertura â€” ver MÃ³dulo 4, punto 4.1.",
+      "StableToolBench_Math mide la fiabilidad y robustez en el uso de herramientas matemáticas. ToolUse_Calculator_Python evalúa específicamente la capacidad de generar y ejecutar código Python correcto para cálculos matemáticos. MemoryAgentBench mide si el modelo mantiene el estado del problema a lo largo de un diálogo matemático extendido. Ningún modelo alcanza el 100% de cobertura â€” ver Módulo 4, punto 4.1.",
     benchmarks: [
-      { name: "StableToolBench_Math", desc: "Fiabilidad y robustez en el uso de herramientas matemÃ¡ticas" },
-      { name: "ToolUse_Calculator_Python", desc: "GeneraciÃ³n y ejecuciÃ³n de cÃ³digo Python correcto para cÃ¡lculos" },
-      { name: "MemoryAgentBench", desc: "Mantenimiento del estado del problema en diÃ¡logos matemÃ¡ticos extendidos" },
+      { name: "StableToolBench_Math", desc: "Fiabilidad y robustez en el uso de herramientas matemáticas" },
+      { name: "ToolUse_Calculator_Python", desc: "Generación y ejecución de código Python correcto para cálculos" },
+      { name: "MemoryAgentBench", desc: "Mantenimiento del estado del problema en diálogos matemáticos extendidos" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "90.44", detail: "96.0 ToolUse_Calculator_Python â€” lÃ­der en tool-use matemÃ¡tico con Python" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "90.44", detail: "96.0 ToolUse_Calculator_Python â€” líder en tool-use matemático con Python" },
     warning: true,
   },
   {
     id: "verification",
     number: "06",
-    title: "Trazabilidad, verificaciÃ³n de pasos y equivalencia formal",
+    title: "Trazabilidad, verificación de pasos y equivalencia formal",
     color: "violet",
     summary:
-      "Dada una cadena de razonamiento simbÃ³lico, Â¿es cada paso algebraicamente equivalente al anterior? Â¿Hay un error de signo en el paso 5 que el modelo no detectÃ³? Esta lÃ­nea investiga no cÃ³mo resolver el problema, sino cÃ³mo auditar que la resoluciÃ³n de cualquier agente es correcta.",
+      "Dada una cadena de razonamiento simbólico, ¿es cada paso algebraicamente equivalente al anterior? ¿Hay un error de signo en el paso 5 que el modelo no detectó? Esta línea investiga no cómo resolver el problema, sino cómo auditar que la resolución de cualquier agente es correcta.",
     detail:
-      "Math_Equivalence_Verification mide la capacidad de comprobar si dos expresiones simbÃ³licas son equivalentes. ProofStep_Validity_Index evalÃºa la detecciÃ³n de pasos de prueba invÃ¡lidos en una cadena de razonamiento. GSM_Symbolic_Robustness mide la robustez del razonamiento simbÃ³lico ante perturbaciones. DeepSeek-R1 lidera con 98.0 en equivalencia â€” la capacidad mÃ¡s directamente relevante para Prisma MatemÃ¡tico.",
+      "Math_Equivalence_Verification mide la capacidad de comprobar si dos expresiones simbólicas son equivalentes. ProofStep_Validity_Index evalúa la detección de pasos de prueba inválidos en una cadena de razonamiento. GSM_Symbolic_Robustness mide la robustez del razonamiento simbólico ante perturbaciones. DeepSeek-R1 lidera con 98.0 en equivalencia â€” la capacidad más directamente relevante para Prisma Matemático.",
     benchmarks: [
-      { name: "Math_Equivalence_Verification", desc: "VerificaciÃ³n de equivalencia entre expresiones simbÃ³licas" },
-      { name: "ProofStep_Validity_Index", desc: "DetecciÃ³n de pasos de prueba invÃ¡lidos en cadenas de razonamiento" },
-      { name: "GSM_Symbolic_Robustness", desc: "Robustez del razonamiento simbÃ³lico ante perturbaciones" },
+      { name: "Math_Equivalence_Verification", desc: "Verificación de equivalencia entre expresiones simbólicas" },
+      { name: "ProofStep_Validity_Index", desc: "Detección de pasos de prueba inválidos en cadenas de razonamiento" },
+      { name: "GSM_Symbolic_Robustness", desc: "Robustez del razonamiento simbólico ante perturbaciones" },
     ],
-    topModel: { name: "DeepSeek-R1", score: "96.55", detail: "98.0 Math_Equivalence_Verification Â· 96.5 ProofStep_Validity_Index Â· 94.8 GSM_Symbolic_Robustness" },
+    topModel: { name: "DeepSeek-R1", score: "96.55", detail: "98.0 Math_Equivalence_Verification · 96.5 ProofStep_Validity_Index · 94.8 GSM_Symbolic_Robustness" },
   },
 ];
 
 const PROJECTS = [
   {
     id: "prisma",
-    name: "Prisma MatemÃ¡tico",
-    tagline: "Verificar es mÃ¡s fÃ¡cil que generar â€” y mÃ¡s importante",
-    desc: "Toma una demostraciÃ³n, una derivaciÃ³n algebraica o una soluciÃ³n multi-paso generada por cualquier modelo, la desmonta paso a paso, y verifica si cada eslabÃ³n es vÃ¡lido antes de aceptar el resultado final. No resuelve problemas matemÃ¡ticos: audita soluciones ya generadas. Usa DeepSeek-R1 para la verificaciÃ³n lÃ³gica de cada paso y Claude 3.7 Sonnet + SymPy para la verificaciÃ³n simbÃ³lica computacional de equivalencias algebraicas.",
+    name: "Prisma Matemático",
+    tagline: "Verificar es más fácil que generar â€” y más importante",
+    desc: "Toma una demostración, una derivación algebraica o una solución multi-paso generada por cualquier modelo, la desmonta paso a paso, y verifica si cada eslabón es válido antes de aceptar el resultado final. No resuelve problemas matemáticos: audita soluciones ya generadas. Usa DeepSeek-R1 para la verificación lógica de cada paso y Claude 3.7 Sonnet + SymPy para la verificación simbólica computacional de equivalencias algebraicas.",
     color: "indigo",
     researchLines: ["02", "06"],
     stack: [
-      { role: "VerificaciÃ³n lÃ³gica de cada paso del razonamiento", tech: "DeepSeek-R1 â€” lÃ­der verificaciÃ³n formal y equivalencia (96.55/100, 98.0 Math_Equivalence_Verification)" },
-      { role: "EjecuciÃ³n simbÃ³lica verificada con herramientas computacionales", tech: "Claude 3.7 Sonnet â€” lÃ­der tool-use matemÃ¡tico (90.44/100, 96.0 ToolUse_Calculator_Python)" },
-      { role: "Motor de verificaciÃ³n simbÃ³lica algebraica", tech: "SymPy â€” Ã¡lgebra simbÃ³lica Python: simplify(lhs - rhs) == 0 para equivalencia computacional" },
-      { role: "SegmentaciÃ³n de cadenas de razonamiento en pasos atÃ³micos", tech: "Claude 3.7 Sonnet â€” clasificaciÃ³n: aritmÃ©tico | algebraico | lÃ³gico | definitorio" },
+      { role: "Verificación lógica de cada paso del razonamiento", tech: "DeepSeek-R1 â€” líder verificación formal y equivalencia (96.55/100, 98.0 Math_Equivalence_Verification)" },
+      { role: "Ejecución simbólica verificada con herramientas computacionales", tech: "Claude 3.7 Sonnet â€” líder tool-use matemático (90.44/100, 96.0 ToolUse_Calculator_Python)" },
+      { role: "Motor de verificación simbólica algebraica", tech: "SymPy â€” álgebra simbólica Python: simplify(lhs - rhs) == 0 para equivalencia computacional" },
+      { role: "Segmentación de cadenas de razonamiento en pasos atómicos", tech: "Claude 3.7 Sonnet â€” clasificación: aritmético | algebraico | lógico | definitorio" },
       { role: "Almacenamiento", tech: "DuckDB â€” registro de verificaciones con resultado por paso y veredicto global" },
     ],
     whyModels: [
-      { model: "DeepSeek-R1", role: "VerificaciÃ³n lÃ³gica y formal de pasos", score: "96.55", area: "Trazabilidad, VerificaciÃ³n y Equivalencia Formal" },
-      { model: "Claude 3.7 Sonnet", role: "EjecuciÃ³n simbÃ³lica con SymPy", score: "90.44", area: "Memoria, Herramientas y Robustez (96.0 ToolUse_Calculator_Python)" },
+      { model: "DeepSeek-R1", role: "Verificación lógica y formal de pasos", score: "96.55", area: "Trazabilidad, Verificación y Equivalencia Formal" },
+      { model: "Claude 3.7 Sonnet", role: "Ejecución simbólica con SymPy", score: "90.44", area: "Memoria, Herramientas y Robustez (96.0 ToolUse_Calculator_Python)" },
     ],
     flow: [
-      "Entrada: cadena de razonamiento matemÃ¡tico generada por cualquier modelo (demostraciÃ³n, derivaciÃ³n algebraica, soluciÃ³n multi-paso en LaTeX o texto plano)",
-      "SegmentaciÃ³n en pasos atÃ³micos (Claude 3.7 Sonnet): identificaciÃ³n de cada afirmaciÃ³n individual, clasificaciÃ³n del tipo de paso (aritmÃ©tico | algebraico | lÃ³gico | definitorio), extracciÃ³n de premisas y conclusiÃ³n de cada paso",
-      "Para cada paso â€” verificaciÃ³n lÃ³gica (DeepSeek-R1): Â¿la conclusiÃ³n se sigue de las premisas por las reglas invocadas? Â¿la regla existe y se aplica correctamente? Etiquetado: VÃLIDO | INVÃLIDO | INDETERMINADO",
-      "Para cada paso algebraico â€” verificaciÃ³n simbÃ³lica (Claude 3.7 Sonnet + SymPy): simplify(lhs - rhs) == 0 en sandbox aislado con timeout. Resultado: EQUIVALENTE | NO_EQUIVALENTE | ERROR_EJECUCIÃ“N",
-      "SÃ­ntesis del informe: pasos vÃ¡lidos N, pasos invÃ¡lidos N (con descripciÃ³n del error), pasos indeterminados N (requieren revisiÃ³n humana), veredicto global: VERIFICADO | CONTIENE_ERRORES | PARCIALMENTE_VERIFICADO",
-      "Salida: informe JSON estructurado + anotaciÃ³n del razonamiento original con marcas por paso",
+      "Entrada: cadena de razonamiento matemático generada por cualquier modelo (demostración, derivación algebraica, solución multi-paso en LaTeX o texto plano)",
+      "Segmentación en pasos atómicos (Claude 3.7 Sonnet): identificación de cada afirmación individual, clasificación del tipo de paso (aritmético | algebraico | lógico | definitorio), extracción de premisas y conclusión de cada paso",
+      "Para cada paso â€” verificación lógica (DeepSeek-R1): ¿la conclusión se sigue de las premisas por las reglas invocadas? ¿la regla existe y se aplica correctamente? Etiquetado: VÁLIDO | INVÁLIDO | INDETERMINADO",
+      "Para cada paso algebraico â€” verificación simbólica (Claude 3.7 Sonnet + SymPy): simplify(lhs - rhs) == 0 en sandbox aislado con timeout. Resultado: EQUIVALENTE | NO_EQUIVALENTE | ERROR_EJECUCIÃ“N",
+      "Síntesis del informe: pasos válidos N, pasos inválidos N (con descripción del error), pasos indeterminados N (requieren revisión humana), veredicto global: VERIFICADO | CONTIENE_ERRORES | PARCIALMENTE_VERIFICADO",
+      "Salida: informe JSON estructurado + anotación del razonamiento original con marcas por paso",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado prisma_matematico.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado prisma_matematico.py con las siguientes funciones:
 1. segment_reasoning(text: str, llm_client) -> list[dict]: segmenta una cadena de
-   razonamiento matemÃ¡tico en pasos atÃ³micos. Cada paso debe tener:
+   razonamiento matemático en pasos atómicos. Cada paso debe tener:
    {step_id: int, raw_text: str, step_type: str ("arithmetic"|"algebraic"|"logical"|
    "definitional"), premises: list[str], conclusion: str}.
-2. verify_step_logic(step: dict, llm_client) -> dict: verifica la validez lÃ³gica
+2. verify_step_logic(step: dict, llm_client) -> dict: verifica la validez lógica
    de un paso usando el LLM. Devuelve:
    {step_id, logic_status: "VALID"|"INVALID"|"INDETERMINATE",
     confidence: float, error_description: str | null}.
 3. verify_step_symbolic(step: dict) -> dict: si el paso es algebraico, verifica
-   la equivalencia simbÃ³lica usando SymPy. Devuelve:
+   la equivalencia simbólica usando SymPy. Devuelve:
    {step_id, symbolic_status: "EQUIVALENT"|"NOT_EQUIVALENT"|"EXECUTION_ERROR",
     sympy_result: str | null, error: str | null}.
 4. synthesize_verification_report(steps: list[dict], logic_results: list[dict],
@@ -160,28 +160,28 @@ const PROJECTS = [
    {total_steps, valid_steps, invalid_steps, indeterminate_steps,
     overall_verdict: "VERIFIED"|"CONTAINS_ERRORS"|"PARTIALLY_VERIFIED",
     step_details: list[dict], reliability_score: float}.
-Usa sympy, subprocess (para sandbox), duckdb y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el verificador lÃ³gico de Prisma MatemÃ¡tico en el Laboratorio de MatemÃ¡ticas
+Usa sympy, subprocess (para sandbox), duckdb y la librería estándar.`,
+    promptLLM: `Eres el verificador lógico de Prisma Matemático en el Laboratorio de Matemáticas
 & Procesos Complejos de Horizon.
-Se te proporciona un paso de un razonamiento matemÃ¡tico con sus premisas explicitadas
-y su conclusiÃ³n. Tu funciÃ³n no es resolver el problema: es verificar si la conclusiÃ³n
-se sigue de las premisas mediante las reglas matemÃ¡ticas correctamente aplicadas.
+Se te proporciona un paso de un razonamiento matemático con sus premisas explicitadas
+y su conclusión. Tu función no es resolver el problema: es verificar si la conclusión
+se sigue de las premisas mediante las reglas matemáticas correctamente aplicadas.
 
 Tu tarea:
-1. Identifica la regla o propiedad matemÃ¡tica que conecta las premisas con la conclusiÃ³n
-   (p. ej. distributividad, teorema de PitÃ¡goras, regla del producto de derivadas).
+1. Identifica la regla o propiedad matemática que conecta las premisas con la conclusión
+   (p. ej. distributividad, teorema de Pitágoras, regla del producto de derivadas).
 2. Verifica si esa regla existe, si aplica en el contexto dado y si se aplica
    correctamente.
-3. Si el paso es aritmÃ©tico, verifica el cÃ¡lculo exacto.
+3. Si el paso es aritmético, verifica el cálculo exacto.
 4. Clasifica el paso como VALID, INVALID o INDETERMINATE.
 
-Restricciones crÃ­ticas:
-- INDETERMINATE solo cuando no tienes informaciÃ³n suficiente para decidir
-  (variables sin definir, contexto cortado, notaciÃ³n ambigua).
-- No des por vÃ¡lido un paso solo porque el resultado final "parezca razonable".
+Restricciones críticas:
+- INDETERMINATE solo cuando no tienes información suficiente para decidir
+  (variables sin definir, contexto cortado, notación ambigua).
+- No des por válido un paso solo porque el resultado final "parezca razonable".
 - No afirmes que el razonamiento "demuestra" nada: solo que cada paso
-  es o no es vÃ¡lido segÃºn las reglas invocadas.
-- Si detectas un error, descrÃ­belo con precisiÃ³n: quÃ© regla se violÃ³ y en quÃ© sentido.
+  es o no es válido según las reglas invocadas.
+- Si detectas un error, descríbelo con precisión: qué regla se violó y en qué sentido.
 
 Responde en JSON:
 {
@@ -196,86 +196,86 @@ Responde en JSON:
   {
     id: "predictor",
     name: "Predictor de Riesgo",
-    tagline: "La respuesta a un problema con incertidumbre no es un nÃºmero, es una distribuciÃ³n",
-    desc: "A partir de una descripciÃ³n del problema en lenguaje natural, configura una simulaciÃ³n Monte Carlo, la ejecuta con NumPy/SciPy y traduce los resultados en un lenguaje que no requiere estadÃ­stica avanzada para interpretarse. Define las distribuciones de probabilidad de cada variable, identifica correlaciones, ejecuta hasta 10.000 iteraciones en sandbox aislado y devuelve percentiles, probabilidades de umbral y un anÃ¡lisis de sensibilidad por variable.",
+    tagline: "La respuesta a un problema con incertidumbre no es un número, es una distribución",
+    desc: "A partir de una descripción del problema en lenguaje natural, configura una simulación Monte Carlo, la ejecuta con NumPy/SciPy y traduce los resultados en un lenguaje que no requiere estadística avanzada para interpretarse. Define las distribuciones de probabilidad de cada variable, identifica correlaciones, ejecuta hasta 10.000 iteraciones en sandbox aislado y devuelve percentiles, probabilidades de umbral y un análisis de sensibilidad por variable.",
     color: "teal",
     researchLines: ["02", "05"],
     stack: [
-      { role: "AnÃ¡lisis del problema y formulaciÃ³n de variables con distribuciones", tech: "DeepSeek-R1 â€” lÃ­der razonamiento multi-paso (97.18/100, 98.4 GSM8K_ChainOfThought)" },
-      { role: "GeneraciÃ³n y ejecuciÃ³n de cÃ³digo de simulaciÃ³n con Python/NumPy", tech: "Claude 3.7 Sonnet â€” lÃ­der tool-use matemÃ¡tico (90.44/100, 96.0 ToolUse_Calculator_Python)" },
-      { role: "OrquestaciÃ³n del flujo multi-etapa completo", tech: "AutoGen-Sonnet-Team â€” lÃ­der planificaciÃ³n multi-agente (92.30/100, 93.5 MAFBench_Planning)" },
-      { role: "Motor de simulaciÃ³n Monte Carlo", tech: "NumPy (muestreo aleatorio) + SciPy (distribuciones: normal, lognormal, triangular, uniforme, beta)" },
-      { role: "VisualizaciÃ³n y entorno de ejecuciÃ³n", tech: "matplotlib/plotly â€” sandbox Python aislado con timeout configurable" },
+      { role: "Análisis del problema y formulación de variables con distribuciones", tech: "DeepSeek-R1 â€” líder razonamiento multi-paso (97.18/100, 98.4 GSM8K_ChainOfThought)" },
+      { role: "Generación y ejecución de código de simulación con Python/NumPy", tech: "Claude 3.7 Sonnet â€” líder tool-use matemático (90.44/100, 96.0 ToolUse_Calculator_Python)" },
+      { role: "Orquestación del flujo multi-etapa completo", tech: "AutoGen-Sonnet-Team â€” líder planificación multi-agente (92.30/100, 93.5 MAFBench_Planning)" },
+      { role: "Motor de simulación Monte Carlo", tech: "NumPy (muestreo aleatorio) + SciPy (distribuciones: normal, lognormal, triangular, uniforme, beta)" },
+      { role: "Visualización y entorno de ejecución", tech: "matplotlib/plotly â€” sandbox Python aislado con timeout configurable" },
     ],
     whyModels: [
-      { model: "DeepSeek-R1", role: "FormulaciÃ³n de variables y distribuciones", score: "97.18", area: "Razonamiento Multi-Paso y Chain-of-Thought" },
-      { model: "Claude 3.7 Sonnet", role: "GeneraciÃ³n y ejecuciÃ³n de cÃ³digo Monte Carlo", score: "90.44", area: "Memoria, Herramientas y Robustez" },
-      { model: "AutoGen-Sonnet-Team", role: "OrquestaciÃ³n del flujo multi-etapa", score: "92.30", area: "PlanificaciÃ³n y CoordinaciÃ³n Multi-Agente" },
+      { model: "DeepSeek-R1", role: "Formulación de variables y distribuciones", score: "97.18", area: "Razonamiento Multi-Paso y Chain-of-Thought" },
+      { model: "Claude 3.7 Sonnet", role: "Generación y ejecución de código Monte Carlo", score: "90.44", area: "Memoria, Herramientas y Robustez" },
+      { model: "AutoGen-Sonnet-Team", role: "Orquestación del flujo multi-etapa", score: "92.30", area: "Planificación y Coordinación Multi-Agente" },
     ],
     flow: [
-      "Entrada: descripciÃ³n del problema de riesgo en lenguaje natural (ej. Â«Un proyecto de construcciÃ³n tiene duraciÃ³n estimada entre 8 y 14 meses, con mayor probabilidad en torno a 11 meses. El coste por mes de retraso es entre 50.000 y 80.000 EURÂ»)",
-      "AnÃ¡lisis y formulaciÃ³n de variables (DeepSeek-R1): identificaciÃ³n de variables inciertas y sus rangos, selecciÃ³n de distribuciÃ³n de probabilidad para cada variable (normal, lognormal, triangular, uniforme, beta), identificaciÃ³n de correlaciones entre variables, definiciÃ³n de la mÃ©trica de salida",
-      "GeneraciÃ³n del cÃ³digo de simulaciÃ³n (Claude 3.7 Sonnet): cÃ³digo Python con NumPy/SciPy, N iteraciones configurables (default: 10.000), cÃ¡lculo de la mÃ©trica de salida en cada iteraciÃ³n",
-      "EjecuciÃ³n en sandbox Python aislado con timeout configurable",
-      "AnÃ¡lisis de resultados: media, mediana, desviaciÃ³n tÃ­pica, percentiles P5/P25/P50/P75/P90/P95/P99, probabilidad de superar umbrales crÃ­ticos definidos por el usuario",
-      "InterpretaciÃ³n en lenguaje natural (DeepSeek-R1): traducciÃ³n de percentiles a enunciados accionables, identificaciÃ³n de variables con mayor impacto en la variabilidad (anÃ¡lisis de sensibilidad)",
-      "Salida A: grÃ¡fico de distribuciÃ³n (histograma + densidad + percentiles) Â· Salida B: tabla de percentiles y probabilidades Â· Salida C: cÃ³digo Python reproducible Â· Salida D: resumen para el tomador de decisiÃ³n",
+      "Entrada: descripción del problema de riesgo en lenguaje natural (ej. «Un proyecto de construcción tiene duración estimada entre 8 y 14 meses, con mayor probabilidad en torno a 11 meses. El coste por mes de retraso es entre 50.000 y 80.000 EUR»)",
+      "Análisis y formulación de variables (DeepSeek-R1): identificación de variables inciertas y sus rangos, selección de distribución de probabilidad para cada variable (normal, lognormal, triangular, uniforme, beta), identificación de correlaciones entre variables, definición de la métrica de salida",
+      "Generación del código de simulación (Claude 3.7 Sonnet): código Python con NumPy/SciPy, N iteraciones configurables (default: 10.000), cálculo de la métrica de salida en cada iteración",
+      "Ejecución en sandbox Python aislado con timeout configurable",
+      "Análisis de resultados: media, mediana, desviación típica, percentiles P5/P25/P50/P75/P90/P95/P99, probabilidad de superar umbrales críticos definidos por el usuario",
+      "Interpretación en lenguaje natural (DeepSeek-R1): traducción de percentiles a enunciados accionables, identificación de variables con mayor impacto en la variabilidad (análisis de sensibilidad)",
+      "Salida A: gráfico de distribución (histograma + densidad + percentiles) · Salida B: tabla de percentiles y probabilidades · Salida C: código Python reproducible · Salida D: resumen para el tomador de decisión",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado predictor_riesgo.py con las siguientes funciones:
-1. parse_risk_problem(description: str, llm_client) -> dict: analiza la descripciÃ³n
-   del problema y devuelve la estructura de simulaciÃ³n:
+    promptIDE: `Crea un módulo Python llamado predictor_riesgo.py con las siguientes funciones:
+1. parse_risk_problem(description: str, llm_client) -> dict: analiza la descripción
+   del problema y devuelve la estructura de simulación:
    {variables: [{name, distribution_type: str, params: dict, description: str}],
     correlations: list[{var1, var2, correlation_coeff}],
     output_metric: {name, formula: str, unit: str},
     critical_thresholds: list[float]}.
 2. generate_simulation_code(problem_structure: dict, n_iterations: int = 10000,
-   llm_client) -> str: genera cÃ³digo Python completo y ejecutable que:
+   llm_client) -> str: genera código Python completo y ejecutable que:
    - Importa numpy, scipy.stats y matplotlib.
-   - Muestrea cada variable segÃºn su distribuciÃ³n en n_iterations iteraciones.
-   - Calcula la mÃ©trica de salida en cada iteraciÃ³n.
+   - Muestrea cada variable según su distribución en n_iterations iteraciones.
+   - Calcula la métrica de salida en cada iteración.
    - Devuelve el array de resultados como numpy array.
 3. run_simulation(code: str, timeout_seconds: int = 120) -> dict:
-   ejecuta el cÃ³digo en subprocess aislado. Devuelve:
+   ejecuta el código en subprocess aislado. Devuelve:
    {success: bool, results: list[float] | null, error: str | null,
     execution_time_ms: float}.
 4. analyze_results(results: list[float], thresholds: list[float]) -> dict:
-   calcula estadÃ­sticos descriptivos y probabilidades de umbral. Devuelve:
+   calcula estadísticos descriptivos y probabilidades de umbral. Devuelve:
    {mean, median, std, percentiles: dict, threshold_probs: dict,
     sensitivity_ranking: list[str]}.
 5. generate_interpretation(analysis: dict, problem: dict, llm_client) -> str:
    genera un resumen en lenguaje natural de los resultados, sin usar jerga
-   estadÃ­stica innecesaria, orientado al tomador de decisiÃ³n no tÃ©cnico.
+   estadística innecesaria, orientado al tomador de decisión no técnico.
 6. plot_distribution(results: list[float], analysis: dict,
    output_path: str) -> None: genera el histograma con curva de densidad,
-   percentiles marcados y umbrales crÃ­ticos.
-Usa numpy, scipy, matplotlib, subprocess y la librerÃ­a estÃ¡ndar.`,
+   percentiles marcados y umbrales críticos.
+Usa numpy, scipy, matplotlib, subprocess y la librería estándar.`,
     promptLLM: `Eres el analista de riesgo cuantitativo de Predictor de Riesgo en el Laboratorio
-de MatemÃ¡ticas & Procesos Complejos de Horizon.
-Se te proporciona una descripciÃ³n en lenguaje natural de un problema con incertidumbre.
+de Matemáticas & Procesos Complejos de Horizon.
+Se te proporciona una descripción en lenguaje natural de un problema con incertidumbre.
 
-Tarea 1 â€” IdentificaciÃ³n de variables:
+Tarea 1 â€” Identificación de variables:
 Para cada variable incierta mencionada:
 1. Identifica su nombre y unidad.
-2. Selecciona la distribuciÃ³n de probabilidad mÃ¡s apropiada:
-   - Triangular: cuando hay mÃ­nimo, moda y mÃ¡ximo conocidos.
-   - Normal: cuando la variable es simÃ©trica alrededor de la media.
+2. Selecciona la distribución de probabilidad más apropiada:
+   - Triangular: cuando hay mínimo, moda y máximo conocidos.
+   - Normal: cuando la variable es simétrica alrededor de la media.
    - Lognormal: cuando la variable no puede ser negativa y tiene sesgo positivo.
    - Uniforme: cuando cualquier valor en el rango es igualmente probable.
-   - Beta: cuando la variable estÃ¡ acotada en [0,1] (porcentajes, probabilidades).
-3. Extrae los parÃ¡metros de la distribuciÃ³n de los datos del enunciado.
+   - Beta: cuando la variable está acotada en [0,1] (porcentajes, probabilidades).
+3. Extrae los parámetros de la distribución de los datos del enunciado.
 
 Tarea 2 â€” Correlaciones:
-Si el enunciado implica que dos variables estÃ¡n relacionadas, identifÃ­calo y estima
-un coeficiente de correlaciÃ³n de Pearson entre -1 y 1.
+Si el enunciado implica que dos variables están relacionadas, identifícalo y estima
+un coeficiente de correlación de Pearson entre -1 y 1.
 
-Tarea 3 â€” DefiniciÃ³n de la mÃ©trica de salida:
-Define la fÃ³rmula matemÃ¡tica que combina las variables de entrada en la mÃ©trica
-que el usuario quiere estimar. ExprÃ©sala como una expresiÃ³n Python evaluable.
+Tarea 3 â€” Definición de la métrica de salida:
+Define la fórmula matemática que combina las variables de entrada en la métrica
+que el usuario quiere estimar. Exprésala como una expresión Python evaluable.
 
 Restricciones:
-- Si un parÃ¡metro de distribuciÃ³n no estÃ¡ en el enunciado, seÃ±Ã¡lalo como
+- Si un parámetro de distribución no está en el enunciado, señálalo como
   "requires_user_input" y no lo asumas.
-- No afirmes certeza en la elecciÃ³n de distribuciÃ³n: es una propuesta tÃ©cnica
+- No afirmes certeza en la elección de distribución: es una propuesta técnica
   que el usuario debe validar.
 
 Responde en JSON conforme a la estructura de parse_risk_problem.`,
@@ -283,34 +283,34 @@ Responde en JSON conforme a la estructura de parse_risk_problem.`,
   {
     id: "simplex",
     name: "Simplex Helios",
-    tagline: "Claridad donde habÃ­a confusiÃ³n: del enunciado verbal a la soluciÃ³n Ã³ptima",
-    desc: "Convierte una descripciÃ³n en lenguaje natural de un problema de asignaciÃ³n de recursos en una formulaciÃ³n de programaciÃ³n lineal correcta, la resuelve con scipy.optimize.linprog o PuLP, y devuelve la soluciÃ³n con una interpretaciÃ³n prÃ¡ctica de quÃ© significa en el contexto original. La formulaciÃ³n del problema es siempre el cuello de botella â€” Simplex Helios lo elimina.",
+    tagline: "Claridad donde había confusión: del enunciado verbal a la solución óptima",
+    desc: "Convierte una descripción en lenguaje natural de un problema de asignación de recursos en una formulación de programación lineal correcta, la resuelve con scipy.optimize.linprog o PuLP, y devuelve la solución con una interpretación práctica de qué significa en el contexto original. La formulación del problema es siempre el cuello de botella â€” Simplex Helios lo elimina.",
     color: "violet",
     researchLines: ["03", "04", "06"],
     stack: [
-      { role: "FormulaciÃ³n del problema LP a partir de enunciado verbal", tech: "Claude 3.7 Sonnet â€” lÃ­der razonamiento cuantitativo mixto (94.34/100, 97.2 SVAMP_Math_Word_Problems)" },
-      { role: "VerificaciÃ³n de coherencia de restricciones y validaciÃ³n de soluciÃ³n", tech: "DeepSeek-R1 â€” lÃ­der verificaciÃ³n formal (96.55/100, 98.0 Math_Equivalence_Verification)" },
-      { role: "OrquestaciÃ³n del flujo multi-etapa", tech: "AutoGen-Sonnet-Team â€” lÃ­der planificaciÃ³n multi-agente (92.30/100)" },
-      { role: "Motor de optimizaciÃ³n (LP continuo)", tech: "scipy.optimize.linprog â€” programaciÃ³n lineal continua" },
-      { role: "Motor de optimizaciÃ³n (LP entero)", tech: "PuLP â€” programaciÃ³n lineal entera (variables enteras o binarias)" },
+      { role: "Formulación del problema LP a partir de enunciado verbal", tech: "Claude 3.7 Sonnet â€” líder razonamiento cuantitativo mixto (94.34/100, 97.2 SVAMP_Math_Word_Problems)" },
+      { role: "Verificación de coherencia de restricciones y validación de solución", tech: "DeepSeek-R1 â€” líder verificación formal (96.55/100, 98.0 Math_Equivalence_Verification)" },
+      { role: "Orquestación del flujo multi-etapa", tech: "AutoGen-Sonnet-Team â€” líder planificación multi-agente (92.30/100)" },
+      { role: "Motor de optimización (LP continuo)", tech: "scipy.optimize.linprog â€” programación lineal continua" },
+      { role: "Motor de optimización (LP entero)", tech: "PuLP â€” programación lineal entera (variables enteras o binarias)" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "FormulaciÃ³n LP desde enunciado verbal", score: "94.34", area: "Razonamiento Cuantitativo Mixto (97.2 SVAMP)" },
-      { model: "DeepSeek-R1", role: "VerificaciÃ³n de coherencia y validaciÃ³n de soluciÃ³n", score: "96.55", area: "Trazabilidad, VerificaciÃ³n y Equivalencia Formal" },
-      { model: "AutoGen-Sonnet-Team", role: "OrquestaciÃ³n multi-etapa", score: "92.30", area: "PlanificaciÃ³n y CoordinaciÃ³n Multi-Agente" },
+      { model: "Claude 3.7 Sonnet", role: "Formulación LP desde enunciado verbal", score: "94.34", area: "Razonamiento Cuantitativo Mixto (97.2 SVAMP)" },
+      { model: "DeepSeek-R1", role: "Verificación de coherencia y validación de solución", score: "96.55", area: "Trazabilidad, Verificación y Equivalencia Formal" },
+      { model: "AutoGen-Sonnet-Team", role: "Orquestación multi-etapa", score: "92.30", area: "Planificación y Coordinación Multi-Agente" },
     ],
     flow: [
-      "Entrada: descripciÃ³n en lenguaje natural del problema de asignaciÃ³n de recursos (ej. Â«Una empresa produce dos productos A y B. Cada unidad de A requiere 2h de mÃ¡quina y 1h de mano de obraâ€¦Â»)",
-      "FormulaciÃ³n del problema LP (Claude 3.7 Sonnet): identificaciÃ³n de variables de decisiÃ³n y sus dominios, funciÃ³n objetivo con coeficientes y direcciÃ³n (maximizar/minimizar), restricciones con matriz de coeficientes A, vector de lÃ­mites b y tipo (<= | >= | =), restricciones de no negatividad y de entero si aplica",
-      "VerificaciÃ³n de coherencia (DeepSeek-R1): Â¿el sistema de restricciones es factible? Â¿hay restricciones redundantes o contradictorias? Â¿la funciÃ³n objetivo estÃ¡ acotada en la regiÃ³n factible?",
-      "ResoluciÃ³n (scipy.optimize.linprog o PuLP): ejecuciÃ³n del solucionador con los parÃ¡metros formulados, obtenciÃ³n de la soluciÃ³n Ã³ptima o informe de infactibilidad",
-      "VerificaciÃ³n de la soluciÃ³n (DeepSeek-R1): comprobaciÃ³n de que cada restricciÃ³n se satisface con la soluciÃ³n, cÃ¡lculo del valor de la funciÃ³n objetivo, identificaciÃ³n de restricciones activas (saturadas) vs. holgadas",
-      "InterpretaciÃ³n en lenguaje natural (Claude 3.7 Sonnet): traducciÃ³n de la soluciÃ³n a tÃ©rminos del problema original, explicaciÃ³n de quÃ© restricciones limitan el Ã³ptimo, anÃ¡lisis de sensibilidad â€” Â¿cuÃ¡nto puede cambiar un parÃ¡metro antes de que cambie la soluciÃ³n?",
-      "Salida A: vector de soluciÃ³n con valores de cada variable Â· Salida B: valor de la funciÃ³n objetivo Â· Salida C: anÃ¡lisis de sensibilidad Â· Salida D: grÃ¡fico 2D de la regiÃ³n factible (si hay 2 variables) Â· Salida E: formulaciÃ³n LP en LaTeX",
+      "Entrada: descripción en lenguaje natural del problema de asignación de recursos (ej. «Una empresa produce dos productos A y B. Cada unidad de A requiere 2h de máquina y 1h de mano de obraâ€¦»)",
+      "Formulación del problema LP (Claude 3.7 Sonnet): identificación de variables de decisión y sus dominios, función objetivo con coeficientes y dirección (maximizar/minimizar), restricciones con matriz de coeficientes A, vector de límites b y tipo (<= | >= | =), restricciones de no negatividad y de entero si aplica",
+      "Verificación de coherencia (DeepSeek-R1): ¿el sistema de restricciones es factible? ¿hay restricciones redundantes o contradictorias? ¿la función objetivo está acotada en la región factible?",
+      "Resolución (scipy.optimize.linprog o PuLP): ejecución del solucionador con los parámetros formulados, obtención de la solución óptima o informe de infactibilidad",
+      "Verificación de la solución (DeepSeek-R1): comprobación de que cada restricción se satisface con la solución, cálculo del valor de la función objetivo, identificación de restricciones activas (saturadas) vs. holgadas",
+      "Interpretación en lenguaje natural (Claude 3.7 Sonnet): traducción de la solución a términos del problema original, explicación de qué restricciones limitan el óptimo, análisis de sensibilidad â€” ¿cuánto puede cambiar un parámetro antes de que cambie la solución?",
+      "Salida A: vector de solución con valores de cada variable · Salida B: valor de la función objetivo · Salida C: análisis de sensibilidad · Salida D: gráfico 2D de la región factible (si hay 2 variables) · Salida E: formulación LP en LaTeX",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado simplex_helios.py con las siguientes funciones:
-1. parse_lp_problem(description: str, llm_client) -> dict: extrae la formulaciÃ³n
-   de programaciÃ³n lineal del enunciado. Devuelve:
+    promptIDE: `Crea un módulo Python llamado simplex_helios.py con las siguientes funciones:
+1. parse_lp_problem(description: str, llm_client) -> dict: extrae la formulación
+   de programación lineal del enunciado. Devuelve:
    {variables: [{name, description, domain: "continuous"|"integer"|"binary",
      lower_bound: float, upper_bound: float | null}],
     objective: {coefficients: list[float], direction: "minimize"|"maximize",
@@ -328,73 +328,73 @@ Responde en JSON conforme a la estructura de parse_risk_problem.`,
     solution: dict | null, objective_value: float | null,
     active_constraints: list[str], solver_message: str}.
 4. verify_solution(lp: dict, solution: dict) -> dict:
-   verifica computacionalmente que la soluciÃ³n satisface todas las restricciones.
+   verifica computacionalmente que la solución satisface todas las restricciones.
    Devuelve: {all_satisfied: bool,
    violations: list[{constraint_name, slack, tolerance}]}.
 5. interpret_solution(lp: dict, solution: dict, solver_result: dict,
-   llm_client) -> str: genera la interpretaciÃ³n en lenguaje natural de la soluciÃ³n
-   en tÃ©rminos del problema original, incluyendo quÃ© restricciones son activas.
+   llm_client) -> str: genera la interpretación en lenguaje natural de la solución
+   en términos del problema original, incluyendo qué restricciones son activas.
 6. plot_feasible_region(lp: dict, solution: dict,
    output_path: str) -> None: si el problema tiene exactamente 2 variables,
-   genera el grÃ¡fico 2D de la regiÃ³n factible con la soluciÃ³n Ã³ptima marcada.
-Usa scipy, pulp, numpy, matplotlib y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el formulador de problemas de programaciÃ³n lineal de Simplex Helios en el
-Laboratorio de MatemÃ¡ticas & Procesos Complejos de Horizon.
-Se te proporciona un enunciado en lenguaje natural de un problema de asignaciÃ³n
-de recursos u optimizaciÃ³n.
+   genera el gráfico 2D de la región factible con la solución óptima marcada.
+Usa scipy, pulp, numpy, matplotlib y la librería estándar.`,
+    promptLLM: `Eres el formulador de problemas de programación lineal de Simplex Helios en el
+Laboratorio de Matemáticas & Procesos Complejos de Horizon.
+Se te proporciona un enunciado en lenguaje natural de un problema de asignación
+de recursos u optimización.
 
-Tu tarea es extraer la formulaciÃ³n matemÃ¡tica completa del problema.
+Tu tarea es extraer la formulación matemática completa del problema.
 
 Proceso recomendado:
-1. Identifica primero QUÃ‰ se decide (las variables de decisiÃ³n y sus unidades).
-2. Identifica QUÃ‰ se quiere maximizar o minimizar (la funciÃ³n objetivo).
+1. Identifica primero QUÃ‰ se decide (las variables de decisión y sus unidades).
+2. Identifica QUÃ‰ se quiere maximizar o minimizar (la función objetivo).
 3. Identifica QUÃ‰ limita las decisiones (las restricciones).
 4. Verifica que has capturado TODAS las restricciones del enunciado,
-   incluyendo las implÃ­citas (no negatividad, capacidades mÃ¡ximas).
+   incluyendo las implícitas (no negatividad, capacidades máximas).
 
-Requisitos crÃ­ticos:
-- Si el enunciado es ambiguo sobre si una restricciÃ³n es <= o >=, seÃ±Ã¡lalo
-  explÃ­citamente y propÃ³n ambas interpretaciones.
-- Si falta informaciÃ³n para completar algÃºn parÃ¡metro, ponlo como null
-  y aÃ±ade una nota en "warnings" explicando quÃ© falta.
-- No asumas que el problema es de minimizaciÃ³n o maximizaciÃ³n: extrÃ¡elo del enunciado.
-- Genera la funciÃ³n objetivo y cada restricciÃ³n tambiÃ©n en formato LaTeX.
+Requisitos críticos:
+- Si el enunciado es ambiguo sobre si una restricción es <= o >=, señálalo
+  explícitamente y propón ambas interpretaciones.
+- Si falta información para completar algún parámetro, ponlo como null
+  y añade una nota en "warnings" explicando qué falta.
+- No asumas que el problema es de minimización o maximización: extráelo del enunciado.
+- Genera la función objetivo y cada restricción también en formato LaTeX.
 
 Responde en JSON conforme a la estructura de parse_lp_problem.
-DespuÃ©s del JSON, aÃ±ade una secciÃ³n "FORMULACIÃ“N LaTeX" con el problema completo
-en notaciÃ³n matemÃ¡tica estÃ¡ndar.`,
+Después del JSON, añade una sección "FORMULACIÃ“N LaTeX" con el problema completo
+en notación matemática estándar.`,
   },
 ];
 
 const MARKET_APPS = [
   {
     name: "Wolfram Alpha + Wolfram Language",
-    desc: "Motor de conocimiento computacional que resuelve problemas matemÃ¡ticos, simbÃ³licos y cuantitativos con respuestas paso a paso. La versiÃ³n Pro incorpora integraciÃ³n con modelos de lenguaje. Wolfram Language es el lenguaje de programaciÃ³n simbÃ³lica de Mathematica.",
-    tag: "CÃ³mputo simbÃ³lico",
+    desc: "Motor de conocimiento computacional que resuelve problemas matemáticos, simbólicos y cuantitativos con respuestas paso a paso. La versión Pro incorpora integración con modelos de lenguaje. Wolfram Language es el lenguaje de programación simbólica de Mathematica.",
+    tag: "Cómputo simbólico",
     url: "https://wolframalpha.com",
   },
   {
     name: "MATLAB + Statistics Toolbox",
-    desc: "Entorno de computaciÃ³n numÃ©rica estÃ¡ndar en ingenierÃ­a y ciencia. El toolbox de estadÃ­stica incluye funciones para simulaciÃ³n Monte Carlo, ajuste de distribuciones y anÃ¡lisis de sensibilidad.",
-    tag: "ComputaciÃ³n numÃ©rica",
+    desc: "Entorno de computación numérica estándar en ingeniería y ciencia. El toolbox de estadística incluye funciones para simulación Monte Carlo, ajuste de distribuciones y análisis de sensibilidad.",
+    tag: "Computación numérica",
     url: "https://mathworks.com/products/matlab",
   },
   {
     name: "Gurobi Optimizer",
-    desc: "Solucionador comercial de referencia para programaciÃ³n lineal, entera y cuadrÃ¡tica. Ampliamente usado en optimizaciÃ³n industrial, logÃ­stica y finanzas. Ofrece API Python (gurobipy).",
-    tag: "OptimizaciÃ³n industrial",
+    desc: "Solucionador comercial de referencia para programación lineal, entera y cuadrática. Ampliamente usado en optimización industrial, logística y finanzas. Ofrece API Python (gurobipy).",
+    tag: "Optimización industrial",
     url: "https://gurobi.com",
   },
   {
     name: "Palisade @RISK",
-    desc: "Software de anÃ¡lisis de riesgo mediante simulaciÃ³n Monte Carlo integrado en Excel. Permite definir distribuciones de probabilidad en celdas de Excel y ejecutar simulaciones directamente.",
+    desc: "Software de análisis de riesgo mediante simulación Monte Carlo integrado en Excel. Permite definir distribuciones de probabilidad en celdas de Excel y ejecutar simulaciones directamente.",
     tag: "Monte Carlo en Excel",
     url: "https://lumivero.com/products/risk",
   },
   {
     name: "Symbolab",
-    desc: "Herramienta web de resoluciÃ³n de problemas matemÃ¡ticos paso a paso con soporte para Ã¡lgebra, cÃ¡lculo, ecuaciones diferenciales y estadÃ­stica. Orientada a uso educativo y acadÃ©mico.",
-    tag: "ResoluciÃ³n paso a paso",
+    desc: "Herramienta web de resolución de problemas matemáticos paso a paso con soporte para álgebra, cálculo, ecuaciones diferenciales y estadística. Orientada a uso educativo y académico.",
+    tag: "Resolución paso a paso",
     url: "https://symbolab.com",
   },
 ];
@@ -402,13 +402,13 @@ const MARKET_APPS = [
 const VERIFICATION_POINTS = [
   {
     id: "v1",
-    title: "4.1 AsimetrÃ­a en la cobertura de benchmarks por modelo",
+    title: "4.1 Asimetría en la cobertura de benchmarks por modelo",
     items: [
-      "MatemÃ¡ticas de CompeticiÃ³n: Claude 3.7 Sonnet (67%) carece de evaluaciÃ³n en AIME_2025 (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
+      "Matemáticas de Competición: Claude 3.7 Sonnet (67%) carece de evaluación en AIME_2025 (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
       "Razonamiento Multi-Paso: o1-preview (67%) no cuenta con datos registrados para Socratic_Math.",
-      "Razonamiento ComÃºn Cuantitativo: GPT-4.5 (67%) carece de resultado en ARC_Math_Challenge.",
-      "Memoria y Uso de Herramientas: ningÃºn modelo alcanza el 100% de cobertura â€” Claude 3.7 Sonnet carece de datos en MemoryAgentBench, AutoGen-Sonnet-Team no tiene registro en ToolUse_Calculator_Python y GPT-4.5 sÃ³lo cuenta con evaluaciÃ³n en StableToolBench_Math (33% de cobertura).",
-      "Trazabilidad y VerificaciÃ³n Formal: tanto o1-preview (67%) como Claude 3.7 Sonnet (67%) no registran evaluaciÃ³n en GSM_Symbolic_Robustness.",
+      "Razonamiento Común Cuantitativo: GPT-4.5 (67%) carece de resultado en ARC_Math_Challenge.",
+      "Memoria y Uso de Herramientas: ningún modelo alcanza el 100% de cobertura â€” Claude 3.7 Sonnet carece de datos en MemoryAgentBench, AutoGen-Sonnet-Team no tiene registro en ToolUse_Calculator_Python y GPT-4.5 sólo cuenta con evaluación en StableToolBench_Math (33% de cobertura).",
+      "Trazabilidad y Verificación Formal: tanto o1-preview (67%) como Claude 3.7 Sonnet (67%) no registran evaluación en GSM_Symbolic_Robustness.",
     ],
   },
   {
@@ -416,16 +416,16 @@ const VERIFICATION_POINTS = [
     title: "4.2 Diferencial estrecho en Razonamiento Multi-Paso",
     items: [
       "Entre DeepSeek-R1 (97.18/100) y Claude 3.7 Sonnet (96.95/100), ambos con 100% de cobertura, la diferencia es de 0.23 puntos (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
-      "Dado que la diferencia es menor a 0.5 puntos con cobertura idÃ©ntica, antes de recomendar pÃºblicamente uno sobre otro para tareas de razonamiento multi-paso crÃ­ticas se recomienda verificar si el sistema de ponderaciÃ³n normaliza el orden por margen mÃ­nimo.",
-      "Los proyectos del laboratorio asignan DeepSeek-R1 a las tareas de verificaciÃ³n formal (donde su margen es mÃ¡s amplio: 96.55 vs. 82.35 de Claude en esa Ã¡rea) y Claude a las de tool-use computacional (donde lidera con mÃ¡s holgura: 90.44 vs. modelos sin cobertura).",
+      "Dado que la diferencia es menor a 0.5 puntos con cobertura idéntica, antes de recomendar públicamente uno sobre otro para tareas de razonamiento multi-paso críticas se recomienda verificar si el sistema de ponderación normaliza el orden por margen mínimo.",
+      "Los proyectos del laboratorio asignan DeepSeek-R1 a las tareas de verificación formal (donde su margen es más amplio: 96.55 vs. 82.35 de Claude en esa área) y Claude a las de tool-use computacional (donde lidera con más holgura: 90.44 vs. modelos sin cobertura).",
     ],
   },
   {
     id: "v3",
-    title: "4.3 Ausencia de benchmarks de Monte Carlo y programaciÃ³n lineal",
+    title: "4.3 Ausencia de benchmarks de Monte Carlo y programación lineal",
     items: [
-      "Predictor de Riesgo y Simplex Helios se fundamentan en capacidades de razonamiento cuantitativo (Ã¡rea 3), razonamiento multi-paso (Ã¡rea 2) y uso de herramientas (Ã¡rea 5) como proxies vÃ¡lidos.",
-      "El catÃ¡logo oficial no incluye benchmarks especÃ­ficos de simulaciÃ³n Monte Carlo ni de formulaciÃ³n de problemas de programaciÃ³n lineal a partir de enunciados verbales.",
+      "Predictor de Riesgo y Simplex Helios se fundamentan en capacidades de razonamiento cuantitativo (área 3), razonamiento multi-paso (área 2) y uso de herramientas (área 5) como proxies válidos.",
+      "El catálogo oficial no incluye benchmarks específicos de simulación Monte Carlo ni de formulación de problemas de programación lineal a partir de enunciados verbales.",
       "Las evaluaciones cuantitativas dedicadas a estas tareas concretas quedan catalogadas como [DATO PENDIENTE DE VERIFICAR].",
     ],
   },
@@ -433,18 +433,18 @@ const VERIFICATION_POINTS = [
     id: "v4",
     title: "4.4 Costes computacionales y latencia en test-time compute",
     items: [
-      "Los modelos o1-preview y DeepSeek-R1 utilizan razonamiento extendido en tiempo de inferencia (test-time compute scaling: asignar mÃ¡s cÃ³mputo en el momento de la inferencia para mejorar la calidad de la respuesta).",
-      "El tiempo medio de inferencia por problema de competiciÃ³n y el nÃºmero de tokens de razonamiento generados no constan en el archivo de rankings y permanecen como [DATO PENDIENTE DE VERIFICAR].",
-      "Este dato es especialmente relevante para Prisma MatemÃ¡tico, donde el coste por verificaciÃ³n de paso afecta directamente al coste operativo del sistema en uso intensivo.",
+      "Los modelos o1-preview y DeepSeek-R1 utilizan razonamiento extendido en tiempo de inferencia (test-time compute scaling: asignar más cómputo en el momento de la inferencia para mejorar la calidad de la respuesta).",
+      "El tiempo medio de inferencia por problema de competición y el número de tokens de razonamiento generados no constan en el archivo de rankings y permanecen como [DATO PENDIENTE DE VERIFICAR].",
+      "Este dato es especialmente relevante para Prisma Matemático, donde el coste por verificación de paso afecta directamente al coste operativo del sistema en uso intensivo.",
     ],
   },
   {
     id: "v5",
-    title: "4.5 Disponibilidad de AutoGen-Sonnet-Team como componente de producciÃ³n",
+    title: "4.5 Disponibilidad de AutoGen-Sonnet-Team como componente de producción",
     items: [
-      "AutoGen-Sonnet-Team aparece como lÃ­der en planificaciÃ³n multi-agente con 92.30/100 (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
-      "La disponibilidad de esta arquitectura especÃ­fica como componente integrable en producciÃ³n (vÃ­a AutoGen Studio u otras interfaces), incluyendo la versiÃ³n exacta de AutoGen utilizada en la evaluaciÃ³n, debe verificarse antes de basar en ella una decisiÃ³n de stack tÃ©cnico.",
-      "Predictor de Riesgo y Simplex Helios dependen de esta arquitectura para la orquestaciÃ³n â€” verificar disponibilidad antes de iniciar los prototipos.",
+      "AutoGen-Sonnet-Team aparece como líder en planificación multi-agente con 92.30/100 (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
+      "La disponibilidad de esta arquitectura específica como componente integrable en producción (vía AutoGen Studio u otras interfaces), incluyendo la versión exacta de AutoGen utilizada en la evaluación, debe verificarse antes de basar en ella una decisión de stack técnico.",
+      "Predictor de Riesgo y Simplex Helios dependen de esta arquitectura para la orquestación â€” verificar disponibilidad antes de iniciar los prototipos.",
     ],
   },
 ];
@@ -531,7 +531,7 @@ function ResearchLineCard({ line }) {
           </div>
           <div className={`border ${c.border} ${c.bg} rounded-xl p-4 flex items-start justify-between gap-4`}>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Modelo lÃ­der Â· STATER Math Leaderboard</p>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Modelo líder · STATER Math Leaderboard</p>
               <p className={`text-sm font-medium ${c.accent}`}>{line.topModel.name}</p>
               <p className="text-xs text-white/40 mt-1">{line.topModel.detail}</p>
             </div>
@@ -602,12 +602,12 @@ function ProjectCard({ project }) {
         </div>
         <p className="text-white/65 text-sm leading-relaxed mb-4">{project.desc}</p>
         <div className="flex flex-wrap gap-2 mb-2">
-          <span className="text-xs text-white/30">LÃ­neas de investigaciÃ³n:</span>
+          <span className="text-xs text-white/30">Líneas de investigación:</span>
           {project.researchLines.map((n) => {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} Â· {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
               </span>
             );
           })}
@@ -632,7 +632,7 @@ function ProjectCard({ project }) {
         {tab === "stack" && (
           <div className="space-y-6">
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes tÃ©cnicos</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes técnicos</p>
               <div className="space-y-2">
                 {project.stack.map((s, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-3">
@@ -646,7 +646,7 @@ function ProjectCard({ project }) {
               </div>
             </div>
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por quÃ© estos modelos Â· STATER Math Leaderboard</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por qué estos modelos · STATER Math Leaderboard</p>
               <div className="space-y-2">
                 {project.whyModels.map((m, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start justify-between gap-4">
@@ -740,29 +740,29 @@ export default function MatematicasLab() {
                 <span className="text-xs border border-indigo-400/30 bg-indigo-400/10 text-indigo-400 px-3 py-0.5 rounded-full">
                   Laboratorio verificado
                 </span>
-                <span className="text-xs text-white/20">STATER Reasoning & Math Â· 2026-08-29</span>
+                <span className="text-xs text-white/20">STATER Reasoning & Math · 2026-08-29</span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
                 Laboratorio de{" "}
-                <span className="text-indigo-400">MatemÃ¡ticas</span>
+                <span className="text-indigo-400">Matemáticas</span>
                 {" & "}
                 <span className="text-violet-400">Procesos Complejos</span>
               </h1>
               <p className="text-white/50 text-lg sm:text-xl mt-3 max-w-2xl leading-relaxed">
-                IA para verificaciÃ³n de razonamientos matemÃ¡ticos, simulaciÃ³n de riesgo y optimizaciÃ³n lineal. El estÃ¡ndar aquÃ­ no es Â«acierta el resultadoÂ»: es Â«el camino que recorre es correctoÂ».
+                IA para verificación de razonamientos matemáticos, simulación de riesgo y optimización lineal. El estándar aquí no es «acierta el resultado»: es «el camino que recorre es correcto».
               </p>
 
               {/* Nota de rigor */}
               <div className="mt-5 inline-flex items-start gap-2 border border-indigo-400/20 bg-indigo-400/5 rounded-xl px-4 py-3 max-w-xl">
                 <Calculator size={13} className="text-indigo-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-indigo-300/70 leading-relaxed">
-                  <strong className="text-indigo-300">Nota de rigor formal:</strong> en todo este cuaderno se distingue entre Â«el modelo acierta el resultadoÂ» y Â«el modelo demuestra el razonamiento de forma rigurosaÂ». Son capacidades distintas, medidas de forma distinta, y se tratan como tales.
+                  <strong className="text-indigo-300">Nota de rigor formal:</strong> en todo este cuaderno se distingue entre «el modelo acierta el resultado» y «el modelo demuestra el razonamiento de forma rigurosa». Son capacidades distintas, medidas de forma distinta, y se tratan como tales.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-5 mt-8 pt-8 border-t border-white/5">
                 {[
-                  { label: "Dimensiones de investigaciÃ³n", value: "6" },
+                  { label: "Dimensiones de investigación", value: "6" },
                   { label: "Proyectos activos", value: "3" },
                   { label: "Benchmarks cubiertos", value: "15" },
                   { label: "Aplicaciones de mercado", value: "5" },
@@ -780,17 +780,17 @@ export default function MatematicasLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ MÃ³dulo 1 â”€â”€ */}
+        {/* â”€â”€ Módulo 1 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <BarChart3 size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 1</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© se investiga aquÃ­</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 1</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué se investiga aquí</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                No nos preguntamos solo si el modelo resuelve el problema: nos preguntamos si el camino que recorre es correcto, si cada paso es vÃ¡lido, y si cuando falla, falla de forma detectable o de forma silenciosa. Seis dimensiones que cubren el espectro completo, desde el problema de olimpiada donde la creatividad es esencial hasta el verificador formal donde el rigor es el Ãºnico criterio.
+                No nos preguntamos solo si el modelo resuelve el problema: nos preguntamos si el camino que recorre es correcto, si cada paso es válido, y si cuando falla, falla de forma detectable o de forma silenciosa. Seis dimensiones que cubren el espectro completo, desde el problema de olimpiada donde la creatividad es esencial hasta el verificador formal donde el rigor es el único criterio.
               </p>
             </div>
           </div>
@@ -802,22 +802,22 @@ export default function MatematicasLab() {
           <div className="mt-6 border border-white/5 bg-white/2 rounded-2xl p-5">
             <p className="text-xs text-white/25 uppercase tracking-widest mb-2">Del resultado al razonamiento</p>
             <p className="text-sm text-white/45 leading-relaxed">
-              Las seis lÃ­neas estÃ¡n diseÃ±adas para cubrir el espectro completo: desde el problema de olimpiada (lÃ­nea 01) donde la creatividad es esencial, hasta el verificador formal (lÃ­nea 06) donde el rigor es el Ãºnico criterio. Los tres proyectos del laboratorio viven en distintos puntos de ese espectro: Prisma en la verificaciÃ³n, Predictor en la simulaciÃ³n, Simplex en la optimizaciÃ³n.
+              Las seis líneas están diseñadas para cubrir el espectro completo: desde el problema de olimpiada (línea 01) donde la creatividad es esencial, hasta el verificador formal (línea 06) donde el rigor es el único criterio. Los tres proyectos del laboratorio viven en distintos puntos de ese espectro: Prisma en la verificación, Predictor en la simulación, Simplex en la optimización.
             </p>
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 2 â”€â”€ */}
+        {/* â”€â”€ Módulo 2 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <Cpu size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 2</p>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 2</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Casos de desarrollo</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Tres proyectos en tres registros distintos: Prisma MatemÃ¡tico audita razonamientos ya generados, Predictor de Riesgo convierte incertidumbre en distribuciones accionables, y Simplex Helios lleva cualquier problema de asignaciÃ³n de recursos desde el enunciado verbal hasta la soluciÃ³n Ã³ptima verificada.
+                Tres proyectos en tres registros distintos: Prisma Matemático audita razonamientos ya generados, Predictor de Riesgo convierte incertidumbre en distribuciones accionables, y Simplex Helios lleva cualquier problema de asignación de recursos desde el enunciado verbal hasta la solución óptima verificada.
               </p>
             </div>
           </div>
@@ -828,17 +828,17 @@ export default function MatematicasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 3 â”€â”€ */}
+        {/* â”€â”€ Módulo 3 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <GitBranch size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 3</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© aplicaciones ya existen en el mercado</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 3</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué aplicaciones ya existen en el mercado</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Cinco aplicaciones reales de IA aplicada a razonamiento matemÃ¡tico, simulaciÃ³n y optimizaciÃ³n. Verificar caracterÃ­sticas actuales y precios en la web oficial de cada herramienta.
+                Cinco aplicaciones reales de IA aplicada a razonamiento matemático, simulación y optimización. Verificar características actuales y precios en la web oficial de cada herramienta.
               </p>
             </div>
           </div>
@@ -862,7 +862,7 @@ export default function MatematicasLab() {
                 <div className="mt-4 pt-3 border-t border-white/5">
                   <p className="text-xs text-yellow-400/50 flex items-center gap-1.5">
                     <AlertTriangle size={10} />
-                    Verificar caracterÃ­sticas en web oficial
+                    Verificar características en web oficial
                   </p>
                 </div>
               </a>
@@ -870,17 +870,17 @@ export default function MatematicasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 4 â”€â”€ */}
+        {/* â”€â”€ Módulo 4 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
               <AlertTriangle size={14} className="text-yellow-400" />
             </div>
             <div>
-              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">MÃ³dulo 4</p>
+              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">Módulo 4</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Puntos a verificar</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Cinco puntos que requieren revisiÃ³n antes de publicar o referenciar los datos de este cuaderno en materiales externos. Incluyen el diferencial estrecho entre modelos en razonamiento multi-paso, la ausencia de benchmarks especÃ­ficos de Monte Carlo y programaciÃ³n lineal, y la disponibilidad de AutoGen-Sonnet-Team como componente integrable.
+                Cinco puntos que requieren revisión antes de publicar o referenciar los datos de este cuaderno en materiales externos. Incluyen el diferencial estrecho entre modelos en razonamiento multi-paso, la ausencia de benchmarks específicos de Monte Carlo y programación lineal, y la disponibilidad de AutoGen-Sonnet-Team como componente integrable.
               </p>
             </div>
           </div>
@@ -894,7 +894,7 @@ export default function MatematicasLab() {
         {/* â”€â”€ Footer CTA â”€â”€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo Â· STATER Reasoning & Math Leaderboard Â· 2026-08-29</p>
+            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Reasoning & Math Leaderboard · 2026-08-29</p>
             <p className="text-sm text-white/45">
               Datos de{" "}
               <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded text-white/60">latest_rankings_math.md</code>{" "}

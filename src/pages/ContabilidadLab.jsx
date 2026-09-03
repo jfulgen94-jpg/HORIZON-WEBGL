@@ -21,17 +21,17 @@ const RESEARCH_LINES = [
   {
     id: "reconciliation",
     number: "01",
-    title: "ConciliaciÃ³n bancaria y automatizaciÃ³n de asientos contables",
+    title: "Conciliación bancaria y automatización de asientos contables",
     icon: "bank",
     color: "blue",
-    summary: "La conciliaciÃ³n bancaria es el proceso de cotejar, transacciÃ³n a transacciÃ³n, los movimientos del extracto bancario con los registros del Libro Mayor. En empresas con miles de movimientos mensuales, este proceso puede ocupar dÃ­as enteros del equipo contable.",
-    detail: "El laboratorio investiga si un modelo de lenguaje puede hacer el cruce inicial, identificar los descuadres y proponer la correcciÃ³n probable antes de que el contable tenga que mirar la primera lÃ­nea. El Libro Mayor (General Ledger) es el registro maestro de todas las transacciones financieras de la empresa; si no estÃ¡ cuadrado, nada de lo que venga despuÃ©s es fiable.",
+    summary: "La conciliación bancaria es el proceso de cotejar, transacción a transacción, los movimientos del extracto bancario con los registros del Libro Mayor. En empresas con miles de movimientos mensuales, este proceso puede ocupar días enteros del equipo contable.",
+    detail: "El laboratorio investiga si un modelo de lenguaje puede hacer el cruce inicial, identificar los descuadres y proponer la corrección probable antes de que el contable tenga que mirar la primera línea. El Libro Mayor (General Ledger) es el registro maestro de todas las transacciones financieras de la empresa; si no está cuadrado, nada de lo que venga después es fiable.",
     benchmarks: [
-      { name: "Bank_Reconciliation_Auto", desc: "ConciliaciÃ³n bancaria automatizada de extremo a extremo" },
-      { name: "FinBen_Financial_Reporting", desc: "GeneraciÃ³n y validaciÃ³n de informes financieros" },
-      { name: "BizFin_Cost_Allocation", desc: "AsignaciÃ³n automÃ¡tica de centros de coste" },
+      { name: "Bank_Reconciliation_Auto", desc: "Conciliación bancaria automatizada de extremo a extremo" },
+      { name: "FinBen_Financial_Reporting", desc: "Generación y validación de informes financieros" },
+      { name: "BizFin_Cost_Allocation", desc: "Asignación automática de centros de coste" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "94.41", detail: "94.5 FinBen Â· 95.0 Bank_Reconciliation Â· 93.8 BizFin_Cost" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "94.41", detail: "94.5 FinBen · 95.0 Bank_Reconciliation · 93.8 BizFin_Cost" },
   },
   {
     id: "invoices",
@@ -39,44 +39,44 @@ const RESEARCH_LINES = [
     title: "Procesamiento de facturas y cumplimiento fiscal",
     icon: "invoice",
     color: "emerald",
-    summary: "El OCR (reconocimiento Ã³ptico de caracteres) existe desde hace dÃ©cadas, pero el problema de procesar facturas en formato libre sigue sin estar resuelto de forma general: campos en posiciones distintas, formatos de fecha variados, IVA desglosado de maneras diferentes segÃºn el proveedor.",
-    detail: "El laboratorio investiga modelos multimodales capaces de extraer estructuradamente el contenido de cualquier factura, normalizarlo y validarlo contra las reglas de retenciÃ³n fiscal aplicables.",
+    summary: "El OCR (reconocimiento óptico de caracteres) existe desde hace décadas, pero el problema de procesar facturas en formato libre sigue sin estar resuelto de forma general: campos en posiciones distintas, formatos de fecha variados, IVA desglosado de maneras diferentes según el proveedor.",
+    detail: "El laboratorio investiga modelos multimodales capaces de extraer estructuradamente el contenido de cualquier factura, normalizarlo y validarlo contra las reglas de retención fiscal aplicables.",
     benchmarks: [
-      { name: "Expense_Receipt_Structuring", desc: "ExtracciÃ³n de datos de tickets y justificantes" },
-      { name: "FinBen_Document_OCR_Table", desc: "OCR y estructuraciÃ³n de tablas financieras" },
+      { name: "Expense_Receipt_Structuring", desc: "Extracción de datos de tickets y justificantes" },
+      { name: "FinBen_Document_OCR_Table", desc: "OCR y estructuración de tablas financieras" },
       { name: "Tax_Regulation_VAT_Compliance", desc: "Cumplimiento de normativa de IVA" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "96.43", detail: "97.2 Expense_Receipt Â· 96.8 OCR_Table Â· 95.2 Contract_Clause" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "96.43", detail: "97.2 Expense_Receipt · 96.8 OCR_Table · 95.2 Contract_Clause" },
   },
   {
     id: "assets",
     number: "03",
-    title: "AuditorÃ­a de activos fijos y amortizaciones",
+    title: "Auditoría de activos fijos y amortizaciones",
     icon: "asset",
     color: "purple",
-    summary: "Los activos fijos se amortizan a lo largo de su vida Ãºtil. En carteras grandes, los errores se acumulan silenciosamente: vidas Ãºtiles mal aplicadas, activos amortizados dos veces, activos que deberÃ­an haberse dado de baja pero siguen generando asientos.",
-    detail: "La amortizaciÃ³n (depreciation) es la distribuciÃ³n contable del coste de un activo a lo largo de su vida Ãºtil estimada. Un error en la vida Ãºtil no es un error puntual: se propaga durante aÃ±os, distorsionando el resultado contable en cada ejercicio. El laboratorio investiga si un modelo puede auditar esa cartera de forma continua.",
+    summary: "Los activos fijos se amortizan a lo largo de su vida útil. En carteras grandes, los errores se acumulan silenciosamente: vidas útiles mal aplicadas, activos amortizados dos veces, activos que deberían haberse dado de baja pero siguen generando asientos.",
+    detail: "La amortización (depreciation) es la distribución contable del coste de un activo a lo largo de su vida útil estimada. Un error en la vida útil no es un error puntual: se propaga durante años, distorsionando el resultado contable en cada ejercicio. El laboratorio investiga si un modelo puede auditar esa cartera de forma continua.",
     benchmarks: [
-      { name: "Contract_Financial_Clause_IE", desc: "ExtracciÃ³n de clÃ¡usulas financieras de contratos" },
-      { name: "Audit_Trail_Consistency", desc: "VerificaciÃ³n de pista de auditorÃ­a completa" },
-      { name: "BizFin_Ledger_Anomaly_Tracing", desc: "DetecciÃ³n de anomalÃ­as en asientos" },
+      { name: "Contract_Financial_Clause_IE", desc: "Extracción de cláusulas financieras de contratos" },
+      { name: "Audit_Trail_Consistency", desc: "Verificación de pista de auditoría completa" },
+      { name: "BizFin_Ledger_Anomaly_Tracing", desc: "Detección de anomalías en asientos" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet + DeepSeek-R1", score: "95.75 / 95.55", detail: "Claude lidera trazabilidad Â· DeepSeek lidera detecciÃ³n de anomalÃ­as" },
+    topModel: { name: "Claude 3.7 Sonnet + DeepSeek-R1", score: "95.75 / 95.55", detail: "Claude lidera trazabilidad · DeepSeek lidera detección de anomalías" },
   },
   {
     id: "fraud",
     number: "04",
-    title: "DetecciÃ³n de fraude y anomalÃ­as en notas de gastos",
+    title: "Detección de fraude y anomalías en notas de gastos",
     icon: "fraud",
     color: "rose",
-    summary: "Las notas de gastos corporativos son una de las Ã¡reas de mayor exposiciÃ³n a fraude por abuso interno: ticket duplicado, importe superior al lÃ­mite de polÃ­tica, justificante en dÃ­a no laborable.",
-    detail: "El laboratorio investiga modelos que aprendan el patrÃ³n habitual de cada empleado y departamento, y marquen las desviaciones estadÃ­sticas significativas para revisiÃ³n. El fraude en gastos raramente implica sumas enormes en una sola transacciÃ³n: suele ser pequeÃ±o, repetido y suficientemente disperso como para pasar desapercibido en una revisiÃ³n manual.",
+    summary: "Las notas de gastos corporativos son una de las áreas de mayor exposición a fraude por abuso interno: ticket duplicado, importe superior al límite de política, justificante en día no laborable.",
+    detail: "El laboratorio investiga modelos que aprendan el patrón habitual de cada empleado y departamento, y marquen las desviaciones estadísticas significativas para revisión. El fraude en gastos raramente implica sumas enormes en una sola transacción: suele ser pequeño, repetido y suficientemente disperso como para pasar desapercibido en una revisión manual.",
     benchmarks: [
-      { name: "FinBen_Fraud_Anomaly_Task", desc: "DetecciÃ³n de fraude en transacciones financieras" },
-      { name: "BizFin_Ledger_Anomaly_Tracing", desc: "Trazado de anomalÃ­as en el Libro Mayor" },
+      { name: "FinBen_Fraud_Anomaly_Task", desc: "Detección de fraude en transacciones financieras" },
+      { name: "BizFin_Ledger_Anomaly_Tracing", desc: "Trazado de anomalías en el Libro Mayor" },
       { name: "Duplicate_Invoice_Filter", desc: "Filtrado de facturas duplicadas" },
     ],
-    topModel: { name: "DeepSeek-R1", score: "95.55", detail: "95.2 Fraud_Anomaly Â· 95.5 Ledger_Anomaly Â· 96.0 Duplicate_Filter" },
+    topModel: { name: "DeepSeek-R1", score: "95.55", detail: "95.2 Fraud_Anomaly · 95.5 Ledger_Anomaly · 96.0 Duplicate_Filter" },
   },
 ];
 
@@ -85,29 +85,29 @@ const PROJECTS = [
     id: "balance",
     name: "Balance Inteligente",
     tagline: "El primer revisor que llega antes que el contable",
-    desc: "Motor de cuadre y conciliaciÃ³n automatizada. Cruza movimientos bancarios contra el Libro Mayor, detecta discrepancias â€”pagos duplicados, importes con decimales incorrectos, asientos huÃ©rfanosâ€” y propone la correcciÃ³n mÃ¡s probable para cada uno. No registra asientos definitivos: solo propone.",
+    desc: "Motor de cuadre y conciliación automatizada. Cruza movimientos bancarios contra el Libro Mayor, detecta discrepancias â€”pagos duplicados, importes con decimales incorrectos, asientos huérfanosâ€” y propone la corrección más probable para cada uno. No registra asientos definitivos: solo propone.",
     color: "blue",
     researchLines: ["01"],
     stack: [
-      { role: "Modelo de conciliaciÃ³n y asientos", tech: "Claude 3.7 Sonnet â€” lÃ­der automatizaciÃ³n contable (94.41/100)" },
-      { role: "Modelo de detecciÃ³n de anomalÃ­as", tech: "DeepSeek-R1 â€” lÃ­der detecciÃ³n de fraude transaccional (95.55/100)" },
-      { role: "Fuentes de datos", tech: "Extractos bancarios MT940 / CAMT.053 / CSV Â· Libro Mayor ERP" },
+      { role: "Modelo de conciliación y asientos", tech: "Claude 3.7 Sonnet â€” líder automatización contable (94.41/100)" },
+      { role: "Modelo de detección de anomalías", tech: "DeepSeek-R1 â€” líder detección de fraude transaccional (95.55/100)" },
+      { role: "Fuentes de datos", tech: "Extractos bancarios MT940 / CAMT.053 / CSV · Libro Mayor ERP" },
       { role: "Almacenamiento", tech: "DuckDB â€” historial conciliaciones + log propuestas aceptadas/rechazadas" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "Propuesta de conciliaciÃ³n y correcciÃ³n", score: "94.41", area: "AutomatizaciÃ³n Contable" },
-      { model: "DeepSeek-R1", role: "ValidaciÃ³n de anomalÃ­as y fraude", score: "95.55", area: "DetecciÃ³n de AnomalÃ­as y Fraude" },
+      { model: "Claude 3.7 Sonnet", role: "Propuesta de conciliación y corrección", score: "94.41", area: "Automatización Contable" },
+      { model: "DeepSeek-R1", role: "Validación de anomalías y fraude", score: "95.55", area: "Detección de Anomalías y Fraude" },
     ],
     flow: [
-      "Extracto bancario (MT940, CAMT.053 o CSV) + Movimientos del Libro Mayor del perÃ­odo",
-      "NormalizaciÃ³n de formatos y parsing de fechas, importes y conceptos",
-      "Cruce automÃ¡tico: coincidencia exacta â†’ conciliado; parcial â†’ propuesta con confianza; sin coincidencia â†’ asiento huÃ©rfano",
-      "GeneraciÃ³n de propuestas de correcciÃ³n (Claude 3.7 Sonnet): asientos de ajuste, duplicados identificados, contrapartidas probables",
-      "ValidaciÃ³n de anomalÃ­as (DeepSeek-R1): patrones estructurados para eludir umbrales, movimientos inusuales",
-      "Informe de conciliaciÃ³n: conciliados automÃ¡ticamente / pendientes revisiÃ³n humana / anomalÃ­as marcadas",
-      "Salida: informe JSON + Excel de conciliaciÃ³n + cola de revisiÃ³n priorizada para el contable",
+      "Extracto bancario (MT940, CAMT.053 o CSV) + Movimientos del Libro Mayor del período",
+      "Normalización de formatos y parsing de fechas, importes y conceptos",
+      "Cruce automático: coincidencia exacta â†’ conciliado; parcial â†’ propuesta con confianza; sin coincidencia â†’ asiento huérfano",
+      "Generación de propuestas de corrección (Claude 3.7 Sonnet): asientos de ajuste, duplicados identificados, contrapartidas probables",
+      "Validación de anomalías (DeepSeek-R1): patrones estructurados para eludir umbrales, movimientos inusuales",
+      "Informe de conciliación: conciliados automáticamente / pendientes revisión humana / anomalías marcadas",
+      "Salida: informe JSON + Excel de conciliación + cola de revisión priorizada para el contable",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado balance_inteligente.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado balance_inteligente.py con las siguientes funciones:
 1. parse_bank_statement(filepath: str) -> pd.DataFrame: parsea un extracto bancario
    en formato MT940, CAMT.053 o CSV. Normaliza columnas a:
    [transaction_id, date, amount, currency, description, counterparty].
@@ -119,30 +119,30 @@ const PROJECTS = [
    Devuelve {matched: list[dict], partial: list[dict], unmatched_bank: list[dict],
    unmatched_ledger: list[dict]}.
 4. propose_corrections(unmatched: dict, llm_client) -> list[dict]: llama al LLM para
-   proponer la correcciÃ³n mÃ¡s probable para cada descuadre.
+   proponer la corrección más probable para cada descuadre.
    Devuelve [{entry_id, issue_type, proposed_correction, confidence, rationale}].
 5. generate_reconciliation_report(matched, partial, unmatched, corrections) -> dict:
-   genera el informe final con recuento de casos por categorÃ­a y lista de correcciones
+   genera el informe final con recuento de casos por categoría y lista de correcciones
    propuestas ordenadas por confianza descendente.
-Usa pandas, duckdb y la librerÃ­a estÃ¡ndar. El mÃ³dulo NO debe registrar asientos definitivos.`,
-    promptLLM: `Eres el motor de propuesta de conciliaciÃ³n de Balance Inteligente en el Laboratorio
+Usa pandas, duckdb y la librería estándar. El módulo NO debe registrar asientos definitivos.`,
+    promptLLM: `Eres el motor de propuesta de conciliación de Balance Inteligente en el Laboratorio
 de Contabilidad & ERP de Horizon.
 Se te proporciona un descuadre detectado entre el extracto bancario y el Libro Mayor.
-El descuadre puede ser: importe incorrecto, asiento duplicado, contrapartida errÃ³nea
+El descuadre puede ser: importe incorrecto, asiento duplicado, contrapartida errónea
 o asiento sin movimiento bancario correspondiente.
 
 Tu tarea:
-1. Analiza el descuadre y clasifÃ­calo en una de las siguientes categorÃ­as:
+1. Analiza el descuadre y clasifícalo en una de las siguientes categorías:
    "duplicate_entry" | "amount_mismatch" | "wrong_account" | "orphan_bank_movement"
    | "orphan_ledger_entry" | "timing_difference".
-2. Propone la correcciÃ³n contable mÃ¡s probable. Si es un asiento de ajuste,
-   especifica la cuenta de dÃ©bito, la cuenta de crÃ©dito y el importe.
+2. Propone la corrección contable más probable. Si es un asiento de ajuste,
+   especifica la cuenta de débito, la cuenta de crédito y el importe.
 3. Asigna una confianza entre 0.0 y 1.0. Si la confianza es menor a 0.7,
-   recomienda explÃ­citamente revisiÃ³n humana.
+   recomienda explícitamente revisión humana.
 
-Restricciones crÃ­ticas:
-- No registres ni confirmes ningÃºn asiento. Solo propones.
-- Si el importe involucrado supera 10.000 EUR, aÃ±ade siempre la nota
+Restricciones críticas:
+- No registres ni confirmes ningún asiento. Solo propones.
+- Si el importe involucrado supera 10.000 EUR, añade siempre la nota
   "REQUIERE VALIDACIÃ“N DE RESPONSABLE CONTABLE" con independencia de la confianza.
 - No hagas afirmaciones sobre la normativa fiscal aplicable sin marcarlas como
   "[VERIFICAR NORMATIVA VIGENTE]".
@@ -162,32 +162,32 @@ Responde en JSON:
   {
     id: "fisco",
     name: "Fisco Cero",
-    tagline: "Cero facturas a mano, cero errores en la declaraciÃ³n",
-    desc: "Sistema de extracciÃ³n inteligente y validaciÃ³n fiscal de facturas. Combina OCR para lectura de documentos no estructurados con un motor de verificaciÃ³n que contrasta lo extraÃ­do contra las reglas de retenciÃ³n fiscal, detecta errores antes de la presentaciÃ³n de impuestos y propone la clasificaciÃ³n contable adecuada.",
+    tagline: "Cero facturas a mano, cero errores en la declaración",
+    desc: "Sistema de extracción inteligente y validación fiscal de facturas. Combina OCR para lectura de documentos no estructurados con un motor de verificación que contrasta lo extraído contra las reglas de retención fiscal, detecta errores antes de la presentación de impuestos y propone la clasificación contable adecuada.",
     color: "emerald",
     researchLines: ["02"],
     stack: [
-      { role: "OCR inteligente y estructuraciÃ³n documental", tech: "Claude 3.7 Sonnet â€” lÃ­der OCR contable (96.43/100)" },
-      { role: "VerificaciÃ³n de cumplimiento fiscal", tech: "Claude 3.7 Sonnet â€” lÃ­der trazabilidad y cumplimiento (95.75/100)" },
+      { role: "OCR inteligente y estructuración documental", tech: "Claude 3.7 Sonnet â€” líder OCR contable (96.43/100)" },
+      { role: "Verificación de cumplimiento fiscal", tech: "Claude 3.7 Sonnet â€” líder trazabilidad y cumplimiento (95.75/100)" },
       { role: "Motor OCR base", tech: "Tesseract / Azure Document Intelligence (preprocesamiento)" },
-      { role: "Fuente de reglas fiscales", tech: "Tabla de tipos de IVA por tipo de gasto y paÃ­s [VERIFICAR NORMATIVA VIGENTE]" },
-      { role: "Almacenamiento", tech: "DuckDB â€” historial facturas procesadas + Ã­ndice por proveedor y perÃ­odo" },
+      { role: "Fuente de reglas fiscales", tech: "Tabla de tipos de IVA por tipo de gasto y país [VERIFICAR NORMATIVA VIGENTE]" },
+      { role: "Almacenamiento", tech: "DuckDB â€” historial facturas procesadas + índice por proveedor y período" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "ExtracciÃ³n multimodal y validaciÃ³n fiscal", score: "96.43", area: "OCR Contable y EstructuraciÃ³n" },
+      { model: "Claude 3.7 Sonnet", role: "Extracción multimodal y validación fiscal", score: "96.43", area: "OCR Contable y Estructuración" },
       { model: "Claude 3.7 Sonnet", role: "Trazabilidad y cumplimiento IVA", score: "95.75", area: "Trazabilidad y Cumplimiento Fiscal" },
     ],
     flow: [
       "Entrada: factura (PDF, imagen JPG/PNG, XML Factura-e, EDI)",
-      "Preprocesamiento OCR segÃºn tipo: correcciÃ³n de perspectiva (imagen) / extracciÃ³n de tablas (PDF) / parsing directo (XML)",
-      "ExtracciÃ³n estructurada (Claude 3.7 Sonnet): NIF emisor/receptor, nÃºmero, fecha, conceptos, base imponible, IVA, retenciones, total",
-      "ValidaciÃ³n fiscal: tipo de IVA correcto para la naturaleza del bien/servicio [VERIFICAR NORMATIVA VIGENTE], coherencia aritmÃ©tica, NIF vÃ¡lido, perÃ­odo de deducibilidad",
-      "ClasificaciÃ³n contable: cuenta del Plan General Contable propuesta + centro de coste si hay informaciÃ³n suficiente",
-      "Salida A: registro JSON listo para ingesta en ERP Â· Salida B: informe de validaciÃ³n con errores y advertencias Â· Salida C: imagen anotada con campos extraÃ­dos",
+      "Preprocesamiento OCR según tipo: corrección de perspectiva (imagen) / extracción de tablas (PDF) / parsing directo (XML)",
+      "Extracción estructurada (Claude 3.7 Sonnet): NIF emisor/receptor, número, fecha, conceptos, base imponible, IVA, retenciones, total",
+      "Validación fiscal: tipo de IVA correcto para la naturaleza del bien/servicio [VERIFICAR NORMATIVA VIGENTE], coherencia aritmética, NIF válido, período de deducibilidad",
+      "Clasificación contable: cuenta del Plan General Contable propuesta + centro de coste si hay información suficiente",
+      "Salida A: registro JSON listo para ingesta en ERP · Salida B: informe de validación con errores y advertencias · Salida C: imagen anotada con campos extraídos",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado fisco_cero.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado fisco_cero.py con las siguientes funciones:
 1. preprocess_document(filepath: str) -> dict: detecta el tipo de documento
-   (image, pdf_text, pdf_scan, xml, edi) y preprocesa segÃºn el tipo.
+   (image, pdf_text, pdf_scan, xml, edi) y preprocesa según el tipo.
    Devuelve {doc_type: str, raw_text: str, pages: list[str], source_file: str}.
 2. extract_invoice_fields(doc: dict, llm_client) -> dict: extrae los campos clave
    de la factura usando el LLM. Devuelve:
@@ -206,67 +206,67 @@ Responde en JSON:
    confidence: float, classification_rationale: str}.
 5. export_to_erp_format(invoice: dict, classification: dict) -> dict:
    genera el payload JSON para ingesta directa en ERP (formato configurable:
-   SAP BAPI / Oracle REST / genÃ©rico).
-Usa PyMuPDF, pytesseract, requests, duckdb y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el motor de extracciÃ³n y validaciÃ³n fiscal de Fisco Cero en el Laboratorio
+   SAP BAPI / Oracle REST / genérico).
+Usa PyMuPDF, pytesseract, requests, duckdb y la librería estándar.`,
+    promptLLM: `Eres el motor de extracción y validación fiscal de Fisco Cero en el Laboratorio
 de Contabilidad & ERP de Horizon.
-Se te proporciona el texto extraÃ­do de un documento de factura (puede contener
+Se te proporciona el texto extraído de un documento de factura (puede contener
 errores de OCR, formatos irregulares de fecha o importes con separadores distintos).
 
-Tarea 1 â€” ExtracciÃ³n:
+Tarea 1 â€” Extracción:
 Extrae todos los campos fiscalmente relevantes del documento. Si un campo no aparece
 claramente en el texto, ponlo como null y marca confidence en 0.5 o menos.
-No inventes datos que no estÃ©n en el documento.
+No inventes datos que no estén en el documento.
 
-Tarea 2 â€” ValidaciÃ³n aritmÃ©tica:
+Tarea 2 â€” Validación aritmética:
 Verifica que: sum(line_item.subtotal) = tax_base, y que
 tax_base * (1 + vat_rate/100) - withholding_amount = total.
-Si hay discrepancia de mÃ¡s de 0.02 EUR, mÃ¡rcalo como error.
+Si hay discrepancia de más de 0.02 EUR, márcalo como error.
 
 Tarea 3 â€” Advertencias fiscales:
 Identifica posibles problemas fiscales (tipo de IVA inusual para el tipo de gasto,
-fecha fuera del perÃ­odo habitual, NIF con formato invÃ¡lido). MÃ¡rcalos siempre como
-"advertencia" y aÃ±ade: "[VERIFICAR NORMATIVA VIGENTE]" junto a cualquier criterio
-fiscal especÃ­fico que cites.
+fecha fuera del período habitual, NIF con formato inválido). Márcalos siempre como
+"advertencia" y añade: "[VERIFICAR NORMATIVA VIGENTE]" junto a cualquier criterio
+fiscal específico que cites.
 
 Responde en JSON estricto con los campos definidos en extract_invoice_fields
-mÃ¡s un campo "fiscal_warnings": list[str].`,
+más un campo "fiscal_warnings": list[str].`,
   },
   {
     id: "atlas",
     name: "Atlas Activos",
     tagline: "Auditor continuo de la cartera de activos fijos",
-    desc: "Mantiene un registro vivo de cada activo fijo de la empresa â€” maquinaria, vehÃ­culos, equipos, licencias software capitalizadas â€”, verifica su calendario de amortizaciÃ³n y detecta inconsistencias: activos amortizados dos veces, vidas Ãºtiles incorrectas o activos que deberÃ­an haberse dado de baja pero siguen generando asientos.",
+    desc: "Mantiene un registro vivo de cada activo fijo de la empresa â€” maquinaria, vehículos, equipos, licencias software capitalizadas â€”, verifica su calendario de amortización y detecta inconsistencias: activos amortizados dos veces, vidas útiles incorrectas o activos que deberían haberse dado de baja pero siguen generando asientos.",
     color: "purple",
     researchLines: ["03"],
     stack: [
-      { role: "ExtracciÃ³n de datos de activos", tech: "Claude 3.7 Sonnet â€” lÃ­der extracciÃ³n documental (96.43/100)" },
-      { role: "AuditorÃ­a de trazabilidad", tech: "Claude 3.7 Sonnet â€” lÃ­der trazabilidad contable (95.75/100)" },
-      { role: "DetecciÃ³n de duplicidades en asientos", tech: "DeepSeek-R1 â€” lÃ­der detecciÃ³n de anomalÃ­as (95.55/100)" },
-      { role: "Motor de cÃ¡lculo de amortizaciÃ³n", tech: "Tablas configurables: lineal / degresivo / unidades producidas [VERIFICAR NORMATIVA VIGENTE]" },
+      { role: "Extracción de datos de activos", tech: "Claude 3.7 Sonnet â€” líder extracción documental (96.43/100)" },
+      { role: "Auditoría de trazabilidad", tech: "Claude 3.7 Sonnet â€” líder trazabilidad contable (95.75/100)" },
+      { role: "Detección de duplicidades en asientos", tech: "DeepSeek-R1 â€” líder detección de anomalías (95.55/100)" },
+      { role: "Motor de cálculo de amortización", tech: "Tablas configurables: lineal / degresivo / unidades producidas [VERIFICAR NORMATIVA VIGENTE]" },
       { role: "Almacenamiento", tech: "DuckDB â€” registro maestro de activos + serie temporal de asientos por activo" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "ExtracciÃ³n y trazabilidad de activos", score: "96.43 / 95.75", area: "OCR Contable + Trazabilidad" },
-      { model: "DeepSeek-R1", role: "DetecciÃ³n de duplicidades en asientos", score: "95.55", area: "DetecciÃ³n de AnomalÃ­as y Fraude" },
+      { model: "Claude 3.7 Sonnet", role: "Extracción y trazabilidad de activos", score: "96.43 / 95.75", area: "OCR Contable + Trazabilidad" },
+      { model: "DeepSeek-R1", role: "Detección de duplicidades en asientos", score: "95.55", area: "Detección de Anomalías y Fraude" },
     ],
     flow: [
-      "Entrada: documento de adquisiciÃ³n (factura, contrato de leasing, escritura, ficha de inventario)",
-      "ExtracciÃ³n de datos del activo (Claude 3.7 Sonnet): descripciÃ³n, categorÃ­a, fechas, valor, vida Ãºtil propuesta [VERIFICAR NORMATIVA VIGENTE]",
-      "CÃ¡lculo del calendario de amortizaciÃ³n: dotaciÃ³n anual/mensual, fechas de inicio y fin, asientos proyectados (propuesta, no definitivos)",
-      "MonitorizaciÃ³n continua (mensual): cruce asientos ERP vs. calendario proyectado Â· DetecciÃ³n duplicados/faltantes (DeepSeek-R1)",
-      "Alertas por activos con vida Ãºtil agotada activos en sistema Â· Alertas por variaciÃ³n de valor contable",
-      "AuditorÃ­a de trazabilidad (Claude 3.7 Sonnet): pista completa desde adquisiciÃ³n hasta baja, referencia de activo en cada asiento",
-      "Salida A: dashboard estado de cartera Â· Salida B: inconsistencias con severidad Â· Salida C: informe auditorÃ­a exportable",
+      "Entrada: documento de adquisición (factura, contrato de leasing, escritura, ficha de inventario)",
+      "Extracción de datos del activo (Claude 3.7 Sonnet): descripción, categoría, fechas, valor, vida útil propuesta [VERIFICAR NORMATIVA VIGENTE]",
+      "Cálculo del calendario de amortización: dotación anual/mensual, fechas de inicio y fin, asientos proyectados (propuesta, no definitivos)",
+      "Monitorización continua (mensual): cruce asientos ERP vs. calendario proyectado · Detección duplicados/faltantes (DeepSeek-R1)",
+      "Alertas por activos con vida útil agotada activos en sistema · Alertas por variación de valor contable",
+      "Auditoría de trazabilidad (Claude 3.7 Sonnet): pista completa desde adquisición hasta baja, referencia de activo en cada asiento",
+      "Salida A: dashboard estado de cartera · Salida B: inconsistencias con severidad · Salida C: informe auditoría exportable",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado atlas_activos.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado atlas_activos.py con las siguientes funciones:
 1. register_asset(doc: dict, llm_client) -> dict: extrae los datos del activo desde
-   un documento de adquisiciÃ³n procesado. Devuelve:
+   un documento de adquisición procesado. Devuelve:
    {asset_id: str, description: str, category: str, acquisition_date: str,
     service_date: str, acquisition_cost: float, residual_value: float,
     useful_life_years: float, depreciation_method: str, confidence: float}.
 2. compute_depreciation_schedule(asset: dict) -> list[dict]: calcula el calendario
-   completo de amortizaciÃ³n. Devuelve una lista de perÃ­odos:
+   completo de amortización. Devuelve una lista de períodos:
    [{period: str (YYYY-MM), depreciation_amount: float, accumulated: float,
      net_book_value: float}].
 3. audit_depreciation_entries(asset_id: str, erp_entries: pd.DataFrame,
@@ -281,27 +281,27 @@ mÃ¡s un campo "fiscal_warnings": list[str].`,
 5. flag_for_writeoff(asset: dict, schedule: list[dict]) -> dict:
    determina si el activo debe darse de baja. Devuelve:
    {should_write_off: bool, reason: str, recommended_action: str}.
-Usa pandas, duckdb y la librerÃ­a estÃ¡ndar. Sin dependencias adicionales.`,
-    promptLLM: `Eres el mÃ³dulo de auditorÃ­a de trazabilidad de Atlas Activos en el Laboratorio
+Usa pandas, duckdb y la librería estándar. Sin dependencias adicionales.`,
+    promptLLM: `Eres el módulo de auditoría de trazabilidad de Atlas Activos en el Laboratorio
 de Contabilidad & ERP de Horizon.
-Se te proporciona el historial completo de asientos de amortizaciÃ³n de un activo
-fijo (registrados en el ERP) y el calendario de amortizaciÃ³n proyectado por el sistema.
+Se te proporciona el historial completo de asientos de amortización de un activo
+fijo (registrados en el ERP) y el calendario de amortización proyectado por el sistema.
 
 Tu tarea:
-1. Verifica que cada perÃ­odo del calendario tiene su asiento correspondiente en el ERP
-   con el importe correcto (tolerancia: Â±0.01 EUR por redondeo).
-2. Identifica perÃ­odos con asientos duplicados o faltantes.
+1. Verifica que cada período del calendario tiene su asiento correspondiente en el ERP
+   con el importe correcto (tolerancia: ±0.01 EUR por redondeo).
+2. Identifica períodos con asientos duplicados o faltantes.
 3. Verifica que la cuenta contable utilizada en cada asiento corresponde a la
-   categorÃ­a del activo.
-4. Comprueba que la pista de auditorÃ­a es completa: cada asiento debe referenciar
+   categoría del activo.
+4. Comprueba que la pista de auditoría es completa: cada asiento debe referenciar
    el identificador del activo.
 5. Emite un "audit_score" entre 0.0 y 1.0 donde 1.0 es trazabilidad perfecta.
 
 Restricciones:
-- No hagas afirmaciones sobre la normativa de amortizaciÃ³n aplicable sin aÃ±adir
+- No hagas afirmaciones sobre la normativa de amortización aplicable sin añadir
   "[VERIFICAR NORMATIVA VIGENTE]".
-- Si detectas que la vida Ãºtil aplicada difiere de las tablas estÃ¡ndar, seÃ±Ã¡lalo
-  pero no concluyas que es incorrecto: puede haber una justificaciÃ³n tÃ©cnica
+- Si detectas que la vida útil aplicada difiere de las tablas estándar, señálalo
+  pero no concluyas que es incorrecto: puede haber una justificación técnica
   que el sistema no conoce.
 
 Responde en JSON:
@@ -317,38 +317,38 @@ Responde en JSON:
   {
     id: "centinela",
     name: "Fisco Centinela",
-    tagline: "Observa el patrÃ³n, no el gasto individual",
-    desc: "No bloquea gastos, no rechaza reembolsos, no toma decisiones disciplinarias. Analiza cada nota de gasto, la compara con el patrÃ³n histÃ³rico del empleado y del departamento, y marca las que se salen del patrÃ³n para revisiÃ³n humana. Mira el patrÃ³n, no el gasto individual aislado.",
+    tagline: "Observa el patrón, no el gasto individual",
+    desc: "No bloquea gastos, no rechaza reembolsos, no toma decisiones disciplinarias. Analiza cada nota de gasto, la compara con el patrón histórico del empleado y del departamento, y marca las que se salen del patrón para revisión humana. Mira el patrón, no el gasto individual aislado.",
     color: "rose",
     researchLines: ["04"],
     stack: [
-      { role: "ExtracciÃ³n de justificantes de gasto", tech: "Claude 3.7 Sonnet â€” lÃ­der OCR contable (96.43/100) Â· 97.2 en Expense_Receipt_Structuring" },
-      { role: "DetecciÃ³n de anomalÃ­as y fraude", tech: "DeepSeek-R1 â€” lÃ­der detecciÃ³n de fraude (95.55/100)" },
-      { role: "Motor de perfilado estadÃ­stico", tech: "pandas + scipy â€” percentiles y desviaciones tÃ­picas por empleado/departamento" },
-      { role: "PolÃ­tica de gastos", tech: "Reglas configurables: lÃ­mites por categorÃ­a, dÃ­as laborables, proveedores autorizados" },
+      { role: "Extracción de justificantes de gasto", tech: "Claude 3.7 Sonnet â€” líder OCR contable (96.43/100) · 97.2 en Expense_Receipt_Structuring" },
+      { role: "Detección de anomalías y fraude", tech: "DeepSeek-R1 â€” líder detección de fraude (95.55/100)" },
+      { role: "Motor de perfilado estadístico", tech: "pandas + scipy â€” percentiles y desviaciones típicas por empleado/departamento" },
+      { role: "Política de gastos", tech: "Reglas configurables: límites por categoría, días laborables, proveedores autorizados" },
       { role: "Almacenamiento", tech: "DuckDB â€” historial de gastos por empleado + log de alertas y resoluciones" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "ExtracciÃ³n estructurada de justificantes", score: "96.43", area: "OCR Contable y EstructuraciÃ³n" },
-      { model: "DeepSeek-R1", role: "AnÃ¡lisis de anomalÃ­as y fraude transaccional", score: "95.55", area: "DetecciÃ³n de AnomalÃ­as y Fraude" },
+      { model: "Claude 3.7 Sonnet", role: "Extracción estructurada de justificantes", score: "96.43", area: "OCR Contable y Estructuración" },
+      { model: "DeepSeek-R1", role: "Análisis de anomalías y fraude transaccional", score: "95.55", area: "Detección de Anomalías y Fraude" },
     ],
     flow: [
       "Entrada: nota de gasto (ticket de imagen, factura PDF, formulario de reembolso)",
-      "ExtracciÃ³n estructurada (Claude 3.7 Sonnet): fecha/hora, importe, proveedor, categorÃ­a, empleado, departamento",
-      "ValidaciÃ³n contra polÃ­tica de gastos: lÃ­mites por categorÃ­a, proveedores en lista negra, dÃ­as no laborables",
-      "DetecciÃ³n de duplicados (DeepSeek-R1): comparaciÃ³n con histÃ³rico â€” mismo proveedor + importe + fecha cercana de este u otro empleado",
-      "AnÃ¡lisis de patrÃ³n estadÃ­stico (DeepSeek-R1): percentil 95+ del historial, frecuencia inusual reciente, cambio significativo de patrÃ³n",
-      "ClasificaciÃ³n de riesgo: VERDE (aprobaciÃ³n automÃ¡tica sugerida) Â· AMARILLO (revisiÃ³n por responsable) Â· ROJO (auditorÃ­a interna)",
-      "Salida A: clasificaciÃ³n de riesgo por gasto Â· Salida B: cola de revisiÃ³n priorizada Â· Salida C: informe semanal por departamento",
+      "Extracción estructurada (Claude 3.7 Sonnet): fecha/hora, importe, proveedor, categoría, empleado, departamento",
+      "Validación contra política de gastos: límites por categoría, proveedores en lista negra, días no laborables",
+      "Detección de duplicados (DeepSeek-R1): comparación con histórico â€” mismo proveedor + importe + fecha cercana de este u otro empleado",
+      "Análisis de patrón estadístico (DeepSeek-R1): percentil 95+ del historial, frecuencia inusual reciente, cambio significativo de patrón",
+      "Clasificación de riesgo: VERDE (aprobación automática sugerida) · AMARILLO (revisión por responsable) · ROJO (auditoría interna)",
+      "Salida A: clasificación de riesgo por gasto · Salida B: cola de revisión priorizada · Salida C: informe semanal por departamento",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado fisco_centinela.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado fisco_centinela.py con las siguientes funciones:
 1. extract_expense_data(filepath: str, llm_client) -> dict: extrae datos de un
    justificante de gasto. Devuelve:
    {expense_id: str, employee_id: str, department: str, date: str, time: str | null,
     amount: float, currency: str, vendor: str, category: str, description: str,
     confidence: float}.
 2. check_policy_compliance(expense: dict, policy: dict) -> dict:
-   verifica la polÃ­tica de gastos de la empresa. Devuelve:
+   verifica la política de gastos de la empresa. Devuelve:
    {compliant: bool, violations: list[{rule, description, severity: "warn"|"block"}]}.
 3. detect_duplicates(expense: dict, history: pd.DataFrame,
    tolerance_days: int = 3) -> dict:
@@ -356,33 +356,33 @@ Responde en JSON:
    {is_duplicate: bool, similar_expenses: list[dict], duplicate_confidence: float}.
 4. compute_anomaly_score(expense: dict, employee_history: pd.DataFrame,
    llm_client) -> dict:
-   calcula el score de anomalÃ­a estadÃ­stica.
+   calcula el score de anomalía estadística.
    Devuelve: {anomaly_score: float, percentile_amount: float,
    pattern_change_detected: bool, risk_level: "green"|"yellow"|"red",
    risk_factors: list[str]}.
 5. generate_review_queue(expenses: list[dict]) -> list[dict]:
-   ordena los gastos por nivel de riesgo y los devuelve como cola de revisiÃ³n.
-Usa pandas, scipy, duckdb y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el motor de anÃ¡lisis de anomalÃ­as de Fisco Centinela en el Laboratorio
+   ordena los gastos por nivel de riesgo y los devuelve como cola de revisión.
+Usa pandas, scipy, duckdb y la librería estándar.`,
+    promptLLM: `Eres el motor de análisis de anomalías de Fisco Centinela en el Laboratorio
 de Contabilidad & ERP de Horizon.
 Se te proporciona un gasto individual y el historial de gastos del empleado en los
-Ãºltimos 12 meses, agrupado por categorÃ­a con estadÃ­sticas descriptivas (media, mediana,
+últimos 12 meses, agrupado por categoría con estadísticas descriptivas (media, mediana,
 percentil 90, frecuencia mensual).
 
 Tu tarea:
-1. EvalÃºa si el importe del gasto es estadÃ­sticamente inusual para ese empleado
-   en esa categorÃ­a (umbral: percentil 95 del historial).
-2. EvalÃºa si la frecuencia reciente de gastos en esa categorÃ­a es inusual
+1. Evalúa si el importe del gasto es estadísticamente inusual para ese empleado
+   en esa categoría (umbral: percentil 95 del historial).
+2. Evalúa si la frecuencia reciente de gastos en esa categoría es inusual
    respecto a los 6 meses anteriores.
-3. EvalÃºa si hay seÃ±ales contextuales de riesgo: proveedor nunca usado antes,
-   fecha en dÃ­a no laborable, descripciÃ³n vaga o genÃ©rica.
-4. Combina las seÃ±ales en un risk_level ("green", "yellow", "red") y un
+3. Evalúa si hay señales contextuales de riesgo: proveedor nunca usado antes,
+   fecha en día no laborable, descripción vaga o genérica.
+4. Combina las señales en un risk_level ("green", "yellow", "red") y un
    anomaly_score entre 0.0 y 1.0.
 
-Reglas de clasificaciÃ³n:
+Reglas de clasificación:
 - RED: anomaly_score >= 0.80 o duplicado confirmado.
 - YELLOW: 0.50 <= anomaly_score < 0.80.
-- GREEN: anomaly_score < 0.50 y sin alertas de polÃ­tica.
+- GREEN: anomaly_score < 0.50 y sin alertas de política.
 
 Responde en JSON:
 {
@@ -395,39 +395,39 @@ Responde en JSON:
   "recommended_action": str
 }
 
-No tomes decisiones disciplinarias. No afirmes categÃ³ricamente que hay fraude:
-usa siempre lenguaje de probabilidad y recomendaciÃ³n de revisiÃ³n.`,
+No tomes decisiones disciplinarias. No afirmes categóricamente que hay fraude:
+usa siempre lenguaje de probabilidad y recomendación de revisión.`,
   },
 ];
 
 const MARKET_APPS = [
   {
     name: "SAP Business AI (Joule)",
-    desc: "SAP integra IA generativa bajo la marca Joule en sus productos ERP (S/4HANA, SuccessFactors). Incluye asistencia en procesos contables, conciliaciÃ³n y flujos de aprobaciÃ³n.",
+    desc: "SAP integra IA generativa bajo la marca Joule en sus productos ERP (S/4HANA, SuccessFactors). Incluye asistencia en procesos contables, conciliación y flujos de aprobación.",
     url: "https://sap.com/products/artificial-intelligence",
     tag: "ERP Corporativo",
   },
   {
     name: "Microsoft Dynamics 365 Copilot",
-    desc: "Copilot integrado en Dynamics 365 Finance, con asistencia en conciliaciÃ³n, generaciÃ³n de previsiones financieras y automatizaciÃ³n de cuentas a cobrar y pagar.",
+    desc: "Copilot integrado en Dynamics 365 Finance, con asistencia en conciliación, generación de previsiones financieras y automatización de cuentas a cobrar y pagar.",
     url: "https://microsoft.com/dynamics365",
     tag: "ERP + IA",
   },
   {
     name: "Sage Intacct + AI",
-    desc: "Sage Intacct incorpora automatizaciÃ³n basada en IA para medianas empresas: detecciÃ³n de anomalÃ­as en transacciones, automatizaciÃ³n de cierres y conciliaciones bancarias.",
+    desc: "Sage Intacct incorpora automatización basada en IA para medianas empresas: detección de anomalías en transacciones, automatización de cierres y conciliaciones bancarias.",
     url: "https://sage.com/intacct",
     tag: "Mediana Empresa",
   },
   {
     name: "Expensify",
-    desc: "GestiÃ³n de notas de gastos con OCR automÃ¡tico de recibos, categorizaciÃ³n con IA y detecciÃ³n de gastos duplicados o fuera de polÃ­tica. Ampliamente utilizada en empresas medianas.",
+    desc: "Gestión de notas de gastos con OCR automático de recibos, categorización con IA y detección de gastos duplicados o fuera de política. Ampliamente utilizada en empresas medianas.",
     url: "https://expensify.com",
-    tag: "GestiÃ³n de Gastos",
+    tag: "Gestión de Gastos",
   },
   {
     name: "Vic.ai",
-    desc: "AutomatizaciÃ³n de cuentas a pagar (AP automation) basada en IA. Procesa facturas de proveedores, aprende a clasificarlas contablemente y automatiza el flujo de aprobaciÃ³n.",
+    desc: "Automatización de cuentas a pagar (AP automation) basada en IA. Procesa facturas de proveedores, aprende a clasificarlas contablemente y automatiza el flujo de aprobación.",
     url: "https://vic.ai",
     tag: "Cuentas a Pagar",
   },
@@ -436,38 +436,38 @@ const MARKET_APPS = [
 const VERIFICATION_POINTS = [
   {
     id: "v1",
-    title: "AsimetrÃ­a en la cobertura de benchmarks por modelo",
+    title: "Asimetría en la cobertura de benchmarks por modelo",
     items: [
-      "GestiÃ³n de Clientes y Proveedores: Claude 3.7 Sonnet (67% cobertura) carece de evaluaciÃ³n en FinBen_Credit_Risk_Forecasting. SAP-Agent Swarm (33% cobertura) solo fue evaluado en Supplier_Dispute_Resolution.",
+      "Gestión de Clientes y Proveedores: Claude 3.7 Sonnet (67% cobertura) carece de evaluación en FinBen_Credit_Risk_Forecasting. SAP-Agent Swarm (33% cobertura) solo fue evaluado en Supplier_Dispute_Resolution.",
       "Workflows ERP: CrewAI-Accounting-Flow (67% cobertura) no tiene datos registrados para Three_Way_Matching_ERP.",
-      "DetecciÃ³n de AnomalÃ­as: Claude 3.7 Sonnet (67% cobertura) no cuenta con datos en Duplicate_Invoice_Filter. GPT-4.5 (33% cobertura) solo registra datos en FinBen_Fraud_Anomaly_Task.",
-      "OCR y EstructuraciÃ³n: SAP-Agent Swarm (33% cobertura) solo dispone de resultado en Contract_Financial_Clause_IE.",
+      "Detección de Anomalías: Claude 3.7 Sonnet (67% cobertura) no cuenta con datos en Duplicate_Invoice_Filter. GPT-4.5 (33% cobertura) solo registra datos en FinBen_Fraud_Anomaly_Task.",
+      "OCR y Estructuración: SAP-Agent Swarm (33% cobertura) solo dispone de resultado en Contract_Financial_Clause_IE.",
       "Trazabilidad y Cumplimiento: GPT-4.5 (67% cobertura) no registra datos en FinBen_Decision_Compliance. DeepSeek-R1 (33% cobertura) solo fue evaluado en Tax_Regulation_VAT_Compliance.",
     ],
   },
   {
     id: "v2",
-    title: "RegAudit_Bench y optimizaciÃ³n tributaria avanzada",
+    title: "RegAudit_Bench y optimización tributaria avanzada",
     items: [
-      "RegAudit_Bench estÃ¡ asignado al mÃ³dulo de Finanzas en el sistema STATER, no a Contabilidad & ERP. El Ã¡rea contable evalÃºa Audit_Trail_Consistency y Tax_Regulation_VAT_Compliance como proxies de cumplimiento normativo.",
-      "Las evaluaciones especÃ­ficas de RegAudit_Bench aplicadas a flujos ERP permanecen como [DATO PENDIENTE DE VERIFICAR].",
-      "La optimizaciÃ³n tributaria estratÃ©gica corporativa mÃ¡s allÃ¡ de la validaciÃ³n de retenciones de IVA/SII tambiÃ©n queda como [DATO PENDIENTE DE VERIFICAR].",
+      "RegAudit_Bench está asignado al módulo de Finanzas en el sistema STATER, no a Contabilidad & ERP. El área contable evalúa Audit_Trail_Consistency y Tax_Regulation_VAT_Compliance como proxies de cumplimiento normativo.",
+      "Las evaluaciones específicas de RegAudit_Bench aplicadas a flujos ERP permanecen como [DATO PENDIENTE DE VERIFICAR].",
+      "La optimización tributaria estratégica corporativa más allá de la validación de retenciones de IVA/SII también queda como [DATO PENDIENTE DE VERIFICAR].",
     ],
   },
   {
     id: "v3",
     title: "Latencias en llamadas a conectores ERP",
     items: [
-      "Las mÃ©tricas de latencia de ejecuciÃ³n por llamada a APIs estÃ¡ndar de ERP (BAPI / OData de SAP o REST de Oracle) no forman parte del reporte de benchmarks.",
-      "Este dato es especialmente relevante para los proyectos de orquestaciÃ³n multi-agente (Balance Inteligente y Fisco Centinela) en entornos de producciÃ³n con SLA definidos.",
+      "Las métricas de latencia de ejecución por llamada a APIs estándar de ERP (BAPI / OData de SAP o REST de Oracle) no forman parte del reporte de benchmarks.",
+      "Este dato es especialmente relevante para los proyectos de orquestación multi-agente (Balance Inteligente y Fisco Centinela) en entornos de producción con SLA definidos.",
     ],
   },
   {
     id: "v4",
-    title: "Normativa fiscal especÃ­fica por jurisdicciÃ³n",
+    title: "Normativa fiscal específica por jurisdicción",
     items: [
-      "Todas las referencias a normativa fiscal en este cuaderno (tipos de IVA, tablas de amortizaciÃ³n, retenciones) estÃ¡n marcadas como [VERIFICAR NORMATIVA VIGENTE].",
-      "Las reglas cambian por jurisdicciÃ³n y con cada ejercicio fiscal. NingÃºn dato de este cuaderno debe usarse como criterio fiscal definitivo sin validaciÃ³n por un asesor fiscal colegiado en la jurisdicciÃ³n correspondiente.",
+      "Todas las referencias a normativa fiscal en este cuaderno (tipos de IVA, tablas de amortización, retenciones) están marcadas como [VERIFICAR NORMATIVA VIGENTE].",
+      "Las reglas cambian por jurisdicción y con cada ejercicio fiscal. Ningún dato de este cuaderno debe usarse como criterio fiscal definitivo sin validación por un asesor fiscal colegiado en la jurisdicción correspondiente.",
     ],
   },
 ];
@@ -526,7 +526,7 @@ function ResearchLineCard({ line }) {
             </div>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-            <p className="text-xs text-white/30 uppercase tracking-widest mb-1.5">Modelo lÃ­der Â· STATER Accounting Leaderboard 2026-08-29</p>
+            <p className="text-xs text-white/30 uppercase tracking-widest mb-1.5">Modelo líder · STATER Accounting Leaderboard 2026-08-29</p>
             <p className="text-sm text-white font-medium">{line.topModel.name}</p>
             <p className="text-xs text-white/50 mt-0.5">{line.topModel.detail}</p>
           </div>
@@ -603,12 +603,12 @@ function ProjectCard({ project }) {
         </div>
         <p className="text-white/65 text-sm leading-relaxed mb-4">{project.desc}</p>
         <div className="flex flex-wrap gap-2">
-          <span className="text-xs text-white/30">LÃ­neas de investigaciÃ³n:</span>
+          <span className="text-xs text-white/30">Líneas de investigación:</span>
           {project.researchLines.map((n) => {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} Â· {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
               </span>
             );
           })}
@@ -635,7 +635,7 @@ function ProjectCard({ project }) {
         {tab === "stack" && (
           <div className="space-y-6">
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes tÃ©cnicos</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes técnicos</p>
               <div className="space-y-2">
                 {project.stack.map((s) => (
                   <div key={s.role} className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-3">
@@ -649,7 +649,7 @@ function ProjectCard({ project }) {
               </div>
             </div>
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por quÃ© estos modelos Â· STATER Accounting Leaderboard</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por qué estos modelos · STATER Accounting Leaderboard</p>
               <div className="space-y-2">
                 {project.whyModels.map((m, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start justify-between gap-4">
@@ -745,30 +745,30 @@ export default function ContabilidadLab() {
                 <span className="text-xs border border-emerald-400/30 bg-emerald-400/10 text-emerald-400 px-3 py-0.5 rounded-full">
                   Laboratorio verificado
                 </span>
-                <span className="text-xs text-white/20">STATER Accounting Â· 2026-08-29</span>
+                <span className="text-xs text-white/20">STATER Accounting · 2026-08-29</span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
                 Laboratorio de{" "}
                 <span className="text-emerald-400">Contabilidad</span>
               </h1>
               <p className="text-white/50 text-lg sm:text-xl mt-3 max-w-2xl leading-relaxed">
-                IA para conciliaciÃ³n bancaria, procesamiento de facturas, auditorÃ­a de activos y
-                detecciÃ³n de fraude. Benchmarks, decisiones de diseÃ±o justificadas por datos y
-                cuatro proyectos en construcciÃ³n.
+                IA para conciliación bancaria, procesamiento de facturas, auditoría de activos y
+                detección de fraude. Benchmarks, decisiones de diseño justificadas por datos y
+                cuatro proyectos en construcción.
               </p>
 
               {/* Aviso de dominio */}
               <div className="mt-5 inline-flex items-start gap-2 border border-yellow-400/20 bg-yellow-400/5 rounded-xl px-4 py-3 max-w-xl">
                 <AlertTriangle size={13} className="text-yellow-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-yellow-300/70 leading-relaxed">
-                  <strong className="text-yellow-300">Aviso de dominio:</strong> Las herramientas descritas son de apoyo tÃ©cnico y analÃ­tico.
+                  <strong className="text-yellow-300">Aviso de dominio:</strong> Las herramientas descritas son de apoyo técnico y analítico.
                   Ninguna sustituye el criterio de un asesor fiscal o contable colegiado.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-5 mt-8 pt-8 border-t border-white/5">
                 {[
-                  { label: "LÃ­neas de investigaciÃ³n", value: "4" },
+                  { label: "Líneas de investigación", value: "4" },
                   { label: "Proyectos activos", value: "4" },
                   { label: "Benchmarks cubiertos", value: "12" },
                   { label: "Aplicaciones de mercado", value: "5" },
@@ -786,18 +786,18 @@ export default function ContabilidadLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ MÃ³dulo 1 â”€â”€ */}
+        {/* â”€â”€ Módulo 1 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <BarChart3 size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 1</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© se investiga aquÃ­</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 1</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué se investiga aquí</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                La hipÃ³tesis central no es que la IA "automatiza la contabilidad": es que la IA puede ser la
-                primera capa de revisiÃ³n que llega antes que el contable, deja los casos simples resueltos
+                La hipótesis central no es que la IA "automatiza la contabilidad": es que la IA puede ser la
+                primera capa de revisión que llega antes que el contable, deja los casos simples resueltos
                 y escala los complejos o ambiguos para criterio humano.
               </p>
             </div>
@@ -810,27 +810,27 @@ export default function ContabilidadLab() {
           <div className="mt-6 border border-white/5 bg-white/2 rounded-2xl p-5">
             <p className="text-xs text-white/25 uppercase tracking-widest mb-2">Cadena de calidad del dato</p>
             <p className="text-sm text-white/45 leading-relaxed">
-              Las cuatro lÃ­neas estÃ¡n ordenadas por su rol en la cadena. La conciliaciÃ³n (01) es la base:
-              si el Libro Mayor no estÃ¡ cuadrado, nada de lo que venga despuÃ©s es fiable. El procesamiento
-              de facturas (02) alimenta el Libro Mayor. La auditorÃ­a de activos (03) garantiza que el balance
-              refleja la realidad. Y la detecciÃ³n de fraude (04) protege que nadie estÃ© metiendo la mano
+              Las cuatro líneas están ordenadas por su rol en la cadena. La conciliación (01) es la base:
+              si el Libro Mayor no está cuadrado, nada de lo que venga después es fiable. El procesamiento
+              de facturas (02) alimenta el Libro Mayor. La auditoría de activos (03) garantiza que el balance
+              refleja la realidad. Y la detección de fraude (04) protege que nadie esté metiendo la mano
               en la caja mientras las otras tres funcionan correctamente.
             </p>
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 2 â”€â”€ */}
+        {/* â”€â”€ Módulo 2 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <Cpu size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 2</p>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 2</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Casos de desarrollo</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
                 Cuatro proyectos que cubren la cadena completa de calidad del dato contable. Cada uno incluye
-                el stack tÃ©cnico justificado por benchmarks, el flujo de datos completo y los prompts maestros
+                el stack técnico justificado por benchmarks, el flujo de datos completo y los prompts maestros
                 para IDE y LLM asistente.
               </p>
             </div>
@@ -840,18 +840,18 @@ export default function ContabilidadLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 3 â”€â”€ */}
+        {/* â”€â”€ Módulo 3 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <GitBranch size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 3</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© aplicaciones ya existen en el mercado</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 3</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué aplicaciones ya existen en el mercado</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
                 Cinco aplicaciones reales de IA aplicada a contabilidad y ERP. Ninguna sustituye el criterio de
-                un contable o asesor fiscal colegiado. Los datos de caracterÃ­sticas deben verificarse en las webs
+                un contable o asesor fiscal colegiado. Los datos de características deben verificarse en las webs
                 oficiales.
               </p>
             </div>
@@ -876,7 +876,7 @@ export default function ContabilidadLab() {
                 <div className="mt-4 pt-3 border-t border-white/5">
                   <p className="text-xs text-yellow-400/50 flex items-center gap-1.5">
                     <AlertTriangle size={10} />
-                    Verificar caracterÃ­sticas en web oficial
+                    Verificar características en web oficial
                   </p>
                 </div>
               </a>
@@ -884,17 +884,17 @@ export default function ContabilidadLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 4 â”€â”€ */}
+        {/* â”€â”€ Módulo 4 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
               <AlertTriangle size={14} className="text-yellow-400" />
             </div>
             <div>
-              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">MÃ³dulo 4</p>
+              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">Módulo 4</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Puntos a verificar</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Los siguientes puntos requieren revisiÃ³n antes de publicar o referenciar los datos de este
+                Los siguientes puntos requieren revisión antes de publicar o referenciar los datos de este
                 cuaderno en materiales externos.
               </p>
             </div>
@@ -907,13 +907,13 @@ export default function ContabilidadLab() {
         {/* â”€â”€ Footer CTA â”€â”€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo Â· STATER Accounting & ERP Â· 2026-08-29</p>
+            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Accounting & ERP · 2026-08-29</p>
             <p className="text-sm text-white/45">
               Datos de{" "}
               <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded text-white/60">latest_rankings_accounting.md</code>{" "}
               y{" "}
               <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded text-white/60">areas_accounting.yaml</code>.
-              No constituye asesoramiento fiscal, contable o de auditorÃ­a.
+              No constituye asesoramiento fiscal, contable o de auditoría.
             </p>
           </div>
           <div className="flex gap-3 flex-wrap">

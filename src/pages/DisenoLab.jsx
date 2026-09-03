@@ -18,18 +18,18 @@ const RESEARCH_LINES = [
   {
     id: "visual-reasoning",
     number: "01",
-    title: "ComprensiÃ³n visual y razonamiento multimodal",
+    title: "Comprensión visual y razonamiento multimodal",
     color: "amber",
     summary:
-      "Un modelo de visiÃ³n-lenguaje que analiza una interfaz no solo necesita Â«verÂ» los elementos: necesita entender quÃ© representan en su contexto cultural e histÃ³rico. Un icono de telÃ©fono de auricular ya no tiene referente fÃ­sico para la mayorÃ­a de los usuarios jÃ³venes, pero sigue comunicando Â«llamarÂ» por convenciÃ³n aprendida.",
+      "Un modelo de visión-lenguaje que analiza una interfaz no solo necesita «ver» los elementos: necesita entender qué representan en su contexto cultural e histórico. Un icono de teléfono de auricular ya no tiene referente físico para la mayoría de los usuarios jóvenes, pero sigue comunicando «llamar» por convención aprendida.",
     detail:
-      "Los benchmarks OK-VQA y A-OKVQA miden la capacidad de razonamiento visual que requiere conocimiento del mundo exterior, no solo de los pÃ­xeles. VQA con conocimiento externo evalÃºa si el modelo puede responder preguntas sobre imÃ¡genes que exigen conocimiento enciclopÃ©dico â€” condiciÃ³n necesaria para interpretar interfaces correctamente. VistaQA_Visual_Reasoning amplÃ­a la cobertura a tareas de razonamiento visual compositivo.",
+      "Los benchmarks OK-VQA y A-OKVQA miden la capacidad de razonamiento visual que requiere conocimiento del mundo exterior, no solo de los píxeles. VQA con conocimiento externo evalúa si el modelo puede responder preguntas sobre imágenes que exigen conocimiento enciclopédico â€” condición necesaria para interpretar interfaces correctamente. VistaQA_Visual_Reasoning amplía la cobertura a tareas de razonamiento visual compositivo.",
     benchmarks: [
-      { name: "OK-VQA", desc: "VQA con conocimiento del mundo exterior (enciclopÃ©dico)" },
+      { name: "OK-VQA", desc: "VQA con conocimiento del mundo exterior (enciclopédico)" },
       { name: "A-OKVQA", desc: "VQA augmentado con razonamiento externo multimodal" },
-      { name: "VistaQA_Visual_Reasoning", desc: "Razonamiento visual compositivo sobre imÃ¡genes complejas" },
+      { name: "VistaQA_Visual_Reasoning", desc: "Razonamiento visual compositivo sobre imágenes complejas" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "86.88", detail: "84.8 OK_VQA_Knowledge Â· 86.4 A_OKVQA_Multimodal Â· 89.2 VistaQA_Visual_Reasoning" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "86.88", detail: "84.8 OK_VQA_Knowledge · 86.4 A_OKVQA_Multimodal · 89.2 VistaQA_Visual_Reasoning" },
   },
   {
     id: "visual-grounding",
@@ -37,32 +37,32 @@ const RESEARCH_LINES = [
     title: "Evidencia visual y anclaje espacial (Visual Grounding)",
     color: "rose",
     summary:
-      "Visual Grounding es la capacidad de un modelo de seÃ±alar exactamente dÃ³nde en una imagen estÃ¡ el elemento sobre el que razona, expresado como coordenadas de un bounding box. Esta capacidad es crÃ­tica para la crÃ­tica automatizada de interfaces: no basta con decir Â«el botÃ³n de llamada a la acciÃ³n tiene poco contrasteÂ», hay que seÃ±alar exactamente quÃ© botÃ³n.",
+      "Visual Grounding es la capacidad de un modelo de señalar exactamente dónde en una imagen está el elemento sobre el que razona, expresado como coordenadas de un bounding box. Esta capacidad es crítica para la crítica automatizada de interfaces: no basta con decir «el botón de llamada a la acción tiene poco contraste», hay que señalar exactamente qué botón.",
     detail:
-      "El benchmark UI_Element_BBox_Detection mide precisamente esto: dado un nombre de elemento de interfaz, Â¿puede el modelo localizar su posiciÃ³n en pÃ­xeles? VistaQA_Grounded_Boxes y Toloka_VQA_Grounding evalÃºan grounding en contextos mÃ¡s amplios. El podio de este Ã¡rea tiene datos para solo 2 modelos, con el tercer puesto pendiente de verificaciÃ³n (ver MÃ³dulo 4, punto 4.1).",
+      "El benchmark UI_Element_BBox_Detection mide precisamente esto: dado un nombre de elemento de interfaz, ¿puede el modelo localizar su posición en píxeles? VistaQA_Grounded_Boxes y Toloka_VQA_Grounding evalúan grounding en contextos más amplios. El podio de este área tiene datos para solo 2 modelos, con el tercer puesto pendiente de verificación (ver Módulo 4, punto 4.1).",
     benchmarks: [
-      { name: "UI_Element_BBox_Detection", desc: "LocalizaciÃ³n de elementos de interfaz por bounding box" },
+      { name: "UI_Element_BBox_Detection", desc: "Localización de elementos de interfaz por bounding box" },
       { name: "VistaQA_Grounded_Boxes", desc: "Grounding visual con coordenadas en preguntas abiertas" },
-      { name: "Toloka_VQA_Grounding", desc: "ValidaciÃ³n de grounding con anotadores humanos (Toloka)" },
+      { name: "Toloka_VQA_Grounding", desc: "Validación de grounding con anotadores humanos (Toloka)" },
     ],
-    topModel: { name: "Gemini 2.0 Pro", score: "89.75", detail: "88.0 VistaQA_Grounded_Boxes Â· 89.2 Toloka_VQA_Grounding Â· 92.4 UI_Element_BBox_Detection" },
+    topModel: { name: "Gemini 2.0 Pro", score: "89.75", detail: "88.0 VistaQA_Grounded_Boxes · 89.2 Toloka_VQA_Grounding · 92.4 UI_Element_BBox_Detection" },
     warning: true,
   },
   {
     id: "generative-spatial",
     number: "03",
-    title: "DiseÃ±o generativo de espacios y coherencia estilÃ­stica",
+    title: "Diseño generativo de espacios y coherencia estilística",
     color: "emerald",
     summary:
-      "La generaciÃ³n de distribuciones espaciales â€” planos de planta, disposiciones de muebles en un interior, ergonomÃ­a de producto en 3D â€” requiere razonamiento sobre restricciones geomÃ©tricas, circulaciones y coherencia estilÃ­stica. El modelo debe proponer distribuciones que sean a la vez funcionales y estilÃ­sticamente coherentes.",
+      "La generación de distribuciones espaciales â€” planos de planta, disposiciones de muebles en un interior, ergonomía de producto en 3D â€” requiere razonamiento sobre restricciones geométricas, circulaciones y coherencia estilística. El modelo debe proponer distribuciones que sean a la vez funcionales y estilísticamente coherentes.",
     detail:
-      "Archigen_Spatial_Layout mide la capacidad de generar layouts arquitectÃ³nicos funcionales. Interior_Design_Style_Consistency evalÃºa si el modelo mantiene coherencia de estilo entre los elementos de un espacio. Product_3D_Ergonomics_Synthesis â€” el tercer benchmark â€” tiene cobertura incompleta (ArchiGPT-CAD-Flow y GPT-4.5 carecen de resultado, ver MÃ³dulo 4, punto 4.2).",
+      "Archigen_Spatial_Layout mide la capacidad de generar layouts arquitectónicos funcionales. Interior_Design_Style_Consistency evalúa si el modelo mantiene coherencia de estilo entre los elementos de un espacio. Product_3D_Ergonomics_Synthesis â€” el tercer benchmark â€” tiene cobertura incompleta (ArchiGPT-CAD-Flow y GPT-4.5 carecen de resultado, ver Módulo 4, punto 4.2).",
     benchmarks: [
-      { name: "Archigen_Spatial_Layout", desc: "GeneraciÃ³n de distribuciones arquitectÃ³nicas funcionales" },
-      { name: "Interior_Design_Style_Consistency", desc: "Coherencia estilÃ­stica en diseÃ±o de interiores" },
-      { name: "Product_3D_Ergonomics_Synthesis", desc: "SÃ­ntesis ergonÃ³mica de producto en 3D (cobertura incompleta)" },
+      { name: "Archigen_Spatial_Layout", desc: "Generación de distribuciones arquitectónicas funcionales" },
+      { name: "Interior_Design_Style_Consistency", desc: "Coherencia estilística en diseño de interiores" },
+      { name: "Product_3D_Ergonomics_Synthesis", desc: "Síntesis ergonómica de producto en 3D (cobertura incompleta)" },
     ],
-    topModel: { name: "ArchiGPT-CAD-Flow", score: "88.40", detail: "Especializado en generaciÃ³n de layouts espaciales y coherencia estilÃ­stica arquitectÃ³nica" },
+    topModel: { name: "ArchiGPT-CAD-Flow", score: "88.40", detail: "Especializado en generación de layouts espaciales y coherencia estilística arquitectónica" },
     warning: true,
   },
   {
@@ -71,13 +71,13 @@ const RESEARCH_LINES = [
     title: "Efectividad de UI/UX en comportamiento real de usuario",
     color: "blue",
     summary:
-      "La mÃ©trica Ãºltima del diseÃ±o UX no es si una interfaz Â«parece bien diseÃ±adaÂ» a un experto: es si convierte mÃ¡s, si reduce el abandono de carrito, si guÃ­a al usuario hasta completar la acciÃ³n. WiserUI-Bench incluye mÃ¡s de 300 experimentos reales de A/B testing con resultados verificados de tasa de conversiÃ³n.",
+      "La métrica última del diseño UX no es si una interfaz «parece bien diseñada» a un experto: es si convierte más, si reduce el abandono de carrito, si guía al usuario hasta completar la acción. WiserUI-Bench incluye más de 300 experimentos reales de A/B testing con resultados verificados de tasa de conversión.",
     detail:
-      "WiserUI-Bench pregunta al modelo cuÃ¡l de dos variantes ganÃ³ el test de conversiÃ³n real, y comprueba si acierta. CTA_Visual_Hierarchy_Impact mide el impacto especÃ­fico de la jerarquÃ­a visual en los elementos de llamada a la acciÃ³n. Checkout_Friction_Reduction evalÃºa la detecciÃ³n de fricciones en flujos transaccionales. Las puntuaciones aquÃ­ son mÃ¡s bajas que en accesibilidad â€” ver MÃ³dulo 4, punto 4.4.",
+      "WiserUI-Bench pregunta al modelo cuál de dos variantes ganó el test de conversión real, y comprueba si acierta. CTA_Visual_Hierarchy_Impact mide el impacto específico de la jerarquía visual en los elementos de llamada a la acción. Checkout_Friction_Reduction evalúa la detección de fricciones en flujos transaccionales. Las puntuaciones aquí son más bajas que en accesibilidad â€” ver Módulo 4, punto 4.4.",
     benchmarks: [
-      { name: "WiserUI_Bench_AB_Winner", desc: "PredicciÃ³n del ganador en 300+ experimentos A/B reales" },
-      { name: "CTA_Visual_Hierarchy_Impact", desc: "Impacto de jerarquÃ­a visual en elementos de llamada a la acciÃ³n" },
-      { name: "Checkout_Friction_Reduction", desc: "DetecciÃ³n de puntos de fricciÃ³n en flujos transaccionales" },
+      { name: "WiserUI_Bench_AB_Winner", desc: "Predicción del ganador en 300+ experimentos A/B reales" },
+      { name: "CTA_Visual_Hierarchy_Impact", desc: "Impacto de jerarquía visual en elementos de llamada a la acción" },
+      { name: "Checkout_Friction_Reduction", desc: "Detección de puntos de fricción en flujos transaccionales" },
     ],
     topModel: { name: "Claude 3.7 Sonnet", score: "83.33", detail: "93.5 CTA_Visual_Hierarchy_Impact â€” cobertura parcial, datos en Checkout_Friction_Reduction pendientes" },
     warning: true,
@@ -85,33 +85,33 @@ const RESEARCH_LINES = [
   {
     id: "accessibility",
     number: "05",
-    title: "Calidad estÃ©tica, accesibilidad y diseÃ±o funcional",
+    title: "Calidad estética, accesibilidad y diseño funcional",
     color: "amber",
     summary:
-      "El estÃ¡ndar WCAG 2.1 define criterios de contraste mÃ­nimo de color entre texto y fondo: nivel AA requiere un ratio de contraste de al menos 4.5:1 para texto normal. Eso no es una opiniÃ³n de estilo: es un estÃ¡ndar verificable algorÃ­tmicamente.",
+      "El estándar WCAG 2.1 define criterios de contraste mínimo de color entre texto y fondo: nivel AA requiere un ratio de contraste de al menos 4.5:1 para texto normal. Eso no es una opinión de estilo: es un estándar verificable algorítmicamente.",
     detail:
-      "WCAG_Accessibility_Compliance mide si el modelo puede auditar correctamente el cumplimiento de estos criterios. Visual_Balance_Typography_Ratio mide el equilibrio tipogrÃ¡fico y compositivo de una interfaz â€” un territorio que mezcla principios medibles (la regla Ã¡urea, la retÃ­cula de 8px) con criterio estÃ©tico. Claude 3.7 Sonnet lidera ambos con 96.8 y 94.6 respectivamente.",
+      "WCAG_Accessibility_Compliance mide si el modelo puede auditar correctamente el cumplimiento de estos criterios. Visual_Balance_Typography_Ratio mide el equilibrio tipográfico y compositivo de una interfaz â€” un territorio que mezcla principios medibles (la regla áurea, la retícula de 8px) con criterio estético. Claude 3.7 Sonnet lidera ambos con 96.8 y 94.6 respectivamente.",
     benchmarks: [
-      { name: "WCAG_Accessibility_Compliance", desc: "AuditorÃ­a de cumplimiento WCAG 2.1 â€” ratio de contraste y accesibilidad" },
-      { name: "Visual_Balance_Typography_Ratio", desc: "Equilibrio tipogrÃ¡fico y compositivo (medible + criterio estÃ©tico)" },
+      { name: "WCAG_Accessibility_Compliance", desc: "Auditoría de cumplimiento WCAG 2.1 â€” ratio de contraste y accesibilidad" },
+      { name: "Visual_Balance_Typography_Ratio", desc: "Equilibrio tipográfico y compositivo (medible + criterio estético)" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "94.64", detail: "96.8 WCAG_Accessibility_Compliance Â· 94.6 Visual_Balance_Typography_Ratio" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "94.64", detail: "96.8 WCAG_Accessibility_Compliance · 94.6 Visual_Balance_Typography_Ratio" },
   },
   {
     id: "cultural",
     number: "06",
-    title: "ComprensiÃ³n cultural e iconogrÃ¡fica multilingÃ¼e",
+    title: "Comprensión cultural e iconográfica multilingüe",
     color: "rose",
     summary:
-      "El rojo comunica Â«peligroÂ» en occidente, Â«suerteÂ» en China y Â«lutoÂ» en SudÃ¡frica. Un icono de Â«pulgar arribaÂ» tiene distintas connotaciones dependiendo del mercado. CVQA (Cultural VQA) mide si un modelo entiende esa semÃ¡ntica visual cultural.",
+      "El rojo comunica «peligro» en occidente, «suerte» en China y «luto» en Sudáfrica. Un icono de «pulgar arriba» tiene distintas connotaciones dependiendo del mercado. CVQA (Cultural VQA) mide si un modelo entiende esa semántica visual cultural.",
     detail:
-      "CVQA evalÃºa la comprensiÃ³n de semÃ¡ntica cultural visual en mÃºltiples idiomas y regiones. Multilingual_UI_Localization mide la capacidad de localizar correctamente interfaces para distintos mercados. Regional_Iconography_Semantics evalÃºa la interpretaciÃ³n de iconos con carga cultural especÃ­fica. GPT-4.5 carece de evaluaciÃ³n en Multilingual_UI_Localization, y Gemini 2.0 Pro solo registra datos en Regional_Iconography_Semantics (ver MÃ³dulo 4, punto 4.2).",
+      "CVQA evalúa la comprensión de semántica cultural visual en múltiples idiomas y regiones. Multilingual_UI_Localization mide la capacidad de localizar correctamente interfaces para distintos mercados. Regional_Iconography_Semantics evalúa la interpretación de iconos con carga cultural específica. GPT-4.5 carece de evaluación en Multilingual_UI_Localization, y Gemini 2.0 Pro solo registra datos en Regional_Iconography_Semantics (ver Módulo 4, punto 4.2).",
     benchmarks: [
-      { name: "CVQA", desc: "VQA cultural multilingÃ¼e â€” semÃ¡ntica visual por regiÃ³n" },
-      { name: "Multilingual_UI_Localization", desc: "LocalizaciÃ³n correcta de interfaces para distintos mercados" },
-      { name: "Regional_Iconography_Semantics", desc: "InterpretaciÃ³n de iconos con carga cultural especÃ­fica" },
+      { name: "CVQA", desc: "VQA cultural multilingüe â€” semántica visual por región" },
+      { name: "Multilingual_UI_Localization", desc: "Localización correcta de interfaces para distintos mercados" },
+      { name: "Regional_Iconography_Semantics", desc: "Interpretación de iconos con carga cultural específica" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "90.29", detail: "94.0 Multilingual_UI_Localization â€” lÃ­der en comprensiÃ³n cultural e iconogrÃ¡fica multilingÃ¼e" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "90.29", detail: "94.0 Multilingual_UI_Localization â€” líder en comprensión cultural e iconográfica multilingüe" },
     warning: true,
   },
 ];
@@ -119,32 +119,32 @@ const RESEARCH_LINES = [
 const PROJECTS = [
   {
     id: "genesis",
-    name: "GÃ©nesis Visual",
-    tagline: "Cinco puntos de partida en el tiempo que normalmente tomarÃ­a uno",
-    desc: "Toma la descripciÃ³n de una marca y propone varias direcciones creativas completas â€” no elementos aislados, sino sistemas coherentes donde el concepto del logo, la paleta de color y la tipografÃ­a se justifican mutuamente. Genera especificaciones con concepto, paleta en HEX, tipografÃ­as verificadas en Google Fonts y rationale de cada decisiÃ³n. No genera imÃ¡genes: genera puntos de partida para que el diseÃ±ador itere.",
+    name: "Génesis Visual",
+    tagline: "Cinco puntos de partida en el tiempo que normalmente tomaría uno",
+    desc: "Toma la descripción de una marca y propone varias direcciones creativas completas â€” no elementos aislados, sino sistemas coherentes donde el concepto del logo, la paleta de color y la tipografía se justifican mutuamente. Genera especificaciones con concepto, paleta en HEX, tipografías verificadas en Google Fonts y rationale de cada decisión. No genera imágenes: genera puntos de partida para que el diseñador itere.",
     color: "amber",
     researchLines: ["01", "05", "06"],
     stack: [
-      { role: "AnÃ¡lisis de referencias visuales y generaciÃ³n de direcciones creativas", tech: "Claude 3.7 Sonnet â€” lÃ­der comprensiÃ³n visual multimodal (86.88/100) y calidad estÃ©tica (94.64/100)" },
-      { role: "VerificaciÃ³n de sensibilidad cultural de las propuestas", tech: "Claude 3.7 Sonnet â€” lÃ­der comprensiÃ³n cultural e iconogrÃ¡fica (90.29/100)" },
-      { role: "VerificaciÃ³n de disponibilidad de tipografÃ­as", tech: "Google Fonts API â€” confirmaciÃ³n de que las tipografÃ­as propuestas existen y son accesibles" },
-      { role: "VerificaciÃ³n de accesibilidad de paletas", tech: "CÃ¡lculo algorÃ­tmico de ratios de contraste WCAG 2.1 sobre las paletas propuestas" },
-      { role: "Almacenamiento", tech: "DuckDB â€” histÃ³rico de direcciones generadas por proyecto" },
+      { role: "Análisis de referencias visuales y generación de direcciones creativas", tech: "Claude 3.7 Sonnet â€” líder comprensión visual multimodal (86.88/100) y calidad estética (94.64/100)" },
+      { role: "Verificación de sensibilidad cultural de las propuestas", tech: "Claude 3.7 Sonnet â€” líder comprensión cultural e iconográfica (90.29/100)" },
+      { role: "Verificación de disponibilidad de tipografías", tech: "Google Fonts API â€” confirmación de que las tipografías propuestas existen y son accesibles" },
+      { role: "Verificación de accesibilidad de paletas", tech: "Cálculo algorítmico de ratios de contraste WCAG 2.1 sobre las paletas propuestas" },
+      { role: "Almacenamiento", tech: "DuckDB â€” histórico de direcciones generadas por proyecto" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "ComprensiÃ³n visual multimodal", score: "86.88", area: "ComprensiÃ³n Visual y Razonamiento Multimodal" },
-      { model: "Claude 3.7 Sonnet", role: "Calidad estÃ©tica y accesibilidad WCAG", score: "94.64", area: "Calidad EstÃ©tica, Accesibilidad y DiseÃ±o Funcional" },
-      { model: "Claude 3.7 Sonnet", role: "Sensibilidad y localizaciÃ³n cultural", score: "90.29", area: "ComprensiÃ³n Cultural e IconogrÃ¡fica" },
+      { model: "Claude 3.7 Sonnet", role: "Comprensión visual multimodal", score: "86.88", area: "Comprensión Visual y Razonamiento Multimodal" },
+      { model: "Claude 3.7 Sonnet", role: "Calidad estética y accesibilidad WCAG", score: "94.64", area: "Calidad Estética, Accesibilidad y Diseño Funcional" },
+      { model: "Claude 3.7 Sonnet", role: "Sensibilidad y localización cultural", score: "90.29", area: "Comprensión Cultural e Iconográfica" },
     ],
     flow: [
-      "Entrada: briefing de marca en lenguaje natural â€” nombre y descripciÃ³n del negocio, valores que debe transmitir, pÃºblico objetivo (segmento, edad aproximada, contexto cultural), sector y competidores de referencia (opcionales), referencias visuales de inspiraciÃ³n (imÃ¡genes, opcional)",
-      "AnÃ¡lisis de referencias visuales si se adjuntan (Claude 3.7 Sonnet): Â¿quÃ© valores comunican visualmente estas referencias? Â¿quÃ© elementos recurrentes hay? Â¿quÃ© evitar para diferenciarse de los competidores?",
-      "GeneraciÃ³n de N direcciones creativas (Claude 3.7 Sonnet): para cada direcciÃ³n â€” nombre del concepto, razonamiento estÃ©tico, paleta de 4-6 colores en HEX con rol asignado (primario, secundario, acento, texto, fondo, estado de error), par tipogrÃ¡fico verificado en Google Fonts, concepto de logo en descripciÃ³n sin generar imagen",
-      "VerificaciÃ³n de accesibilidad de paletas (cÃ¡lculo algorÃ­tmico WCAG 2.1): ratio de contraste texto/fondo para cada combinaciÃ³n â€” etiquetado PASA_AA | PASA_AAA | FALLA",
-      "VerificaciÃ³n de sensibilidad cultural (Claude 3.7 Sonnet): Â¿algÃºn color tiene connotaciÃ³n problemÃ¡tica en el mercado objetivo? Â¿los conceptos visuales tienen referencias culturales adecuadas?",
-      "Salida A: N fichas de direcciÃ³n creativa en Markdown (una por direcciÃ³n) Â· Salida B: tabla comparativa de paletas con ratios WCAG Â· Salida C: advertencias de sensibilidad cultural si las hay",
+      "Entrada: briefing de marca en lenguaje natural â€” nombre y descripción del negocio, valores que debe transmitir, público objetivo (segmento, edad aproximada, contexto cultural), sector y competidores de referencia (opcionales), referencias visuales de inspiración (imágenes, opcional)",
+      "Análisis de referencias visuales si se adjuntan (Claude 3.7 Sonnet): ¿qué valores comunican visualmente estas referencias? ¿qué elementos recurrentes hay? ¿qué evitar para diferenciarse de los competidores?",
+      "Generación de N direcciones creativas (Claude 3.7 Sonnet): para cada dirección â€” nombre del concepto, razonamiento estético, paleta de 4-6 colores en HEX con rol asignado (primario, secundario, acento, texto, fondo, estado de error), par tipográfico verificado en Google Fonts, concepto de logo en descripción sin generar imagen",
+      "Verificación de accesibilidad de paletas (cálculo algorítmico WCAG 2.1): ratio de contraste texto/fondo para cada combinación â€” etiquetado PASA_AA | PASA_AAA | FALLA",
+      "Verificación de sensibilidad cultural (Claude 3.7 Sonnet): ¿algún color tiene connotación problemática en el mercado objetivo? ¿los conceptos visuales tienen referencias culturales adecuadas?",
+      "Salida A: N fichas de dirección creativa en Markdown (una por dirección) · Salida B: tabla comparativa de paletas con ratios WCAG · Salida C: advertencias de sensibilidad cultural si las hay",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado genesis_visual.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado genesis_visual.py con las siguientes funciones:
 1. parse_brand_brief(brief: str | dict, llm_client) -> dict:
    normaliza el briefing de marca a estructura:
    {brand_name: str, description: str, values: list[str],
@@ -152,53 +152,53 @@ const PROJECTS = [
     sector: str, competitors: list[str],
     visual_references: list[str] | null}.
 2. analyze_visual_references(image_paths: list[str],
-   llm_client) -> dict: analiza imÃ¡genes de referencia.
+   llm_client) -> dict: analiza imágenes de referencia.
    Devuelve: {recurring_elements: list[str], communicated_values: list[str],
    elements_to_avoid: list[str], style_tags: list[str]}.
 3. generate_creative_directions(brief: dict, analysis: dict,
    llm_client, n_directions: int = 4) -> list[dict]: genera N direcciones.
-   Cada direcciÃ³n: {direction_id, concept_name, aesthetic_rationale: str,
+   Cada dirección: {direction_id, concept_name, aesthetic_rationale: str,
    palette: [{role, hex, name}], typography: {heading_font, body_font,
    heading_rationale, body_rationale}, logo_concept: str,
    cultural_notes: str | null}.
 4. check_wcag_contrast(palette: list[dict]) -> list[dict]:
-   calcula ratios de contraste WCAG 2.1 para cada combinaciÃ³n texto/fondo.
+   calcula ratios de contraste WCAG 2.1 para cada combinación texto/fondo.
    Devuelve: [{combo_name, ratio: float, passes_AA: bool, passes_AAA: bool}].
 5. verify_cultural_sensitivity(direction: dict, target_market: str,
    llm_client) -> dict:
-   verifica si la direcciÃ³n tiene elementos culturalmente sensibles.
+   verifica si la dirección tiene elementos culturalmente sensibles.
    Devuelve: {is_sensitive: bool, warnings: list[str], recommendations: list[str]}.
 6. generate_direction_card(direction: dict,
-   wcag_results: list[dict]) -> str: genera la ficha en Markdown de la direcciÃ³n
-   con paleta, tipografÃ­as, concepto de logo y ratios de contraste.
-Usa requests (Google Fonts API), duckdb y la librerÃ­a estÃ¡ndar. Sin generaciÃ³n de imÃ¡genes.`,
-    promptLLM: `Eres el director creativo asistente de GÃ©nesis Visual en el Laboratorio de DiseÃ±o
-& UX de Horizon. Tu funciÃ³n es generar direcciones creativas completas y justificadas
-a partir de un briefing de marca, no imÃ¡genes.
+   wcag_results: list[dict]) -> str: genera la ficha en Markdown de la dirección
+   con paleta, tipografías, concepto de logo y ratios de contraste.
+Usa requests (Google Fonts API), duckdb y la librería estándar. Sin generación de imágenes.`,
+    promptLLM: `Eres el director creativo asistente de Génesis Visual en el Laboratorio de Diseño
+& UX de Horizon. Tu función es generar direcciones creativas completas y justificadas
+a partir de un briefing de marca, no imágenes.
 
-Se te proporciona: el briefing de marca normalizado y, si estÃ¡n disponibles,
-el anÃ¡lisis de referencias visuales.
+Se te proporciona: el briefing de marca normalizado y, si están disponibles,
+el análisis de referencias visuales.
 
-Para cada direcciÃ³n creativa que generes:
+Para cada dirección creativa que generes:
 1. Asigna un nombre de concepto evocador (2-3 palabras) que resuma la idea visual.
-2. Justifica el razonamiento estÃ©tico: por quÃ© cada elemento (color, tipografÃ­a,
-   forma del logo) comunica los valores del briefing. SÃ© especÃ­fico: no digas
-   "el azul transmite confianza" sin explicar quÃ© tono de azul y en quÃ© contexto.
-3. Define la paleta de 5-6 colores con roles explÃ­citos (primario, secundario,
+2. Justifica el razonamiento estético: por qué cada elemento (color, tipografía,
+   forma del logo) comunica los valores del briefing. Sé específico: no digas
+   "el azul transmite confianza" sin explicar qué tono de azul y en qué contexto.
+3. Define la paleta de 5-6 colores con roles explícitos (primario, secundario,
    acento, texto-oscuro, fondo-claro, estado-alerta). Da los valores en HEX.
-4. PropÃ³n un par tipogrÃ¡fico disponible en Google Fonts. Justifica cada tipografÃ­a
-   por sus caracterÃ­sticas formales, no por su popularidad genÃ©rica.
+4. Propón un par tipográfico disponible en Google Fonts. Justifica cada tipografía
+   por sus características formales, no por su popularidad genérica.
 5. Describe el concepto de logo en 2-3 frases sin generar imagen:
-   quÃ© forma/sÃ­mbolo/estructura propones y por quÃ© conecta con el concepto.
+   qué forma/símbolo/estructura propones y por qué conecta con el concepto.
 
-Restricciones crÃ­ticas:
-- Cuando hagas una afirmaciÃ³n sobre psicologÃ­a del color, distingue entre:
-  "principio verificado en investigaciÃ³n de percepciÃ³n visual" y
-  "convenciÃ³n cultural occidental" y "opiniÃ³n de estilo". Usa esas etiquetas.
-- No prescribas una direcciÃ³n como "la mejor": son opciones distintas para
-  que el diseÃ±ador humano elija e itere.
-- Si el briefing tiene informaciÃ³n insuficiente para justificar una decisiÃ³n,
-  seÃ±Ã¡lalo con "REQUIERE ACLARACIÃ“N DEL EQUIPO DE MARCA".
+Restricciones críticas:
+- Cuando hagas una afirmación sobre psicología del color, distingue entre:
+  "principio verificado en investigación de percepción visual" y
+  "convención cultural occidental" y "opinión de estilo". Usa esas etiquetas.
+- No prescribas una dirección como "la mejor": son opciones distintas para
+  que el diseñador humano elija e itere.
+- Si el briefing tiene información insuficiente para justificar una decisión,
+  señálalo con "REQUIERE ACLARACIÃ“N DEL EQUIPO DE MARCA".
 
 Responde en JSON conforme al esquema de generate_creative_directions.`,
   },
@@ -206,83 +206,83 @@ Responde en JSON conforme al esquema de generate_creative_directions.`,
     id: "ariadna",
     name: "Ariadna UX",
     tagline: "El hilo que garantiza que el usuario encuentra el camino de vuelta",
-    desc: "Analiza un flujo de usuario descrito en texto e identifica los puntos de fricciÃ³n: dÃ³nde el flujo es ambiguo, dÃ³nde hay demasiados pasos para lo que el usuario quiere conseguir, dÃ³nde hay una decisiÃ³n que el usuario no deberÃ­a tener que tomar. Produce wireframes textuales de cada pantalla y un anÃ¡lisis heurÃ­stico completo contra los 10 principios de Nielsen. Para flujos transaccionales, activa un modelo especializado en detecciÃ³n de fricciÃ³n en checkout.",
+    desc: "Analiza un flujo de usuario descrito en texto e identifica los puntos de fricción: dónde el flujo es ambiguo, dónde hay demasiados pasos para lo que el usuario quiere conseguir, dónde hay una decisión que el usuario no debería tener que tomar. Produce wireframes textuales de cada pantalla y un análisis heurístico completo contra los 10 principios de Nielsen. Para flujos transaccionales, activa un modelo especializado en detección de fricción en checkout.",
     color: "rose",
     researchLines: ["04", "05"],
     stack: [
-      { role: "AnÃ¡lisis heurÃ­stico y detecciÃ³n de puntos de fricciÃ³n generales", tech: "Claude 3.7 Sonnet â€” lÃ­der jerarquÃ­a visual CTA (93.5/100) y auditorÃ­a WCAG (94.64/100)" },
-      { role: "AnÃ¡lisis de fricciÃ³n especÃ­fica en flujos transaccionales", tech: "DeepSeek-R1 â€” segundo en reducciÃ³n de fricciÃ³n en checkout (89.4 en Checkout_Friction_Reduction)" },
-      { role: "GeneraciÃ³n de wireframes textuales", tech: "Claude 3.7 Sonnet â€” especificaciones de pantalla en formato estructurado" },
-      { role: "VerificaciÃ³n WCAG de paletas referenciadas en el flujo", tech: "CÃ¡lculo algorÃ­tmico de contraste para colores mencionados en las pantallas" },
-      { role: "Almacenamiento", tech: "DuckDB â€” historial de anÃ¡lisis de flujos por proyecto" },
+      { role: "Análisis heurístico y detección de puntos de fricción generales", tech: "Claude 3.7 Sonnet â€” líder jerarquía visual CTA (93.5/100) y auditoría WCAG (94.64/100)" },
+      { role: "Análisis de fricción específica en flujos transaccionales", tech: "DeepSeek-R1 â€” segundo en reducción de fricción en checkout (89.4 en Checkout_Friction_Reduction)" },
+      { role: "Generación de wireframes textuales", tech: "Claude 3.7 Sonnet â€” especificaciones de pantalla en formato estructurado" },
+      { role: "Verificación WCAG de paletas referenciadas en el flujo", tech: "Cálculo algorítmico de contraste para colores mencionados en las pantallas" },
+      { role: "Almacenamiento", tech: "DuckDB â€” historial de análisis de flujos por proyecto" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "AnÃ¡lisis heurÃ­stico + wireframes textuales", score: "94.64", area: "Calidad EstÃ©tica, Accesibilidad y DiseÃ±o Funcional" },
-      { model: "Claude 3.7 Sonnet", role: "JerarquÃ­a visual CTA", score: "83.33", area: "Efectividad de UI/UX en Comportamiento de Usuario" },
-      { model: "DeepSeek-R1", role: "FricciÃ³n en flujos transaccionales", score: "78.31", area: "Efectividad de UI/UX â€” Checkout Friction Reduction: 89.4" },
+      { model: "Claude 3.7 Sonnet", role: "Análisis heurístico + wireframes textuales", score: "94.64", area: "Calidad Estética, Accesibilidad y Diseño Funcional" },
+      { model: "Claude 3.7 Sonnet", role: "Jerarquía visual CTA", score: "83.33", area: "Efectividad de UI/UX en Comportamiento de Usuario" },
+      { model: "DeepSeek-R1", role: "Fricción en flujos transaccionales", score: "78.31", area: "Efectividad de UI/UX â€” Checkout Friction Reduction: 89.4" },
     ],
     flow: [
-      "Entrada: descripciÃ³n del flujo de usuario â€” nombre del flujo, lista de pasos con descripciÃ³n de quÃ© ve el usuario y quÃ© puede hacer en cada paso, contexto (tipo de aplicaciÃ³n, dispositivo objetivo, usuario tipo), objetivo final del flujo (quÃ© acciÃ³n se considera completada con Ã©xito)",
-      "AnÃ¡lisis heurÃ­stico del flujo (Claude 3.7 Sonnet): Â¿cuÃ¡ntos pasos tiene el flujo? Â¿alguno es prescindible? Â¿hay decisiones que el usuario no deberÃ­a tomar? Â¿la nomenclatura es consistente? PuntuaciÃ³n 1-10 por cada uno de los 10 principios de Nielsen",
-      "AnÃ¡lisis de puntos de fricciÃ³n especÃ­ficos (DeepSeek-R1, si el flujo es transaccional): Â¿en quÃ© paso es mÃ¡s probable el abandono? Â¿hay campos de formulario innecesarios? Â¿el CTA es inequÃ­voco?",
-      "GeneraciÃ³n de wireframes textuales (Claude 3.7 Sonnet): para cada pantalla â€” estructura de contenido, elemento CTA con posiciÃ³n y justificaciÃ³n, navegaciÃ³n, microcopy sugerido para labels, placeholders y mensajes de error",
-      "VerificaciÃ³n de jerarquÃ­a visual (Claude 3.7 Sonnet): Â¿el elemento mÃ¡s importante de cada pantalla es visualmente dominante? Â¿hay conflicto de atenciÃ³n entre varios elementos del mismo peso visual?",
-      "Salida A: informe de anÃ¡lisis heurÃ­stico con puntuaciÃ³n por principio Â· Salida B: puntos de fricciÃ³n ordenados por impacto estimado Â· Salida C: wireframes textuales por pantalla Â· Salida D: sugerencias de microcopy",
+      "Entrada: descripción del flujo de usuario â€” nombre del flujo, lista de pasos con descripción de qué ve el usuario y qué puede hacer en cada paso, contexto (tipo de aplicación, dispositivo objetivo, usuario tipo), objetivo final del flujo (qué acción se considera completada con éxito)",
+      "Análisis heurístico del flujo (Claude 3.7 Sonnet): ¿cuántos pasos tiene el flujo? ¿alguno es prescindible? ¿hay decisiones que el usuario no debería tomar? ¿la nomenclatura es consistente? Puntuación 1-10 por cada uno de los 10 principios de Nielsen",
+      "Análisis de puntos de fricción específicos (DeepSeek-R1, si el flujo es transaccional): ¿en qué paso es más probable el abandono? ¿hay campos de formulario innecesarios? ¿el CTA es inequívoco?",
+      "Generación de wireframes textuales (Claude 3.7 Sonnet): para cada pantalla â€” estructura de contenido, elemento CTA con posición y justificación, navegación, microcopy sugerido para labels, placeholders y mensajes de error",
+      "Verificación de jerarquía visual (Claude 3.7 Sonnet): ¿el elemento más importante de cada pantalla es visualmente dominante? ¿hay conflicto de atención entre varios elementos del mismo peso visual?",
+      "Salida A: informe de análisis heurístico con puntuación por principio · Salida B: puntos de fricción ordenados por impacto estimado · Salida C: wireframes textuales por pantalla · Salida D: sugerencias de microcopy",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado ariadna_ux.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado ariadna_ux.py con las siguientes funciones:
 1. parse_user_flow(description: str | dict, llm_client) -> dict:
-   normaliza la descripciÃ³n del flujo:
+   normaliza la descripción del flujo:
    {flow_name: str, flow_type: str ("onboarding"|"purchase"|"settings"|"other"),
     target_device: str, steps: [{step_id, screen_name, user_actions: list[str],
     visible_elements: list[str]}],
     success_criteria: str, user_persona: str | null}.
 2. heuristic_analysis(flow: dict, llm_client) -> dict:
-   analiza el flujo contra los 10 principios heurÃ­sticos de Nielsen.
+   analiza el flujo contra los 10 principios heurísticos de Nielsen.
    Devuelve: {overall_score: float,
    heuristics: [{principle_name, score: float (1-10), issues: list[str],
    severity: "low"|"medium"|"high"}],
    total_issues: int, critical_issues: int}.
 3. friction_analysis(flow: dict, llm_client) -> list[dict]:
-   identifica puntos de fricciÃ³n. Devuelve lista:
+   identifica puntos de fricción. Devuelve lista:
    [{step_id, friction_type: str, description: str,
    estimated_drop_off_impact: "low"|"medium"|"high",
    suggested_fix: str}].
 4. generate_wireframe_spec(step: dict, flow_context: dict,
-   llm_client) -> dict: genera la especificaciÃ³n de pantalla:
+   llm_client) -> dict: genera la especificación de pantalla:
    {screen_name, layout_structure: str, elements: [{name, type, position,
    visual_weight: "primary"|"secondary"|"tertiary", copy_suggestion: str}],
    cta: {text, position, rationale}, navigation_options: list[str]}.
 5. check_visual_hierarchy(wireframe: dict, llm_client) -> dict:
-   verifica la jerarquÃ­a visual de la pantalla.
+   verifica la jerarquía visual de la pantalla.
    Devuelve: {has_clear_primary: bool, attention_conflicts: list[str],
    hierarchy_score: float, recommendations: list[str]}.
 6. generate_flow_report(flow: dict, heuristics: dict, friction: list[dict],
    wireframes: list[dict]) -> str: genera el informe completo en Markdown.
-Usa duckdb y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el analista de UX de Ariadna UX en el Laboratorio de DiseÃ±o & UX de Horizon.
+Usa duckdb y la librería estándar.`,
+    promptLLM: `Eres el analista de UX de Ariadna UX en el Laboratorio de Diseño & UX de Horizon.
 
-TAREA 1 â€” AnÃ¡lisis heurÃ­stico:
-Se te proporciona la descripciÃ³n completa de un flujo de usuario.
-EvalÃºa el flujo contra los 10 principios heurÃ­sticos de Nielsen:
+TAREA 1 â€” Análisis heurístico:
+Se te proporciona la descripción completa de un flujo de usuario.
+Evalúa el flujo contra los 10 principios heurísticos de Nielsen:
 1. Visibilidad del estado del sistema
 2. Correspondencia entre el sistema y el mundo real
 3. Control y libertad del usuario
-4. Consistencia y estÃ¡ndares
-5. PrevenciÃ³n de errores
+4. Consistencia y estándares
+5. Prevención de errores
 6. Reconocimiento en lugar de recuerdo
 7. Flexibilidad y eficiencia de uso
-8. DiseÃ±o estÃ©tico y minimalista
+8. Diseño estético y minimalista
 9. Ayuda a los usuarios a reconocer, diagnosticar y recuperarse de errores
-10. Ayuda y documentaciÃ³n
+10. Ayuda y documentación
 
 Para cada principio:
-- Asigna una puntuaciÃ³n de 1 a 10 (10 = sin problemas detectados).
+- Asigna una puntuación de 1 a 10 (10 = sin problemas detectados).
 - Lista los problemas concretos encontrados (con referencia al paso del flujo).
-- Clasifica la severidad: low (molestia menor), medium (impacto en conversiÃ³n),
+- Clasifica la severidad: low (molestia menor), medium (impacto en conversión),
   high (puede provocar abandono).
 
-TAREA 2 â€” GeneraciÃ³n de wireframe textual:
-Para cada pantalla del flujo, genera la especificaciÃ³n de contenido.
+TAREA 2 â€” Generación de wireframe textual:
+Para cada pantalla del flujo, genera la especificación de contenido.
 Ordena los elementos por peso visual (primary > secondary > tertiary).
 Para el CTA, justifica su posicionamiento con un principio verificable
 (no con una preferencia de estilo).
@@ -290,41 +290,41 @@ Para el CTA, justifica su posicionamiento con un principio verificable
 Restricciones:
 - Distingue entre problemas verificables y recomendaciones de estilo.
   Etiqueta las segundas como "RECOMENDACIÃ“N DE ESTILO".
-- No inventes datos de conversiÃ³n que no estÃ©n en el briefing.
-- Si un paso del flujo es ambiguo, seÃ±Ã¡lalo antes de analizarlo.
+- No inventes datos de conversión que no estén en el briefing.
+- Si un paso del flujo es ambiguo, señálalo antes de analizarlo.
 
 Responde en JSON conforme a los esquemas de heuristic_analysis
-y generate_wireframe_spec segÃºn la tarea activada.`,
+y generate_wireframe_spec según la tarea activada.`,
   },
   {
     id: "vitral",
-    name: "Vitral CrÃ­tico",
-    tagline: "La crÃ­tica estructurada de una interfaz en segundos, no en horas",
-    desc: "Recibe una captura de pantalla de una interfaz y produce una crÃ­tica estructurada de su composiciÃ³n visual: contraste texto/fondo verificado contra WCAG 2.1, jerarquÃ­a visual, alineaciÃ³n de elementos, consistencia de espaciado y densidad informativa. Usa una arquitectura en dos etapas: un modelo localiza los elementos con sus coordenadas de bounding box; el otro analiza cada elemento localizado y produce la crÃ­tica fundamentada por dimensiÃ³n.",
+    name: "Vitral Crítico",
+    tagline: "La crítica estructurada de una interfaz en segundos, no en horas",
+    desc: "Recibe una captura de pantalla de una interfaz y produce una crítica estructurada de su composición visual: contraste texto/fondo verificado contra WCAG 2.1, jerarquía visual, alineación de elementos, consistencia de espaciado y densidad informativa. Usa una arquitectura en dos etapas: un modelo localiza los elementos con sus coordenadas de bounding box; el otro analiza cada elemento localizado y produce la crítica fundamentada por dimensión.",
     color: "emerald",
     researchLines: ["02", "05"],
     stack: [
-      { role: "DetecciÃ³n y localizaciÃ³n de elementos de interfaz (Visual Grounding)", tech: "Gemini 2.0 Pro â€” lÃ­der grounding y detecciÃ³n UI, 92.4 en UI_Element_BBox_Detection (89.75/100)" },
-      { role: "CrÃ­tica de accesibilidad, jerarquÃ­a y composiciÃ³n", tech: "Claude 3.7 Sonnet â€” lÃ­der calidad estÃ©tica y cumplimiento WCAG (94.64/100)" },
-      { role: "VerificaciÃ³n WCAG algorÃ­tmica", tech: "CÃ¡lculo de ratios de contraste a partir de colores extraÃ­dos de la imagen (colorsys)" },
-      { role: "ExtracciÃ³n de colores dominantes", tech: "AnÃ¡lisis de paleta de la captura para cÃ¡lculo de contraste (Pillow)" },
-      { role: "AnotaciÃ³n de imagen con bounding boxes", tech: "Pillow â€” marcado por nivel de severidad: rojo (bloqueante), naranja (usabilidad), gris (estilo)" },
-      { role: "Almacenamiento", tech: "DuckDB â€” histÃ³rico de auditorÃ­as por interfaz y por versiÃ³n" },
+      { role: "Detección y localización de elementos de interfaz (Visual Grounding)", tech: "Gemini 2.0 Pro â€” líder grounding y detección UI, 92.4 en UI_Element_BBox_Detection (89.75/100)" },
+      { role: "Crítica de accesibilidad, jerarquía y composición", tech: "Claude 3.7 Sonnet â€” líder calidad estética y cumplimiento WCAG (94.64/100)" },
+      { role: "Verificación WCAG algorítmica", tech: "Cálculo de ratios de contraste a partir de colores extraídos de la imagen (colorsys)" },
+      { role: "Extracción de colores dominantes", tech: "Análisis de paleta de la captura para cálculo de contraste (Pillow)" },
+      { role: "Anotación de imagen con bounding boxes", tech: "Pillow â€” marcado por nivel de severidad: rojo (bloqueante), naranja (usabilidad), gris (estilo)" },
+      { role: "Almacenamiento", tech: "DuckDB â€” histórico de auditorías por interfaz y por versión" },
     ],
     whyModels: [
-      { model: "Gemini 2.0 Pro", role: "Visual Grounding â€” localizaciÃ³n de elementos UI", score: "89.75", area: "Evidencia Visual, Grounding y SegmentaciÃ³n" },
-      { model: "Claude 3.7 Sonnet", role: "AuditorÃ­a WCAG y crÃ­tica de composiciÃ³n", score: "94.64", area: "Calidad EstÃ©tica, Accesibilidad y DiseÃ±o Funcional" },
+      { model: "Gemini 2.0 Pro", role: "Visual Grounding â€” localización de elementos UI", score: "89.75", area: "Evidencia Visual, Grounding y Segmentación" },
+      { model: "Claude 3.7 Sonnet", role: "Auditoría WCAG y crítica de composición", score: "94.64", area: "Calidad Estética, Accesibilidad y Diseño Funcional" },
     ],
     flow: [
       "Entrada: captura de pantalla de la interfaz (PNG, JPG, WebP) + contexto opcional: tipo de interfaz, dispositivo, objetivo principal de la pantalla",
-      "DetecciÃ³n y localizaciÃ³n de elementos (Gemini 2.0 Pro): identificaciÃ³n de todos los elementos visibles, bounding box por elemento (x, y, w, h), clasificaciÃ³n del tipo (texto | botÃ³n | imagen | icono | campo de formulario | navegaciÃ³n | fondo), extracciÃ³n del color de texto y fondo por elemento de texto",
-      "AuditorÃ­a de contraste WCAG 2.1 (algorÃ­tmica): ratio de contraste texto/fondo para cada elemento de texto â€” etiquetado PASA_AA | PASA_AAA | FALLA | NO_APLICA",
-      "AuditorÃ­a de jerarquÃ­a visual (Claude 3.7 Sonnet): Â¿quÃ© elemento deberÃ­a ser el mÃ¡s importante segÃºn el objetivo? Â¿es ese elemento visualmente dominante? Â¿hay conflictos de atenciÃ³n entre elementos de igual peso visual?",
-      "AuditorÃ­a de alineaciÃ³n y retÃ­cula: Â¿los elementos estÃ¡n alineados a una retÃ­cula consistente? Inconsistencias de margen o padding entre elementos similares",
-      "AuditorÃ­a de densidad informativa: Â¿cuÃ¡ntos elementos compiten por la atenciÃ³n del usuario? Â¿hay informaciÃ³n que podrÃ­a moverse a una pantalla siguiente?",
-      "GeneraciÃ³n de informe: por cada problema â€” descripciÃ³n, elemento afectado con referencia al bounding box, severidad, sugerencia de correcciÃ³n concreta Â· PuntuaciÃ³n global por dimensiÃ³n (0-100) Â· Imagen anotada con bounding boxes coloreados por severidad",
+      "Detección y localización de elementos (Gemini 2.0 Pro): identificación de todos los elementos visibles, bounding box por elemento (x, y, w, h), clasificación del tipo (texto | botón | imagen | icono | campo de formulario | navegación | fondo), extracción del color de texto y fondo por elemento de texto",
+      "Auditoría de contraste WCAG 2.1 (algorítmica): ratio de contraste texto/fondo para cada elemento de texto â€” etiquetado PASA_AA | PASA_AAA | FALLA | NO_APLICA",
+      "Auditoría de jerarquía visual (Claude 3.7 Sonnet): ¿qué elemento debería ser el más importante según el objetivo? ¿es ese elemento visualmente dominante? ¿hay conflictos de atención entre elementos de igual peso visual?",
+      "Auditoría de alineación y retícula: ¿los elementos están alineados a una retícula consistente? Inconsistencias de margen o padding entre elementos similares",
+      "Auditoría de densidad informativa: ¿cuántos elementos compiten por la atención del usuario? ¿hay información que podría moverse a una pantalla siguiente?",
+      "Generación de informe: por cada problema â€” descripción, elemento afectado con referencia al bounding box, severidad, sugerencia de corrección concreta · Puntuación global por dimensión (0-100) · Imagen anotada con bounding boxes coloreados por severidad",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado vitral_critico.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado vitral_critico.py con las siguientes funciones:
 1. detect_ui_elements(image_path: str, vlm_client) -> list[dict]:
    detecta y localiza los elementos de la interfaz usando el VLM.
    Devuelve lista de elementos: {element_id: int, element_type: str,
@@ -335,12 +335,12 @@ y generate_wireframe_spec segÃºn la tarea activada.`,
    Devuelve: [{element_id, contrast_ratio: float,
    passes_AA: bool, passes_AAA: bool, text_size: str | null}].
 3. audit_visual_hierarchy(elements: list[dict], screen_objective: str,
-   llm_client) -> dict: evalÃºa la jerarquÃ­a visual.
+   llm_client) -> dict: evalúa la jerarquía visual.
    Devuelve: {expected_primary: str, actual_primary: str,
    hierarchy_conflicts: list[{element_id, conflict_description}],
    hierarchy_score: float}.
 4. audit_alignment(elements: list[dict]) -> dict:
-   detecta inconsistencias de alineaciÃ³n y retÃ­cula.
+   detecta inconsistencias de alineación y retícula.
    Devuelve: {detected_grid_base: int | null,
    misaligned_elements: list[{element_id, expected_position, actual_position, delta_px}],
    alignment_score: float}.
@@ -351,40 +351,40 @@ y generate_wireframe_spec segÃºn la tarea activada.`,
    spacing_score: float}.
 6. generate_critique_report(image_path: str, elements: list[dict],
    contrast: list[dict], hierarchy: dict, alignment: dict,
-   spacing: dict, llm_client) -> dict: genera el informe crÃ­tico completo:
+   spacing: dict, llm_client) -> dict: genera el informe crítico completo:
    {overall_score: float, issues: list[{element_id, bbox, severity,
    dimension, description, suggestion}], summary: str}.
 7. annotate_image(image_path: str, issues: list[dict],
    output_path: str) -> None: genera la imagen anotada con bounding boxes
    por nivel de severidad.
-Usa Pillow, colorsys (para cÃ¡lculo de contraste), duckdb y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el crÃ­tico de diseÃ±o de Vitral CrÃ­tico en el Laboratorio de DiseÃ±o & UX
-de Horizon. Tu funciÃ³n es analizar los elementos de una interfaz â€”ya detectados
-y localizados por el sistema de groundingâ€” y emitir una crÃ­tica fundamentada
-por dimensiÃ³n.
+Usa Pillow, colorsys (para cálculo de contraste), duckdb y la librería estándar.`,
+    promptLLM: `Eres el crítico de diseño de Vitral Crítico en el Laboratorio de Diseño & UX
+de Horizon. Tu función es analizar los elementos de una interfaz â€”ya detectados
+y localizados por el sistema de groundingâ€” y emitir una crítica fundamentada
+por dimensión.
 
 Se te proporciona:
 - Lista de elementos de interfaz con sus coordenadas, tipos y colores
-- Resultados de la verificaciÃ³n algorÃ­tmica de contraste WCAG
-- El objetivo principal de la pantalla (quÃ© acciÃ³n debe completar el usuario)
+- Resultados de la verificación algorítmica de contraste WCAG
+- El objetivo principal de la pantalla (qué acción debe completar el usuario)
 
-Para cada dimensiÃ³n de tu anÃ¡lisis, distingue explÃ­citamente entre:
+Para cada dimensión de tu análisis, distingue explícitamente entre:
 1. VERIFICABLE: problemas con criterio objetivo (contraste < 4.5:1 falla WCAG 2.1 AA).
-   Cita el estÃ¡ndar o el criterio medible que se incumple.
-2. HEURÃSTICO: problemas basados en principios de usabilidad establecidos.
+   Cita el estándar o el criterio medible que se incumple.
+2. HEURÍSTICO: problemas basados en principios de usabilidad establecidos.
    Cita el principio aplicado.
 3. RECOMENDACIÃ“N DE ESTILO: apreciaciones culturalmente situadas o dependientes
-   de la guÃ­a de estilo del proyecto. EtiquÃ©talas como tal.
+   de la guía de estilo del proyecto. Etiquétalas como tal.
 
 Para cada problema, especifica:
 - El element_id del elemento afectado
-- La dimensiÃ³n: CONTRASTE | JERARQUÃA | ALINEACIÃ“N | ESPACIADO | DENSIDAD
+- La dimensión: CONTRASTE | JERARQUÍA | ALINEACIÃ“N | ESPACIADO | DENSIDAD
 - La severidad: BLOQUEANTE (accesibilidad incumplida) | USABILIDAD (impacto
-  medible en conversiÃ³n o comprensiÃ³n) | ESTILO (recomendaciÃ³n opinable)
-- Una sugerencia concreta de correcciÃ³n (no genÃ©rica)
+  medible en conversión o comprensión) | ESTILO (recomendación opinable)
+- Una sugerencia concreta de corrección (no genérica)
 
 No uses frases como "la interfaz se ve abarrotada" sin cuantificar:
-di cuÃ¡ntos elementos compiten por la atenciÃ³n en el Ã¡rea identificada.
+di cuántos elementos compiten por la atención en el área identificada.
 
 Responde en JSON conforme al esquema de generate_critique_report.`,
   },
@@ -393,32 +393,32 @@ Responde en JSON conforme al esquema de generate_critique_report.`,
 const MARKET_APPS = [
   {
     name: "Figma AI",
-    desc: "La plataforma de diseÃ±o colaborativo lÃ­der incorpora funciones de IA generativa para la generaciÃ³n de wireframes, bÃºsqueda visual y ediciÃ³n asistida. Incluye generaciÃ³n de capas y componentes a partir de descripciones textuales.",
-    tag: "DiseÃ±o colaborativo",
+    desc: "La plataforma de diseño colaborativo líder incorpora funciones de IA generativa para la generación de wireframes, búsqueda visual y edición asistida. Incluye generación de capas y componentes a partir de descripciones textuales.",
+    tag: "Diseño colaborativo",
     url: "https://figma.com/ai",
   },
   {
     name: "Adobe Firefly",
-    desc: "Modelo generativo de Adobe integrado en Creative Cloud. Incluye generaciÃ³n de imÃ¡genes, expansiÃ³n de fondo (generative fill), recoloraciÃ³n de vectores y generaciÃ³n de patrones de diseÃ±o.",
-    tag: "GeneraciÃ³n de imÃ¡genes",
+    desc: "Modelo generativo de Adobe integrado en Creative Cloud. Incluye generación de imágenes, expansión de fondo (generative fill), recoloración de vectores y generación de patrones de diseño.",
+    tag: "Generación de imágenes",
     url: "https://firefly.adobe.com",
   },
   {
     name: "Uizard",
-    desc: "Herramienta de prototipado rÃ¡pido con IA que convierte capturas de wireframes dibujados a mano en prototipos digitales editables, y genera wireframes a partir de descripciones textuales.",
-    tag: "Prototipado rÃ¡pido",
+    desc: "Herramienta de prototipado rápido con IA que convierte capturas de wireframes dibujados a mano en prototipos digitales editables, y genera wireframes a partir de descripciones textuales.",
+    tag: "Prototipado rápido",
     url: "https://uizard.io",
   },
   {
     name: "Galileo AI",
-    desc: "Plataforma de generaciÃ³n de interfaces de usuario completas a partir de descripciones de texto, orientada a la creaciÃ³n rÃ¡pida de pantallas de aplicaciÃ³n mÃ³vil y web.",
-    tag: "GeneraciÃ³n de UI",
+    desc: "Plataforma de generación de interfaces de usuario completas a partir de descripciones de texto, orientada a la creación rápida de pantallas de aplicación móvil y web.",
+    tag: "Generación de UI",
     url: "https://usegalileo.ai",
   },
   {
     name: "UserTesting AI Insights",
-    desc: "La plataforma UserTesting incorpora anÃ¡lisis de IA para identificar patrones en sesiones de test de usuario, destacar momentos de fricciÃ³n y sintetizar feedback cualitativo en insights accionables.",
-    tag: "InvestigaciÃ³n de usuarios",
+    desc: "La plataforma UserTesting incorpora análisis de IA para identificar patrones en sesiones de test de usuario, destacar momentos de fricción y sintetizar feedback cualitativo en insights accionables.",
+    tag: "Investigación de usuarios",
     url: "https://usertesting.com",
   },
 ];
@@ -428,47 +428,47 @@ const VERIFICATION_POINTS = [
     id: "v1",
     title: "4.1 Podio incompleto en Evidencia Visual y Grounding",
     items: [
-      "El Ã¡rea de Evidencia Visual, Grounding y SegmentaciÃ³n cuenta con evaluaciones registradas Ãºnicamente para 2 modelos: Gemini 2.0 Pro (89.75/100) y Claude 3.7 Sonnet (82.35/100) (Fuente: STATER Design Leaderboard, latest_rankings_design.md).",
+      "El área de Evidencia Visual, Grounding y Segmentación cuenta con evaluaciones registradas únicamente para 2 modelos: Gemini 2.0 Pro (89.75/100) y Claude 3.7 Sonnet (82.35/100) (Fuente: STATER Design Leaderboard, latest_rankings_design.md).",
       "El tercer puesto de este podio no cuenta con datos en el archivo de rankings y queda clasificado como [DATO PENDIENTE DE VERIFICAR].",
-      "El proyecto Vitral CrÃ­tico asume la arquitectura de dos etapas basÃ¡ndose en los dos modelos disponibles. Si emerge un tercer modelo competitivo, el stack debe revisarse.",
+      "El proyecto Vitral Crítico asume la arquitectura de dos etapas basándose en los dos modelos disponibles. Si emerge un tercer modelo competitivo, el stack debe revisarse.",
     ],
   },
   {
     id: "v2",
-    title: "4.2 AsimetrÃ­a en la cobertura de benchmarks por modelo",
+    title: "4.2 Asimetría en la cobertura de benchmarks por modelo",
     items: [
-      "ComprensiÃ³n Visual: Gemini 2.0 Pro (67% de cobertura) carece de evaluaciÃ³n en OK_VQA_Knowledge (Fuente: STATER Design Leaderboard, latest_rankings_design.md).",
-      "DiseÃ±o Generativo de Espacios: tanto ArchiGPT-CAD-Flow (67%) como GPT-4.5 (67%) carecen de resultado en Product_3D_Ergonomics_Synthesis.",
-      "Efectividad de UI/UX: ningÃºn modelo alcanza el 100% de cobertura â€” Claude 3.7 Sonnet no tiene datos en Checkout_Friction_Reduction, DeepSeek-R1 carece de evaluaciÃ³n en CTA_Visual_Hierarchy_Impact, y GPT-4.5 solo fue evaluado en WiserUI_Bench_AB_Winner (33% de cobertura).",
-      "Calidad EstÃ©tica y Accesibilidad: Archigen-Spatial-Agent (33%) solo dispone de evaluaciÃ³n en Visual_Balance_Typography_Ratio.",
-      "ComprensiÃ³n Cultural: GPT-4.5 (67%) carece de evaluaciÃ³n en Multilingual_UI_Localization, y Gemini 2.0 Pro (33%) solo registra datos en Regional_Iconography_Semantics.",
+      "Comprensión Visual: Gemini 2.0 Pro (67% de cobertura) carece de evaluación en OK_VQA_Knowledge (Fuente: STATER Design Leaderboard, latest_rankings_design.md).",
+      "Diseño Generativo de Espacios: tanto ArchiGPT-CAD-Flow (67%) como GPT-4.5 (67%) carecen de resultado en Product_3D_Ergonomics_Synthesis.",
+      "Efectividad de UI/UX: ningún modelo alcanza el 100% de cobertura â€” Claude 3.7 Sonnet no tiene datos en Checkout_Friction_Reduction, DeepSeek-R1 carece de evaluación en CTA_Visual_Hierarchy_Impact, y GPT-4.5 solo fue evaluado en WiserUI_Bench_AB_Winner (33% de cobertura).",
+      "Calidad Estética y Accesibilidad: Archigen-Spatial-Agent (33%) solo dispone de evaluación en Visual_Balance_Typography_Ratio.",
+      "Comprensión Cultural: GPT-4.5 (67%) carece de evaluación en Multilingual_UI_Localization, y Gemini 2.0 Pro (33%) solo registra datos en Regional_Iconography_Semantics.",
     ],
   },
   {
     id: "v3",
-    title: "4.3 Ausencia de benchmarks de generaciÃ³n de identidades visuales corporativas",
+    title: "4.3 Ausencia de benchmarks de generación de identidades visuales corporativas",
     items: [
-      "El catÃ¡logo oficial del mÃ³dulo evalÃºa VQA con conocimiento externo, grounding, diseÃ±o espacial, experimentos A/B, accesibilidad WCAG y localizaciÃ³n cultural.",
-      "Las evaluaciones cuantitativas dedicadas especÃ­ficamente a la sÃ­ntesis de identidades corporativas completas (logotipos vectoriales, sistemas de marca) quedan registradas como [DATO PENDIENTE DE VERIFICAR].",
-      "Los proyectos GÃ©nesis Visual y Vitral CrÃ­tico aplican benchmarks relacionados (calidad estÃ©tica, coherencia estilÃ­stica) como proxies razonados, no como mediciÃ³n directa de branding.",
+      "El catálogo oficial del módulo evalúa VQA con conocimiento externo, grounding, diseño espacial, experimentos A/B, accesibilidad WCAG y localización cultural.",
+      "Las evaluaciones cuantitativas dedicadas específicamente a la síntesis de identidades corporativas completas (logotipos vectoriales, sistemas de marca) quedan registradas como [DATO PENDIENTE DE VERIFICAR].",
+      "Los proyectos Génesis Visual y Vitral Crítico aplican benchmarks relacionados (calidad estética, coherencia estilística) como proxies razonados, no como medición directa de branding.",
     ],
   },
   {
     id: "v4",
-    title: "4.4 Puntuaciones bajas en Efectividad de UI/UX vs. otras Ã¡reas",
+    title: "4.4 Puntuaciones bajas en Efectividad de UI/UX vs. otras áreas",
     items: [
-      "Las puntuaciones del Ã¡rea de Efectividad de UI/UX en Comportamiento de Usuario son significativamente mÃ¡s bajas que las de otras Ã¡reas: el lÃ­der Claude 3.7 Sonnet alcanza 83.33/100, comparado con 94.64/100 en el Ã¡rea de accesibilidad (Fuente: STATER Design Leaderboard, latest_rankings_design.md).",
-      "Este diferencial sugiere que la predicciÃ³n de resultados reales de A/B testing es considerablemente mÃ¡s difÃ­cil que la auditorÃ­a de accesibilidad algorÃ­tmica.",
-      "Debe comunicarse al usuario de Ariadna UX: el sistema puede auditar jerarquÃ­a y accesibilidad con alta fiabilidad, pero la predicciÃ³n de conversiÃ³n tiene mayor incertidumbre.",
+      "Las puntuaciones del área de Efectividad de UI/UX en Comportamiento de Usuario son significativamente más bajas que las de otras áreas: el líder Claude 3.7 Sonnet alcanza 83.33/100, comparado con 94.64/100 en el área de accesibilidad (Fuente: STATER Design Leaderboard, latest_rankings_design.md).",
+      "Este diferencial sugiere que la predicción de resultados reales de A/B testing es considerablemente más difícil que la auditoría de accesibilidad algorítmica.",
+      "Debe comunicarse al usuario de Ariadna UX: el sistema puede auditar jerarquía y accesibilidad con alta fiabilidad, pero la predicción de conversión tiene mayor incertidumbre.",
     ],
   },
   {
     id: "v5",
-    title: "4.5 Latencias en inferencia multimodal y costes por token de visiÃ³n",
+    title: "4.5 Latencias en inferencia multimodal y costes por token de visión",
     items: [
-      "El tiempo de inferencia por imagen en alta resoluciÃ³n y el coste operativo por megapixel/token visual de los VLMs evaluados no constan en el archivo de rankings.",
-      "Permanece como [DATO PENDIENTE DE VERIFICAR] â€” dato relevante para Vitral CrÃ­tico en uso intensivo (auditorÃ­a de mÃºltiples pantallas en un sistema de diseÃ±o completo).",
-      "Para despliegues en producciÃ³n con volumen alto de auditorÃ­as, este dato es necesario para estimar el coste operativo real del sistema.",
+      "El tiempo de inferencia por imagen en alta resolución y el coste operativo por megapixel/token visual de los VLMs evaluados no constan en el archivo de rankings.",
+      "Permanece como [DATO PENDIENTE DE VERIFICAR] â€” dato relevante para Vitral Crítico en uso intensivo (auditoría de múltiples pantallas en un sistema de diseño completo).",
+      "Para despliegues en producción con volumen alto de auditorías, este dato es necesario para estimar el coste operativo real del sistema.",
     ],
   },
 ];
@@ -575,7 +575,7 @@ function ResearchLineCard({ line }) {
 
           <div className={`border ${c.border} ${c.bg} rounded-xl p-4 flex items-start justify-between gap-4`}>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Modelo lÃ­der Â· STATER Design Leaderboard</p>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Modelo líder · STATER Design Leaderboard</p>
               <p className={`text-sm font-medium ${c.accent}`}>{line.topModel.name}</p>
               <p className="text-xs text-white/40 mt-1">{line.topModel.detail}</p>
             </div>
@@ -650,12 +650,12 @@ function ProjectCard({ project }) {
         </div>
         <p className="text-white/65 text-sm leading-relaxed mb-4">{project.desc}</p>
         <div className="flex flex-wrap gap-2 mb-2">
-          <span className="text-xs text-white/30">LÃ­neas de investigaciÃ³n:</span>
+          <span className="text-xs text-white/30">Líneas de investigación:</span>
           {project.researchLines.map((n) => {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} Â· {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
               </span>
             );
           })}
@@ -682,7 +682,7 @@ function ProjectCard({ project }) {
         {tab === "stack" && (
           <div className="space-y-6">
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes tÃ©cnicos</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes técnicos</p>
               <div className="space-y-2">
                 {project.stack.map((s, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-3">
@@ -696,7 +696,7 @@ function ProjectCard({ project }) {
               </div>
             </div>
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por quÃ© estos modelos Â· STATER Design Leaderboard</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por qué estos modelos · STATER Design Leaderboard</p>
               <div className="space-y-2">
                 {project.whyModels.map((m, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start justify-between gap-4">
@@ -801,30 +801,30 @@ export default function DisenoLab() {
                 <span className="text-xs border border-amber-400/30 bg-amber-400/10 text-amber-400 px-3 py-0.5 rounded-full">
                   Laboratorio verificado
                 </span>
-                <span className="text-xs text-white/20">STATER Design & UX Â· 2026-08-29</span>
+                <span className="text-xs text-white/20">STATER Design & UX · 2026-08-29</span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
                 Laboratorio de{" "}
-                <span className="text-amber-400">DiseÃ±o</span>
+                <span className="text-amber-400">Diseño</span>
                 {" & "}
                 <span className="text-rose-400">UX</span>
               </h1>
               <p className="text-white/50 text-lg sm:text-xl mt-3 max-w-2xl leading-relaxed">
-                IA para branding generativo, anÃ¡lisis heurÃ­stico de flujos y crÃ­tica estructurada de interfaces.
-                El laboratorio distingue explÃ­citamente entre criterios verificables â€” contraste WCAG, tasas de conversiÃ³n â€” y recomendaciones de estilo.
+                IA para branding generativo, análisis heurístico de flujos y crítica estructurada de interfaces.
+                El laboratorio distingue explícitamente entre criterios verificables â€” contraste WCAG, tasas de conversión â€” y recomendaciones de estilo.
               </p>
 
-              {/* Nota metodolÃ³gica */}
+              {/* Nota metodológica */}
               <div className="mt-5 inline-flex items-start gap-2 border border-amber-400/20 bg-amber-400/5 rounded-xl px-4 py-3 max-w-xl">
                 <Eye size={13} className="text-amber-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-amber-300/70 leading-relaxed">
-                  <strong className="text-amber-300">Nota metodolÃ³gica:</strong> en diseÃ±o, algunas afirmaciones son objetivamente medibles (ratio de contraste, tasa de abandono). Otras son recomendaciones de estilo, culturalmente situadas y legÃ­timamente opinables. Este laboratorio distingue explÃ­citamente entre ambas en cada mÃ³dulo.
+                  <strong className="text-amber-300">Nota metodológica:</strong> en diseño, algunas afirmaciones son objetivamente medibles (ratio de contraste, tasa de abandono). Otras son recomendaciones de estilo, culturalmente situadas y legítimamente opinables. Este laboratorio distingue explícitamente entre ambas en cada módulo.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-5 mt-8 pt-8 border-t border-white/5">
                 {[
-                  { label: "Dimensiones de investigaciÃ³n", value: "6" },
+                  { label: "Dimensiones de investigación", value: "6" },
                   { label: "Proyectos activos", value: "3" },
                   { label: "Benchmarks cubiertos", value: "14" },
                   { label: "Aplicaciones de mercado", value: "5" },
@@ -842,17 +842,17 @@ export default function DisenoLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ MÃ³dulo 1 â”€â”€ */}
+        {/* â”€â”€ Módulo 1 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <BarChart3 size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 1</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© se investiga aquÃ­</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 1</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué se investiga aquí</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                El diseÃ±o tiene una doble naturaleza: hay partes objetivamente medibles (ratio de contraste, tasa de abandono, porcentaje de elementos que cumplen WCAG 2.1) y partes genuinamente subjetivas (quÃ© paleta comunica Â«confianzaÂ» para un pÃºblico especÃ­fico, quÃ© tipografÃ­a transmite Â«autoridad sin frialdadÂ»). Seis dimensiones activas de investigaciÃ³n, ordenadas desde la percepciÃ³n visual hasta la comprensiÃ³n cultural.
+                El diseño tiene una doble naturaleza: hay partes objetivamente medibles (ratio de contraste, tasa de abandono, porcentaje de elementos que cumplen WCAG 2.1) y partes genuinamente subjetivas (qué paleta comunica «confianza» para un público específico, qué tipografía transmite «autoridad sin frialdad»). Seis dimensiones activas de investigación, ordenadas desde la percepción visual hasta la comprensión cultural.
               </p>
             </div>
           </div>
@@ -864,24 +864,24 @@ export default function DisenoLab() {
           </div>
 
           <div className="mt-6 border border-white/5 bg-white/2 rounded-2xl p-5">
-            <p className="text-xs text-white/25 uppercase tracking-widest mb-2">De la percepciÃ³n al impacto</p>
+            <p className="text-xs text-white/25 uppercase tracking-widest mb-2">De la percepción al impacto</p>
             <p className="text-sm text-white/45 leading-relaxed">
-              Las seis dimensiones no son paralelas: se encadenan en el proceso real de un proyecto de diseÃ±o. El branding visual (dimensiÃ³n 03) informa la paleta y tipografÃ­a de las interfaces (dimensiÃ³n 05). La accesibilidad (dimensiÃ³n 05) debe verificarse en todos los mercados objetivo (dimensiÃ³n 06). Y la efectividad final se mide en comportamiento real de usuario (dimensiÃ³n 04), que es el Ãºnico juicio definitivo.
+              Las seis dimensiones no son paralelas: se encadenan en el proceso real de un proyecto de diseño. El branding visual (dimensión 03) informa la paleta y tipografía de las interfaces (dimensión 05). La accesibilidad (dimensión 05) debe verificarse en todos los mercados objetivo (dimensión 06). Y la efectividad final se mide en comportamiento real de usuario (dimensión 04), que es el único juicio definitivo.
             </p>
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 2 â”€â”€ */}
+        {/* â”€â”€ Módulo 2 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <Cpu size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 2</p>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 2</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Casos de desarrollo</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Tres proyectos que cubren el ciclo completo de diseÃ±o: de la identidad visual inicial (GÃ©nesis Visual) al anÃ¡lisis de flujos y usabilidad (Ariadna UX) hasta la crÃ­tica estructurada de interfaces existentes (Vitral CrÃ­tico). Cada uno distingue explÃ­citamente entre lo verificable y lo opinable.
+                Tres proyectos que cubren el ciclo completo de diseño: de la identidad visual inicial (Génesis Visual) al análisis de flujos y usabilidad (Ariadna UX) hasta la crítica estructurada de interfaces existentes (Vitral Crítico). Cada uno distingue explícitamente entre lo verificable y lo opinable.
               </p>
             </div>
           </div>
@@ -892,17 +892,17 @@ export default function DisenoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 3 â”€â”€ */}
+        {/* â”€â”€ Módulo 3 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <GitBranch size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 3</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© aplicaciones ya existen en el mercado</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 3</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué aplicaciones ya existen en el mercado</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Cinco aplicaciones reales de IA aplicada a diseÃ±o y UX que operan en el mercado en el momento de redacciÃ³n de este cuaderno. Para detalles exactos de caracterÃ­sticas actuales o precios, verificar en la web oficial de cada herramienta.
+                Cinco aplicaciones reales de IA aplicada a diseño y UX que operan en el mercado en el momento de redacción de este cuaderno. Para detalles exactos de características actuales o precios, verificar en la web oficial de cada herramienta.
               </p>
             </div>
           </div>
@@ -928,7 +928,7 @@ export default function DisenoLab() {
                 <div className="mt-4 pt-3 border-t border-white/5">
                   <p className="text-xs text-yellow-400/50 flex items-center gap-1.5">
                     <AlertTriangle size={10} />
-                    Verificar caracterÃ­sticas en web oficial
+                    Verificar características en web oficial
                   </p>
                 </div>
               </a>
@@ -936,17 +936,17 @@ export default function DisenoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 4 â”€â”€ */}
+        {/* â”€â”€ Módulo 4 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
               <AlertTriangle size={14} className="text-yellow-400" />
             </div>
             <div>
-              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">MÃ³dulo 4</p>
+              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">Módulo 4</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Puntos a verificar</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Cinco puntos que requieren revisiÃ³n antes de publicar o referenciar los datos de este cuaderno en materiales externos. Incluyen podios incompletos, asimetrÃ­as de cobertura y el diferencial entre predicciÃ³n de conversiÃ³n y auditorÃ­a de accesibilidad.
+                Cinco puntos que requieren revisión antes de publicar o referenciar los datos de este cuaderno en materiales externos. Incluyen podios incompletos, asimetrías de cobertura y el diferencial entre predicción de conversión y auditoría de accesibilidad.
               </p>
             </div>
           </div>
@@ -960,13 +960,13 @@ export default function DisenoLab() {
         {/* â”€â”€ Footer CTA â”€â”€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo Â· STATER Design & UX Leaderboard Â· 2026-08-29</p>
+            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Design & UX Leaderboard · 2026-08-29</p>
             <p className="text-sm text-white/45">
               Datos de{" "}
               <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded text-white/60">latest_rankings_design.md</code>{" "}
               y{" "}
               <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded text-white/60">areas_design.yaml</code>.
-              Distingue explÃ­citamente entre criterios verificables y recomendaciones de estilo.
+              Distingue explícitamente entre criterios verificables y recomendaciones de estilo.
             </p>
           </div>
           <div className="flex gap-3 flex-wrap">

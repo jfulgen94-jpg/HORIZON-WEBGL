@@ -9,111 +9,111 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Calculator } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (MatemÃ¡ticas & Procesos Complejos) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€â”€ Constantes de datos (Matemáticas & Procesos Complejos) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PRIMARY_TASKS = [
   {
     id: "M4.1",
-    label: "Auditor LÃ³gico y Verificador SimbÃ³lico de Demostraciones (Prisma MatemÃ¡tico)",
-    desc: "SegmentaciÃ³n de derivaciones matemÃ¡ticas paso a paso, verificaciÃ³n lÃ³gica formal (DeepSeek-R1) y comprobaciÃ³n de equivalencia algebraica mediante Ã¡lgebra computacional (SymPy).",
-    audience: "Investigadores matemÃ¡ticos, desarrolladores de algoritmos, profesores universitarios, analistas formales.",
+    label: "Auditor Lógico y Verificador Simbólico de Demostraciones (Prisma Matemático)",
+    desc: "Segmentación de derivaciones matemáticas paso a paso, verificación lógica formal (DeepSeek-R1) y comprobación de equivalencia algebraica mediante álgebra computacional (SymPy).",
+    audience: "Investigadores matemáticos, desarrolladores de algoritmos, profesores universitarios, analistas formales.",
   },
   {
     id: "M4.2",
-    label: "Motor de OptimizaciÃ³n Combinatoria y ProgramaciÃ³n Lineal Mixta (Simplex Helios)",
-    desc: "ResoluciÃ³n exacta y aproximada de problemas de investigaciÃ³n operativa (MILP, Simplex, Branch-and-Bound, metaheurÃ­sticas) para logÃ­stica, despacho energÃ©tico y asignaciÃ³n de recursos con SciPy/PuLP/OR-Tools.",
-    audience: "Ingenieros de operaciones, quants, planificadores de redes logÃ­sticas y energÃ©ticas.",
+    label: "Motor de Optimización Combinatoria y Programación Lineal Mixta (Simplex Helios)",
+    desc: "Resolución exacta y aproximada de problemas de investigación operativa (MILP, Simplex, Branch-and-Bound, metaheurísticas) para logística, despacho energético y asignación de recursos con SciPy/PuLP/OR-Tools.",
+    audience: "Ingenieros de operaciones, quants, planificadores de redes logísticas y energéticas.",
   },
   {
     id: "M4.3",
-    label: "Predictor de Riesgo Operacional y Modelado EstocÃ¡stico de Colas Pesadas",
-    desc: "EstimaciÃ³n de distribuciones de valores extremos (EVT), cadenas de Markov, procesos de Poisson no homogÃ©neos y simulaciones Monte Carlo aceleradas por GPU/Numba.",
-    audience: "Gestores de riesgo operacional, actuarios de seguros, analistas de fiabilidad de sistemas crÃ­ticos.",
+    label: "Predictor de Riesgo Operacional y Modelado Estocástico de Colas Pesadas",
+    desc: "Estimación de distribuciones de valores extremos (EVT), cadenas de Markov, procesos de Poisson no homogéneos y simulaciones Monte Carlo aceleradas por GPU/Numba.",
+    audience: "Gestores de riesgo operacional, actuarios de seguros, analistas de fiabilidad de sistemas críticos.",
   },
   {
     id: "M4.4",
-    label: "Solucionador Multi-Paso de MatemÃ¡ticas de CompeticiÃ³n (Olimpiadas / AIME / Putnam)",
-    desc: "ResoluciÃ³n con razonamiento extendido en tiempo de inferencia (o1 / DeepSeek-R1) y verificaciÃ³n socrÃ¡tica paso a paso en teorÃ­a de nÃºmeros, combinatoria y geometrÃ­a analÃ­tica.",
-    audience: "Estudiantes de olimpiadas, entrenadores de competiciÃ³n matemÃ¡tica, analistas de razonamiento formal.",
+    label: "Solucionador Multi-Paso de Matemáticas de Competición (Olimpiadas / AIME / Putnam)",
+    desc: "Resolución con razonamiento extendido en tiempo de inferencia (o1 / DeepSeek-R1) y verificación socrática paso a paso en teoría de números, combinatoria y geometría analítica.",
+    audience: "Estudiantes de olimpiadas, entrenadores de competición matemática, analistas de razonamiento formal.",
   },
   {
     id: "M4.5",
-    label: "Sistema Multi-Agente Coordinado para Problemas MatemÃ¡ticos Distribuidos (MAFBench)",
-    desc: "DescomposiciÃ³n estratÃ©gica de problemas complejos en subproblemas concurrentes resueltos por agentes especializados con sincronizaciÃ³n de estado y convergencia garantizada.",
-    audience: "CientÃ­ficos de la computaciÃ³n, arquitectos de agentes distribuidos, equipos de I+D algorÃ­tmico.",
+    label: "Sistema Multi-Agente Coordinado para Problemas Matemáticos Distribuidos (MAFBench)",
+    desc: "Descomposición estratégica de problemas complejos en subproblemas concurrentes resueltos por agentes especializados con sincronización de estado y convergencia garantizada.",
+    audience: "Científicos de la computación, arquitectos de agentes distribuidos, equipos de I+D algorítmico.",
   },
   {
     id: "M4.6",
-    label: "Calculador SimbÃ³lico-NumÃ©rico HÃ­brido con Tool-Use y CÃ³digo Python Validado",
-    desc: "IntegraciÃ³n de LLMs con entornos aislados de ejecuciÃ³n de cÃ³digo (Python Sandbox) para cÃ¡lculo tensorial, cÃ¡lculo diferencial y Ã¡lgebra lineal con NumPy/SciPy sin alucinaciÃ³n numÃ©rica.",
-    audience: "CientÃ­ficos de datos, ingenieros de simulaciÃ³n fÃ­sica, investigadores cuantitativos.",
+    label: "Calculador Simbólico-Numérico Híbrido con Tool-Use y Código Python Validado",
+    desc: "Integración de LLMs con entornos aislados de ejecución de código (Python Sandbox) para cálculo tensorial, cálculo diferencial y álgebra lineal con NumPy/SciPy sin alucinación numérica.",
+    audience: "Científicos de datos, ingenieros de simulación física, investigadores cuantitativos.",
   },
 ];
 
 const SECONDARY_TASKS = [
-  { id: "SEC-MATH-01", label: "Verificador de Equivalencia SimbÃ³lica con SymPy Sandbox", desc: "EjecuciÃ³n determinista de simplify(lhs - rhs) == 0 en entorno aislado con control de timeout estricto." },
-  { id: "SEC-MATH-02", label: "Generador de Informes con Salida LaTeX y Trazabilidad en DuckDB", desc: "Renderizado de fÃ³rmulas en LaTeX con anotaciÃ³n de estado por paso y registro inmutable de verificaciones." },
-  { id: "SEC-MATH-03", label: "Motor de SimulaciÃ³n Monte Carlo Paralelizado (Multiprocessing / Numba JIT)", desc: "AceleraciÃ³n computacional de 1.000.000+ iteraciones con compilaciÃ³n JIT y fijaciÃ³n de semilla determinista." },
-  { id: "SEC-MATH-04", label: "AlmacÃ©n Columnar de Series y Resultados MatemÃ¡ticos (DuckDB + Parquet)", desc: "Persistencia analÃ­tica de matrices, vectores de estado y soluciones de optimizaciÃ³n." },
-  { id: "SEC-MATH-05", label: "Exportador a Formatos Computacionales (JSON-Schema, Python Script, Jupyter Notebook)", desc: "GeneraciÃ³n de cÃ³digo Python listo para ejecutar y notebooks reproducibles." },
-  { id: "SEC-MATH-06", label: "Detector de Pasos de Razonamiento InvÃ¡lidos o Desconectados (ProofStep Auditor)", desc: "IdentificaciÃ³n de saltos lÃ³gicos no justificados, divisiones por cero potenciales y uso de lemas no demostrados." },
-  { id: "SEC-MATH-07", label: "Asistente SocrÃ¡tico AntialucinaciÃ³n con VerificaciÃ³n de Premisas", desc: "RestricciÃ³n severa que exige validaciÃ³n explÃ­cita de condiciones de contorno antes de aceptar cualquier soluciÃ³n." },
-  { id: "SEC-MATH-08", label: "Visualizador de Grafos de DecisiÃ³n y TopologÃ­a de Redes (NetworkX / D3.js)", desc: "Renderizado interactivo de Ã¡rboles de descomposiciÃ³n matemÃ¡tica y redes de flujo." },
+  { id: "SEC-MATH-01", label: "Verificador de Equivalencia Simbólica con SymPy Sandbox", desc: "Ejecución determinista de simplify(lhs - rhs) == 0 en entorno aislado con control de timeout estricto." },
+  { id: "SEC-MATH-02", label: "Generador de Informes con Salida LaTeX y Trazabilidad en DuckDB", desc: "Renderizado de fórmulas en LaTeX con anotación de estado por paso y registro inmutable de verificaciones." },
+  { id: "SEC-MATH-03", label: "Motor de Simulación Monte Carlo Paralelizado (Multiprocessing / Numba JIT)", desc: "Aceleración computacional de 1.000.000+ iteraciones con compilación JIT y fijación de semilla determinista." },
+  { id: "SEC-MATH-04", label: "Almacén Columnar de Series y Resultados Matemáticos (DuckDB + Parquet)", desc: "Persistencia analítica de matrices, vectores de estado y soluciones de optimización." },
+  { id: "SEC-MATH-05", label: "Exportador a Formatos Computacionales (JSON-Schema, Python Script, Jupyter Notebook)", desc: "Generación de código Python listo para ejecutar y notebooks reproducibles." },
+  { id: "SEC-MATH-06", label: "Detector de Pasos de Razonamiento Inválidos o Desconectados (ProofStep Auditor)", desc: "Identificación de saltos lógicos no justificados, divisiones por cero potenciales y uso de lemas no demostrados." },
+  { id: "SEC-MATH-07", label: "Asistente Socrático Antialucinación con Verificación de Premisas", desc: "Restricción severa que exige validación explícita de condiciones de contorno antes de aceptar cualquier solución." },
+  { id: "SEC-MATH-08", label: "Visualizador de Grafos de Decisión y Topología de Redes (NetworkX / D3.js)", desc: "Renderizado interactivo de árboles de descomposición matemática y redes de flujo." },
 ];
 
 const MATH_DOMAINS = [
-  "Ãlgebra SimbÃ³lica, TeorÃ­a de NÃºmeros & CriptografÃ­a",
-  "InvestigaciÃ³n Operativa & OptimizaciÃ³n Combinatoria (MILP / Simplex)",
-  "CÃ¡lculo Diferencial, Integral & Ecuaciones Diferenciales",
-  "Probabilidad, Procesos EstocÃ¡sticos & TeorÃ­a de Colas",
-  "Ãlgebra Lineal NumÃ©rica, Tensores & AnÃ¡lisis de Grafos",
-  "MatemÃ¡ticas de CompeticiÃ³n & Razonamiento Formal (AIME / Olympiad)",
+  "Álgebra Simbólica, Teoría de Números & Criptografía",
+  "Investigación Operativa & Optimización Combinatoria (MILP / Simplex)",
+  "Cálculo Diferencial, Integral & Ecuaciones Diferenciales",
+  "Probabilidad, Procesos Estocásticos & Teoría de Colas",
+  "Álgebra Lineal Numérica, Tensores & Análisis de Grafos",
+  "Matemáticas de Competición & Razonamiento Formal (AIME / Olympiad)",
 ];
 
 const COMPUTATION_ENGINES = [
-  "SymPy (Ãlgebra simbÃ³lica determinista en Python)",
-  "SciPy / PuLP / Google OR-Tools (Solucionadores de optimizaciÃ³n y programaciÃ³n lineal)",
-  "NumPy + Numba JIT (CÃ¡lculo vectorial numÃ©rico de alto rendimiento)",
-  "NetworkX (Algoritmos de teorÃ­a de grafos y optimizaciÃ³n de redes)",
-  "Z3 Theorem Prover / Lean 4 (VerificaciÃ³n formal de demostraciones lÃ³gicas)",
-  "DuckDB (Procesamiento analÃ­tico de grandes volÃºmenes de datos numÃ©ricos)",
+  "SymPy (Álgebra simbólica determinista en Python)",
+  "SciPy / PuLP / Google OR-Tools (Solucionadores de optimización y programación lineal)",
+  "NumPy + Numba JIT (Cálculo vectorial numérico de alto rendimiento)",
+  "NetworkX (Algoritmos de teoría de grafos y optimización de redes)",
+  "Z3 Theorem Prover / Lean 4 (Verificación formal de demostraciones lógicas)",
+  "DuckDB (Procesamiento analítico de grandes volúmenes de datos numéricos)",
 ];
 
 const MATH_METRICS = [
-  { id: "proof_validity", label: "Validez LÃ³gica de DemostraciÃ³n (ProofStep_Validity)", cat: "VerificaciÃ³n Formal", desc: "Tasa de pasos lÃ³gicos validados formalmente sin saltos deductivos no justificados." },
-  { id: "symbolic_equiv", label: "Equivalencia SimbÃ³lica Exacta (SymPy Verification)", cat: "VerificaciÃ³n Formal", desc: "Exactitud algebraica determinista en simplificaciÃ³n y comprobaciÃ³n de identidades (lhs == rhs)." },
-  { id: "optim_gap", label: "Brecha de Optimalidad (Optimality Gap %)", cat: "OptimizaciÃ³n & MILP", desc: "Distancia porcentual entre la soluciÃ³n encontrada por el solver y el Ã³ptimo global teÃ³rico." },
-  { id: "time_to_solve", label: "Tiempo de Convergencia / Latencia Computacional", cat: "OptimizaciÃ³n & MILP", desc: "Tiempo en segundos/milisegundos requerido para alcanzar la convergencia del algoritmo de optimizaciÃ³n." },
-  { id: "mc_convergence", label: "Error EstÃ¡ndar de Monte Carlo (SEM)", cat: "Probabilidad & EstocÃ¡stica", desc: "PrecisiÃ³n estadÃ­stica en simulaciones aleatorias en funciÃ³n del nÃºmero de iteraciones N." },
-  { id: "tool_use_accuracy", label: "PrecisiÃ³n en Tool-Use de CÃ³digo Python (ToolBench)", cat: "Herramientas & Sandbox", desc: "Porcentaje de scripts de cÃ¡lculo Python generados y ejecutados sin errores sintÃ¡cticos ni lÃ³gicos." },
-  { id: "competition_score", label: "Acierto en Problemas de CompeticiÃ³n (MATH_500 / AIME)", cat: "Razonamiento de CompeticiÃ³n", desc: "Porcentaje de problemas de olimpiada matemÃ¡tica resueltos con respuesta final exacta." },
-  { id: "multiagent_coord", label: "Eficiencia de CoordinaciÃ³n Multi-Agente (MAFBench)", cat: "Sistemas Distribuidos", desc: "Ratio de subproblemas resueltos en paralelo sin colisiones, deadlocks ni inconsistencias de estado." },
+  { id: "proof_validity", label: "Validez Lógica de Demostración (ProofStep_Validity)", cat: "Verificación Formal", desc: "Tasa de pasos lógicos validados formalmente sin saltos deductivos no justificados." },
+  { id: "symbolic_equiv", label: "Equivalencia Simbólica Exacta (SymPy Verification)", cat: "Verificación Formal", desc: "Exactitud algebraica determinista en simplificación y comprobación de identidades (lhs == rhs)." },
+  { id: "optim_gap", label: "Brecha de Optimalidad (Optimality Gap %)", cat: "Optimización & MILP", desc: "Distancia porcentual entre la solución encontrada por el solver y el óptimo global teórico." },
+  { id: "time_to_solve", label: "Tiempo de Convergencia / Latencia Computacional", cat: "Optimización & MILP", desc: "Tiempo en segundos/milisegundos requerido para alcanzar la convergencia del algoritmo de optimización." },
+  { id: "mc_convergence", label: "Error Estándar de Monte Carlo (SEM)", cat: "Probabilidad & Estocástica", desc: "Precisión estadística en simulaciones aleatorias en función del número de iteraciones N." },
+  { id: "tool_use_accuracy", label: "Precisión en Tool-Use de Código Python (ToolBench)", cat: "Herramientas & Sandbox", desc: "Porcentaje de scripts de cálculo Python generados y ejecutados sin errores sintácticos ni lógicos." },
+  { id: "competition_score", label: "Acierto en Problemas de Competición (MATH_500 / AIME)", cat: "Razonamiento de Competición", desc: "Porcentaje de problemas de olimpiada matemática resueltos con respuesta final exacta." },
+  { id: "multiagent_coord", label: "Eficiencia de Coordinación Multi-Agente (MAFBench)", cat: "Sistemas Distribuidos", desc: "Ratio de subproblemas resueltos en paralelo sin colisiones, deadlocks ni inconsistencias de estado." },
 ];
 
 const VALIDATION_MODELS = [
-  "Arquitectura de Doble VerificaciÃ³n (Razonamiento LÃ³gico DeepSeek-R1 + Ãlgebra SimbÃ³lica SymPy)",
-  "VerificaciÃ³n Formal Basada en Reglas LÃ³gicas y Teoremas Demostrados",
-  "ValidaciÃ³n NumÃ©rica Cruzada con Solucionadores Deterministas (SciPy / OR-Tools)",
-  "AuditorÃ­a SocrÃ¡tica Paso a Paso con Exigencia de JustificaciÃ³n de Premisas",
+  "Arquitectura de Doble Verificación (Razonamiento Lógico DeepSeek-R1 + Álgebra Simbólica SymPy)",
+  "Verificación Formal Basada en Reglas Lógicas y Teoremas Demostrados",
+  "Validación Numérica Cruzada con Solucionadores Deterministas (SciPy / OR-Tools)",
+  "Auditoría Socrática Paso a Paso con Exigencia de Justificación de Premisas",
 ];
 
 const SAFETY_GUARDRAILS = [
-  "Tolerancia Cero a AlucinaciÃ³n AritmÃ©tica: DelegaciÃ³n Obligatoria de CÃ¡lculo a IntÃ©rprete Python",
-  "Sandbox Aislado con Timeout Estricto (5s) para Evitar Bucles Infinitos en Ãlgebra SimbÃ³lica",
+  "Tolerancia Cero a Alucinación Aritmética: Delegación Obligatoria de Cálculo a Intérprete Python",
+  "Sandbox Aislado con Timeout Estricto (5s) para Evitar Bucles Infinitos en Álgebra Simbólica",
   "Marcado Obligatorio de Casos INDETERMINADOS cuando la Confianza del Modelo es < 90%",
-  "ClÃ¡usula de Reproducibilidad: Semilla Aleatoria y Entorno Determinista Registrados en Informe",
+  "Cláusula de Reproducibilidad: Semilla Aleatoria y Entorno Determinista Registrados en Informe",
 ];
 
 const UI_FRAMEWORKS = [
-  "Streamlit (Dashboard interactivo con renderizado KaTeX/LaTeX y grÃ¡ficos dinÃ¡micos)",
-  "FastAPI + React / Next.js (Plataforma matemÃ¡tica web con editor LaTeX y ejecuciÃ³n asÃ­ncrona)",
-  "Flet (AplicaciÃ³n de escritorio local .exe para estaciones de cÃ¡lculo aisladas sin nube)",
+  "Streamlit (Dashboard interactivo con renderizado KaTeX/LaTeX y gráficos dinámicos)",
+  "FastAPI + React / Next.js (Plataforma matemática web con editor LaTeX y ejecución asíncrona)",
+  "Flet (Aplicación de escritorio local .exe para estaciones de cálculo aisladas sin nube)",
 ];
 
 const STORAGE_ENGINES = [
-  "DuckDB + Ficheros Parquet (AlmacÃ©n analÃ­tico columnar para matrices, simulaciones y pistas de auditorÃ­a)",
-  "SQLite con Soporte de Vectores NumÃ©ricos y JSON de Pasos",
-  "Ficheros HDF5 / Parquet para Grandes VolÃºmenes de Series Temporales y Tensores",
+  "DuckDB + Ficheros Parquet (Almacén analítico columnar para matrices, simulaciones y pistas de auditoría)",
+  "SQLite con Soporte de Vectores Numéricos y JSON de Pasos",
+  "Ficheros HDF5 / Parquet para Grandes Volúmenes de Series Temporales y Tensores",
   "Almacenamiento Local en Ficheros JSON-LD y Markdown con Bloques LaTeX",
 ];
 
@@ -172,36 +172,36 @@ function generateReport(data) {
     appSlug + "/",
     "â”œâ”€â”€ src/",
     "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # ParÃ¡metros numÃ©ricos, tolerancias Ã©psilon y timeouts",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para pasos, demostraciones y tensores" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de VerificaciÃ³n de Premisas (BR-MATH-05)" : ""),
-    data.primaryTask === "M4.1" || hasSEC06 ? "â”‚   â”œâ”€â”€ proof_segmenter.py        # Segmentador atÃ³mico de cadenas de razonamiento (BR-MATH-01)" : null,
+    "â”‚   â”œâ”€â”€ config.py                 # Parámetros numéricos, tolerancias épsilon y timeouts",
+    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para pasos, demostraciones y tensores" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de Verificación de Premisas (BR-MATH-05)" : ""),
+    data.primaryTask === "M4.1" || hasSEC06 ? "â”‚   â”œâ”€â”€ proof_segmenter.py        # Segmentador atómico de cadenas de razonamiento (BR-MATH-01)" : null,
     data.primaryTask === "M4.1" || hasSEC01 ? "â”‚   â”œâ”€â”€ symbolic_verifier.py      # Motor de equivalencia algebraica con SymPy en sandbox aislado" : null,
     data.primaryTask === "M4.2" ? "â”‚   â”œâ”€â”€ optimization_solver.py    # Solucionador MILP / Simplex con SciPy y PuLP (BR-MATH-02)" : null,
     data.primaryTask === "M4.3" || hasSEC03 ? "â”‚   â”œâ”€â”€ stochastic_engine.py      # Simulador Monte Carlo paralelizado con Numba JIT (BR-MATH-03)" : null,
-    data.primaryTask === "M4.5" ? "â”‚   â”œâ”€â”€ multiagent_coordinator.py # Coordinador de descomposiciÃ³n y sincronizaciÃ³n MAFBench" : null,
-    data.primaryTask === "M4.6" ? "â”‚   â”œâ”€â”€ python_sandbox.py         # IntÃ©rprete Python seguro con NumPy/SciPy para tool-use determinista" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-MATH-04) con registro inmutable de veredictos" : "Capa de persistencia matemÃ¡tica"),
-    hasSEC08 ? "â”‚   â”œâ”€â”€ graph_visualizer.py       # Renderizador de grafos y Ã¡rboles de derivaciÃ³n con NetworkX" : null,
-    "â”‚   â”œâ”€â”€ latex_reporter.py         # Generador de informes en LaTeX y Markdown con fÃ³rmulas KaTeX",
+    data.primaryTask === "M4.5" ? "â”‚   â”œâ”€â”€ multiagent_coordinator.py # Coordinador de descomposición y sincronización MAFBench" : null,
+    data.primaryTask === "M4.6" ? "â”‚   â”œâ”€â”€ python_sandbox.py         # Intérprete Python seguro con NumPy/SciPy para tool-use determinista" : null,
+    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-MATH-04) con registro inmutable de veredictos" : "Capa de persistencia matemática"),
+    hasSEC08 ? "â”‚   â”œâ”€â”€ graph_visualizer.py       # Renderizador de grafos y árboles de derivación con NetworkX" : null,
+    "â”‚   â”œâ”€â”€ latex_reporter.py         # Generador de informes en LaTeX y Markdown con fórmulas KaTeX",
     "â”‚   â””â”€â”€ ui/",
     "â”‚       â”œâ”€â”€ __init__.py",
     "â”‚       â”œâ”€â”€ components.py         # Visor KaTeX, tarjetas de pasos anotados y paneles de convergencia",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de cÃ¡lculo y panel interactivo",
+    "â”‚       â””â”€â”€ main_view.py          # Dashboard de cálculo y panel interactivo",
     "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # ValidaciÃ³n de modelos y serializaciÃ³n de tensores",
-    data.primaryTask === "M4.1" ? "â”‚   â”œâ”€â”€ test_symbolic_equiv.py    # BaterÃ­a de identidades algebraicas y simplificaciones SymPy" : null,
-    data.primaryTask === "M4.2" ? "â”‚   â””â”€â”€ test_optimization.py      # Casos de prueba de optimizaciÃ³n lineal y convergencia" : null,
-    "â”œâ”€â”€ data/                         # Datasets de prueba, problemas de olimpiada y cachÃ©",
+    "â”‚   â”œâ”€â”€ test_schemas.py           # Validación de modelos y serialización de tensores",
+    data.primaryTask === "M4.1" ? "â”‚   â”œâ”€â”€ test_symbolic_equiv.py    # Batería de identidades algebraicas y simplificaciones SymPy" : null,
+    data.primaryTask === "M4.2" ? "â”‚   â””â”€â”€ test_optimization.py      # Casos de prueba de optimización lineal y convergencia" : null,
+    "â”œâ”€â”€ data/                         # Datasets de prueba, problemas de olimpiada y caché",
     "â”œâ”€â”€ requirements.txt              # sympy, numpy, scipy, pulp, duckdb, pydantic, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicaciÃ³n matemÃ¡tica",
+    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación matemática",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
-    data.primaryTask === "M4.1" ? "- **BR-MATH-01 (Prisma MatemÃ¡tico):** Segmentador atÃ³mico activado; verificaciÃ³n simbÃ³lica SymPy en sandbox; veredicto por paso." : null,
+    data.primaryTask === "M4.1" ? "- **BR-MATH-01 (Prisma Matemático):** Segmentador atómico activado; verificación simbólica SymPy en sandbox; veredicto por paso." : null,
     data.primaryTask === "M4.2" ? "- **BR-MATH-02 (Simplex Helios):** Motor MILP/Simplex activado; solucionadores SciPy/PuLP configurados con tolerancia 1e-6." : null,
-    data.primaryTask === "M4.3" ? "- **BR-MATH-03 (Modelado EstocÃ¡stico):** Simulador Monte Carlo acelerado por Numba JIT activado; semilla aleatoria determinista." : null,
-    hasSEC04 ? "- **BR-MATH-04 (Persistencia AnalÃ­tica):** AlmacÃ©n columnar preconfigurado en DuckDB + Parquet para matrices y series numÃ©ricas." : null,
-    hasSEC07 ? "- **BR-MATH-05 (Guardrail AntialucinaciÃ³n NumÃ©rica):** DelegaciÃ³n obligatoria de cÃ¡lculos a intÃ©rprete Python determinista." : null,
+    data.primaryTask === "M4.3" ? "- **BR-MATH-03 (Modelado Estocástico):** Simulador Monte Carlo acelerado por Numba JIT activado; semilla aleatoria determinista." : null,
+    hasSEC04 ? "- **BR-MATH-04 (Persistencia Analítica):** Almacén columnar preconfigurado en DuckDB + Parquet para matrices y series numéricas." : null,
+    hasSEC07 ? "- **BR-MATH-05 (Guardrail Antialucinación Numérica):** Delegación obligatoria de cálculos a intérprete Python determinista." : null,
   ].filter(Boolean).join("\n");
 
   const metricsSection = Object.entries(metricsByCategory).map(([cat, ms]) =>
@@ -210,72 +210,72 @@ function generateReport(data) {
 
   const validationSection = hasValidation
     ? [
-        "- **Modelo de verificaciÃ³n y rigor formal:** " + data.validationModel,
-        "- **Guardrail de seguridad algorÃ­tmica:** " + data.safetyGuardrail,
-        "- **Tolerancia Cero a Alucinaciones NumÃ©ricas:** NingÃºn cÃ¡lculo aritmÃ©tico o algebraico se confÃ­a a la memoria del LLM; todo se evalÃºa en SymPy/NumPy.",
-        "- **Sandbox con Timeout Aislado:** LÃ­mite estricto de 5 segundos de ejecuciÃ³n por simplificaciÃ³n simbÃ³lica para evitar bloqueos por complejidad exponencial.",
-        "- **Trazabilidad Formal:** Cada paso demostrado incluye su justificaciÃ³n axiomÃ¡tica y el estado de validaciÃ³n (VÃLIDO / INVÃLIDO / INDETERMINADO).",
+        "- **Modelo de verificación y rigor formal:** " + data.validationModel,
+        "- **Guardrail de seguridad algorítmica:** " + data.safetyGuardrail,
+        "- **Tolerancia Cero a Alucinaciones Numéricas:** Ningún cálculo aritmético o algebraico se confía a la memoria del LLM; todo se evalúa en SymPy/NumPy.",
+        "- **Sandbox con Timeout Aislado:** Límite estricto de 5 segundos de ejecución por simplificación simbólica para evitar bloqueos por complejidad exponencial.",
+        "- **Trazabilidad Formal:** Cada paso demostrado incluye su justificación axiomática y el estado de validación (VÁLIDO / INVÁLIDO / INDETERMINADO).",
       ].join("\n")
-    : "La aplicaciÃ³n opera en modo de cÃ¡lculo directo o modelado probabilÃ­stico continuo.";
+    : "La aplicación opera en modo de cálculo directo o modelado probabilístico continuo.";
 
   const qaLines = [
-    "1. **Pruebas de Equivalencia SimbÃ³lica:** BaterÃ­a de 200+ identidades algebraicas y trigonomÃ©tricas verificadas con SymPy simplify.",
-    "2. **ValidaciÃ³n de Soluciones de OptimizaciÃ³n (KKT):** ComprobaciÃ³n de condiciones de Karush-Kuhn-Tucker en problemas no lineales.",
-    "3. **Prueba de Determinismo Monte Carlo:** VerificaciÃ³n de reproducibilidad exacta de resultados estocÃ¡sticos al fijar la semilla aleatoria.",
-    "4. **Prueba de Rendimiento de Inferencia:** Benchmark de segmentaciÃ³n y verificaciÃ³n de 50 pasos de derivaciÃ³n en menos de 2.5 segundos.",
+    "1. **Pruebas de Equivalencia Simbólica:** Batería de 200+ identidades algebraicas y trigonométricas verificadas con SymPy simplify.",
+    "2. **Validación de Soluciones de Optimización (KKT):** Comprobación de condiciones de Karush-Kuhn-Tucker en problemas no lineales.",
+    "3. **Prueba de Determinismo Monte Carlo:** Verificación de reproducibilidad exacta de resultados estocásticos al fijar la semilla aleatoria.",
+    "4. **Prueba de Rendimiento de Inferencia:** Benchmark de segmentación y verificación de 50 pasos de derivación en menos de 2.5 segundos.",
   ].filter(Boolean).join("\n");
 
   return [
     "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
-    "## Proyecto de Software MatemÃ¡tico: " + data.appName,
+    "## Proyecto de Software Matemático: " + data.appName,
     "",
-    "**Fecha de GeneraciÃ³n:** " + now,
-    "**Ãrea Horizon:** MatemÃ¡ticas, OptimizaciÃ³n & Procesos Complejos",
-    "**Arquitecto / DiseÃ±ador:** " + (data.authorName || "Horizon User"),
-    "**VersiÃ³n del Documento:** v1.0.0 (EspecificaciÃ³n Formal MatemÃ¡tica)",
+    "**Fecha de Generación:** " + now,
+    "**Área Horizon:** Matemáticas, Optimización & Procesos Complejos",
+    "**Arquitecto / Diseñador:** " + (data.authorName || "Horizon User"),
+    "**Versión del Documento:** v1.0.0 (Especificación Formal Matemática)",
     "",
     "---",
     "",
-    "### 1. Resumen Ejecutivo y PropÃ³sito del Software",
+    "### 1. Resumen Ejecutivo y Propósito del Software",
     "",
     "- **Tarea Principal (" + data.primaryTask + "):** " + (primary?.label || ""),
-    "- **DescripciÃ³n del nÃºcleo funcional:** " + (primary?.desc || ""),
-    "- **PÃºblico objetivo:** " + (primary?.audience || ""),
-    "- **Dominios matemÃ¡ticos de aplicaciÃ³n:** " + data.mathDomains.join(", "),
-    "- **Motores y librerÃ­as de cÃ¡lculo seleccionados:** " + data.computationEngines.join(", "),
+    "- **Descripción del núcleo funcional:** " + (primary?.desc || ""),
+    "- **Público objetivo:** " + (primary?.audience || ""),
+    "- **Dominios matemáticos de aplicación:** " + data.mathDomains.join(", "),
+    "- **Motores y librerías de cálculo seleccionados:** " + data.computationEngines.join(", "),
     "",
-    "**Exclusiones explÃ­citas:** El sistema NO garantiza la resoluciÃ³n de problemas NP-completos fuera de los lÃ­mites computacionales del solver y NO asume veracidad en demostraciones no verificadas por el motor simbÃ³lico formal.",
-    "",
-    "---",
-    "",
-    "### 2. Matriz de Arquitectura y MÃ³dulos Complementarios",
-    "",
-    secondaries.length === 0 ? "_No se han seleccionado mÃ³dulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
-    "",
-    "**Reglas de lÃ³gica condicional aplicadas (Branching Rules):**",
-    branchingLines || "_Ninguna regla de branching activada con la configuraciÃ³n actual._",
+    "**Exclusiones explícitas:** El sistema NO garantiza la resolución de problemas NP-completos fuera de los límites computacionales del solver y NO asume veracidad en demostraciones no verificadas por el motor simbólico formal.",
     "",
     "---",
     "",
-    "### 3. CatÃ¡logo de MÃ©tricas y Rigor MatemÃ¡tico",
+    "### 2. Matriz de Arquitectura y Módulos Complementarios",
     "",
-    "El sistema implementarÃ¡ y monitorizarÃ¡ las siguientes mÃ©tricas de precisiÃ³n y convergencia:",
+    secondaries.length === 0 ? "_No se han seleccionado módulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
     "",
-    metricsSection || "_No se han seleccionado mÃ©tricas._",
+    "**Reglas de lógica condicional aplicadas (Branching Rules):**",
+    branchingLines || "_Ninguna regla de branching activada con la configuración actual._",
     "",
     "---",
     "",
-    "### 4. Protocolos de VerificaciÃ³n Formal y Guardrails AntialucinaciÃ³n",
+    "### 3. Catálogo de Métricas y Rigor Matemático",
+    "",
+    "El sistema implementará y monitorizará las siguientes métricas de precisión y convergencia:",
+    "",
+    metricsSection || "_No se han seleccionado métricas._",
+    "",
+    "---",
+    "",
+    "### 4. Protocolos de Verificación Formal y Guardrails Antialucinación",
     "",
     validationSection,
     "",
     "---",
     "",
-    "### 5. Stack TecnolÃ³gico y Estructura de Scripts Python",
+    "### 5. Stack Tecnológico y Estructura de Scripts Python",
     "",
-    "- **Capa de PresentaciÃ³n (UI):** " + data.uiFramework,
+    "- **Capa de Presentación (UI):** " + data.uiFramework,
     "- **Capa de Persistencia y Datos:** " + data.storageEngine,
-    "- **ValidaciÃ³n de Datos:** Pydantic v2 con esquemas matemÃ¡ticos y tipado fuerte.",
+    "- **Validación de Datos:** Pydantic v2 con esquemas matemáticos y tipado fuerte.",
     "- **Lenguaje:** Python 3.11+",
     "",
     "```text",
@@ -284,26 +284,26 @@ function generateReport(data) {
     "",
     "---",
     "",
-    "### 6. Protocolo de Pruebas y ValidaciÃ³n (QA MatemÃ¡tico)",
+    "### 6. Protocolo de Pruebas y Validación (QA Matemático)",
     "",
     qaLines,
     "",
     "---",
     "",
-    "### 7. ClÃ¡usula de Cumplimiento CientÃ­fico y Descargo de Responsabilidad",
+    "### 7. Cláusula de Cumplimiento Científico y Descargo de Responsabilidad",
     "",
-    "> **AVISO CIENTÃFICO Y METODOLÃ“GICO OBLIGATORIO**",
+    "> **AVISO CIENTÍFICO Y METODOLÃ“GICO OBLIGATORIO**",
     ">",
-    "> Esta especificaciÃ³n tÃ©cnica y cualquier software desarrollado a partir de ella tiene carÃ¡cter **exclusivamente de investigaciÃ³n, cÃ¡lculo computacional y verificaciÃ³n formal**.",
+    "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de investigación, cálculo computacional y verificación formal**.",
     ">",
-    "> - Todo resultado analÃ­tico, optimizaciÃ³n o demostraciÃ³n matemÃ¡tica debe ser **interpretado considerando las tolerancias numÃ©ricas y los lÃ­mites de precisiÃ³n** del motor computacional empleado.",
-    "> - Las salidas generadas por modelos de lenguaje son auditadas por motores deterministas (SymPy / SciPy) antes de su certificaciÃ³n final.",
+    "> - Todo resultado analítico, optimización o demostración matemática debe ser **interpretado considerando las tolerancias numéricas y los límites de precisión** del motor computacional empleado.",
+    "> - Las salidas generadas por modelos de lenguaje son auditadas por motores deterministas (SymPy / SciPy) antes de su certificación final.",
     ">",
-    "> DiseÃ±ado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de MatemÃ¡ticas & Procesos Complejos.",
+    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Matemáticas & Procesos Complejos.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de EspecificaciÃ³n TÃ©cnica â€” Generado automÃ¡ticamente por Horizon MathAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon MathAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
@@ -540,15 +540,15 @@ export default function WizardMatematicas() {
       if (!data.primaryTask) e.primaryTask = "Selecciona una tarea principal.";
     }
     if (step === 3) {
-      if (data.mathDomains.length === 0) e.mathDomains = "Selecciona al menos un dominio matemÃ¡tico.";
-      if (data.computationEngines.length === 0) e.computationEngines = "Selecciona al menos un motor de cÃ¡lculo.";
+      if (data.mathDomains.length === 0) e.mathDomains = "Selecciona al menos un dominio matemático.";
+      if (data.computationEngines.length === 0) e.computationEngines = "Selecciona al menos un motor de cálculo.";
     }
     if (step === 4) {
-      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una mÃ©trica matemÃ¡tica.";
+      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una métrica matemática.";
     }
     if (step === 5 && needsValidationStep(data.primaryTask, data.secondaryTasks)) {
-      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificaciÃ³n matemÃ¡tica.";
-      if (!data.safetyGuardrail) e.safetyGuardrail = "Selecciona el guardrail de seguridad algorÃ­tmica.";
+      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificación matemática.";
+      if (!data.safetyGuardrail) e.safetyGuardrail = "Selecciona el guardrail de seguridad algorítmica.";
     }
     if (step === 6) {
       if (!data.uiFramework) e.uiFramework = "Selecciona el framework de interfaz.";
@@ -591,16 +591,16 @@ export default function WizardMatematicas() {
         {/* Header */}
         <div className="mb-8">
           <Link to="/areas/matematicas" className="inline-flex items-center gap-1.5 text-xs text-dark/40 hover:text-dark transition-colors mb-6">
-            <ArrowLeft size={13} /> Laboratorio de MatemÃ¡ticas
+            <ArrowLeft size={13} /> Laboratorio de Matemáticas
           </Link>
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center shrink-0 text-indigo-600 font-display text-xl">âˆ‘</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                DiseÃ±ador de Proyectos â€” MatemÃ¡ticas & OptimizaciÃ³n
+                Diseñador de Proyectos â€” Matemáticas & Optimización
               </h1>
               <p className="text-dark/50 text-sm mt-1">
-                Define tu aplicaciÃ³n matemÃ¡tica paso a paso con rigor formal, verificaciÃ³n simbÃ³lica y optimizaciÃ³n combinatoria.
+                Define tu aplicación matemática paso a paso con rigor formal, verificación simbólica y optimización combinatoria.
               </p>
             </div>
           </div>
@@ -615,20 +615,20 @@ export default function WizardMatematicas() {
             {step === 1 && (
               <StepCard>
                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona el nÃºcleo funcional que definirÃ¡ la arquitectura de tu aplicaciÃ³n matemÃ¡tica.</p>
+                <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación matemática.</p>
 
                 <div className="space-y-5">
                   <div>
-                    <FieldLabel hint="SerÃ¡ el tÃ­tulo de tu especificaciÃ³n tÃ©cnica matemÃ¡tica.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Prisma MatemÃ¡tico, Simplex Helios, Predictor Riesgo, GraphFlowâ€¦" />
+                    <FieldLabel hint="Será el título de tu especificación técnica matemática.">Nombre del proyecto</FieldLabel>
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Prisma Matemático, Simplex Helios, Predictor Riesgo, GraphFlowâ€¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="Tu nombre, alias o departamento de I+D / MatemÃ¡ticas.">DiseÃ±ador / Equipo de InvestigaciÃ³n</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Investigador Cuantitativo, Grupo de OptimizaciÃ³nâ€¦" />
+                    <FieldLabel hint="Tu nombre, alias o departamento de I+D / Matemáticas.">Diseñador / Equipo de Investigación</FieldLabel>
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Investigador Cuantitativo, Grupo de Optimizaciónâ€¦" />
                   </div>
                   <div>
-                    <FieldLabel hint="Elige la funciÃ³n matemÃ¡tica principal. Esto determinarÃ¡ los motores computacionales y guardrails requeridos.">Tarea principal de la aplicaciÃ³n</FieldLabel>
+                    <FieldLabel hint="Elige la función matemática principal. Esto determinará los motores computacionales y guardrails requeridos.">Tarea principal de la aplicación</FieldLabel>
                     <RadioGroup options={PRIMARY_TASKS} value={data.primaryTask} onChange={handlePrimaryChange} />
                     {errors.primaryTask && <p className="text-red-500 text-xs mt-2">{errors.primaryTask}</p>}
                   </div>
@@ -641,17 +641,17 @@ export default function WizardMatematicas() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” MÃ³dulos Complementarios</h2>
-                <p className="text-dark/45 text-sm mb-6">AÃ±ade hasta <strong>4 capacidades computacionales y de verificaciÃ³n</strong> para robustecer el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades computacionales y de verificación</strong> para robustecer el sistema.</p>
 
                 <div className="bg-indigo-500/[0.04] border border-indigo-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
                   <strong className="text-dark">Tarea principal seleccionada:</strong> [{data.primaryTask}]{" "}
                   {PRIMARY_TASKS.find(t => t.id === data.primaryTask)?.label}
                 </div>
 
-                <FieldLabel hint="Selecciona entre 0 y 4 mÃ³dulos secundarios.">MÃ³dulos secundarios</FieldLabel>
+                <FieldLabel hint="Selecciona entre 0 y 4 módulos secundarios.">Módulos secundarios</FieldLabel>
                 <CheckGroup options={SECONDARY_TASKS} selected={data.secondaryTasks} onChange={handleSecondaryChange} max={4} />
-                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 mÃ³dulos seleccionados</p>
+                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 módulos seleccionados</p>
 
                 <NavButtons onPrev={prev} onNext={next} nextLabel="Siguiente" />
               </StepCard>
@@ -660,17 +660,17 @@ export default function WizardMatematicas() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Dominio MatemÃ¡tico & Motores de CÃ¡lculo</h2>
-                <p className="text-dark/45 text-sm mb-6">Configura las Ã¡reas teÃ³ricas y los motores de Ã¡lgebra computacional que utilizarÃ¡ el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Dominio Matemático & Motores de Cálculo</h2>
+                <p className="text-dark/45 text-sm mb-6">Configura las áreas teóricas y los motores de álgebra computacional que utilizará el sistema.</p>
 
                 <div className="space-y-6">
                   <div>
-                    <FieldLabel hint="Campos matemÃ¡ticos y ramas teÃ³ricas principales.">Dominios matemÃ¡ticos de aplicaciÃ³n</FieldLabel>
+                    <FieldLabel hint="Campos matemáticos y ramas teóricas principales.">Dominios matemáticos de aplicación</FieldLabel>
                     <CheckGroup options={MATH_DOMAINS.map(a => ({ id: a, label: a, desc: "" }))} selected={data.mathDomains} onChange={set("mathDomains")} max={6} />
                     {errors.mathDomains && <p className="text-red-500 text-xs mt-1.5">{errors.mathDomains}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="Motores de Ã¡lgebra computacional, optimizaciÃ³n y cÃ¡lculo numÃ©rico.">Motores y librerÃ­as de cÃ¡lculo</FieldLabel>
+                    <FieldLabel hint="Motores de álgebra computacional, optimización y cálculo numérico.">Motores y librerías de cálculo</FieldLabel>
                     <CheckGroup options={COMPUTATION_ENGINES.map(a => ({ id: a, label: a, desc: "" }))} selected={data.computationEngines} onChange={set("computationEngines")} max={6} />
                     {errors.computationEngines && <p className="text-red-500 text-xs mt-1.5">{errors.computationEngines}</p>}
                   </div>
@@ -683,16 +683,16 @@ export default function WizardMatematicas() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” CatÃ¡logo de MÃ©tricas MatemÃ¡ticas</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona las mÃ©tricas de rigor formal, convergencia y optimalidad que evaluarÃ¡ el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas Matemáticas</h2>
+                <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de rigor formal, convergencia y optimalidad que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-indigo-800">
-                    âœ“ {data.selectedMetrics.length} mÃ©trica{data.selectedMetrics.length !== 1 ? "s" : ""} matemÃ¡tica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automÃ¡ticamente segÃºn tu tarea principal.
+                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} matemática{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
-                {["VerificaciÃ³n Formal", "OptimizaciÃ³n & MILP", "Probabilidad & EstocÃ¡stica", "Herramientas & Sandbox", "Razonamiento de CompeticiÃ³n", "Sistemas Distribuidos"].map(cat => (
+                {["Verificación Formal", "Optimización & MILP", "Probabilidad & Estocástica", "Herramientas & Sandbox", "Razonamiento de Competición", "Sistemas Distribuidos"].map(cat => (
                   <div key={cat} className="mb-5">
                     <p className="text-[11px] font-bold uppercase tracking-widest text-dark/40 mb-2.5">{cat}</p>
                     <div className="space-y-1.5">
@@ -725,31 +725,31 @@ export default function WizardMatematicas() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Rigor Formal y Guardrails AntialucinaciÃ³n</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Rigor Formal y Guardrails Antialucinación</h2>
 
                 {hasValidation ? (
                   <>
                     <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-3 mb-6 text-[13px] text-indigo-800 flex items-start gap-2">
                       <Calculator size={16} className="shrink-0 mt-0.5 text-indigo-600" />
-                      Este paso estÃ¡ activo para garantizar la validez deductiva y la ausencia de alucinaciÃ³n en operaciones algebraicas y numÃ©ricas.
+                      Este paso está activo para garantizar la validez deductiva y la ausencia de alucinación en operaciones algebraicas y numéricas.
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <FieldLabel hint="Estrategia de verificaciÃ³n de pasos de derivaciÃ³n o soluciones de optimizaciÃ³n.">Modelo de verificaciÃ³n formal</FieldLabel>
+                        <FieldLabel hint="Estrategia de verificación de pasos de derivación o soluciones de optimización.">Modelo de verificación formal</FieldLabel>
                         <SelectGroup options={VALIDATION_MODELS} value={data.validationModel} onChange={set("validationModel")} />
                         {errors.validationModel && <p className="text-red-500 text-xs mt-1">{errors.validationModel}</p>}
                       </div>
                       <div>
-                        <FieldLabel hint="RestricciÃ³n de seguridad activa para evitar fallos de cÃ¡lculo o bucles infinitos.">Guardrail de seguridad algorÃ­tmica</FieldLabel>
+                        <FieldLabel hint="Restricción de seguridad activa para evitar fallos de cálculo o bucles infinitos.">Guardrail de seguridad algorítmica</FieldLabel>
                         <SelectGroup options={SAFETY_GUARDRAILS} value={data.safetyGuardrail} onChange={set("safetyGuardrail")} />
                         {errors.safetyGuardrail && <p className="text-red-500 text-xs mt-1">{errors.safetyGuardrail}</p>}
                       </div>
                       <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios de rigor formal (activados por diseÃ±o)</p>
+                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios de rigor formal (activados por diseño)</p>
                         {[
-                          "Tolerancia Cero a AlucinaciÃ³n AritmÃ©tica: todo cÃ¡lculo se delega a SymPy/NumPy.",
+                          "Tolerancia Cero a Alucinación Aritmética: todo cálculo se delega a SymPy/NumPy.",
                           "Sandbox Aislado con Timeout (5s) para simplificaciones algebraicas complejas.",
-                          "Reproducibilidad Total: registro de semilla aleatoria y configuraciÃ³n de entorno determinista.",
+                          "Reproducibilidad Total: registro de semilla aleatoria y configuración de entorno determinista.",
                         ].map(c => (
                           <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
                             <div className="w-4 h-4 rounded bg-indigo-100 border border-indigo-300 flex items-center justify-center shrink-0 mt-0.5">
@@ -763,9 +763,9 @@ export default function WizardMatematicas() {
                   </>
                 ) : (
                   <div>
-                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo cÃ¡lculo numÃ©rico directo o simulaciÃ³n estocÃ¡stica</strong> sin auditorÃ­a de demostraciones en tiempo real.</p>
+                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo cálculo numérico directo o simulación estocástica</strong> sin auditoría de demostraciones en tiempo real.</p>
                     <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4 text-[13px] text-dark/50">
-                      Si decides aÃ±adir verificaciÃ³n simbÃ³lica de pasos o auditorÃ­a de equivalencias, vuelve al <strong>Paso 2</strong> y activa el mÃ³dulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-MATH-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-MATH-06</code>.
+                      Si decides añadir verificación simbólica de pasos o auditoría de equivalencias, vuelve al <strong>Paso 2</strong> y activa el módulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-MATH-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-MATH-06</code>.
                     </div>
                   </div>
                 )}
@@ -777,12 +777,12 @@ export default function WizardMatematicas() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack TecnolÃ³gico & Persistencia</h2>
-                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerÃ­as que darÃ¡n soporte a tu aplicaciÃ³n matemÃ¡tica.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación matemática.</p>
 
                 {data.secondaryTasks.includes("SEC-MATH-04") && (
                   <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-indigo-800">
-                    âœ“ Persistencia analÃ­tica preconfigurada en <strong>DuckDB + Parquet</strong> por el mÃ³dulo SEC-MATH-04.
+                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-MATH-04.
                   </div>
                 )}
 
@@ -793,13 +793,13 @@ export default function WizardMatematicas() {
                     {errors.uiFramework && <p className="text-red-500 text-xs mt-1">{errors.uiFramework}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="AlmacÃ©n de matrices, grafos, series temporales y resultados de simulaciÃ³n.">Motor de persistencia y datos</FieldLabel>
+                    <FieldLabel hint="Almacén de matrices, grafos, series temporales y resultados de simulación.">Motor de persistencia y datos</FieldLabel>
                     <SelectGroup options={STORAGE_ENGINES} value={data.storageEngine} onChange={set("storageEngine")} />
                     {errors.storageEngine && <p className="text-red-500 text-xs mt-1">{errors.storageEngine}</p>}
                   </div>
                 </div>
 
-                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar EspecificaciÃ³n MatemÃ¡tica" />
+                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar Especificación Matemática" />
               </StepCard>
             )}
           </>
@@ -813,10 +813,10 @@ export default function WizardMatematicas() {
                 <div className="w-8 h-8 bg-indigo-100 border border-indigo-300 rounded-full flex items-center justify-center">
                   <Check size={16} className="text-indigo-700" />
                 </div>
-                <h2 className="font-display text-[24px] text-dark">EspecificaciÃ³n matemÃ¡tica generada con Ã©xito</h2>
+                <h2 className="font-display text-[24px] text-dark">Especificación matemática generada con éxito</h2>
               </div>
               <p className="text-dark/50 text-sm ml-11">
-                La memoria tÃ©cnica para <strong className="text-dark">{data.appName}</strong> estÃ¡ lista para desarrollo y ejecuciÃ³n computacional.
+                La memoria técnica para <strong className="text-dark">{data.appName}</strong> está lista para desarrollo y ejecución computacional.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <button
@@ -829,7 +829,7 @@ export default function WizardMatematicas() {
                   onClick={reset}
                   className="flex items-center gap-2 px-5 py-2.5 border border-dark/15 hover:border-dark/30 text-dark/70 hover:text-dark text-sm font-medium rounded-sm transition-colors"
                 >
-                  <RefreshCw size={15} /> Crear otro diseÃ±o
+                  <RefreshCw size={15} /> Crear otro diseño
                 </button>
               </div>
             </div>
@@ -841,7 +841,7 @@ export default function WizardMatematicas() {
             <div className="mt-6 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-5 flex gap-3">
               <AlertTriangle size={18} className="text-amber-600 shrink-0 mt-0.5" />
               <p className="text-[13px] text-amber-800 leading-relaxed">
-                <strong>Aviso cientÃ­fico y metodolÃ³gico:</strong> Este informe especifica una arquitectura de software de cÃ¡lculo y verificaciÃ³n formal. Toda soluciÃ³n debe interpretarse dentro de las tolerancias numÃ©ricas y los lÃ­mites teÃ³ricos del solucionador empleado.
+                <strong>Aviso científico y metodológico:</strong> Este informe especifica una arquitectura de software de cálculo y verificación formal. Toda solución debe interpretarse dentro de las tolerancias numéricas y los límites teóricos del solucionador empleado.
               </p>
             </div>
           </div>

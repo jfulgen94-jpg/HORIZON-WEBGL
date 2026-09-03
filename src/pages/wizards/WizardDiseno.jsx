@@ -9,112 +9,112 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Palette } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (DiseÃ±o & Creatividad Visual) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€â”€ Constantes de datos (Diseño & Creatividad Visual) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PRIMARY_TASKS = [
   {
     id: "DS1.1",
-    label: "Generador de Direcciones Creativas e Identidad de Marca (GÃ©nesis Visual)",
-    desc: "GeneraciÃ³n de sistemas de identidad coherentes (concepto estÃ©tico, paletas de color HEX con roles asignados, pares tipogrÃ¡ficos verificados en Google Fonts y anÃ¡lisis de sensibilidad cultural).",
-    audience: "Estudios de diseÃ±o, directores de arte, agencias de branding, diseÃ±adores de marca y marketing.",
+    label: "Generador de Direcciones Creativas e Identidad de Marca (Génesis Visual)",
+    desc: "Generación de sistemas de identidad coherentes (concepto estético, paletas de color HEX con roles asignados, pares tipográficos verificados en Google Fonts y análisis de sensibilidad cultural).",
+    audience: "Estudios de diseño, directores de arte, agencias de branding, diseñadores de marca y marketing.",
   },
   {
     id: "DS1.2",
-    label: "Auditor HeurÃ­stico de Interfaces y CrÃ­tica UI/UX (CrÃ­tica UI)",
-    desc: "AnÃ¡lisis visual multimodal de capturas de pantalla, localizaciÃ³n por bounding boxes de puntos de fricciÃ³n, auditorÃ­a de jerarquÃ­a de CTAs y contraste WCAG 2.1.",
-    audience: "DiseÃ±adores de producto (Product Designers), investigadores UX, auditores de usabilidad.",
+    label: "Auditor Heurístico de Interfaces y Crítica UI/UX (Crítica UI)",
+    desc: "Análisis visual multimodal de capturas de pantalla, localización por bounding boxes de puntos de fricción, auditoría de jerarquía de CTAs y contraste WCAG 2.1.",
+    audience: "Diseñadores de producto (Product Designers), investigadores UX, auditores de usabilidad.",
   },
   {
     id: "DS1.3",
-    label: "Generador de Sistemas de DiseÃ±o y Design Tokens ParamÃ©tricos (Design System Studio)",
-    desc: "DefiniciÃ³n estructurada de tokens de diseÃ±o (colores semÃ¡nticos, escala modular tipogrÃ¡fica, retÃ­cula de 8px, elevaciones) exportables a CSS Variables, Tailwind y Figma JSON.",
-    audience: "Ingenieros de sistemas de diseÃ±o (Design Technologists), desarrolladores frontend, lÃ­deres de UI.",
+    label: "Generador de Sistemas de Diseño y Design Tokens Paramétricos (Design System Studio)",
+    desc: "Definición estructurada de tokens de diseño (colores semánticos, escala modular tipográfica, retícula de 8px, elevaciones) exportables a CSS Variables, Tailwind y Figma JSON.",
+    audience: "Ingenieros de sistemas de diseño (Design Technologists), desarrolladores frontend, líderes de UI.",
   },
   {
     id: "DS1.4",
-    label: "Generador de GrÃ¡ficos Vectoriales y Logotipos ParamÃ©tricos en SVG (SVG Canvas)",
-    desc: "CreaciÃ³n determinista de cÃ³digo SVG limpio, escalable y optimizado con svgwrite, sin artefactos rasterizados ni degradaciÃ³n de resoluciÃ³n.",
-    audience: "DiseÃ±adores grÃ¡ficos vectoriales, desarrolladores web, creadores de iconos e infografÃ­as.",
+    label: "Generador de Gráficos Vectoriales y Logotipos Paramétricos en SVG (SVG Canvas)",
+    desc: "Creación determinista de código SVG limpio, escalable y optimizado con svgwrite, sin artefactos rasterizados ni degradación de resolución.",
+    audience: "Diseñadores gráficos vectoriales, desarrolladores web, creadores de iconos e infografías.",
   },
   {
     id: "DS1.5",
     label: "Auditor de Accesibilidad Visual y Contraste de Color (WCAG 2.1 AA/AAA)",
-    desc: "CÃ¡lculo algorÃ­tmico de luminancia relativa y ratio de contraste texto/fondo con etiquetado de conformidad y recomendaciones de correcciÃ³n.",
-    audience: "Auditores de accesibilidad digital, diseÃ±adores inclusivos, responsables de calidad web.",
+    desc: "Cálculo algorítmico de luminancia relativa y ratio de contraste texto/fondo con etiquetado de conformidad y recomendaciones de corrección.",
+    audience: "Auditores de accesibilidad digital, diseñadores inclusivos, responsables de calidad web.",
   },
   {
     id: "DS1.6",
-    label: "Optimizador de Tasa de ConversiÃ³n (CRO) y PredicciÃ³n de Tests A/B (WiserUI)",
-    desc: "EvaluaciÃ³n predictiva de variantes de interfaces basada en benchmarks de A/B testing real para maximizar la eficacia de llamadas a la acciÃ³n y checkout.",
-    audience: "Especialistas en CRO, growth managers, diseÃ±adores de ecommerce y landing pages.",
+    label: "Optimizador de Tasa de Conversión (CRO) y Predicción de Tests A/B (WiserUI)",
+    desc: "Evaluación predictiva de variantes de interfaces basada en benchmarks de A/B testing real para maximizar la eficacia de llamadas a la acción y checkout.",
+    audience: "Especialistas en CRO, growth managers, diseñadores de ecommerce y landing pages.",
   },
 ];
 
 const SECONDARY_TASKS = [
-  { id: "SEC-DS-01", label: "Validador AlgorÃ­tmico de Contraste y Accesibilidad WCAG 2.1 (AA / AAA)", desc: "VerificaciÃ³n matemÃ¡tica estricta de ratios de contraste (mÃ­nimo 4.5:1 para texto normal, 3:1 para texto grande)." },
-  { id: "SEC-DS-02", label: "Verificador de Disponibilidad de TipografÃ­as en Google Fonts API", desc: "ComprobaciÃ³n en tiempo real de existencia, variantes de peso y compatibilidad multilingÃ¼e de fuentes." },
-  { id: "SEC-DS-03", label: "Pista de Historial Creativo y Versiones de DiseÃ±o en DuckDB", desc: "Registro inmutable de briefings, paletas, tokens generados y feedback de diseÃ±o con sellado temporal." },
-  { id: "SEC-DS-04", label: "Persistencia Columnar UltrarrÃ¡pida y Modo Offline (DuckDB + Parquet)", desc: "Almacenamiento local seguro de assets, tokens de diseÃ±o y mÃ©tricas de accesibilidad." },
-  { id: "SEC-DS-05", label: "Exportador a Formatos EstÃ¡ndar (CSS Variables, Tailwind Config, Figma Tokens JSON, SVG)", desc: "Salida modular lista para integraciÃ³n directa en frontends web o herramientas de diseÃ±o." },
-  { id: "SEC-DS-06", label: "Detector de Connotaciones y Sesgo Cultural del Color (Cultural VQA)", desc: "Alertas tempranas sobre significados desfavorables de colores o sÃ­mbolos en mercados internacionales especÃ­ficos." },
-  { id: "SEC-DS-07", label: "Asistente con Guardrail de No-SustituciÃ³n del Criterio Creativo", desc: "RestricciÃ³n que enmarca las salidas como puntos de partida exploratorios, preservando la autorÃ­a humana." },
-  { id: "SEC-DS-08", label: "Detector de Bounding Boxes y Mapas de Calor de AtenciÃ³n Visual", desc: "Mapeo de coordenadas de elementos clave de la interfaz para predecir el recorrido visual del usuario." },
+  { id: "SEC-DS-01", label: "Validador Algorítmico de Contraste y Accesibilidad WCAG 2.1 (AA / AAA)", desc: "Verificación matemática estricta de ratios de contraste (mínimo 4.5:1 para texto normal, 3:1 para texto grande)." },
+  { id: "SEC-DS-02", label: "Verificador de Disponibilidad de Tipografías en Google Fonts API", desc: "Comprobación en tiempo real de existencia, variantes de peso y compatibilidad multilingüe de fuentes." },
+  { id: "SEC-DS-03", label: "Pista de Historial Creativo y Versiones de Diseño en DuckDB", desc: "Registro inmutable de briefings, paletas, tokens generados y feedback de diseño con sellado temporal." },
+  { id: "SEC-DS-04", label: "Persistencia Columnar Ultrarrápida y Modo Offline (DuckDB + Parquet)", desc: "Almacenamiento local seguro de assets, tokens de diseño y métricas de accesibilidad." },
+  { id: "SEC-DS-05", label: "Exportador a Formatos Estándar (CSS Variables, Tailwind Config, Figma Tokens JSON, SVG)", desc: "Salida modular lista para integración directa en frontends web o herramientas de diseño." },
+  { id: "SEC-DS-06", label: "Detector de Connotaciones y Sesgo Cultural del Color (Cultural VQA)", desc: "Alertas tempranas sobre significados desfavorables de colores o símbolos en mercados internacionales específicos." },
+  { id: "SEC-DS-07", label: "Asistente con Guardrail de No-Sustitución del Criterio Creativo", desc: "Restricción que enmarca las salidas como puntos de partida exploratorios, preservando la autoría humana." },
+  { id: "SEC-DS-08", label: "Detector de Bounding Boxes y Mapas de Calor de Atención Visual", desc: "Mapeo de coordenadas de elementos clave de la interfaz para predecir el recorrido visual del usuario." },
 ];
 
 const DESIGN_DOMAINS = [
-  "Identidad Visual, Branding & DiseÃ±o Corporativo",
-  "DiseÃ±o de Interfaces (UI) & Experiencia de Usuario (UX)",
-  "Sistemas de DiseÃ±o (Design Systems) & Design Tokens",
-  "GrÃ¡ficos Vectoriales, IlustraciÃ³n & SVG ParamÃ©trico",
-  "Accesibilidad Digital (WCAG 2.1) & DiseÃ±o Inclusivo",
-  "OptimizaciÃ³n de ConversiÃ³n (CRO) & Flujos de Checkout",
+  "Identidad Visual, Branding & Diseño Corporativo",
+  "Diseño de Interfaces (UI) & Experiencia de Usuario (UX)",
+  "Sistemas de Diseño (Design Systems) & Design Tokens",
+  "Gráficos Vectoriales, Ilustración & SVG Paramétrico",
+  "Accesibilidad Digital (WCAG 2.1) & Diseño Inclusivo",
+  "Optimización de Conversión (CRO) & Flujos de Checkout",
 ];
 
 const COMPUTATION_ENGINES = [
-  "Python + colormath / wcag-contrast (CÃ¡lculo algorÃ­tmico exacto de contraste y colorimetrÃ­a)",
-  "svgwrite / cairosvg (GeneraciÃ³n, renderizado y optimizaciÃ³n de grÃ¡ficos SVG)",
-  "Google Fonts API Client (ValidaciÃ³n de fuentes tipogrÃ¡ficas web)",
-  "DuckDB + Parquet (AlmacÃ©n analÃ­tico columnar de tokens y variantes de diseÃ±o)",
-  "Pydantic v2 (ValidaciÃ³n de esquemas de Design Tokens conformes al W3C)",
-  "Tailwind / CSS Formatter (GeneraciÃ³n de hojas de estilo limpias y optimizadas)",
+  "Python + colormath / wcag-contrast (Cálculo algorítmico exacto de contraste y colorimetría)",
+  "svgwrite / cairosvg (Generación, renderizado y optimización de gráficos SVG)",
+  "Google Fonts API Client (Validación de fuentes tipográficas web)",
+  "DuckDB + Parquet (Almacén analítico columnar de tokens y variantes de diseño)",
+  "Pydantic v2 (Validación de esquemas de Design Tokens conformes al W3C)",
+  "Tailwind / CSS Formatter (Generación de hojas de estilo limpias y optimizadas)",
 ];
 
 const DESIGN_METRICS = [
-  { id: "wcag_aa_pass_rate", label: "Tasa de Conformidad WCAG 2.1 AA", cat: "Accesibilidad & Color", desc: "Porcentaje de combinaciones de color de la interfaz que superan el ratio mÃ­nimo 4.5:1." },
-  { id: "visual_hierarchy_impact", label: "Ãndice de JerarquÃ­a Visual de CTAs", cat: "UX & ConversiÃ³n", desc: "Capacidad de guiar la atenciÃ³n del usuario hacia la acciÃ³n principal sin ambigÃ¼edad visual." },
-  { id: "ab_winner_prediction_acc", label: "Acierto en PredicciÃ³n A/B (WiserUI)", cat: "UX & ConversiÃ³n", desc: "Exactitud en predecir quÃ© variante de diseÃ±o generarÃ¡ mayor conversiÃ³n en tests reales." },
-  { id: "typography_balance_ratio", label: "Equilibrio TipogrÃ¡fico y Modularidad", cat: "TipografÃ­a & Layout", desc: "Consistencia en la escala modular tipogrÃ¡fica y ritmo vertical en retÃ­cula de 8px." },
-  { id: "cultural_sensitivity_score", label: "Ãndice de AdecuaciÃ³n Cultural (CVQA)", cat: "Branding & SemiÃ³tica", desc: "Ausencia de connotaciones tabÃº o negativas de color/simbologÃ­a en el mercado geogrÃ¡fico objetivo." },
-  { id: "bounding_box_precision", label: "PrecisiÃ³n en LocalizaciÃ³n UI (BBox Detection)", cat: "UI & AuditorÃ­a", desc: "Exactitud en coordenadas de pÃ­xeles al identificar elementos de interfaz en capturas." },
-  { id: "token_completeness", label: "Completitud de Design Tokens W3C", cat: "Sistemas de DiseÃ±o", desc: "Cobertura total de variables para color, tipografÃ­a, espaciado, bordes y elevaciones." },
-  { id: "svg_render_fidelity", label: "Fidelidad y OptimizaciÃ³n de CÃ³digo SVG", cat: "GrÃ¡ficos Vectoriales", desc: "ValidaciÃ³n de sintaxis SVG limpia sin etiquetas redundantes ni artefactos visuales." },
+  { id: "wcag_aa_pass_rate", label: "Tasa de Conformidad WCAG 2.1 AA", cat: "Accesibilidad & Color", desc: "Porcentaje de combinaciones de color de la interfaz que superan el ratio mínimo 4.5:1." },
+  { id: "visual_hierarchy_impact", label: "Índice de Jerarquía Visual de CTAs", cat: "UX & Conversión", desc: "Capacidad de guiar la atención del usuario hacia la acción principal sin ambigüedad visual." },
+  { id: "ab_winner_prediction_acc", label: "Acierto en Predicción A/B (WiserUI)", cat: "UX & Conversión", desc: "Exactitud en predecir qué variante de diseño generará mayor conversión en tests reales." },
+  { id: "typography_balance_ratio", label: "Equilibrio Tipográfico y Modularidad", cat: "Tipografía & Layout", desc: "Consistencia en la escala modular tipográfica y ritmo vertical en retícula de 8px." },
+  { id: "cultural_sensitivity_score", label: "Índice de Adecuación Cultural (CVQA)", cat: "Branding & Semiótica", desc: "Ausencia de connotaciones tabú o negativas de color/simbología en el mercado geográfico objetivo." },
+  { id: "bounding_box_precision", label: "Precisión en Localización UI (BBox Detection)", cat: "UI & Auditoría", desc: "Exactitud en coordenadas de píxeles al identificar elementos de interfaz en capturas." },
+  { id: "token_completeness", label: "Completitud de Design Tokens W3C", cat: "Sistemas de Diseño", desc: "Cobertura total de variables para color, tipografía, espaciado, bordes y elevaciones." },
+  { id: "svg_render_fidelity", label: "Fidelidad y Optimización de Código SVG", cat: "Gráficos Vectoriales", desc: "Validación de sintaxis SVG limpia sin etiquetas redundantes ni artefactos visuales." },
 ];
 
 const VALIDATION_MODELS = [
-  "Doble Etapa: Razonamiento Multimodal Claude 3.7 Sonnet + VerificaciÃ³n MatemÃ¡tica de Contraste WCAG",
-  "ValidaciÃ³n AlgorÃ­tmica Determinista de Luminancia Relativa (FÃ³rmula Oficial W3C)",
-  "ComprobaciÃ³n de Existencia en CatÃ¡logo de Google Fonts mediante API Oficial",
-  "AuditorÃ­a de RetÃ­cula Espacial de 8px y Escalas Modulares de TipografÃ­a",
+  "Doble Etapa: Razonamiento Multimodal Claude 3.7 Sonnet + Verificación Matemática de Contraste WCAG",
+  "Validación Algorítmica Determinista de Luminancia Relativa (Fórmula Oficial W3C)",
+  "Comprobación de Existencia en Catálogo de Google Fonts mediante API Oficial",
+  "Auditoría de Retícula Espacial de 8px y Escalas Modulares de Tipografía",
 ];
 
 const SAFETY_GUARDRAILS = [
-  "Aislamiento de Criterio: ProhibiciÃ³n de Declarar DiseÃ±os Definitivos sin AprobaciÃ³n Humana",
-  "Bloqueo Obligatorio ante Inaccesibilidad Severa: Alerta CrÃ­tica en Contrastes < 3.0:1",
-  "VerificaciÃ³n Obligatoria de Licencias y Disponibilidad Web en TipografÃ­as Propuestas",
-  "ClÃ¡usula de AutorÃ­a y ExploraciÃ³n Creativa en Todos los Informes de Identidad",
+  "Aislamiento de Criterio: Prohibición de Declarar Diseños Definitivos sin Aprobación Humana",
+  "Bloqueo Obligatorio ante Inaccesibilidad Severa: Alerta Crítica en Contrastes < 3.0:1",
+  "Verificación Obligatoria de Licencias y Disponibilidad Web en Tipografías Propuestas",
+  "Cláusula de Autoría y Exploración Creativa en Todos los Informes de Identidad",
 ];
 
 const UI_FRAMEWORKS = [
   "Streamlit (Dashboard interactivo con visores de paletas interactivas y renderizado SVG)",
   "FastAPI + React / Next.js (Visualizador de Design Tokens y portal de marca en vivo)",
-  "Flet (AplicaciÃ³n de escritorio local .exe para estudios creativos con assets locales)",
+  "Flet (Aplicación de escritorio local .exe para estudios creativos con assets locales)",
 ];
 
 const STORAGE_ENGINES = [
-  "DuckDB + Ficheros Parquet (AlmacÃ©n analÃ­tico columnar para histÃ³rico de direcciones y mÃ©tricas)",
+  "DuckDB + Ficheros Parquet (Almacén analítico columnar para histórico de direcciones y métricas)",
   "Ficheros JSON W3C Design Tokens + CSS Variables",
   "Repositorio de Ficheros SVG con Control de Versiones",
-  "AlmacÃ©n de Proyectos Creativos en Formato Markdown con Muestras de Color",
+  "Almacén de Proyectos Creativos en Formato Markdown con Muestras de Color",
 ];
 
 // â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -172,36 +172,36 @@ function generateReport(data) {
     appSlug + "/",
     "â”œâ”€â”€ src/",
     "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # ConfiguraciÃ³n de diseÃ±o, perfiles de color y claves API (Google Fonts)",
+    "â”‚   â”œâ”€â”€ config.py                 # Configuración de diseño, perfiles de color y claves API (Google Fonts)",
     "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para paletas, tokens W3C y especificaciones de marca" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de Asistencia Creativa (BR-DS-05)" : ""),
     data.primaryTask === "DS1.1" ? "â”‚   â”œâ”€â”€ brand_generator.py        # Generador de direcciones creativas y conceptos de identidad (BR-DS-01)" : null,
-    hasSEC01 || data.primaryTask === "DS1.5" ? "â”‚   â”œâ”€â”€ wcag_contrast.py          # Calculador algorÃ­tmico de contraste WCAG 2.1 AA/AAA" : null,
-    hasSEC02 || data.primaryTask === "DS1.1" ? "â”‚   â”œâ”€â”€ font_validator.py         # Conector con Google Fonts API y validador de pares tipogrÃ¡ficos" : null,
-    data.primaryTask === "DS1.2" || hasSEC08 ? "â”‚   â”œâ”€â”€ ui_auditor.py             # Auditor heurÃ­stico de interfaces y detector de bounding boxes (BR-DS-02)" : null,
+    hasSEC01 || data.primaryTask === "DS1.5" ? "â”‚   â”œâ”€â”€ wcag_contrast.py          # Calculador algorítmico de contraste WCAG 2.1 AA/AAA" : null,
+    hasSEC02 || data.primaryTask === "DS1.1" ? "â”‚   â”œâ”€â”€ font_validator.py         # Conector con Google Fonts API y validador de pares tipográficos" : null,
+    data.primaryTask === "DS1.2" || hasSEC08 ? "â”‚   â”œâ”€â”€ ui_auditor.py             # Auditor heurístico de interfaces y detector de bounding boxes (BR-DS-02)" : null,
     data.primaryTask === "DS1.3" || hasSEC05 ? "â”‚   â”œâ”€â”€ design_tokens.py          # Generador de tokens W3C, CSS Variables y Tailwind Config (BR-DS-03)" : null,
-    data.primaryTask === "DS1.4" ? "â”‚   â”œâ”€â”€ svg_generator.py          # Constructor de grÃ¡ficos y logotipos vectoriales limpios con svgwrite" : null,
-    hasSEC06 ? "â”‚   â”œâ”€â”€ cultural_checker.py       # Analizador de connotaciones y semiÃ³tica cultural del color" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de variantes" : "Capa de persistencia de diseÃ±o"),
-    "â”‚   â”œâ”€â”€ brand_reporting.py        # Generador de manuales de identidad y guÃ­as de estilo (Markdown / PDF)",
+    data.primaryTask === "DS1.4" ? "â”‚   â”œâ”€â”€ svg_generator.py          # Constructor de gráficos y logotipos vectoriales limpios con svgwrite" : null,
+    hasSEC06 ? "â”‚   â”œâ”€â”€ cultural_checker.py       # Analizador de connotaciones y semiótica cultural del color" : null,
+    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de variantes" : "Capa de persistencia de diseño"),
+    "â”‚   â”œâ”€â”€ brand_reporting.py        # Generador de manuales de identidad y guías de estilo (Markdown / PDF)",
     "â”‚   â””â”€â”€ ui/",
     "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visores de paletas de color, muestras tipogrÃ¡ficas y renderizadores SVG",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de diseÃ±o y panel del director de arte",
+    "â”‚       â”œâ”€â”€ components.py         # Visores de paletas de color, muestras tipográficas y renderizadores SVG",
+    "â”‚       â””â”€â”€ main_view.py          # Dashboard de diseño y panel del director de arte",
     "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas de tokens de diseÃ±o",
-    hasSEC01 ? "â”‚   â”œâ”€â”€ test_wcag_contrast.py     # BaterÃ­a de cÃ¡lculo de contrastes y luminancia relativa" : null,
-    data.primaryTask === "DS1.4" ? "â”‚   â””â”€â”€ test_svg_output.py        # ValidaciÃ³n sintÃ¡ctica de SVG generados" : null,
-    "â”œâ”€â”€ data/                         # Ficheros de tokens JSON, assets SVG y cachÃ© de tipografÃ­as",
+    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas de tokens de diseño",
+    hasSEC01 ? "â”‚   â”œâ”€â”€ test_wcag_contrast.py     # Batería de cálculo de contrastes y luminancia relativa" : null,
+    data.primaryTask === "DS1.4" ? "â”‚   â””â”€â”€ test_svg_output.py        # Validación sintáctica de SVG generados" : null,
+    "â”œâ”€â”€ data/                         # Ficheros de tokens JSON, assets SVG y caché de tipografías",
     "â”œâ”€â”€ requirements.txt              # svgwrite, pydantic, duckdb, requests, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicaciÃ³n de diseÃ±o",
+    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación de diseño",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
-    data.primaryTask === "DS1.1" ? "- **BR-DS-01 (GÃ©nesis Visual):** Generador de identidad activado; paletas HEX con roles asignados; pares tipogrÃ¡ficos Google Fonts verificados." : null,
-    data.primaryTask === "DS1.2" ? "- **BR-DS-02 (CrÃ­tica UI):** Auditor heurÃ­stico activado; bounding boxes de fricciÃ³n; evaluaciÃ³n de jerarquÃ­a visual de CTAs." : null,
+    data.primaryTask === "DS1.1" ? "- **BR-DS-01 (Génesis Visual):** Generador de identidad activado; paletas HEX con roles asignados; pares tipográficos Google Fonts verificados." : null,
+    data.primaryTask === "DS1.2" ? "- **BR-DS-02 (Crítica UI):** Auditor heurístico activado; bounding boxes de fricción; evaluación de jerarquía visual de CTAs." : null,
     data.primaryTask === "DS1.3" ? "- **BR-DS-03 (Design Tokens):** Exportador W3C Design Tokens activado; salida dual CSS Variables + Tailwind Config." : null,
-    hasSEC04 ? "- **BR-DS-04 (Persistencia AnalÃ­tica):** AlmacÃ©n columnar preconfigurado en DuckDB + Parquet para variantes y mÃ©tricas de diseÃ±o." : null,
-    hasSEC07 ? "- **BR-DS-05 (Guardrail Creativo):** Salidas enmarcadas como puntos de partida exploratorios para iteraciÃ³n por el diseÃ±ador." : null,
+    hasSEC04 ? "- **BR-DS-04 (Persistencia Analítica):** Almacén columnar preconfigurado en DuckDB + Parquet para variantes y métricas de diseño." : null,
+    hasSEC07 ? "- **BR-DS-05 (Guardrail Creativo):** Salidas enmarcadas como puntos de partida exploratorios para iteración por el diseñador." : null,
   ].filter(Boolean).join("\n");
 
   const metricsSection = Object.entries(metricsByCategory).map(([cat, ms]) =>
@@ -210,58 +210,58 @@ function generateReport(data) {
 
   const validationSection = hasValidation
     ? [
-        "- **Modelo de verificaciÃ³n y control estÃ©tico:** " + data.validationModel,
+        "- **Modelo de verificación y control estético:** " + data.validationModel,
         "- **Guardrail de seguridad profesional:** " + data.safetyGuardrail,
-        "- **Principio de Asistencia Creativa:** La IA propone direcciones visuales y sistemas de diseÃ±o; la selecciÃ³n final y refinamiento es 100% del diseÃ±ador.",
-        "- **CÃ¡lculo Determinista de Accesibilidad:** Los ratios de contraste WCAG se calculan mediante fÃ³rmulas matemÃ¡ticas exactas sobre los valores HEX/RGB.",
-        "- **Trazabilidad Inmutable:** Cada direcciÃ³n creativa y token generado se registra en DuckDB con sellado temporal.",
+        "- **Principio de Asistencia Creativa:** La IA propone direcciones visuales y sistemas de diseño; la selección final y refinamiento es 100% del diseñador.",
+        "- **Cálculo Determinista de Accesibilidad:** Los ratios de contraste WCAG se calculan mediante fórmulas matemáticas exactas sobre los valores HEX/RGB.",
+        "- **Trazabilidad Inmutable:** Cada dirección creativa y token generado se registra en DuckDB con sellado temporal.",
       ].join("\n")
-    : "La aplicaciÃ³n opera en modo de generaciÃ³n de tokens o grÃ¡ficos vectoriales directos.";
+    : "La aplicación opera en modo de generación de tokens o gráficos vectoriales directos.";
 
   const qaLines = [
-    "1. **Pruebas de Contraste AlgorÃ­tmico (WCAG 2.1):** VerificaciÃ³n matemÃ¡tica de que todas las combinaciones texto/fondo propuestas superan 4.5:1 (Nivel AA).",
-    "2. **ValidaciÃ³n de TipografÃ­as en Google Fonts:** ComprobaciÃ³n automÃ¡tica de disponibilidad de pesos (regular, medium, bold) vÃ­a API oficial.",
-    "3. **Prueba de Renderizado SVG:** ValidaciÃ³n sintÃ¡ctica de archivos SVG generados y prueba de escalabilidad sin distorsiÃ³n vectorial.",
-    "4. **Prueba de GeneraciÃ³n de Tokens:** ValidaciÃ³n del JSON generado frente a la especificaciÃ³n estÃ¡ndar del W3C Design Tokens Community Group.",
+    "1. **Pruebas de Contraste Algorítmico (WCAG 2.1):** Verificación matemática de que todas las combinaciones texto/fondo propuestas superan 4.5:1 (Nivel AA).",
+    "2. **Validación de Tipografías en Google Fonts:** Comprobación automática de disponibilidad de pesos (regular, medium, bold) vía API oficial.",
+    "3. **Prueba de Renderizado SVG:** Validación sintáctica de archivos SVG generados y prueba de escalabilidad sin distorsión vectorial.",
+    "4. **Prueba de Generación de Tokens:** Validación del JSON generado frente a la especificación estándar del W3C Design Tokens Community Group.",
   ].filter(Boolean).join("\n");
 
   return [
     "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
-    "## Proyecto de Software de DiseÃ±o & Creatividad Visual: " + data.appName,
+    "## Proyecto de Software de Diseño & Creatividad Visual: " + data.appName,
     "",
-    "**Fecha de GeneraciÃ³n:** " + now,
-    "**Ãrea Horizon:** DiseÃ±o, Creatividad Visual & Sistemas de DiseÃ±o",
-    "**Arquitecto / DiseÃ±ador:** " + (data.authorName || "Horizon User"),
-    "**VersiÃ³n del Documento:** v1.0.0 (EspecificaciÃ³n Formal de DiseÃ±o)",
+    "**Fecha de Generación:** " + now,
+    "**Área Horizon:** Diseño, Creatividad Visual & Sistemas de Diseño",
+    "**Arquitecto / Diseñador:** " + (data.authorName || "Horizon User"),
+    "**Versión del Documento:** v1.0.0 (Especificación Formal de Diseño)",
     "",
     "---",
     "",
-    "### 1. Resumen Ejecutivo y PropÃ³sito del Software",
+    "### 1. Resumen Ejecutivo y Propósito del Software",
     "",
     "- **Tarea Principal (" + data.primaryTask + "):** " + (primary?.label || ""),
-    "- **DescripciÃ³n del nÃºcleo funcional:** " + (primary?.desc || ""),
-    "- **PÃºblico objetivo:** " + (primary?.audience || ""),
-    "- **Especialidades de diseÃ±o aplicables:** " + data.designDomains.join(", "),
-    "- **Motores y librerÃ­as de procesamiento visual:** " + data.computationEngines.join(", "),
+    "- **Descripción del núcleo funcional:** " + (primary?.desc || ""),
+    "- **Público objetivo:** " + (primary?.audience || ""),
+    "- **Especialidades de diseño aplicables:** " + data.designDomains.join(", "),
+    "- **Motores y librerías de procesamiento visual:** " + data.computationEngines.join(", "),
     "",
-    "**Exclusiones explÃ­citas:** El sistema NO genera identidades finales cerradas sin revisiÃ³n de un diseÃ±ador profesional, NO registra marcas ni derechos de propiedad industrial de forma autÃ³noma y NO sustituye el criterio estÃ©tico y estratÃ©gico del equipo creativo.",
-    "",
-    "---",
-    "",
-    "### 2. Matriz de Arquitectura y MÃ³dulos Complementarios",
-    "",
-    secondaries.length === 0 ? "_No se han seleccionado mÃ³dulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
-    "",
-    "**Reglas de lÃ³gica condicional aplicadas (Branching Rules):**",
-    branchingLines || "_Ninguna regla de branching activada con la configuraciÃ³n actual._",
+    "**Exclusiones explícitas:** El sistema NO genera identidades finales cerradas sin revisión de un diseñador profesional, NO registra marcas ni derechos de propiedad industrial de forma autónoma y NO sustituye el criterio estético y estratégico del equipo creativo.",
     "",
     "---",
     "",
-    "### 3. CatÃ¡logo de MÃ©tricas y Rigor EstÃ©tico",
+    "### 2. Matriz de Arquitectura y Módulos Complementarios",
     "",
-    "El sistema implementarÃ¡ y monitorizarÃ¡ las siguientes mÃ©tricas de accesibilidad y diseÃ±o:",
+    secondaries.length === 0 ? "_No se han seleccionado módulos secundarios._" : secondaries.map(s => "- **[" + s.id + "] " + s.label + ":** " + s.desc).join("\n"),
     "",
-    metricsSection || "_No se han seleccionado mÃ©tricas._",
+    "**Reglas de lógica condicional aplicadas (Branching Rules):**",
+    branchingLines || "_Ninguna regla de branching activada con la configuración actual._",
+    "",
+    "---",
+    "",
+    "### 3. Catálogo de Métricas y Rigor Estético",
+    "",
+    "El sistema implementará y monitorizará las siguientes métricas de accesibilidad y diseño:",
+    "",
+    metricsSection || "_No se han seleccionado métricas._",
     "",
     "---",
     "",
@@ -271,11 +271,11 @@ function generateReport(data) {
     "",
     "---",
     "",
-    "### 5. Stack TecnolÃ³gico y Estructura de Scripts Python",
+    "### 5. Stack Tecnológico y Estructura de Scripts Python",
     "",
-    "- **Capa de PresentaciÃ³n (UI):** " + data.uiFramework,
+    "- **Capa de Presentación (UI):** " + data.uiFramework,
     "- **Capa de Persistencia y Datos:** " + data.storageEngine,
-    "- **ValidaciÃ³n de Datos:** Pydantic v2 con esquemas de tokens W3C y tipado estricto.",
+    "- **Validación de Datos:** Pydantic v2 con esquemas de tokens W3C y tipado estricto.",
     "- **Lenguaje:** Python 3.11+",
     "",
     "```text",
@@ -284,27 +284,27 @@ function generateReport(data) {
     "",
     "---",
     "",
-    "### 6. Protocolo de Pruebas y ValidaciÃ³n (QA de DiseÃ±o)",
+    "### 6. Protocolo de Pruebas y Validación (QA de Diseño)",
     "",
     qaLines,
     "",
     "---",
     "",
-    "### 7. ClÃ¡usula de AutorÃ­a Creativa y Descargo de Responsabilidad",
+    "### 7. Cláusula de Autoría Creativa y Descargo de Responsabilidad",
     "",
     "> **AVISO PROFESIONAL Y METODOLÃ“GICO OBLIGATORIO**",
     ">",
-    "> Esta especificaciÃ³n tÃ©cnica y cualquier software desarrollado a partir de ella tiene carÃ¡cter **exclusivamente de herramienta de apoyo a la ideaciÃ³n, auditorÃ­a de accesibilidad y generaciÃ³n de tokens de diseÃ±o**.",
+    "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de herramienta de apoyo a la ideación, auditoría de accesibilidad y generación de tokens de diseño**.",
     ">",
-    "> - **Las propuestas generadas son puntos de partida exploratorios para que el diseÃ±ador refine, personalice y valide**.",
-    "> - Todo sistema de identidad, paleta o diseÃ±o de interfaz debe ser **revisado y aprobado por el director de arte o responsable de diseÃ±o** antes de su lanzamiento en producciÃ³n.",
-    "> - La accesibilidad WCAG se garantiza mediante validaciÃ³n algorÃ­tmica determinista de ratios de contraste.",
+    "> - **Las propuestas generadas son puntos de partida exploratorios para que el diseñador refine, personalice y valide**.",
+    "> - Todo sistema de identidad, paleta o diseño de interfaz debe ser **revisado y aprobado por el director de arte o responsable de diseño** antes de su lanzamiento en producción.",
+    "> - La accesibilidad WCAG se garantiza mediante validación algorítmica determinista de ratios de contraste.",
     ">",
-    "> DiseÃ±ado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de DiseÃ±o & Creatividad Visual.",
+    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Diseño & Creatividad Visual.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de EspecificaciÃ³n TÃ©cnica â€” Generado automÃ¡ticamente por Horizon DesignAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon DesignAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
@@ -541,14 +541,14 @@ export default function WizardDiseno() {
       if (!data.primaryTask) e.primaryTask = "Selecciona una tarea principal.";
     }
     if (step === 3) {
-      if (data.designDomains.length === 0) e.designDomains = "Selecciona al menos una especialidad de diseÃ±o.";
+      if (data.designDomains.length === 0) e.designDomains = "Selecciona al menos una especialidad de diseño.";
       if (data.computationEngines.length === 0) e.computationEngines = "Selecciona al menos un motor de procesamiento.";
     }
     if (step === 4) {
-      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una mÃ©trica de diseÃ±o.";
+      if (data.selectedMetrics.length === 0) e.selectedMetrics = "Selecciona al menos una métrica de diseño.";
     }
     if (step === 5 && needsValidationStep(data.primaryTask, data.secondaryTasks)) {
-      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificaciÃ³n de diseÃ±o.";
+      if (!data.validationModel) e.validationModel = "Selecciona un modelo de verificación de diseño.";
       if (!data.safetyGuardrail) e.safetyGuardrail = "Selecciona el guardrail de seguridad creativa.";
     }
     if (step === 6) {
@@ -592,16 +592,16 @@ export default function WizardDiseno() {
         {/* Header */}
         <div className="mb-8">
           <Link to="/areas/diseno" className="inline-flex items-center gap-1.5 text-xs text-dark/40 hover:text-dark transition-colors mb-6">
-            <ArrowLeft size={13} /> Laboratorio de DiseÃ±o
+            <ArrowLeft size={13} /> Laboratorio de Diseño
           </Link>
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center shrink-0 text-amber-600 font-display text-xl">ðŸŽ¨</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                DiseÃ±ador de Proyectos â€” DiseÃ±o & Creatividad Visual
+                Diseñador de Proyectos â€” Diseño & Creatividad Visual
               </h1>
               <p className="text-dark/50 text-sm mt-1">
-                Define tu aplicaciÃ³n de diseÃ±o paso a paso con accesibilidad WCAG 2.1, tipografÃ­a modular y tokens W3C.
+                Define tu aplicación de diseño paso a paso con accesibilidad WCAG 2.1, tipografía modular y tokens W3C.
               </p>
             </div>
           </div>
@@ -616,20 +616,20 @@ export default function WizardDiseno() {
             {step === 1 && (
               <StepCard>
                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona el nÃºcleo funcional que definirÃ¡ la arquitectura de tu aplicaciÃ³n de diseÃ±o.</p>
+                <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación de diseño.</p>
 
                 <div className="space-y-5">
                   <div>
-                    <FieldLabel hint="SerÃ¡ el tÃ­tulo de tu especificaciÃ³n tÃ©cnica de diseÃ±o.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: GÃ©nesis Visual, CrÃ­tica UI, Design System Studio, SVG Canvasâ€¦" />
+                    <FieldLabel hint="Será el título de tu especificación técnica de diseño.">Nombre del proyecto</FieldLabel>
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Génesis Visual, Crítica UI, Design System Studio, SVG Canvasâ€¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="Tu nombre, alias, estudio de diseÃ±o o agencia creativa.">DiseÃ±ador / Estudio Creativo</FieldLabel>
+                    <FieldLabel hint="Tu nombre, alias, estudio de diseño o agencia creativa.">Diseñador / Estudio Creativo</FieldLabel>
                     <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Estudio Creativo, Director de Arteâ€¦" />
                   </div>
                   <div>
-                    <FieldLabel hint="Elige la funciÃ³n de diseÃ±o principal. Esto determinarÃ¡ los motores y reglas de accesibilidad requeridas.">Tarea principal de la aplicaciÃ³n</FieldLabel>
+                    <FieldLabel hint="Elige la función de diseño principal. Esto determinará los motores y reglas de accesibilidad requeridas.">Tarea principal de la aplicación</FieldLabel>
                     <RadioGroup options={PRIMARY_TASKS} value={data.primaryTask} onChange={handlePrimaryChange} />
                     {errors.primaryTask && <p className="text-red-500 text-xs mt-2">{errors.primaryTask}</p>}
                   </div>
@@ -642,17 +642,17 @@ export default function WizardDiseno() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” MÃ³dulos Complementarios</h2>
-                <p className="text-dark/45 text-sm mb-6">AÃ±ade hasta <strong>4 capacidades creativas y de accesibilidad</strong> para robustecer el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades creativas y de accesibilidad</strong> para robustecer el sistema.</p>
 
                 <div className="bg-amber-500/[0.04] border border-amber-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
                   <strong className="text-dark">Tarea principal seleccionada:</strong> [{data.primaryTask}]{" "}
                   {PRIMARY_TASKS.find(t => t.id === data.primaryTask)?.label}
                 </div>
 
-                <FieldLabel hint="Selecciona entre 0 y 4 mÃ³dulos secundarios.">MÃ³dulos secundarios</FieldLabel>
+                <FieldLabel hint="Selecciona entre 0 y 4 módulos secundarios.">Módulos secundarios</FieldLabel>
                 <CheckGroup options={SECONDARY_TASKS} selected={data.secondaryTasks} onChange={handleSecondaryChange} max={4} />
-                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 mÃ³dulos seleccionados</p>
+                <p className="text-[11px] text-dark/30 mt-2">{data.secondaryTasks.length} / 4 módulos seleccionados</p>
 
                 <NavButtons onPrev={prev} onNext={next} nextLabel="Siguiente" />
               </StepCard>
@@ -661,17 +661,17 @@ export default function WizardDiseno() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ãmbito de DiseÃ±o & Motores</h2>
-                <p className="text-dark/45 text-sm mb-6">Configura las especialidades creativas aplicables y las librerÃ­as de renderizado visual.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ámbito de Diseño & Motores</h2>
+                <p className="text-dark/45 text-sm mb-6">Configura las especialidades creativas aplicables y las librerías de renderizado visual.</p>
 
                 <div className="space-y-6">
                   <div>
-                    <FieldLabel hint="Campos creativos y Ã¡reas visuales donde operarÃ¡ el sistema.">Especialidades de diseÃ±o aplicables</FieldLabel>
+                    <FieldLabel hint="Campos creativos y áreas visuales donde operará el sistema.">Especialidades de diseño aplicables</FieldLabel>
                     <CheckGroup options={DESIGN_DOMAINS.map(a => ({ id: a, label: a, desc: "" }))} selected={data.designDomains} onChange={set("designDomains")} max={6} />
                     {errors.designDomains && <p className="text-red-500 text-xs mt-1.5">{errors.designDomains}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="LibrerÃ­as de colorimetrÃ­a, grÃ¡ficos vectoriales y validaciÃ³n tipogrÃ¡fica.">Motores y librerÃ­as de procesamiento visual</FieldLabel>
+                    <FieldLabel hint="Librerías de colorimetría, gráficos vectoriales y validación tipográfica.">Motores y librerías de procesamiento visual</FieldLabel>
                     <CheckGroup options={COMPUTATION_ENGINES.map(a => ({ id: a, label: a, desc: "" }))} selected={data.computationEngines} onChange={set("computationEngines")} max={6} />
                     {errors.computationEngines && <p className="text-red-500 text-xs mt-1.5">{errors.computationEngines}</p>}
                   </div>
@@ -684,16 +684,16 @@ export default function WizardDiseno() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” CatÃ¡logo de MÃ©tricas de DiseÃ±o</h2>
-                <p className="text-dark/45 text-sm mb-6">Selecciona las mÃ©tricas de accesibilidad, coherencia visual y conversiÃ³n que evaluarÃ¡ el sistema.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas de Diseño</h2>
+                <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de accesibilidad, coherencia visual y conversión que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-amber-800">
-                    âœ“ {data.selectedMetrics.length} mÃ©trica{data.selectedMetrics.length !== 1 ? "s" : ""} de diseÃ±o preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automÃ¡ticamente segÃºn tu tarea principal.
+                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} de diseño preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
-                {["Accesibilidad & Color", "UX & ConversiÃ³n", "TipografÃ­a & Layout", "Branding & SemiÃ³tica", "UI & AuditorÃ­a", "Sistemas de DiseÃ±o", "GrÃ¡ficos Vectoriales"].map(cat => (
+                {["Accesibilidad & Color", "UX & Conversión", "Tipografía & Layout", "Branding & Semiótica", "UI & Auditoría", "Sistemas de Diseño", "Gráficos Vectoriales"].map(cat => (
                   <div key={cat} className="mb-5">
                     <p className="text-[11px] font-bold uppercase tracking-widest text-dark/40 mb-2.5">{cat}</p>
                     <div className="space-y-1.5">
@@ -732,24 +732,24 @@ export default function WizardDiseno() {
                   <>
                     <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-6 text-[13px] text-amber-800 flex items-start gap-2">
                       <Palette size={16} className="shrink-0 mt-0.5 text-amber-600" />
-                      Este paso estÃ¡ activo para garantizar la accesibilidad WCAG 2.1 (AA/AAA), la disponibilidad tipogrÃ¡fica y la preservaciÃ³n de la autorÃ­a humana.
+                      Este paso está activo para garantizar la accesibilidad WCAG 2.1 (AA/AAA), la disponibilidad tipográfica y la preservación de la autoría humana.
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <FieldLabel hint="Estrategia de verificaciÃ³n de contraste y coherencia visual.">Modelo de verificaciÃ³n de diseÃ±o</FieldLabel>
+                        <FieldLabel hint="Estrategia de verificación de contraste y coherencia visual.">Modelo de verificación de diseño</FieldLabel>
                         <SelectGroup options={VALIDATION_MODELS} value={data.validationModel} onChange={set("validationModel")} />
                         {errors.validationModel && <p className="text-red-500 text-xs mt-1">{errors.validationModel}</p>}
                       </div>
                       <div>
-                        <FieldLabel hint="RestricciÃ³n de seguridad activa para evitar fallos de accesibilidad o sobreescritura creativa.">Guardrail de seguridad creativa</FieldLabel>
+                        <FieldLabel hint="Restricción de seguridad activa para evitar fallos de accesibilidad o sobreescritura creativa.">Guardrail de seguridad creativa</FieldLabel>
                         <SelectGroup options={SAFETY_GUARDRAILS} value={data.safetyGuardrail} onChange={set("safetyGuardrail")} />
                         {errors.safetyGuardrail && <p className="text-red-500 text-xs mt-1">{errors.safetyGuardrail}</p>}
                       </div>
                       <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios de calidad y accesibilidad (activados por diseÃ±o)</p>
+                        <p className="text-xs font-bold uppercase tracking-widest text-dark/40 mb-3">Principios de calidad y accesibilidad (activados por diseño)</p>
                         {[
-                          "Principio de Asistencia Creativa: la IA genera direcciones exploratorias; la selecciÃ³n y refinamiento es 100% del diseÃ±ador.",
-                          "VerificaciÃ³n AlgorÃ­tmica WCAG: ratios de contraste calculados con la fÃ³rmula matemÃ¡tica oficial de luminancia relativa W3C.",
+                          "Principio de Asistencia Creativa: la IA genera direcciones exploratorias; la selección y refinamiento es 100% del diseñador.",
+                          "Verificación Algorítmica WCAG: ratios de contraste calculados con la fórmula matemática oficial de luminancia relativa W3C.",
                           "Trazabilidad Inmutable: registro de cada propuesta de paleta y tokens en DuckDB con sellado temporal.",
                         ].map(c => (
                           <div key={c} className="flex items-start gap-2.5 mb-2 last:mb-0">
@@ -764,9 +764,9 @@ export default function WizardDiseno() {
                   </>
                 ) : (
                   <div>
-                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo exportaciÃ³n de tokens o generaciÃ³n SVG</strong> sin auditorÃ­a de contraste en tiempo real.</p>
+                    <p className="text-dark/50 text-sm mb-6">Tu arquitectura opera en <strong className="text-dark">modo exportación de tokens o generación SVG</strong> sin auditoría de contraste en tiempo real.</p>
                     <div className="bg-dark/[0.02] border border-dark/8 rounded-xl px-5 py-4 text-[13px] text-dark/50">
-                      Si decides aÃ±adir auditorÃ­a de marca o cÃ¡lculo de accesibilidad, vuelve al <strong>Paso 2</strong> y activa el mÃ³dulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-DS-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-DS-06</code>.
+                      Si decides añadir auditoría de marca o cálculo de accesibilidad, vuelve al <strong>Paso 2</strong> y activa el módulo <code className="bg-dark/5 px-1 rounded text-xs">SEC-DS-01</code> o <code className="bg-dark/5 px-1 rounded text-xs">SEC-DS-06</code>.
                     </div>
                   </div>
                 )}
@@ -778,29 +778,29 @@ export default function WizardDiseno() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack TecnolÃ³gico & Persistencia</h2>
-                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y formatos de exportaciÃ³n para tu aplicaciÃ³n de diseÃ±o.</p>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y formatos de exportación para tu aplicación de diseño.</p>
 
                 {data.secondaryTasks.includes("SEC-DS-04") && (
                   <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-amber-800">
-                    âœ“ Persistencia analÃ­tica preconfigurada en <strong>DuckDB + Parquet</strong> por el mÃ³dulo SEC-DS-04.
+                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-DS-04.
                   </div>
                 )}
 
                 <div className="space-y-6">
                   <div>
-                    <FieldLabel hint="Entorno visual para diseÃ±adores, directores de arte y desarrolladores.">Framework de interfaz de usuario (UI)</FieldLabel>
+                    <FieldLabel hint="Entorno visual para diseñadores, directores de arte y desarrolladores.">Framework de interfaz de usuario (UI)</FieldLabel>
                     <SelectGroup options={UI_FRAMEWORKS} value={data.uiFramework} onChange={set("uiFramework")} />
                     {errors.uiFramework && <p className="text-red-500 text-xs mt-1">{errors.uiFramework}</p>}
                   </div>
                   <div>
-                    <FieldLabel hint="DÃ³nde y cÃ³mo se almacenarÃ¡n las direcciones creativas, tokens y assets SVG.">Motor de persistencia y datos</FieldLabel>
+                    <FieldLabel hint="Dónde y cómo se almacenarán las direcciones creativas, tokens y assets SVG.">Motor de persistencia y datos</FieldLabel>
                     <SelectGroup options={STORAGE_ENGINES} value={data.storageEngine} onChange={set("storageEngine")} />
                     {errors.storageEngine && <p className="text-red-500 text-xs mt-1">{errors.storageEngine}</p>}
                   </div>
                 </div>
 
-                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar EspecificaciÃ³n de DiseÃ±o" />
+                <NavButtons onPrev={prev} onNext={next} nextLabel="Generar Especificación de Diseño" />
               </StepCard>
             )}
           </>
@@ -814,10 +814,10 @@ export default function WizardDiseno() {
                 <div className="w-8 h-8 bg-amber-100 border border-amber-300 rounded-full flex items-center justify-center">
                   <Check size={16} className="text-amber-700" />
                 </div>
-                <h2 className="font-display text-[24px] text-dark">EspecificaciÃ³n de diseÃ±o generada con Ã©xito</h2>
+                <h2 className="font-display text-[24px] text-dark">Especificación de diseño generada con éxito</h2>
               </div>
               <p className="text-dark/50 text-sm ml-11">
-                La memoria tÃ©cnica para <strong className="text-dark">{data.appName}</strong> estÃ¡ lista para desarrollo y exportaciÃ³n de tokens.
+                La memoria técnica para <strong className="text-dark">{data.appName}</strong> está lista para desarrollo y exportación de tokens.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <button
@@ -830,7 +830,7 @@ export default function WizardDiseno() {
                   onClick={reset}
                   className="flex items-center gap-2 px-5 py-2.5 border border-dark/15 hover:border-dark/30 text-dark/70 hover:text-dark text-sm font-medium rounded-sm transition-colors"
                 >
-                  <RefreshCw size={15} /> Crear otro diseÃ±o
+                  <RefreshCw size={15} /> Crear otro diseño
                 </button>
               </div>
             </div>
@@ -842,7 +842,7 @@ export default function WizardDiseno() {
             <div className="mt-6 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-5 flex gap-3">
               <AlertTriangle size={18} className="text-amber-600 shrink-0 mt-0.5" />
               <p className="text-[13px] text-amber-800 leading-relaxed">
-                <strong>Aviso profesional y creativo:</strong> Este informe especifica una arquitectura de software de apoyo a la ideaciÃ³n y generaciÃ³n de tokens. No constituye identidad corporativa final cerrada ni sustituye la direcciÃ³n de arte humana.
+                <strong>Aviso profesional y creativo:</strong> Este informe especifica una arquitectura de software de apoyo a la ideación y generación de tokens. No constituye identidad corporativa final cerrada ni sustituye la dirección de arte humana.
               </p>
             </div>
           </div>

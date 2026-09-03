@@ -18,44 +18,44 @@ const RESEARCH_LINES = [
   {
     id: "contracts",
     number: "01",
-    title: "AuditorÃ­a de contratos y detecciÃ³n de riesgo contractual",
+    title: "Auditoría de contratos y detección de riesgo contractual",
     color: "violet",
-    summary: "Un contrato mercantil puede tener decenas de clÃ¡usulas. La mayorÃ­a son estÃ¡ndar. Algunas no lo son: clÃ¡usulas leoninas, ausencia de protecciones habituales, lÃ­mites de responsabilidad inusualmente bajos, condiciones de rescisiÃ³n asimÃ©tricas.",
-    detail: "El laboratorio investiga si un modelo puede hacer el primer recorrido de forma fiable, marcando los puntos que merecen atenciÃ³n sin inventar riesgos que no existen. Los benchmarks son CUAD (mÃ¡s de 500 contratos anotados con 41 tipos de clÃ¡usulas crÃ­ticas), LEDGAR (disposiciones contractuales de documentos SEC) y LexGLUE_UNFAIR_ToS (detecciÃ³n de tÃ©rminos de servicio abusivos).",
+    summary: "Un contrato mercantil puede tener decenas de cláusulas. La mayoría son estándar. Algunas no lo son: cláusulas leoninas, ausencia de protecciones habituales, límites de responsabilidad inusualmente bajos, condiciones de rescisión asimétricas.",
+    detail: "El laboratorio investiga si un modelo puede hacer el primer recorrido de forma fiable, marcando los puntos que merecen atención sin inventar riesgos que no existen. Los benchmarks son CUAD (más de 500 contratos anotados con 41 tipos de cláusulas críticas), LEDGAR (disposiciones contractuales de documentos SEC) y LexGLUE_UNFAIR_ToS (detección de términos de servicio abusivos).",
     benchmarks: [
-      { name: "CUAD", desc: "500+ contratos, 41 tipos de clÃ¡usulas crÃ­ticas anotadas" },
+      { name: "CUAD", desc: "500+ contratos, 41 tipos de cláusulas críticas anotadas" },
       { name: "LexGLUE_LEDGAR", desc: "Disposiciones contractuales de documentos SEC" },
-      { name: "LexGLUE_UNFAIR_ToS", desc: "DetecciÃ³n de tÃ©rminos de servicio abusivos" },
+      { name: "LexGLUE_UNFAIR_ToS", desc: "Detección de términos de servicio abusivos" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "92.85", detail: "91.5 CUAD Â· 94.2 LEDGAR Â· 93.0 UNFAIR_ToS" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "92.85", detail: "91.5 CUAD · 94.2 LEDGAR · 93.0 UNFAIR_ToS" },
   },
   {
     id: "jurisprudence",
     number: "02",
-    title: "AnÃ¡lisis de jurisprudencia y tendencias en resoluciones judiciales",
+    title: "Análisis de jurisprudencia y tendencias en resoluciones judiciales",
     color: "blue",
-    summary: "La jurisprudencia no es estÃ¡tica: se mueve. Un argumento que ganaba peso hace cinco aÃ±os puede estar perdiendo tracciÃ³n en las resoluciones mÃ¡s recientes. Un tipo de clÃ¡usula que los tribunales toleraban empieza a ser cuestionado.",
-    detail: "El laboratorio investiga si un modelo puede detectar esas tendencias en colecciones de resoluciones, distinguiendo entre doctrina consolidada y lÃ­nea emergente. LegalBench (162 tareas de razonamiento jurÃ­dico), LexGLUE_CaseHOLD (quÃ© precedente aplica a un caso dado) y LexGLUE_SCOTUS miden esta capacidad.",
+    summary: "La jurisprudencia no es estática: se mueve. Un argumento que ganaba peso hace cinco años puede estar perdiendo tracción en las resoluciones más recientes. Un tipo de cláusula que los tribunales toleraban empieza a ser cuestionado.",
+    detail: "El laboratorio investiga si un modelo puede detectar esas tendencias en colecciones de resoluciones, distinguiendo entre doctrina consolidada y línea emergente. LegalBench (162 tareas de razonamiento jurídico), LexGLUE_CaseHOLD (qué precedente aplica a un caso dado) y LexGLUE_SCOTUS miden esta capacidad.",
     benchmarks: [
-      { name: "LegalBench_162_Tasks", desc: "162 tareas distintas de razonamiento jurÃ­dico" },
-      { name: "LexGLUE_CaseHOLD", desc: "PredicciÃ³n de precedente aplicable a cada caso" },
-      { name: "LexGLUE_SCOTUS", desc: "ClasificaciÃ³n de decisiones del Tribunal Supremo EE.UU." },
+      { name: "LegalBench_162_Tasks", desc: "162 tareas distintas de razonamiento jurídico" },
+      { name: "LexGLUE_CaseHOLD", desc: "Predicción de precedente aplicable a cada caso" },
+      { name: "LexGLUE_SCOTUS", desc: "Clasificación de decisiones del Tribunal Supremo EE.UU." },
     ],
-    topModel: { name: "DeepSeek-R1", score: "91.81", detail: "91.2 LegalBench Â· 92.5 CaseHOLD Â· 91.8 SCOTUS" },
+    topModel: { name: "DeepSeek-R1", score: "91.81", detail: "91.2 LegalBench · 92.5 CaseHOLD · 91.8 SCOTUS" },
   },
   {
     id: "compliance",
     number: "03",
     title: "Mapeo de cumplimiento normativo frente a marcos regulatorios",
     color: "teal",
-    summary: "El AI Act de la UE, el GDPR, DORA y la ISO 42001 establecen requisitos que las organizaciones deben cumplir. Mapear quÃ© requisitos ya se cumplen y cuÃ¡les presentan huecos requiere cruzar documentaciÃ³n interna con el texto normativo.",
-    detail: "El laboratorio investiga si un modelo puede hacer ese cotejo de forma sistemÃ¡tica y trazable. EUR-LEX, RegAudit_Regulatory_Adherence y GDPR_Privacy_Policy_Audit evalÃºan esta capacidad. Toda referencia normativa se marca con [VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA].",
+    summary: "El AI Act de la UE, el GDPR, DORA y la ISO 42001 establecen requisitos que las organizaciones deben cumplir. Mapear qué requisitos ya se cumplen y cuáles presentan huecos requiere cruzar documentación interna con el texto normativo.",
+    detail: "El laboratorio investiga si un modelo puede hacer ese cotejo de forma sistemática y trazable. EUR-LEX, RegAudit_Regulatory_Adherence y GDPR_Privacy_Policy_Audit evalúan esta capacidad. Toda referencia normativa se marca con [VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA].",
     benchmarks: [
-      { name: "LexGLUE_EURLEX_Compliance", desc: "Cotejo de polÃ­ticas contra normativa comunitaria" },
-      { name: "RegAudit_Regulatory_Adherence", desc: "AuditorÃ­a regulatoria sistemÃ¡tica" },
-      { name: "GDPR_Privacy_Policy_Audit", desc: "Cumplimiento de polÃ­ticas de privacidad GDPR" },
+      { name: "LexGLUE_EURLEX_Compliance", desc: "Cotejo de políticas contra normativa comunitaria" },
+      { name: "RegAudit_Regulatory_Adherence", desc: "Auditoría regulatoria sistemática" },
+      { name: "GDPR_Privacy_Policy_Audit", desc: "Cumplimiento de políticas de privacidad GDPR" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "94.26", detail: "92.4 EURLEX Â· 95.0 RegAudit Â· 95.4 GDPR_Audit" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "94.26", detail: "92.4 EURLEX · 95.0 RegAudit · 95.4 GDPR_Audit" },
     warning: true,
   },
 ];
@@ -63,55 +63,55 @@ const RESEARCH_LINES = [
 const PROJECTS = [
   {
     id: "guardian",
-    name: "Lex GuardiÃ¡n",
-    tagline: "La primera pasada que encuentra lo que merece atenciÃ³n",
-    desc: "Revisa el contrato clÃ¡usula por clÃ¡usula, compara cada una contra los patrones de riesgo conocidos y seÃ±ala quÃ© merece atenciÃ³n antes de que el abogado empiece su revisiÃ³n. No decide si el contrato debe firmarse, no da consejo legal, no reemplaza al abogado. Comprime la primera pasada.",
+    name: "Lex Guardián",
+    tagline: "La primera pasada que encuentra lo que merece atención",
+    desc: "Revisa el contrato cláusula por cláusula, compara cada una contra los patrones de riesgo conocidos y señala qué merece atención antes de que el abogado empiece su revisión. No decide si el contrato debe firmarse, no da consejo legal, no reemplaza al abogado. Comprime la primera pasada.",
     color: "violet",
     researchLines: ["01"],
     legalDisclaimer: true,
     stack: [
-      { role: "ExtracciÃ³n y clasificaciÃ³n de clÃ¡usulas", tech: "Claude 3.7 Sonnet â€” lÃ­der anÃ¡lisis contractual CUAD+LEDGAR (92.85/100)" },
-      { role: "ExtracciÃ³n de responsabilidades e indemnizaciones", tech: "Claude 3.7 Sonnet â€” lÃ­der obligaciones y caps de responsabilidad (94.49/100)" },
-      { role: "VerificaciÃ³n anti-alucinaciÃ³n de referencias", tech: "Claude 3.7 Sonnet â€” lÃ­der prevenciÃ³n de citas jurÃ­dicas falsas (96.66/100)" },
-      { role: "Parser de documentos legales", tech: "PyMuPDF (PDF) Â· python-docx (Word) Â· preservaciÃ³n de numeraciÃ³n de clÃ¡usulas" },
-      { role: "Almacenamiento", tech: "DuckDB â€” registro de auditorÃ­as por contrato + historial de clÃ¡usulas por tipo" },
+      { role: "Extracción y clasificación de cláusulas", tech: "Claude 3.7 Sonnet â€” líder análisis contractual CUAD+LEDGAR (92.85/100)" },
+      { role: "Extracción de responsabilidades e indemnizaciones", tech: "Claude 3.7 Sonnet â€” líder obligaciones y caps de responsabilidad (94.49/100)" },
+      { role: "Verificación anti-alucinación de referencias", tech: "Claude 3.7 Sonnet â€” líder prevención de citas jurídicas falsas (96.66/100)" },
+      { role: "Parser de documentos legales", tech: "PyMuPDF (PDF) · python-docx (Word) · preservación de numeración de cláusulas" },
+      { role: "Almacenamiento", tech: "DuckDB â€” registro de auditorías por contrato + historial de cláusulas por tipo" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "AnÃ¡lisis contractual + anti-alucinaciÃ³n", score: "96.66", area: "Trazabilidad y PrevenciÃ³n de Alucinaciones JurÃ­dicas" },
-      { model: "Claude 3.7 Sonnet", role: "ExtracciÃ³n de responsabilidades", score: "94.49", area: "Obligaciones, Responsabilidades e Indemnizaciones" },
+      { model: "Claude 3.7 Sonnet", role: "Análisis contractual + anti-alucinación", score: "96.66", area: "Trazabilidad y Prevención de Alucinaciones Jurídicas" },
+      { model: "Claude 3.7 Sonnet", role: "Extracción de responsabilidades", score: "94.49", area: "Obligaciones, Responsabilidades e Indemnizaciones" },
     ],
     flow: [
-      "Entrada: contrato en PDF, Word o texto plano + contexto opcional (tipo de contrato, jurisdicciÃ³n, sector)",
-      "SegmentaciÃ³n por clÃ¡usulas: detecciÃ³n de estructura, separaciÃ³n en unidades semÃ¡nticas, preservaciÃ³n de posiciÃ³n (pÃ¡gina + nÃºmero de clÃ¡usula)",
-      "ClasificaciÃ³n por tipo de clÃ¡usula (Claude 3.7 Sonnet): etiquetado segÃºn los 41 tipos CUAD con confianza por clasificaciÃ³n",
-      "AnÃ¡lisis de riesgo: Â¿clÃ¡usula inusual para su tipo? Â¿desequilibrio entre partes? Â¿lÃ­mite de responsabilidad inusualmente bajo? Â¿no competencia desproporcionada?",
-      "DetecciÃ³n de ausencias: clÃ¡usulas habituales no presentes para este tipo de contrato",
-      "VerificaciÃ³n anti-alucinaciÃ³n: cada afirmaciÃ³n anclada en cita textual literal del contrato â€” prohibiciÃ³n de citar artÃ­culos de ley no presentes en el texto",
-      "Salida A: informe con clÃ¡usula + tipo + riesgo + cita textual Â· Salida B: semÃ¡foro BAJO/MEDIO/ALTO/CRÃTICO Â· Salida C: ausencias Â· Salida D: resumen en lenguaje no jurÃ­dico",
+      "Entrada: contrato en PDF, Word o texto plano + contexto opcional (tipo de contrato, jurisdicción, sector)",
+      "Segmentación por cláusulas: detección de estructura, separación en unidades semánticas, preservación de posición (página + número de cláusula)",
+      "Clasificación por tipo de cláusula (Claude 3.7 Sonnet): etiquetado según los 41 tipos CUAD con confianza por clasificación",
+      "Análisis de riesgo: ¿cláusula inusual para su tipo? ¿desequilibrio entre partes? ¿límite de responsabilidad inusualmente bajo? ¿no competencia desproporcionada?",
+      "Detección de ausencias: cláusulas habituales no presentes para este tipo de contrato",
+      "Verificación anti-alucinación: cada afirmación anclada en cita textual literal del contrato â€” prohibición de citar artículos de ley no presentes en el texto",
+      "Salida A: informe con cláusula + tipo + riesgo + cita textual · Salida B: semáforo BAJO/MEDIO/ALTO/CRÍTICO · Salida C: ausencias · Salida D: resumen en lenguaje no jurídico",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado lex_guardian.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado lex_guardian.py con las siguientes funciones:
 1. parse_contract(filepath: str) -> dict: carga y segmenta el contrato.
    Detecta el formato (PDF, DOCX, TXT) y devuelve:
    {contract_id: str, source_file: str, raw_text: str,
     clauses: [{clause_id, clause_number: str, title: str | null,
     text: str, page: int}]}.
 2. classify_clauses(clauses: list[dict], contract_context: dict,
-   llm_client) -> list[dict]: clasifica cada clÃ¡usula segÃºn los 41 tipos CUAD.
+   llm_client) -> list[dict]: clasifica cada cláusula según los 41 tipos CUAD.
    Devuelve: [{clause_id, cuad_type: str, cuad_type_confidence: float,
    secondary_types: list[str]}].
 3. analyze_clause_risk(clause: dict, classification: dict,
-   llm_client) -> dict: analiza el riesgo de una clÃ¡usula.
+   llm_client) -> dict: analiza el riesgo de una cláusula.
    Devuelve: {clause_id, risk_level: "low"|"medium"|"high"|"critical",
    risk_factors: list[str], text_citations: list[str],
    is_unusual: bool, imbalance_detected: bool,
    imbalance_description: str | null, confidence: float}.
 4. detect_missing_clauses(classifications: list[dict], contract_type: str,
-   llm_client) -> list[dict]: detecta clÃ¡usulas habituales ausentes.
+   llm_client) -> list[dict]: detecta cláusulas habituales ausentes.
    Devuelve: [{missing_cuad_type, importance: "optional"|"recommended"|"critical",
    rationale: str}].
 5. verify_no_hallucination(analysis_results: list[dict],
-   contract_text: str, llm_client) -> dict: verifica que cada afirmaciÃ³n
-   estÃ¡ anclada en el texto del contrato.
+   contract_text: str, llm_client) -> dict: verifica que cada afirmación
+   está anclada en el texto del contrato.
    Devuelve: {all_grounded: bool, ungrounded_claims: list[str],
    verification_score: float}.
 6. generate_audit_report(contract: dict, risk_results: list[dict],
@@ -120,157 +120,157 @@ const PROJECTS = [
    high_risk_count: int, critical_count: int, missing_count: int,
    executive_summary: str, detailed_findings: list[dict],
    legal_disclaimer: str}.
-Usa PyMuPDF, python-docx, duckdb y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el auditor de contratos de Lex GuardiÃ¡n en el Laboratorio de Derecho
+Usa PyMuPDF, python-docx, duckdb y la librería estándar.`,
+    promptLLM: `Eres el auditor de contratos de Lex Guardián en el Laboratorio de Derecho
 & Compliance de Horizon.
-Se te proporciona una clÃ¡usula contractual con su tipo clasificado (segÃºn CUAD),
-el tipo de contrato al que pertenece y la jurisdicciÃ³n si se conoce.
+Se te proporciona una cláusula contractual con su tipo clasificado (según CUAD),
+el tipo de contrato al que pertenece y la jurisdicción si se conoce.
 
 Tu tarea:
-1. EvalÃºa si la clÃ¡usula es inusual para su tipo en el contexto contractual dado.
-   Basa tu evaluaciÃ³n en la prÃ¡ctica contractual habitual para ese tipo de clÃ¡usula,
-   no en una norma legal especÃ­fica que no estÃ© en el texto.
-2. Detecta desequilibrios entre las partes: Â¿las obligaciones y derechos son
-   recÃ­procos o asimÃ©tricos?
-3. Para clÃ¡usulas de limitaciÃ³n de responsabilidad: Â¿el tope es inusualmente bajo
-   para el valor estimado del contrato? Â¿Hay exclusiones que deberÃ­an alertar?
-4. Para clÃ¡usulas de no competencia: Â¿el alcance geogrÃ¡fico, temporal y de actividad
+1. Evalúa si la cláusula es inusual para su tipo en el contexto contractual dado.
+   Basa tu evaluación en la práctica contractual habitual para ese tipo de cláusula,
+   no en una norma legal específica que no esté en el texto.
+2. Detecta desequilibrios entre las partes: ¿las obligaciones y derechos son
+   recíprocos o asimétricos?
+3. Para cláusulas de limitación de responsabilidad: ¿el tope es inusualmente bajo
+   para el valor estimado del contrato? ¿Hay exclusiones que deberían alertar?
+4. Para cláusulas de no competencia: ¿el alcance geográfico, temporal y de actividad
    es proporcional al objeto del contrato?
 5. Asigna un nivel de riesgo: low | medium | high | critical.
 
-Restricciones crÃ­ticas absolutas:
-- NUNCA cites un artÃ­culo de ley, reglamento o sentencia que no aparezca
-  literalmente en el texto de la clÃ¡usula que te doy.
+Restricciones críticas absolutas:
+- NUNCA cites un artículo de ley, reglamento o sentencia que no aparezca
+  literalmente en el texto de la cláusula que te doy.
 - Si necesitas referenciar una norma general, escribe:
   "[VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA]".
-- Cada afirmaciÃ³n de riesgo debe estar acompaÃ±ada de la cita textual exacta
-  de la clÃ¡usula que la fundamenta. Sin cita textual, no hay afirmaciÃ³n de riesgo.
-- No uses lenguaje categÃ³rico ("esta clÃ¡usula es ilegal"):
-  usa "inusual", "potencialmente problemÃ¡tica", "requiere revisiÃ³n de abogado".
+- Cada afirmación de riesgo debe estar acompañada de la cita textual exacta
+  de la cláusula que la fundamenta. Sin cita textual, no hay afirmación de riesgo.
+- No uses lenguaje categórico ("esta cláusula es ilegal"):
+  usa "inusual", "potencialmente problemática", "requiere revisión de abogado".
 
 Responde en JSON conforme al esquema de analyze_clause_risk.`,
   },
   {
     id: "sententia",
     name: "Sententia Nova",
-    tagline: "La tendencia que emerge de cien resoluciones leÃ­das en serie",
-    desc: "Detecta en quÃ© direcciÃ³n se mueve la jurisprudencia sobre un tipo de caso, quÃ© argumentos estÃ¡n ganando peso en los razonamientos de los tribunales, quÃ© tipos de clÃ¡usulas o conductas estÃ¡n siendo cada vez mÃ¡s cuestionados. No predice el resultado de un caso concreto: describe el estado actual y la tendencia del corpus.",
+    tagline: "La tendencia que emerge de cien resoluciones leídas en serie",
+    desc: "Detecta en qué dirección se mueve la jurisprudencia sobre un tipo de caso, qué argumentos están ganando peso en los razonamientos de los tribunales, qué tipos de cláusulas o conductas están siendo cada vez más cuestionados. No predice el resultado de un caso concreto: describe el estado actual y la tendencia del corpus.",
     color: "blue",
     researchLines: ["02"],
     legalDisclaimer: true,
     stack: [
-      { role: "AnÃ¡lisis jurÃ­dico de resoluciones individuales", tech: "DeepSeek-R1 â€” lÃ­der razonamiento jurisprudencial (91.81/100)" },
-      { role: "SÃ­ntesis de tendencias y trazabilidad", tech: "Claude 3.7 Sonnet â€” lÃ­der prevenciÃ³n de alucinaciones jurÃ­dicas (96.66/100)" },
-      { role: "Motor de bÃºsqueda semÃ¡ntica", tech: "Embeddings sobre corpus de resoluciones + DuckDB para el Ã­ndice" },
+      { role: "Análisis jurídico de resoluciones individuales", tech: "DeepSeek-R1 â€” líder razonamiento jurisprudencial (91.81/100)" },
+      { role: "Síntesis de tendencias y trazabilidad", tech: "Claude 3.7 Sonnet â€” líder prevención de alucinaciones jurídicas (96.66/100)" },
+      { role: "Motor de búsqueda semántica", tech: "Embeddings sobre corpus de resoluciones + DuckDB para el índice" },
       { role: "Fuente de resoluciones", tech: "Corpus proporcionado por el usuario (PDF/texto) o API jurisprudencial externa [VERIFICAR DISPONIBILIDAD]" },
     ],
     whyModels: [
-      { model: "DeepSeek-R1", role: "AnÃ¡lisis de resoluciones individuales", score: "91.81", area: "Razonamiento JurÃ­dico y Jurisprudencia" },
-      { model: "Claude 3.7 Sonnet", role: "SÃ­ntesis de tendencias y verificaciÃ³n", score: "96.66", area: "Trazabilidad y PrevenciÃ³n de Alucinaciones" },
+      { model: "DeepSeek-R1", role: "Análisis de resoluciones individuales", score: "91.81", area: "Razonamiento Jurídico y Jurisprudencia" },
+      { model: "Claude 3.7 Sonnet", role: "Síntesis de tendencias y verificación", score: "96.66", area: "Trazabilidad y Prevención de Alucinaciones" },
     ],
     flow: [
-      "Entrada: corpus de resoluciones judiciales (PDF o texto) + materia de anÃ¡lisis en lenguaje natural",
-      "IndexaciÃ³n: extracciÃ³n de texto y metadatos (tribunal, fecha, instancia, jurisdicciÃ³n), segmentaciÃ³n en hechos / razonamiento / fallo, indexaciÃ³n semÃ¡ntica",
-      "RecuperaciÃ³n de las N resoluciones mÃ¡s relevantes para la materia (bÃºsqueda semÃ¡ntica, default N=20)",
-      "AnÃ¡lisis de cada resoluciÃ³n (DeepSeek-R1): norma aplicada, argumentos aceptados/rechazados, fallo, precedentes citados",
-      "SÃ­ntesis de tendencias (Claude 3.7 Sonnet): direcciÃ³n clara o divergencia, argumentos con mayor frecuencia, cambios en los Ãºltimos 12/24 meses",
-      "VerificaciÃ³n de trazabilidad: cada afirmaciÃ³n de tendencia cita la resoluciÃ³n especÃ­fica que la sustenta â€” seÃ±ales basadas en menos de 3 resoluciones etiquetadas como SEÃ‘AL DÃ‰BIL",
-      "Salida A: informe de tendencia con citas Â· Salida B: lÃ­nea temporal Â· Salida C: mapa de argumentos Â· Salida D: advertencias de divergencia entre instancias",
+      "Entrada: corpus de resoluciones judiciales (PDF o texto) + materia de análisis en lenguaje natural",
+      "Indexación: extracción de texto y metadatos (tribunal, fecha, instancia, jurisdicción), segmentación en hechos / razonamiento / fallo, indexación semántica",
+      "Recuperación de las N resoluciones más relevantes para la materia (búsqueda semántica, default N=20)",
+      "Análisis de cada resolución (DeepSeek-R1): norma aplicada, argumentos aceptados/rechazados, fallo, precedentes citados",
+      "Síntesis de tendencias (Claude 3.7 Sonnet): dirección clara o divergencia, argumentos con mayor frecuencia, cambios en los últimos 12/24 meses",
+      "Verificación de trazabilidad: cada afirmación de tendencia cita la resolución específica que la sustenta â€” señales basadas en menos de 3 resoluciones etiquetadas como SEÃ‘AL DÃ‰BIL",
+      "Salida A: informe de tendencia con citas · Salida B: línea temporal · Salida C: mapa de argumentos · Salida D: advertencias de divergencia entre instancias",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado sententia_nova.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado sententia_nova.py con las siguientes funciones:
 1. load_case_corpus(filepaths: list[str]) -> list[dict]: carga el corpus de resoluciones.
-   Para cada resoluciÃ³n devuelve:
+   Para cada resolución devuelve:
    {case_id: str, source_file: str, court: str | null, date: str | null,
     jurisdiction: str | null, instance: str | null,
     sections: {facts: str, reasoning: str, ruling: str},
     full_text: str}.
 2. index_corpus(cases: list[dict], embedding_client) -> None:
-   genera embeddings para cada secciÃ³n y los almacena en DuckDB
-   para bÃºsqueda semÃ¡ntica eficiente.
+   genera embeddings para cada sección y los almacena en DuckDB
+   para búsqueda semántica eficiente.
 3. retrieve_relevant_cases(query: str, corpus_index, top_k: int = 20) -> list[dict]:
-   recupera las K resoluciones mÃ¡s semÃ¡nticamente relevantes.
+   recupera las K resoluciones más semánticamente relevantes.
 4. analyze_single_case(case: dict, query: str, llm_client) -> dict:
-   analiza una resoluciÃ³n individual. Devuelve:
+   analiza una resolución individual. Devuelve:
    {case_id, applied_norm: str | null, accepted_arguments: list[str],
    rejected_arguments: list[str], ruling_summary: str, cited_precedents: list[str],
    key_reasoning: str, analysis_confidence: float}.
 5. synthesize_trends(case_analyses: list[dict], query: str,
-   llm_client) -> dict: sintetiza el patrÃ³n de tendencia.
+   llm_client) -> dict: sintetiza el patrón de tendencia.
    Devuelve: {trend_direction: str, trend_strength: "weak"|"moderate"|"strong",
    supporting_cases: list[str], divergences: list[str],
    argument_frequency: dict, temporal_evolution: list[dict],
    verification_score: float}.
 6. verify_trend_grounding(trends: dict, case_analyses: list[dict],
-   llm_client) -> dict: verifica que cada afirmaciÃ³n de tendencia estÃ¡
+   llm_client) -> dict: verifica que cada afirmación de tendencia está
    anclada en el corpus. Devuelve:
    {all_grounded: bool, ungrounded_claims: list[str],
    weak_signals: list[str], grounding_score: float}.
 7. generate_trend_report(trends: dict, verification: dict,
    case_analyses: list[dict]) -> str: genera el informe en Markdown.
-Usa sentence-transformers, duckdb, PyMuPDF y la librerÃ­a estÃ¡ndar.`,
-    promptLLM: `Eres el analista jurÃ­dico de Sententia Nova en el Laboratorio de Derecho
+Usa sentence-transformers, duckdb, PyMuPDF y la librería estándar.`,
+    promptLLM: `Eres el analista jurídico de Sententia Nova en el Laboratorio de Derecho
 & Compliance de Horizon.
-Se te proporciona el texto de una resoluciÃ³n judicial (o su secciÃ³n de razonamiento)
-y la materia de anÃ¡lisis que se estÃ¡ investigando.
+Se te proporciona el texto de una resolución judicial (o su sección de razonamiento)
+y la materia de análisis que se está investigando.
 
 Tu tarea:
-1. Identifica quÃ© norma jurÃ­dica aplica el tribunal en su razonamiento.
-   Solo cita normas que aparezcan en el texto de la resoluciÃ³n.
+1. Identifica qué norma jurídica aplica el tribunal en su razonamiento.
+   Solo cita normas que aparezcan en el texto de la resolución.
 2. Extrae los argumentos de las partes que el tribunal acepta y los que rechaza,
-   con cita textual de los pÃ¡rrafos relevantes.
+   con cita textual de los párrafos relevantes.
 3. Resume el razonamiento principal del tribunal en 2-4 frases.
-4. Identifica si la resoluciÃ³n cita precedentes anteriores. Lista solo los que
-   aparezcan explÃ­citamente citados en el texto.
-5. Extrae el fallo en una frase: quÃ© se decide y a favor de quiÃ©n.
+4. Identifica si la resolución cita precedentes anteriores. Lista solo los que
+   aparezcan explícitamente citados en el texto.
+5. Extrae el fallo en una frase: qué se decide y a favor de quién.
 
 Restricciones absolutas:
-- NUNCA aÃ±adas normas, artÃ­culos o sentencias que no aparezcan en el texto.
+- NUNCA añadas normas, artículos o sentencias que no aparezcan en el texto.
 - Si el texto es insuficiente para determinar un campo, ponlo como null.
-- No hagas predicciones sobre casos futuros basadas en esta resoluciÃ³n individual.
+- No hagas predicciones sobre casos futuros basadas en esta resolución individual.
 
 Responde en JSON conforme al esquema de analyze_single_case.`,
   },
   {
     id: "norma",
     name: "Norma Aurea",
-    tagline: "El mapa exacto de dÃ³nde estÃ¡ la organizaciÃ³n y quÃ© le falta",
-    desc: "Toma la documentaciÃ³n interna de la organizaciÃ³n y la contrasta sistemÃ¡ticamente contra los requisitos del AI Act, GDPR, DORA e ISO 42001. El resultado no es una certificaciÃ³n: es un mapa de situaciÃ³n que dice exactamente en quÃ© punto estÃ¡ la organizaciÃ³n respecto a cada requisito, con las evidencias documentales que lo justifican.",
+    tagline: "El mapa exacto de dónde está la organización y qué le falta",
+    desc: "Toma la documentación interna de la organización y la contrasta sistemáticamente contra los requisitos del AI Act, GDPR, DORA e ISO 42001. El resultado no es una certificación: es un mapa de situación que dice exactamente en qué punto está la organización respecto a cada requisito, con las evidencias documentales que lo justifican.",
     color: "teal",
     researchLines: ["03"],
     legalDisclaimer: true,
     stack: [
-      { role: "Cotejo documentaciÃ³n interna vs. requisitos normativos", tech: "Claude 3.7 Sonnet â€” lÃ­der auditorÃ­a regulatoria EUR-LEX y GDPR (94.26/100)" },
-      { role: "Trazabilidad y anti-alucinaciÃ³n de requisitos", tech: "Claude 3.7 Sonnet â€” lÃ­der prevenciÃ³n de alucinaciones jurÃ­dicas (96.66/100)" },
-      { role: "Obligaciones contractuales con proveedores (DORA)", tech: "Claude 3.7 Sonnet â€” lÃ­der intersecciÃ³n finanzas-derecho (94.17/100)" },
-      { role: "Base de requisitos normativos", tech: "CatÃ¡logo estructurado por artÃ­culo/secciÃ³n [VERIFICAR REDACCIÃ“N OFICIAL DE CADA NORMA antes de producciÃ³n]" },
-      { role: "Almacenamiento", tech: "DuckDB â€” mapa de cumplimiento por organizaciÃ³n + histÃ³rico de evaluaciones periÃ³dicas" },
+      { role: "Cotejo documentación interna vs. requisitos normativos", tech: "Claude 3.7 Sonnet â€” líder auditoría regulatoria EUR-LEX y GDPR (94.26/100)" },
+      { role: "Trazabilidad y anti-alucinación de requisitos", tech: "Claude 3.7 Sonnet â€” líder prevención de alucinaciones jurídicas (96.66/100)" },
+      { role: "Obligaciones contractuales con proveedores (DORA)", tech: "Claude 3.7 Sonnet â€” líder intersección finanzas-derecho (94.17/100)" },
+      { role: "Base de requisitos normativos", tech: "Catálogo estructurado por artículo/sección [VERIFICAR REDACCIÃ“N OFICIAL DE CADA NORMA antes de producción]" },
+      { role: "Almacenamiento", tech: "DuckDB â€” mapa de cumplimiento por organización + histórico de evaluaciones periódicas" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "AuditorÃ­a regulatoria + trazabilidad", score: "96.66", area: "Trazabilidad y PrevenciÃ³n de Alucinaciones" },
-      { model: "Claude 3.7 Sonnet", role: "Cumplimiento EUR-LEX y GDPR", score: "94.26", area: "Cumplimiento Normativo y AuditorÃ­a Regulatoria" },
+      { model: "Claude 3.7 Sonnet", role: "Auditoría regulatoria + trazabilidad", score: "96.66", area: "Trazabilidad y Prevención de Alucinaciones" },
+      { model: "Claude 3.7 Sonnet", role: "Cumplimiento EUR-LEX y GDPR", score: "94.26", area: "Cumplimiento Normativo y Auditoría Regulatoria" },
     ],
     flow: [
-      "Entradas: documentaciÃ³n interna (polÃ­ticas, procedimientos, registros, contratos con proveedores de IA) + marco normativo objetivo + perfil de la organizaciÃ³n",
-      "SelecciÃ³n de requisitos aplicables: filtrado del catÃ¡logo normativo segÃºn perfil (tamaÃ±o, sector, tipo de sistema de IA, rol: proveedor o usuario)",
-      "IndexaciÃ³n semÃ¡ntica de la documentaciÃ³n interna para recuperaciÃ³n eficiente por materia",
-      "Cotejo requisito a requisito (Claude 3.7 Sonnet): bÃºsqueda de evidencias â†’ CUMPLIDO / PARCIALMENTE CUMPLIDO / HUECO con cita textual del documento interno",
-      "Si no hay evidencia: declarar HUECO con descripciÃ³n de quÃ© documento falta",
-      "AnÃ¡lisis de huecos: CRÃTICO (puede derivar en sanciÃ³n) / RELEVANTE (requiere acciÃ³n antes de auditorÃ­a) / MENOR (buena prÃ¡ctica no implementada)",
-      "Salida A: mapa completo (requisito Ã— estado Ã— evidencia) Â· Salida B: huecos por criticidad Â· Salida C: dashboard de cumplimiento % Â· Salida D: plan de acciÃ³n priorizado",
+      "Entradas: documentación interna (políticas, procedimientos, registros, contratos con proveedores de IA) + marco normativo objetivo + perfil de la organización",
+      "Selección de requisitos aplicables: filtrado del catálogo normativo según perfil (tamaño, sector, tipo de sistema de IA, rol: proveedor o usuario)",
+      "Indexación semántica de la documentación interna para recuperación eficiente por materia",
+      "Cotejo requisito a requisito (Claude 3.7 Sonnet): búsqueda de evidencias â†’ CUMPLIDO / PARCIALMENTE CUMPLIDO / HUECO con cita textual del documento interno",
+      "Si no hay evidencia: declarar HUECO con descripción de qué documento falta",
+      "Análisis de huecos: CRÍTICO (puede derivar en sanción) / RELEVANTE (requiere acción antes de auditoría) / MENOR (buena práctica no implementada)",
+      "Salida A: mapa completo (requisito Ã— estado Ã— evidencia) · Salida B: huecos por criticidad · Salida C: dashboard de cumplimiento % · Salida D: plan de acción priorizado",
     ],
-    promptIDE: `Crea un mÃ³dulo Python llamado norma_aurea.py con las siguientes funciones:
+    promptIDE: `Crea un módulo Python llamado norma_aurea.py con las siguientes funciones:
 1. load_regulatory_catalog(framework: str) -> list[dict]:
-   carga el catÃ¡logo de requisitos del marco normativo.
+   carga el catálogo de requisitos del marco normativo.
    Devuelve lista de requisitos: {req_id: str, framework: str,
    article_section: str, requirement_text: str, applicability_criteria: list[str],
    criticality: "critical"|"relevant"|"minor"}.
 2. filter_applicable_requirements(catalog: list[dict],
    org_profile: dict) -> list[dict]:
-   filtra los requisitos aplicables al perfil de la organizaciÃ³n.
+   filtra los requisitos aplicables al perfil de la organización.
 3. index_org_documentation(doc_paths: list[str], embedding_client) -> None:
-   indexa la documentaciÃ³n interna de la organizaciÃ³n en DuckDB.
+   indexa la documentación interna de la organización en DuckDB.
 4. assess_requirement(req: dict, org_docs_index, org_docs_texts: dict,
-   llm_client) -> dict: evalÃºa el cumplimiento de un requisito individual.
+   llm_client) -> dict: evalúa el cumplimiento de un requisito individual.
    Devuelve: {req_id, status: "compliant"|"partial"|"gap"|"not_applicable",
    evidence_citations: list[{doc_name, section, quote}],
    gap_description: str | null, confidence: float}.
@@ -287,33 +287,33 @@ Responde en JSON conforme al esquema de analyze_single_case.`,
    gaps: int, not_applicable: int, action_plan: list[dict]}.
 7. export_compliance_report(compliance_map: dict,
    output_format: str = "markdown") -> str: exporta el informe.
-Usa sentence-transformers, duckdb, PyMuPDF, python-docx y la librerÃ­a estÃ¡ndar.`,
+Usa sentence-transformers, duckdb, PyMuPDF, python-docx y la librería estándar.`,
     promptLLM: `Eres el auditor de cumplimiento normativo de Norma Aurea en el Laboratorio
 de Derecho & Compliance de Horizon.
 
 Se te proporciona:
-- El texto de un requisito normativo especÃ­fico (con su artÃ­culo/secciÃ³n de referencia)
-- Los fragmentos de documentaciÃ³n interna que el sistema ha identificado como
+- El texto de un requisito normativo específico (con su artículo/sección de referencia)
+- Los fragmentos de documentación interna que el sistema ha identificado como
   potencialmente relevantes para ese requisito.
 
 Tu tarea:
-1. EvalÃºa si la documentaciÃ³n interna evidencia el cumplimiento del requisito.
-   No es suficiente que la documentaciÃ³n "mencione" el tema; debe cubrir lo que
+1. Evalúa si la documentación interna evidencia el cumplimiento del requisito.
+   No es suficiente que la documentación "mencione" el tema; debe cubrir lo que
    el requisito exige.
 2. Clasifica el estado: COMPLIANT | PARTIAL | GAP.
-3. Para COMPLIANT o PARTIAL: cita exactamente quÃ© secciÃ³n y quÃ© texto del documento
-   interno justifica la evaluaciÃ³n.
-4. Para GAP: describe exactamente quÃ© falta (quÃ© tipo de documento, procedimiento
-   o registro deberÃ­a existir).
-5. Asigna una confianza entre 0.0 y 1.0. Si es menor a 0.6, recomienda revisiÃ³n
+3. Para COMPLIANT o PARTIAL: cita exactamente qué sección y qué texto del documento
+   interno justifica la evaluación.
+4. Para GAP: describe exactamente qué falta (qué tipo de documento, procedimiento
+   o registro debería existir).
+5. Asigna una confianza entre 0.0 y 1.0. Si es menor a 0.6, recomienda revisión
    manual por el responsable de compliance.
 
 Restricciones absolutas:
 - No afirmes COMPLIANT si el documento solo menciona el tema sin regularlo.
-- No infiertes que algo se cumple porque "serÃ­a habitual en este tipo de organizaciÃ³n".
-  Solo lo que estÃ¡ documentado cuenta como evidencia.
-- AÃ±ade siempre "[VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA]" si necesitas interpretar
-  el requisito mÃ¡s allÃ¡ del texto que te proporcionan.
+- No infiertes que algo se cumple porque "sería habitual en este tipo de organización".
+  Solo lo que está documentado cuenta como evidencia.
+- Añade siempre "[VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA]" si necesitas interpretar
+  el requisito más allá del texto que te proporcionan.
 
 Responde en JSON conforme al esquema de assess_requirement.`,
   },
@@ -322,31 +322,31 @@ Responde en JSON conforme al esquema de assess_requirement.`,
 const MARKET_APPS = [
   {
     name: "Harvey AI",
-    desc: "IA generativa para despachos de abogados y departamentos jurÃ­dicos corporativos. RevisiÃ³n de contratos, investigaciÃ³n jurÃ­dica asistida y generaciÃ³n de documentos legales.",
+    desc: "IA generativa para despachos de abogados y departamentos jurídicos corporativos. Revisión de contratos, investigación jurídica asistida y generación de documentos legales.",
     url: "https://harvey.ai",
     tag: "Despachos & Legal Corp.",
   },
   {
     name: "Ironclad AI",
-    desc: "GestiÃ³n del ciclo de vida de contratos (CLM) con IA para extracciÃ³n de clÃ¡usulas, alertas de vencimiento y anÃ¡lisis de riesgo contractual. Orientada a departamentos jurÃ­dicos corporativos.",
+    desc: "Gestión del ciclo de vida de contratos (CLM) con IA para extracción de cláusulas, alertas de vencimiento y análisis de riesgo contractual. Orientada a departamentos jurídicos corporativos.",
     url: "https://ironcladapp.com",
-    tag: "GestiÃ³n de Contratos",
+    tag: "Gestión de Contratos",
   },
   {
     name: "Luminance",
-    desc: "RevisiÃ³n de documentos legales con IA, especializada en due diligence para M&A, auditorÃ­a de contratos y revisiÃ³n de documentaciÃ³n en procesos de litigaciÃ³n.",
+    desc: "Revisión de documentos legales con IA, especializada en due diligence para M&A, auditoría de contratos y revisión de documentación en procesos de litigación.",
     url: "https://luminance.com",
     tag: "Due Diligence",
   },
   {
     name: "LexisNexis+ AI",
-    desc: "IA generativa integrada en la plataforma de investigaciÃ³n jurÃ­dica de LexisNexis, con acceso a jurisprudencia, legislaciÃ³n y doctrina, y funciones de resumen y anÃ¡lisis de precedentes.",
+    desc: "IA generativa integrada en la plataforma de investigación jurídica de LexisNexis, con acceso a jurisprudencia, legislación y doctrina, y funciones de resumen y análisis de precedentes.",
     url: "https://lexisnexis.com/en-us/products/lexis-plus-ai",
-    tag: "InvestigaciÃ³n JurÃ­dica",
+    tag: "Investigación Jurídica",
   },
   {
     name: "OneTrust (Privacy & Data Governance)",
-    desc: "GestiÃ³n de cumplimiento normativo en privacidad y protecciÃ³n de datos, con automatizaciÃ³n de registros de actividades de tratamiento (GDPR), evaluaciones de impacto (DPIA) y auditorÃ­as.",
+    desc: "Gestión de cumplimiento normativo en privacidad y protección de datos, con automatización de registros de actividades de tratamiento (GDPR), evaluaciones de impacto (DPIA) y auditorías.",
     url: "https://onetrust.com",
     tag: "Compliance & Privacy",
   },
@@ -355,48 +355,48 @@ const MARKET_APPS = [
 const VERIFICATION_POINTS = [
   {
     id: "v1",
-    title: "AsimetrÃ­a en la cobertura de benchmarks por modelo",
+    title: "Asimetría en la cobertura de benchmarks por modelo",
     items: [
-      "AnÃ¡lisis de Contratos: GPT-4.5 (67% cobertura) carece de evaluaciÃ³n en LexGLUE_UNFAIR_ToS. Lex-Guardian Agent (33% cobertura) solo fue evaluado en CUAD_41_Clauses_Extraction.",
-      "Razonamiento JurÃ­dico: Claude 3.7 Sonnet (67% cobertura) no cuenta con datos en LexGLUE_CaseHOLD_Precedents.",
+      "Análisis de Contratos: GPT-4.5 (67% cobertura) carece de evaluación en LexGLUE_UNFAIR_ToS. Lex-Guardian Agent (33% cobertura) solo fue evaluado en CUAD_41_Clauses_Extraction.",
+      "Razonamiento Jurídico: Claude 3.7 Sonnet (67% cobertura) no cuenta con datos en LexGLUE_CaseHOLD_Precedents.",
       "Cumplimiento Normativo: GPT-4.5 (67% cobertura) no dispone de resultado para LexGLUE_EURLEX_Compliance.",
-      "Obligaciones y Responsabilidades: Lex-Guardian Agent (67% cobertura) no tiene registrada evaluaciÃ³n en LexGLUE_ECtHR_Human_Rights.",
-      "Trazabilidad y PrevenciÃ³n de Alucinaciones: GPT-4.5 y DeepSeek-R1 (ambos 33% cobertura) solo registran datos en Legal_Hallucination_Statute_Citation, faltando LegalBench_Interpretation_Trace y Audit_Chain_Evidence_Verification.",
-      "IntersecciÃ³n Finanzas-Derecho: DeepSeek-R1 (67% cobertura) carece de evaluaciÃ³n en MA_Due_Diligence_Red_Flag.",
+      "Obligaciones y Responsabilidades: Lex-Guardian Agent (67% cobertura) no tiene registrada evaluación en LexGLUE_ECtHR_Human_Rights.",
+      "Trazabilidad y Prevención de Alucinaciones: GPT-4.5 y DeepSeek-R1 (ambos 33% cobertura) solo registran datos en Legal_Hallucination_Statute_Citation, faltando LegalBench_Interpretation_Trace y Audit_Chain_Evidence_Verification.",
+      "Intersección Finanzas-Derecho: DeepSeek-R1 (67% cobertura) carece de evaluación en MA_Due_Diligence_Red_Flag.",
     ],
   },
   {
     id: "v2",
-    title: "Diferencial estrecho entre DeepSeek-R1 y GPT-4.5 en Razonamiento JurÃ­dico",
+    title: "Diferencial estrecho entre DeepSeek-R1 y GPT-4.5 en Razonamiento Jurídico",
     items: [
       "DeepSeek-R1 lidera con 91.81/100 y GPT-4.5 ocupa el segundo lugar con 91.16/100: una diferencia de 0.65 puntos, ambos con 100% de cobertura.",
-      "Caso de inversiÃ³n: Claude 3.7 Sonnet obtiene 92.8 en LegalBench_162_Tasks y 93.5 en LexGLUE_SCOTUS_Decisions â€” puntuaciones individuales mÃ¡s altas que DeepSeek-R1 â€” pero queda en tercera posiciÃ³n compuesta (88.47/100) por penalizaciÃ³n de cobertura al no haber sido evaluado en LexGLUE_CaseHOLD_Precedents.",
-      "ImplicaciÃ³n para Sententia Nova: si el corpus en producciÃ³n es mayoritariamente de SCOTUS o LegalBench, Claude 3.7 Sonnet podrÃ­a ser preferible al lÃ­der compuesto. DecisiÃ³n pendiente de evaluaciÃ³n en producciÃ³n.",
+      "Caso de inversión: Claude 3.7 Sonnet obtiene 92.8 en LegalBench_162_Tasks y 93.5 en LexGLUE_SCOTUS_Decisions â€” puntuaciones individuales más altas que DeepSeek-R1 â€” pero queda en tercera posición compuesta (88.47/100) por penalización de cobertura al no haber sido evaluado en LexGLUE_CaseHOLD_Precedents.",
+      "Implicación para Sententia Nova: si el corpus en producción es mayoritariamente de SCOTUS o LegalBench, Claude 3.7 Sonnet podría ser preferible al líder compuesto. Decisión pendiente de evaluación en producción.",
     ],
   },
   {
     id: "v3",
-    title: "MÃ©tricas de coste y latencia en revisiÃ³n masiva de contratos",
+    title: "Métricas de coste y latencia en revisión masiva de contratos",
     items: [
-      "Las mÃ©tricas de latencia de inferencia y coste por millÃ³n de tokens en flujos de revisiÃ³n masiva (Lex GuardiÃ¡n en modo bulk con cientos de documentos simultÃ¡neos) no forman parte del reporte actual.",
-      "Dato especialmente relevante para departamentos jurÃ­dicos que necesiten procesar carteras de contratos completas.",
+      "Las métricas de latencia de inferencia y coste por millón de tokens en flujos de revisión masiva (Lex Guardián en modo bulk con cientos de documentos simultáneos) no forman parte del reporte actual.",
+      "Dato especialmente relevante para departamentos jurídicos que necesiten procesar carteras de contratos completas.",
     ],
   },
   {
     id: "v4",
-    title: "Lex-Guardian Agent como alternativa especializada en extracciÃ³n de clÃ¡usulas",
+    title: "Lex-Guardian Agent como alternativa especializada en extracción de cláusulas",
     items: [
-      "El Lex-Guardian Agent aparece con 96.5 en CUAD_41_Clauses_Extraction, superando al Claude 3.7 Sonnet base en ese benchmark especÃ­fico, pero con solo 33% de cobertura de benchmarks en su Ã¡rea.",
-      "La decisiÃ³n de si este agente especializado es preferible a Claude 3.7 Sonnet para extracciÃ³n de clÃ¡usulas en volumen debe evaluarse en producciÃ³n. Queda documentada como [DATO PENDIENTE DE VERIFICAR EN EVALUACIÃ“N COMPARATIVA PROPIA].",
+      "El Lex-Guardian Agent aparece con 96.5 en CUAD_41_Clauses_Extraction, superando al Claude 3.7 Sonnet base en ese benchmark específico, pero con solo 33% de cobertura de benchmarks en su área.",
+      "La decisión de si este agente especializado es preferible a Claude 3.7 Sonnet para extracción de cláusulas en volumen debe evaluarse en producción. Queda documentada como [DATO PENDIENTE DE VERIFICAR EN EVALUACIÃ“N COMPARATIVA PROPIA].",
     ],
   },
   {
     id: "v5",
-    title: "LegislaciÃ³n y normativas referenciadas",
+    title: "Legislación y normativas referenciadas",
     items: [
-      "Toda referencia normativa en este cuaderno (Reglamento de IA de la UE, GDPR, DORA, ISO 42001) estÃ¡ marcada con [VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA].",
-      "Los textos normativos se actualizan, pueden tener actos delegados posteriores y pueden tener interpretaciones de la autoridad supervisora que modifiquen su aplicaciÃ³n.",
-      "NingÃºn dato de este cuaderno debe usarse como referencia definitiva de obligaciones normativas sin consulta al texto oficial y a un abogado especializado en cumplimiento regulatorio.",
+      "Toda referencia normativa en este cuaderno (Reglamento de IA de la UE, GDPR, DORA, ISO 42001) está marcada con [VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA].",
+      "Los textos normativos se actualizan, pueden tener actos delegados posteriores y pueden tener interpretaciones de la autoridad supervisora que modifiquen su aplicación.",
+      "Ningún dato de este cuaderno debe usarse como referencia definitiva de obligaciones normativas sin consulta al texto oficial y a un abogado especializado en cumplimiento regulatorio.",
     ],
   },
 ];
@@ -484,7 +484,7 @@ function ResearchLineCard({ line }) {
             </div>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-            <p className="text-xs text-white/30 uppercase tracking-widest mb-1.5">Modelo lÃ­der Â· STATER Legal Leaderboard 2026-08-29</p>
+            <p className="text-xs text-white/30 uppercase tracking-widest mb-1.5">Modelo líder · STATER Legal Leaderboard 2026-08-29</p>
             <p className="text-sm text-white font-medium">{line.topModel.name}</p>
             <p className="text-xs text-white/50 mt-0.5">{line.topModel.detail}</p>
           </div>
@@ -554,12 +554,12 @@ function ProjectCard({ project }) {
         </div>
         <p className="text-white/65 text-sm leading-relaxed mb-4">{project.desc}</p>
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className="text-xs text-white/30">LÃ­neas de investigaciÃ³n:</span>
+          <span className="text-xs text-white/30">Líneas de investigación:</span>
           {project.researchLines.map((n) => {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} Â· {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
               </span>
             );
           })}
@@ -568,7 +568,7 @@ function ProjectCard({ project }) {
           <div className="inline-flex items-start gap-2 border border-yellow-400/20 bg-yellow-400/5 rounded-xl px-3 py-2">
             <AlertTriangle size={11} className="text-yellow-400 shrink-0 mt-0.5" />
             <p className="text-xs text-yellow-300/60 leading-relaxed">
-              AnÃ¡lisis automatizado de primer nivel. No constituye asesoramiento legal ni suple la revisiÃ³n de un abogado.
+              Análisis automatizado de primer nivel. No constituye asesoramiento legal ni suple la revisión de un abogado.
             </p>
           </div>
         )}
@@ -594,7 +594,7 @@ function ProjectCard({ project }) {
         {tab === "stack" && (
           <div className="space-y-6">
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes tÃ©cnicos</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Componentes técnicos</p>
               <div className="space-y-2">
                 {project.stack.map((s, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-3">
@@ -608,7 +608,7 @@ function ProjectCard({ project }) {
               </div>
             </div>
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por quÃ© estos modelos Â· STATER Legal Leaderboard</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-3">Por qué estos modelos · STATER Legal Leaderboard</p>
               <div className="space-y-2">
                 {project.whyModels.map((m, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start justify-between gap-4">
@@ -704,7 +704,7 @@ export default function DerechoLab() {
                 <span className="text-xs border border-violet-400/30 bg-violet-400/10 text-violet-400 px-3 py-0.5 rounded-full">
                   Laboratorio verificado
                 </span>
-                <span className="text-xs text-white/20">STATER Legal & Compliance Â· 2026-08-29</span>
+                <span className="text-xs text-white/20">STATER Legal & Compliance · 2026-08-29</span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
                 Laboratorio de{" "}
@@ -713,15 +713,15 @@ export default function DerechoLab() {
                 <span className="text-violet-400">Compliance</span>
               </h1>
               <p className="text-white/50 text-lg sm:text-xl mt-3 max-w-2xl leading-relaxed">
-                IA para auditorÃ­a de contratos, anÃ¡lisis de jurisprudencia y mapeo de cumplimiento normativo.
-                El estÃ¡ndar de calidad aquÃ­ no es "acierta el 90%": es "no inventa citas jurÃ­dicas que no existen".
+                IA para auditoría de contratos, análisis de jurisprudencia y mapeo de cumplimiento normativo.
+                El estándar de calidad aquí no es "acierta el 90%": es "no inventa citas jurídicas que no existen".
               </p>
 
               {/* Aviso legal */}
               <div className="mt-5 inline-flex items-start gap-2 border border-yellow-400/20 bg-yellow-400/5 rounded-xl px-4 py-3 max-w-xl">
                 <ShieldAlert size={13} className="text-yellow-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-yellow-300/70 leading-relaxed">
-                  <strong className="text-yellow-300">Aviso de responsabilidad jurÃ­dica:</strong> ninguna salida de las herramientas descritas constituye asesoramiento legal ni suple el criterio de un abogado o responsable de compliance habilitado. La decisiÃ³n final y la firma de cualquier documento jurÃ­dico corresponden siempre a un profesional habilitado.
+                  <strong className="text-yellow-300">Aviso de responsabilidad jurídica:</strong> ninguna salida de las herramientas descritas constituye asesoramiento legal ni suple el criterio de un abogado o responsable de compliance habilitado. La decisión final y la firma de cualquier documento jurídico corresponden siempre a un profesional habilitado.
                 </p>
               </div>
 
@@ -745,19 +745,19 @@ export default function DerechoLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ MÃ³dulo 1 â”€â”€ */}
+        {/* â”€â”€ Módulo 1 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <BarChart3 size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 1</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© se investiga aquÃ­</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 1</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué se investiga aquí</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                El estÃ¡ndar de calidad en este laboratorio es mÃ¡s exigente: no es "el modelo acierta el 90% de los casos".
-                Es "el modelo no inventa citas jurÃ­dicas que no existen". Una referencia a un artÃ­culo de ley que no existe,
-                en un informe que alguien toma como base para una decisiÃ³n legal, puede tener consecuencias graves.
+                El estándar de calidad en este laboratorio es más exigente: no es "el modelo acierta el 90% de los casos".
+                Es "el modelo no inventa citas jurídicas que no existen". Una referencia a un artículo de ley que no existe,
+                en un informe que alguien toma como base para una decisión legal, puede tener consecuencias graves.
               </p>
             </div>
           </div>
@@ -767,29 +767,29 @@ export default function DerechoLab() {
           </div>
 
           <div className="mt-6 border border-white/5 bg-white/2 rounded-2xl p-5">
-            <p className="text-xs text-white/25 uppercase tracking-widest mb-2">Del problema acotado al sistÃ©mico</p>
+            <p className="text-xs text-white/25 uppercase tracking-widest mb-2">Del problema acotado al sistémico</p>
             <p className="text-sm text-white/45 leading-relaxed">
-              Las tres familias estÃ¡n ordenadas por escala: del contrato individual (01) a la jurisprudencia
-              de un sector (02) al marco regulatorio completo de una organizaciÃ³n (03). Los tres proyectos
-              del laboratorio operan en ese mismo orden de escala, y comparten una constante de diseÃ±o:
-              ninguna salida puede contener una afirmaciÃ³n que no estÃ© anclada en el texto fuente.
+              Las tres familias están ordenadas por escala: del contrato individual (01) a la jurisprudencia
+              de un sector (02) al marco regulatorio completo de una organización (03). Los tres proyectos
+              del laboratorio operan en ese mismo orden de escala, y comparten una constante de diseño:
+              ninguna salida puede contener una afirmación que no esté anclada en el texto fuente.
             </p>
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 2 â”€â”€ */}
+        {/* â”€â”€ Módulo 2 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <Cpu size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 2</p>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 2</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Casos de desarrollo</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
                 Tres proyectos de escala creciente, del contrato individual al marco regulatorio completo.
-                Los tres comparten la misma constante de diseÃ±o: anti-alucinaciÃ³n como requisito no negociable,
-                no como caracterÃ­stica opcional.
+                Los tres comparten la misma constante de diseño: anti-alucinación como requisito no negociable,
+                no como característica opcional.
               </p>
             </div>
           </div>
@@ -798,15 +798,15 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 3 â”€â”€ */}
+        {/* â”€â”€ Módulo 3 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
               <GitBranch size={14} className="text-white/40" />
             </div>
             <div>
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">MÃ³dulo 3</p>
-              <h2 className="font-display text-2xl sm:text-3xl text-white">QuÃ© aplicaciones ya existen en el mercado</h2>
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 3</p>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">Qué aplicaciones ya existen en el mercado</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
                 Cinco aplicaciones reales de IA aplicada a derecho y compliance. Ninguna sustituye el
                 asesoramiento de un abogado o responsable de compliance habilitado.
@@ -833,7 +833,7 @@ export default function DerechoLab() {
                 <div className="mt-4 pt-3 border-t border-white/5">
                   <p className="text-xs text-yellow-400/50 flex items-center gap-1.5">
                     <AlertTriangle size={10} />
-                    Verificar caracterÃ­sticas en web oficial
+                    Verificar características en web oficial
                   </p>
                 </div>
               </a>
@@ -841,19 +841,19 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ MÃ³dulo 4 â”€â”€ */}
+        {/* â”€â”€ Módulo 4 â”€â”€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
               <AlertTriangle size={14} className="text-yellow-400" />
             </div>
             <div>
-              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">MÃ³dulo 4</p>
+              <p className="text-xs text-yellow-400/40 uppercase tracking-widest mb-1">Módulo 4</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Puntos a verificar</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                Cinco puntos que requieren revisiÃ³n antes de publicar o referenciar los datos de este cuaderno
-                en materiales externos. Incluyen asimetrÃ­as de cobertura, un diferencial estadÃ­stico estrecho
-                relevante para la elecciÃ³n de modelo y la advertencia sistemÃ¡tica sobre normativa.
+                Cinco puntos que requieren revisión antes de publicar o referenciar los datos de este cuaderno
+                en materiales externos. Incluyen asimetrías de cobertura, un diferencial estadístico estrecho
+                relevante para la elección de modelo y la advertencia sistemática sobre normativa.
               </p>
             </div>
           </div>
@@ -865,7 +865,7 @@ export default function DerechoLab() {
         {/* â”€â”€ Footer CTA â”€â”€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo Â· STATER Legal & Compliance Â· 2026-08-29</p>
+            <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Legal & Compliance · 2026-08-29</p>
             <p className="text-sm text-white/45">
               Datos de{" "}
               <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded text-white/60">latest_rankings_legal.md</code>{" "}
