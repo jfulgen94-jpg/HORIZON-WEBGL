@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Calculator } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Contabilidad & ERP) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Contabilidad & ERP) ──────────────────────────────—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Integración Directa con la Base de Datos del ERP (Modo Read-Only Mirror)",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -144,7 +144,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "C1.1" || primaryId === "C1.2" || primaryId === "C1.4" || secondaryIds.includes("SEC-CONT-03") || secondaryIds.includes("SEC-CONT-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -170,32 +170,32 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Configuración general, umbrales de revisión y credenciales ERP",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para asientos, facturas y extractos" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails Anti-Autoasiento (BR-CONT-05)" : ""),
-    data.primaryTask === "C1.1" || hasSEC08 ? "—‚   —œ—€—€ bank_parser.py            # Parser multiformato (MT940, CAMT.053, Norma 43, CSV) (BR-CONT-01)" : null,
-    data.primaryTask === "C1.1" ? "—‚   —œ—€—€ reconciler.py             # Motor de cruce bancario y generación de propuestas de ajuste" : null,
-    data.primaryTask === "C1.2" ? "—‚   —œ—€—€ invoice_ocr.py            # Pipeline de extracción estructurada OCR y desglose de IVA (BR-CONT-02)" : null,
-    hasSEC01 ? "—‚   —œ—€—€ tax_validator.py          # Validador de reglas de IVA/IRPF, retenciones y censo VIES/AEAT" : null,
-    data.primaryTask === "C1.3" ? "—‚   —œ—€—€ assets_auditor.py         # Auditor de tablas de amortización y vidas útiles de activos" : null,
-    data.primaryTask === "C1.4" || hasSEC06 ? "—‚   —œ—€—€ expense_fraud.py          # Detector de anomalías en notas de gastos y duplicados" : null,
-    data.primaryTask === "C1.5" ? "—‚   —œ—€—€ cost_allocation.py        # Motor de reparto analítico y centros de coste" : null,
-    data.primaryTask === "C1.6" || hasSEC05 ? "—‚   —œ—€—€ erp_connector.py          # Conector para SAP, Sage, Holded y A3 Software" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-CONT-04) con pista de auditoría inmutable" : "Capa de persistencia contable"),
-    hasSEC03 ? "—‚   —œ—€—€ approval_workflow.py      # Gestor de aprobaciones para asientos superiores a umbral (SEC-CONT-03)" : null,
-    "—‚   —œ—€—€ reporting.py              # Generador de informes de conciliación y cierres (PDF / Excel)",
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Tablas de descuadres, visores de asientos y tarjetas de facturas",
-    "—‚       —”—€—€ main_view.py          # Panel principal de revisión contable para el equipo",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Validación de esquemas contables y consistencia debe/haber",
-    data.primaryTask === "C1.1" ? "—‚   —œ—€—€ test_reconciler.py        # Casos de prueba de conciliación y tolerancia de redondeo" : null,
-    "—‚   —”—€—€ test_tax_rules.py         # Batería de pruebas de retenciones y tipos de IVA vigentes",
-    "—œ—€—€ data/                         # Ficheros Parquet, extractos DEMO y caché de clientes/proveedores",
-    "—œ—€—€ requirements.txt              # pandas, duckdb, pydantic, openpyxl, requests, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación contable",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Configuración general, umbrales de revisión y credenciales ERP",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 para asientos, facturas y extractos" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails Anti-Autoasiento (BR-CONT-05)" : ""),
+    data.primaryTask === "C1.1" || hasSEC08 ? "—‚   —œ─── bank_parser.py            # Parser multiformato (MT940, CAMT.053, Norma 43, CSV) (BR-CONT-01)" : null,
+    data.primaryTask === "C1.1" ? "—‚   —œ─── reconciler.py             # Motor de cruce bancario y generación de propuestas de ajuste" : null,
+    data.primaryTask === "C1.2" ? "—‚   —œ─── invoice_ocr.py            # Pipeline de extracción estructurada OCR y desglose de IVA (BR-CONT-02)" : null,
+    hasSEC01 ? "—‚   —œ─── tax_validator.py          # Validador de reglas de IVA/IRPF, retenciones y censo VIES/AEAT" : null,
+    data.primaryTask === "C1.3" ? "—‚   —œ─── assets_auditor.py         # Auditor de tablas de amortización y vidas útiles de activos" : null,
+    data.primaryTask === "C1.4" || hasSEC06 ? "—‚   —œ─── expense_fraud.py          # Detector de anomalías en notas de gastos y duplicados" : null,
+    data.primaryTask === "C1.5" ? "—‚   —œ─── cost_allocation.py        # Motor de reparto analítico y centros de coste" : null,
+    data.primaryTask === "C1.6" || hasSEC05 ? "—‚   —œ─── erp_connector.py          # Conector para SAP, Sage, Holded y A3 Software" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-CONT-04) con pista de auditoría inmutable" : "Capa de persistencia contable"),
+    hasSEC03 ? "—‚   —œ─── approval_workflow.py      # Gestor de aprobaciones para asientos superiores a umbral (SEC-CONT-03)" : null,
+    "—‚   —œ─── reporting.py              # Generador de informes de conciliación y cierres (PDF / Excel)",
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Tablas de descuadres, visores de asientos y tarjetas de facturas",
+    "—‚       —”─── main_view.py          # Panel principal de revisión contable para el equipo",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Validación de esquemas contables y consistencia debe/haber",
+    data.primaryTask === "C1.1" ? "—‚   —œ─── test_reconciler.py        # Casos de prueba de conciliación y tolerancia de redondeo" : null,
+    "—‚   —”─── test_tax_rules.py         # Batería de pruebas de retenciones y tipos de IVA vigentes",
+    "—œ─── data/                         # Ficheros Parquet, extractos DEMO y caché de clientes/proveedores",
+    "—œ─── requirements.txt              # pandas, duckdb, pydantic, openpyxl, requests, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación contable",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -310,7 +310,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -488,7 +488,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -609,7 +609,7 @@ export default function WizardContabilidad() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -808,7 +808,7 @@ export default function WizardContabilidad() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -855,7 +855,7 @@ export default function WizardContabilidad() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

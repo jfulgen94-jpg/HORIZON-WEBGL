@@ -1,0 +1,29 @@
+Line 18: // —─── Data —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 88:     desc: "Motor de cuadre y conciliación automatizada. Cruza movimientos bancarios contra el Libro Mayor, detecta discr
+Line 92:       { role: "Modelo de conciliación y asientos", tech: "Claude 3.7 Sonnet — líder automatización contable (94.41/100)"
+Line 93:       { role: "Modelo de detección de anomalías", tech: "DeepSeek-R1 — líder detección de fraude transaccional (95.55/10
+Line 95:       { role: "Almacenamiento", tech: "DuckDB — historial conciliaciones + log propuestas aceptadas/rechazadas" },
+Line 170:       { role: "OCR inteligente y estructuración documental", tech: "Claude 3.7 Sonnet — líder OCR contable (96.43/100)" 
+Line 171:       { role: "Verificación de cumplimiento fiscal", tech: "Claude 3.7 Sonnet — líder trazabilidad y cumplimiento (95.75
+Line 174:       { role: "Almacenamiento", tech: "DuckDB — historial facturas procesadas + índice por proveedor y período" },
+Line 216: Tarea 1 — Extracción:
+Line 221: Tarea 2 — Validación aritmética:
+Line 226: Tarea 3 — Advertencias fiscales:
+Line 239:     desc: "Mantiene un registro vivo de cada activo fijo de la empresa — maquinaria, vehículos, equipos, licencias softw
+Line 243:       { role: "Extracción de datos de activos", tech: "Claude 3.7 Sonnet — líder extracción documental (96.43/100)" },
+Line 244:       { role: "Auditoría de trazabilidad", tech: "Claude 3.7 Sonnet — líder trazabilidad contable (95.75/100)" },
+Line 245:       { role: "Detección de duplicidades en asientos", tech: "DeepSeek-R1 — líder detección de anomalías (95.55/100)" },
+Line 247:       { role: "Almacenamiento", tech: "DuckDB — registro maestro de activos + serie temporal de asientos por activo" },
+Line 325:       { role: "Extracción de justificantes de gasto", tech: "Claude 3.7 Sonnet — líder OCR contable (96.43/100) · 97.2 e
+Line 326:       { role: "Detección de anomalías y fraude", tech: "DeepSeek-R1 — líder detección de fraude (95.55/100)" },
+Line 327:       { role: "Motor de perfilado estadístico", tech: "pandas + scipy — percentiles y desviaciones típicas por empleado/
+Line 329:       { role: "Almacenamiento", tech: "DuckDB — historial de gastos por empleado + log de alertas y resoluciones" },
+Line 339:       "Detección de duplicados (DeepSeek-R1): comparación con histórico — mismo proveedor + importe + fecha cercana de e
+Line 475: // —─── Sub-components —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 680:             <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+Line 681:             <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
+Line 789:         {/* —──€ Módulo 1 —──€ */}
+Line 822:         {/* —──€ Módulo 2 —──€ */}
+Line 843:         {/* —──€ Módulo 3 —──€ */}
+Line 887:         {/* —──€ Módulo 4 —──€ */}
+Line 907:         {/* —──€ Footer CTA —──€ */}

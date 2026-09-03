@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Calculator } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Matemáticas & Procesos Complejos) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Matemáticas & Procesos Complejos) ──────────────────—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Almacenamiento Local en Ficheros JSON-LD y Markdown con Bloques LaTeX",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -144,7 +144,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "M4.1" || primaryId === "M4.4" || primaryId === "M4.6" || secondaryIds.includes("SEC-MATH-01") || secondaryIds.includes("SEC-MATH-06") || secondaryIds.includes("SEC-MATH-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -170,30 +170,30 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Parámetros numéricos, tolerancias épsilon y timeouts",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para pasos, demostraciones y tensores" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Verificación de Premisas (BR-MATH-05)" : ""),
-    data.primaryTask === "M4.1" || hasSEC06 ? "—‚   —œ—€—€ proof_segmenter.py        # Segmentador atómico de cadenas de razonamiento (BR-MATH-01)" : null,
-    data.primaryTask === "M4.1" || hasSEC01 ? "—‚   —œ—€—€ symbolic_verifier.py      # Motor de equivalencia algebraica con SymPy en sandbox aislado" : null,
-    data.primaryTask === "M4.2" ? "—‚   —œ—€—€ optimization_solver.py    # Solucionador MILP / Simplex con SciPy y PuLP (BR-MATH-02)" : null,
-    data.primaryTask === "M4.3" || hasSEC03 ? "—‚   —œ—€—€ stochastic_engine.py      # Simulador Monte Carlo paralelizado con Numba JIT (BR-MATH-03)" : null,
-    data.primaryTask === "M4.5" ? "—‚   —œ—€—€ multiagent_coordinator.py # Coordinador de descomposición y sincronización MAFBench" : null,
-    data.primaryTask === "M4.6" ? "—‚   —œ—€—€ python_sandbox.py         # Intérprete Python seguro con NumPy/SciPy para tool-use determinista" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-MATH-04) con registro inmutable de veredictos" : "Capa de persistencia matemática"),
-    hasSEC08 ? "—‚   —œ—€—€ graph_visualizer.py       # Renderizador de grafos y árboles de derivación con NetworkX" : null,
-    "—‚   —œ—€—€ latex_reporter.py         # Generador de informes en LaTeX y Markdown con fórmulas KaTeX",
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Visor KaTeX, tarjetas de pasos anotados y paneles de convergencia",
-    "—‚       —”—€—€ main_view.py          # Dashboard de cálculo y panel interactivo",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Validación de modelos y serialización de tensores",
-    data.primaryTask === "M4.1" ? "—‚   —œ—€—€ test_symbolic_equiv.py    # Batería de identidades algebraicas y simplificaciones SymPy" : null,
-    data.primaryTask === "M4.2" ? "—‚   —”—€—€ test_optimization.py      # Casos de prueba de optimización lineal y convergencia" : null,
-    "—œ—€—€ data/                         # Datasets de prueba, problemas de olimpiada y caché",
-    "—œ—€—€ requirements.txt              # sympy, numpy, scipy, pulp, duckdb, pydantic, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación matemática",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Parámetros numéricos, tolerancias épsilon y timeouts",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 para pasos, demostraciones y tensores" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Verificación de Premisas (BR-MATH-05)" : ""),
+    data.primaryTask === "M4.1" || hasSEC06 ? "—‚   —œ─── proof_segmenter.py        # Segmentador atómico de cadenas de razonamiento (BR-MATH-01)" : null,
+    data.primaryTask === "M4.1" || hasSEC01 ? "—‚   —œ─── symbolic_verifier.py      # Motor de equivalencia algebraica con SymPy en sandbox aislado" : null,
+    data.primaryTask === "M4.2" ? "—‚   —œ─── optimization_solver.py    # Solucionador MILP / Simplex con SciPy y PuLP (BR-MATH-02)" : null,
+    data.primaryTask === "M4.3" || hasSEC03 ? "—‚   —œ─── stochastic_engine.py      # Simulador Monte Carlo paralelizado con Numba JIT (BR-MATH-03)" : null,
+    data.primaryTask === "M4.5" ? "—‚   —œ─── multiagent_coordinator.py # Coordinador de descomposición y sincronización MAFBench" : null,
+    data.primaryTask === "M4.6" ? "—‚   —œ─── python_sandbox.py         # Intérprete Python seguro con NumPy/SciPy para tool-use determinista" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-MATH-04) con registro inmutable de veredictos" : "Capa de persistencia matemática"),
+    hasSEC08 ? "—‚   —œ─── graph_visualizer.py       # Renderizador de grafos y árboles de derivación con NetworkX" : null,
+    "—‚   —œ─── latex_reporter.py         # Generador de informes en LaTeX y Markdown con fórmulas KaTeX",
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Visor KaTeX, tarjetas de pasos anotados y paneles de convergencia",
+    "—‚       —”─── main_view.py          # Dashboard de cálculo y panel interactivo",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Validación de modelos y serialización de tensores",
+    data.primaryTask === "M4.1" ? "—‚   —œ─── test_symbolic_equiv.py    # Batería de identidades algebraicas y simplificaciones SymPy" : null,
+    data.primaryTask === "M4.2" ? "—‚   —”─── test_optimization.py      # Casos de prueba de optimización lineal y convergencia" : null,
+    "—œ─── data/                         # Datasets de prueba, problemas de olimpiada y caché",
+    "—œ─── requirements.txt              # sympy, numpy, scipy, pulp, duckdb, pydantic, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación matemática",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -307,7 +307,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -485,7 +485,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -606,7 +606,7 @@ export default function WizardMatematicas() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -805,7 +805,7 @@ export default function WizardMatematicas() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -852,7 +852,7 @@ export default function WizardMatematicas() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

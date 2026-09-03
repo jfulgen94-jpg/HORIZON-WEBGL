@@ -18,7 +18,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Diseño · AlpacaEval · MT-Bench Creative · LMSYS Chatbot Arena", motivo: "Verificar qué modelos tienen mejor performance en escritura creativa y UX copy antes de elegir." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Definir qué tipos de copy UX y criterios de evaluación cubre la v1." },
@@ -43,7 +43,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de modelos en tareas creativas." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────
 const VERSIONS = [
   {
     tag: "v2 · Multimodal",
@@ -92,7 +92,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Phase map data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phase map data ─────────────────────────────────────────────────────────—
 const PHASES = [
   {
     icon: Search,
@@ -138,7 +138,7 @@ const PHASES = [
   },
 ];
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaDiseno() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -148,7 +148,7 @@ export default function RutaDiseno() {
 
         <BackLink to="/taller" label="Volver al Taller" />
 
-        {/* —€—€ Header —€—€ */}
+        {/* Header */}
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
@@ -179,7 +179,7 @@ export default function RutaDiseno() {
           </div>
         </div>
 
-        {/* —€—€ Resultado esperado —€—€ */}
+        {/* Resultado esperado */}
         <div className="rounded-2xl border p-6 mb-10"
           style={{ borderColor: "rgba(219,39,119,0.18)", background: "rgba(219,39,119,0.03)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -192,10 +192,10 @@ export default function RutaDiseno() {
           </p>
         </div>
 
-        {/* —€—€ Human validation warning —€—€ */}
+        {/* Human validation warning */}
         <HumanValidationWarning />
 
-        {/* —€—€ Phase map —€—€ */}
+        {/* Phase map */}
         <div className="mb-10">
           <div className="text-[11px] font-semibold tracking-widest uppercase mb-5"
             style={{ color: "rgba(17,17,17,0.35)" }}>Mapa de la ruta</div>
@@ -223,7 +223,7 @@ export default function RutaDiseno() {
           </div>
         </div>
 
-        {/* —€—€ Tools table —€—€ */}
+        {/* Tools table */}
         <div className="mb-10">
           <button
             onClick={() => setToolsOpen(v => !v)}
@@ -1258,7 +1258,7 @@ Redacta la ficha de presentación de "Forma IA" para publicar en el Foro de la C
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Result box —€—€—€ */}
+        {/* ─── Result box ─── */}
         <div className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "white", border: "1px solid rgba(219,39,119,0.2)" }}>
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
@@ -1288,7 +1288,7 @@ Redacta la ficha de presentación de "Forma IA" para publicar en el Foro de la C
           </div>
         </div>
 
-        {/* —€—€—€ Version extensions —€—€ */}
+        {/* ─── Version extensions */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

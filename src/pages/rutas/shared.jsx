@@ -16,7 +16,7 @@ export const C = {
   red:     "#DC2626",
 };
 
-// —€—€—€ Copy button —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Copy button ────────────────────────────────────────────────────────────—€
 export function CopyBtn({ text }) {
   const [copied, setCopied] = useState(false);
   const handle = () => {
@@ -40,7 +40,7 @@ export function CopyBtn({ text }) {
   );
 }
 
-// —€—€—€ Prompt block —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Prompt block ────────────────────────────────────────────────────────────—€
 export function PromptBlock({ label, children }) {
   const text = children || "Copia aquí el texto del prompt";
   const isEmpty = !children;
@@ -61,7 +61,7 @@ export function PromptBlock({ label, children }) {
   );
 }
 
-// —€—€—€ Accordion step —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Accordion step ─────────────────────────────────────────────────────────—€
 export function Step({ num, title, goal, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
@@ -91,7 +91,7 @@ export function Step({ num, title, goal, children, defaultOpen = false }) {
   );
 }
 
-// —€—€—€ Phase header —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phase header ────────────────────────────────────────────────────────────—€
 export function PhaseHeader({ icon: Icon, label, color, title, desc }) {
   return (
     <div className="flex items-start gap-4 mb-6 mt-10">
@@ -109,7 +109,7 @@ export function PhaseHeader({ icon: Icon, label, color, title, desc }) {
   );
 }
 
-// —€—€—€ Back link —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Back link ───────────────────────────────────────────────────────────────—€
 export function BackLink() {
   return (
     <Link to="/taller"
@@ -120,7 +120,7 @@ export function BackLink() {
   );
 }
 
-// —€—€—€ HUMAN VALIDATION WARNING —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── HUMAN VALIDATION WARNING ────────────────────────────────────────────────—€
 // This component is mandatory in every route page.
 export function HumanValidationWarning() {
   const [open, setOpen] = useState(false);
@@ -200,7 +200,7 @@ export function HumanValidationWarning() {
   );
 }
 
-// —€—€—€ VERSION EXTENSIONS (v2, v3 ideas) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── VERSION EXTENSIONS (v2, v3 ideas) ───────────────────────────────────────
 export function VersionExtensions({ versions }) {
   // versions: [{ tag, title, area, desc, changes: [str], badge }]
   const [open, setOpen] = useState(null);

@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { HardHat } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Ingeniería & Arquitectura) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Ingeniería & Arquitectura) ────────────────────────
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Almacenamiento Estructurado de Proyectos en Ficheros JSON-LD y Markdown",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -143,7 +143,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "I1.1" || primaryId === "I1.2" || primaryId === "I1.5" || secondaryIds.includes("SEC-ENG-01") || secondaryIds.includes("SEC-ENG-06") || secondaryIds.includes("SEC-ENG-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -169,31 +169,31 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Parámetros del proyecto, tolerancias geométricas y rutas",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para estancias, envolventes y diagramas" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Aislamiento de Firma (BR-ENG-05)" : ""),
-    data.primaryTask === "I1.1" ? "—‚   —œ—€—€ spatial_layout.py         # Motor de distribución en cuadrícula paramétrica (BR-ENG-01)" : null,
-    data.primaryTask === "I1.1" || hasSEC02 ? "—‚   —œ—€—€ svg_renderer.py           # Renderizador vectorial de planos y diagramas con svgwrite" : null,
-    data.primaryTask === "I1.2" || hasSEC08 ? "—‚   —œ—€—€ thermal_engine.py         # Simulador de transmitancia U y cálculo higrotérmico (BR-ENG-02)" : null,
-    data.primaryTask === "I1.3" ? "—‚   —œ—€—€ construction_monitor.py   # Motor de seguimiento PERT/CPM y varianza de costes" : null,
-    data.primaryTask === "I1.4" ? "—‚   —œ—€—€ prd_to_c4.py              # Sintetizador de requisitos funcionales a PlantUML / C4 (BR-ENG-03)" : null,
-    data.primaryTask === "I1.5" ? "—‚   —œ—€—€ mdo_optimizer.py          # Optimizador multidisciplinar con modelos sustitutos" : null,
-    data.primaryTask === "I1.6" ? "—‚   —œ—€—€ adr_generator.py          # Generador de Architecture Decision Records y trade-offs" : null,
-    hasSEC01 ? "—‚   —œ—€—€ normative_checker.py      # Validador de cumplimiento de CTE y normativas técnicas" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-ENG-04) con trazabilidad inmutable" : "Capa de persistencia técnica"),
-    "—‚   —œ—€—€ technical_reporting.py    # Generador de memorias técnicas y memorias de cálculo (PDF / Markdown)",
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Visores de planos SVG, tablas de transmitancias y tarjetas de estancias",
-    "—‚       —”—€—€ main_view.py          # Dashboard de ingeniería y panel de proyecto",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Pruebas de esquemas y validaciones geométricas",
-    data.primaryTask === "I1.1" ? "—‚   —œ—€—€ test_spatial_layout.py    # Casos de prueba de adyacencias y retranqueos" : null,
-    data.primaryTask === "I1.2" ? "—‚   —”—€—€ test_thermal_calc.py      # Validación de fórmulas de transmitancia térmica" : null,
-    "—œ—€—€ data/                         # Ficheros SVG, series climáticas EPW y caché de proyecto",
-    "—œ—€—€ requirements.txt              # svgwrite, numpy, scipy, duckdb, pydantic, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación de ingeniería",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Parámetros del proyecto, tolerancias geométricas y rutas",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 para estancias, envolventes y diagramas" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Aislamiento de Firma (BR-ENG-05)" : ""),
+    data.primaryTask === "I1.1" ? "—‚   —œ─── spatial_layout.py         # Motor de distribución en cuadrícula paramétrica (BR-ENG-01)" : null,
+    data.primaryTask === "I1.1" || hasSEC02 ? "—‚   —œ─── svg_renderer.py           # Renderizador vectorial de planos y diagramas con svgwrite" : null,
+    data.primaryTask === "I1.2" || hasSEC08 ? "—‚   —œ─── thermal_engine.py         # Simulador de transmitancia U y cálculo higrotérmico (BR-ENG-02)" : null,
+    data.primaryTask === "I1.3" ? "—‚   —œ─── construction_monitor.py   # Motor de seguimiento PERT/CPM y varianza de costes" : null,
+    data.primaryTask === "I1.4" ? "—‚   —œ─── prd_to_c4.py              # Sintetizador de requisitos funcionales a PlantUML / C4 (BR-ENG-03)" : null,
+    data.primaryTask === "I1.5" ? "—‚   —œ─── mdo_optimizer.py          # Optimizador multidisciplinar con modelos sustitutos" : null,
+    data.primaryTask === "I1.6" ? "—‚   —œ─── adr_generator.py          # Generador de Architecture Decision Records y trade-offs" : null,
+    hasSEC01 ? "—‚   —œ─── normative_checker.py      # Validador de cumplimiento de CTE y normativas técnicas" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-ENG-04) con trazabilidad inmutable" : "Capa de persistencia técnica"),
+    "—‚   —œ─── technical_reporting.py    # Generador de memorias técnicas y memorias de cálculo (PDF / Markdown)",
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Visores de planos SVG, tablas de transmitancias y tarjetas de estancias",
+    "—‚       —”─── main_view.py          # Dashboard de ingeniería y panel de proyecto",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Pruebas de esquemas y validaciones geométricas",
+    data.primaryTask === "I1.1" ? "—‚   —œ─── test_spatial_layout.py    # Casos de prueba de adyacencias y retranqueos" : null,
+    data.primaryTask === "I1.2" ? "—‚   —”─── test_thermal_calc.py      # Validación de fórmulas de transmitancia térmica" : null,
+    "—œ─── data/                         # Ficheros SVG, series climáticas EPW y caché de proyecto",
+    "—œ─── requirements.txt              # svgwrite, numpy, scipy, duckdb, pydantic, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación de ingeniería",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -308,7 +308,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -486,7 +486,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -607,7 +607,7 @@ export default function WizardIngenieria() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -806,7 +806,7 @@ export default function WizardIngenieria() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -853,7 +853,7 @@ export default function WizardIngenieria() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

@@ -1,0 +1,59 @@
+Line 45: // —─── Version extensions —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 50:     title: "Fisco Cero — Asistente de cierre fiscal",
+Line 64:     title: "Atlas Activos — Control de amortizaciones",
+Line 78:     title: "Nexo Grupo — Conciliación intercompany",
+Line 91: // —─── Main component —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 125:         {/* —──€ Human validation warning —──€ */}
+Line 133:               { label: "Fase 0", desc: "Investigación — benchmarks contables", color: "#7C3AED" },
+Line 135:               { label: "Capa 2", desc: "Datos — CSV, Pydantic, DuckDB", color: C.emerald },
+Line 136:               { label: "Capa 3", desc: "Lógica / IA — matching + LLM", color: C.amber },
+Line 191:           <PromptBlock label="Prompt 0.A — Benchmarks contables">{`Actúa como Investigador Principal de Benchmarks de In
+Line 215:           <PromptBlock label="Prompt 0.B — Viabilidad técnica">{`Actúa como Arquitecto de Software Financiero y Especial
+Line 234:             CAPA 1 — DEFINICI“N DEL PROBLEMA (BALANCE INTELIGENTE)
+Line 292: 1. FICHERO A — EXTRACTO BANCARIO:
+Line 297: 2. FICHERO B — LIBRO MAYOR ERP (Cuentas 572):
+Line 377:             CAPA 2 — DATOS (BALANCE INTELIGENTE)
+Line 392:           <PromptBlock label="Prompt 2.1 — Lectura de archivos">
+Line 434:           <PromptBlock label="Prompt 2.2 — Esquema Pydantic">
+Line 510:           <PromptBlock label="Prompt 2.3 — Normalización de importes">
+Line 541:           <PromptBlock label="Prompt 2.4 — Persistencia DuckDB">
+Line 574:           <PromptBlock label="Prompt 2.5 — Dataset de ejemplo">
+Line 600:             CAPA 3 — L“GICA / IA (BALANCE INTELIGENTE)
+Line 619:             El LLM <strong>no hace la conciliación</strong> — eso lo hace el algoritmo determinista en Python. El LLM so
+Line 621:           <PromptBlock label="Prompt 3.1 — Selección del modelo">
+Line 646:               <div className="font-semibold mb-1" style={{ color: C.emerald }}>Parte A — Algoritmo determinista</div>
+Line 650:               <div className="font-semibold mb-1" style={{ color: C.amber }}>Parte B — Prompt LLM</div>
+Line 654:           <PromptBlock label="Prompt 3.2 — Algoritmo + prompt LLM">
+Line 659: PARTE A — ALGORITMO DETERMINISTA (Python puro):
+Line 667: PARTE B — PROMPT LLM PARA DIAGN“STICO DE DESCUADRES:
+Line 680:           <PromptBlock label="Prompt 3.3 — Llamada al modelo">
+Line 707:           <PromptBlock label="Prompt 3.4 — Parseo de la respuesta">
+Line 725: - Si el parseo falla o el JSON está incompleto, recupera las causas que pueda o genera por defecto: "Causa no identifica
+Line 741:           <PromptBlock label="Prompt 3.5 — validate_explanation()">
+Line 760:           goal="Comportamiento cuando el LLM no está disponible — la conciliación determinista siempre funciona en modo 
+Line 762:           <PromptBlock label="Prompt 3.6 — explain_discrepancy_with_fallback()">
+Line 774:        - En cualquier otro caso -> "Partida pendiente de regularización — Revisión contable manual requerida".
+Line 784:             CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
+Line 791:           desc="Las 3 pantallas de Balance Inteligente — carga, resultados e historial." 
+Line 818:           <PromptBlock label="Prompt 4.1 — Wireframe Flet">
+Line 849:           <PromptBlock label="Prompt 4.2 — Componente carga de ficheros">
+Line 873:           <PromptBlock label="Prompt 4.3 — Área de resultados">
+Line 913:           <PromptBlock label="Prompt 4.4 — Estados de error">
+Line 933:           <PromptBlock label="Prompt 4.5 — Navegación Flet">
+Line 952:             CAPA 5 — INTEGRACI“N (BALANCE INTELIGENTE)
+Line 967:           <PromptBlock label="Prompt 5.1 — Evento UI Asíncrono">
+Line 991:           <PromptBlock label="Prompt 5.2 — Pipeline Orquestador">
+Line 1030:           <PromptBlock label="Prompt 5.3 — Matriz de Errores y Excepciones">
+Line 1071:           <PromptBlock label="Prompt 5.4 — reconciliation_logger.py">
+Line 1094:           <PromptBlock label="Prompt 5.5 — config.py + .env.example">
+Line 1128:             CAPA 6 — PRUEBAS Y EMPAQUETADO (BALANCE INTELIGENTE)
+Line 1143:           <PromptBlock label="Prompt 6.1 — Suite Pytest Unitaria">
+Line 1171:           <PromptBlock label="Prompt 6.2 — Test de Integración E2E">
+Line 1195:           <PromptBlock label="Prompt 6.3 — Protocolo UAT Manual">
+Line 1220:           <PromptBlock label="Prompt 6.4 — Especificación de Compilación (.spec)">
+Line 1247:           <PromptBlock label="Prompt 6.5 — Checklist de Validación en Máquina Limpia">
+Line 1262:             FASE 7 — ITERACI“N Y PUBLICACI“N (BALANCE INTELIGENTE)
+Line 1277:           <PromptBlock label="Prompt 7.A — Planificación v2">
+Line 1300:           <PromptBlock label="Prompt 7.B — Ficha para el Foro">
+Line 1306: - Título: Balance Inteligente v1 — Conciliación Bancaria Determinista y Diagnóstico Contable Asistido por IA
+Line 1337:             Un ejecutable de <strong style={{ color: C.dark }}>Balance Inteligente</strong> que importa dos CSV, concili

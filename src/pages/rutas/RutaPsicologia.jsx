@@ -19,7 +19,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Psicología (data_psychology/rankings/) · ToMBench · SocialIQa · BIG-Bench Social · EmoBench · OpenToM", motivo: "Verificar qué modelos tienen mejor performance en razonamiento social antes de elegir el motor de Psique Lab." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Definir qué tipos de análisis psicológico cubre la v1 y las advertencias de interpretación necesarias en cada resultado." },
@@ -44,7 +44,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar Psique Lab con la advertencia de interpretación prominente y recoger feedback sobre heurísticas de sesgos." },
 ];
 
-// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phases overview ─────────────────────────────────────────────────────────—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Benchmarks de razonamiento social (ToMBench, SocialIQa, EmoBench) y validez epistemológica de evaluar psicología en LLMs." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil de usuario (investigador/docente), tipos de análisis disponibles, inputs/outputs, criterios de éxito y advertencia de interpretación como requisito no negociable." },
@@ -56,7 +56,7 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Publicar en el Foro con advertencia de interpretación prominente y planificar v2 con comparativa de 3 modelos y análisis batch." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · Arena de modelos",
@@ -105,7 +105,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Interpretation notice —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Interpretation notice ───────────────────────────────────────────────────—€
 function InterpretationNotice() {
   return (
     <div className="mb-8 rounded-xl border overflow-hidden"
@@ -141,7 +141,7 @@ function InterpretationNotice() {
   );
 }
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaPsicologia() {
   const [toolsOpen, setToolsOpen] = useState(false);
 

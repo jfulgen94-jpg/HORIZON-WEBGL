@@ -19,7 +19,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Medicina (data_medical/rankings/) · MedQA · PubMedQA · MedMCQA · ClinicalBench", motivo: "Verificar qué modelos tienen scores reales en benchmarks médicos antes de elegir el motor de Mente Médica." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición estructurado", motivo: "Definir explícitamente quién usa la app, qué nivel de responsabilidad clínica implica y qué límites son no negociables en v1." },
@@ -44,7 +44,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar Mente Médica y recibir feedback clínico y técnico de la comunidad." },
 ];
 
-// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phases overview ─────────────────────────────────────────────────────────—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Benchmarks médicos (MedQA, PubMedQA, MedMCQA, Do-No-Harm) y selección del modelo clínico más fiable del laboratorio." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil de usuario clínico, problema concreto, inputs/outputs, criterios de éxito con salvaguardas médicas y límites explícitos de v1." },
@@ -56,7 +56,7 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Publicar Mente Médica en el Foro de Proyectos con descargo médico obligatorio y planificar v2 con evaluación batch y comparativa de modelos." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · Evaluación batch",
@@ -105,7 +105,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Medical disclaimer banner —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Medical disclaimer banner ────────────────────────────────────────────────
 function MedicalDisclaimerBanner() {
   return (
     <div className="mb-8 rounded-xl border overflow-hidden"
@@ -141,7 +141,7 @@ function MedicalDisclaimerBanner() {
   );
 }
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaMedicina() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -1171,7 +1171,7 @@ Incluye:
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Resultado esperado —€—€—€ */}
+        {/* ─── Resultado esperado ─── */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(220,38,38,0.04)", borderColor: "rgba(220,38,38,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1195,7 +1195,7 @@ Incluye:
           </div>
         </div>
 
-        {/* —€—€—€ Version extensions —€—€—€ */}
+        {/* ─── Version extensions ─── */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

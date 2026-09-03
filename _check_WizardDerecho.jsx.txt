@@ -1,0 +1,41 @@
+Line 120: // —─── Helpers —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 146: // —─── Generador del informe —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 172:     "—œ—──€ src/",
+Line 173:     "—‚   —œ—──€ __init__.py",
+Line 174:     "—‚   —œ—──€ config.py                 # Parámetros del proyecto, claves de API y rutas de almacenamiento seguro",
+Line 175:     "—‚   —œ—──€ schemas.py                # Modelos Pydantic v2 para contratos, cláusulas y dictámenes" + (hasSEC07 ? "
+Line 176:     data.primaryTask === "D1.1" || hasSEC06 ? "—‚   —œ—──€ contract_parser.py        # Parser de contratos (PDF, DOCX, T
+Line 177:     data.primaryTask === "D1.1" ? "—‚   —œ—──€ clause_auditor.py         # Clasificador CUAD (41 tipos) y detector de ri
+Line 178:     hasSEC03 ? "—‚   —œ—──€ liability_extractor.py    # Extractor especializado de topes de indemnización y responsabili
+Line 179:     data.primaryTask === "D1.2" ? "—‚   —œ—──€ jurisprudence_trends.py   # Analizador de sentencias y clustering de evol
+Line 180:     data.primaryTask === "D1.3" ? "—‚   —œ—──€ compliance_mapper.py      # Motor de mapeo regulatorio (AI Act, RGPD, DOR
+Line 181:     data.primaryTask === "D1.4" ? "—‚   —œ—──€ legal_rag_engine.py       # Asistente semántico con recuperación de legis
+Line 182:     hasSEC01 ? "—‚   —œ—──€ anti_hallucination.py     # Verificador estricto de anclaje textual y citas legislativas" : 
+Line 183:     hasSEC08 ? "—‚   —œ—──€ boe_connector.py          # Conector para verificación de textos consolidados del BOE / EUR-
+Line 184:     "—‚   —œ—──€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-LAW-04) con registro inmutable de aud
+Line 185:     "—‚   —œ—──€ legal_reporting.py        # Generador de informes de auditoría legal con semáforos de riesgo (PDF / Mar
+Line 186:     "—‚   —”—──€ ui/",
+Line 187:     "—‚       —œ—──€ __init__.py",
+Line 188:     "—‚       —œ—──€ components.py         # Visores de contratos anotados, badges de riesgo y tablas de cláusulas",
+Line 189:     "—‚       —”—──€ main_view.py          # Dashboard de auditoría y panel del jurista",
+Line 190:     "—œ—──€ tests/",
+Line 191:     "—‚   —œ—──€ test_schemas.py           # Validación de modelos de datos jurídicos",
+Line 192:     data.primaryTask === "D1.1" ? "—‚   —œ—──€ test_clause_auditor.py    # Casos de prueba de detección de cláusulas abu
+Line 193:     hasSEC01 ? "—‚   —”—──€ test_anti_hallucination.py# Banco de pruebas de no-alucinación y anclaje de citas" : null,
+Line 194:     "—œ—──€ data/                         # Contratos de prueba anonimizados, corpus normativo y caché",
+Line 195:     "—œ—──€ requirements.txt              # PyMuPDF, python-docx, duckdb, pydantic, pytest",
+Line 196:     "—”—──€ main.py                       # Punto de entrada de la aplicación LegalTech",
+Line 303:     "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Derecho & LegalTech.",
+Line 307:     "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon LegalAppWizard v1.0_",
+Line 311: // —─── Componentes auxiliares —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 489: // —─── Componente principal —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 601:                 Diseñador de Proyectos — Derecho & LegalTech
+Line 610:         {/* —──€ PASOS 1-6 —──€ */}
+Line 618:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
+Line 645:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
+Line 664:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito Jurídico & Motores</h2>
+Line 687:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas Jurídicas</h2>
+Line 729:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Rigor Jurídico y Guardrails Deontológic
+Line 781:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
+Line 809:         {/* —──€ PANTALLA FINAL: INFORME —──€ */}
+Line 856: // —─── Renderizador de Markdown ligero —───—───—───—───—───—───—───—───—───—───—───—───—───—€

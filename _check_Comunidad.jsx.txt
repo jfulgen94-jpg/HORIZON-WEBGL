@@ -1,0 +1,2 @@
+Line 27:     desc: "Preguntas, reflexiones y debate abierto sobre IA, programación y datos. Sin jerarquías — solo ideas y convers
+Line 81:           <p className="text-white/30 text-sm">La comunidad empieza vacía — cada publicación es tuya y de quienes vengan

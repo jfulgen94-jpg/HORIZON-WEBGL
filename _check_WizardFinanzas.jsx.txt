@@ -1,0 +1,48 @@
+Line 11: // —─── Constantes de datos —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 73:   "Intradiario Alta Resolución (1 min / 5 min) — requiere proveedor especializado",
+Line 75:   "Diario Fin de Día (EOD) — recomendado para análisis fundamental y swing",
+Line 88:   { id: "evebitda", label: "EV / EBITDA", cat: "Fundamentales", desc: "Enterprise Value / EBITDA — múltiplo operativo de
+Line 94:   { id: "sharpe", label: "Ratio de Sharpe", cat: "Riesgo & Eficiencia", desc: "(Rp âˆ’ Rf) / Ïƒp — exceso de retorno por
+Line 95:   { id: "sortino", label: "Ratio de Sortino", cat: "Riesgo & Eficiencia", desc: "(Rp âˆ’ Rf) / Ïƒd — exceso de retorno p
+Line 98:   { id: "calmar", label: "Ratio de Calmar", cat: "Riesgo & Eficiencia", desc: "CAGR / MDD — relación entre crecimiento y
+Line 110:   "Ponderación Equitativa (Equal Weight — 1/N)",
+Line 117:   "Flet (Python Desktop/Mobile — motor Flutter, empaquetable en .exe)",
+Line 128: // —─── Helpers —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 152: // —─── Generador del informe —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 174:     "—œ—──€ src/",
+Line 175:     "—‚   —œ—──€ __init__.py",
+Line 176:     "—‚   —œ—──€ config.py             # Parámetros globales, claves de API y rutas locales",
+Line 177:     "—‚   —œ—──€ schemas.py            # Modelos Pydantic v2 para validación estricta de datos" + (hasSEC07 ? "\n—‚   —‚
+Line 178:     "—‚   —œ—──€ data_fetcher.py       # Clientes HTTP asíncronos y conectores de mercado",
+Line 179:     "—‚   —œ—──€ analytics.py          # Fórmulas cuantitativas, ratios e indicadores",
+Line 180:     hasBacktest ? "—‚   —œ—──€ backtest_engine.py    # Simulación de órdenes, curvas de equidad y métricas (BR-FIN-01)" 
+Line 181:     "—‚   —œ—──€ storage.py            # " + (hasSEC04 ? "DuckDB + Parquet (BR-FIN-04) con dataset DEMO offline" : "Capa
+Line 182:     "—‚   —œ—──€ reporting.py          # Generador de informes exportables (Markdown / PDF)",
+Line 183:     hasSEC03 ? "—‚   —œ—──€ alerts.py             # Motor de notificaciones multicanal (SEC-03)" : null,
+Line 184:     hasSEC08 ? "—‚   —œ—──€ api.py                # API REST interna FastAPI + exportador Excel/CSV (SEC-08)" : null,
+Line 185:     primary?.id === "F1.3" ? "—‚   —œ—──€ sentiment_engine.py   # Procesamiento NLP y scoring textual (BR-FIN-02)" : nul
+Line 186:     "—‚   —”—──€ ui/",
+Line 187:     "—‚       —œ—──€ __init__.py",
+Line 188:     "—‚       —œ—──€ components.py     # Tarjetas de métricas, tablas y widgets reutilizables",
+Line 189:     "—‚       —”—──€ main_view.py      # Vistas y pantallas principales",
+Line 190:     "—œ—──€ tests/",
+Line 191:     "—‚   —œ—──€ test_schemas.py",
+Line 192:     "—‚   —œ—──€ test_analytics.py",
+Line 193:     hasBacktest ? "—‚   —”—──€ test_backtest.py" : null,
+Line 194:     "—œ—──€ data/                     # Ficheros locales Parquet y caché" + (hasSEC04 ? " — DEMO precargado" : ""),
+Line 195:     "—œ—──€ requirements.txt",
+Line 196:     "—”—──€ main.py                   # Punto de entrada de la aplicación",
+Line 306:     "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Para uso interno de investigación y formación.",
+Line 310:     "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon FinanceAppWizard v1.0_"
+Line 314: // —─── Componentes auxiliares —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 492: // —─── Componente principal —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 606:                 Diseñador de Proyectos — Finanzas
+Line 615:         {/* —──€ PASOS 1-6 —──€ */}
+Line 623:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
+Line 650:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
+Line 669:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Universo de Análisis</h2>
+Line 697:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas</h2>
+Line 739:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Motor de Simulación</h2>
+Line 791:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico</h2>
+Line 819:         {/* —──€ PANTALLA FINAL: INFORME —──€ */}
+Line 866: // —─── Renderizador de Markdown ligero —───—───—───—───—───—───—───—───—───—───—───—───—───—€

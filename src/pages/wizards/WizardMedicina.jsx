@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { ShieldCheck } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Medicina & IA Clínica) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Medicina & IA Clínica) ───────────────────────────—€
 
 const PRIMARY_TASKS = [
   {
@@ -119,7 +119,7 @@ const STORAGE_ENGINES = [
   "PostgreSQL / TimescaleDB con Esquemas JSONB de Historia Clínica",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -145,7 +145,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "M1.1" || primaryId === "M1.3" || secondaryIds.includes("SEC-MED-01") || secondaryIds.includes("SEC-MED-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -171,31 +171,31 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Configuración del entorno, endpoints clínicos y claves de API",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 y validadores de integridad clínica",
-    data.primaryTask === "M1.1" ? "—‚   —œ—€—€ claim_extractor.py        # Segmentador de afirmaciones clínicas atómicas (BR-MED-01)" : null,
-    data.primaryTask === "M1.1" || hasSEC05 ? "—‚   —œ—€—€ pubmed_verifier.py        # Conector NCBI E-Utilities y validador bibliográfico" : null,
-    data.primaryTask === "M1.2" || hasSEC03 ? "—‚   —œ—€—€ fhir_builder.py           # Constructor y validador de recursos HL7 FHIR R4 (BR-MED-02)" : null,
-    hasSEC02 ? "—‚   —œ—€—€ terminology.py            # Mapeo a códigos CIE-10, SNOMED-CT, RxNorm y LOINC" : null,
-    data.primaryTask === "M1.3" ? "—‚   —œ—€—€ adherence_engine.py       # Planificador de tomas y registro de eventos de adherencia" : null,
-    hasSEC01 || hasSEC07 ? "—‚   —œ—€—€ safety_guardrail.py       # Guardrail Do-No-Harm y detector de contraindicaciones (BR-MED-05)" : null,
-    data.primaryTask === "M1.5" ? "—‚   —œ—€—€ clinical_calculator.py    # Motor determinista de fórmulas médicas (GFR, MELD, CHADS2)" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB columnar para auditoría inmutable de afirmaciones" : "Capa de persistencia clínica"),
-    hasSEC06 ? "—‚   —œ—€—€ alerts_dispatcher.py      # Gestor de alertas sanitarias y derivación urgente (SEC-MED-06)" : null,
-    hasSEC08 ? "—‚   —œ—€—€ clinical_reporting.py     # Generador de informes clínicos auditables (PDF / JSON-LD)" : null,
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Tarjetas de afirmaciones, badges de verificación y visores FHIR",
-    "—‚       —”—€—€ main_view.py          # Dashboard clínico y panel de operador sanitario",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Pruebas de esquemas Pydantic y serialización",
-    "—‚   —œ—€—€ test_safety_guardrail.py  # Banco de pruebas de no-maleficencia y casos de jailbreak médico",
-    data.primaryTask === "M1.2" ? "—‚   —”—€—€ test_fhir_conformity.py   # Validación de conformidad contra perfiles HL7 FHIR R4" : null,
-    "—œ—€—€ data/                         # Datasets de prueba, ontologías y caché local",
-    "—œ—€—€ requirements.txt              # fhir.resources, pydantic, duckdb, requests, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación clínica",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Configuración del entorno, endpoints clínicos y claves de API",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 y validadores de integridad clínica",
+    data.primaryTask === "M1.1" ? "—‚   —œ─── claim_extractor.py        # Segmentador de afirmaciones clínicas atómicas (BR-MED-01)" : null,
+    data.primaryTask === "M1.1" || hasSEC05 ? "—‚   —œ─── pubmed_verifier.py        # Conector NCBI E-Utilities y validador bibliográfico" : null,
+    data.primaryTask === "M1.2" || hasSEC03 ? "—‚   —œ─── fhir_builder.py           # Constructor y validador de recursos HL7 FHIR R4 (BR-MED-02)" : null,
+    hasSEC02 ? "—‚   —œ─── terminology.py            # Mapeo a códigos CIE-10, SNOMED-CT, RxNorm y LOINC" : null,
+    data.primaryTask === "M1.3" ? "—‚   —œ─── adherence_engine.py       # Planificador de tomas y registro de eventos de adherencia" : null,
+    hasSEC01 || hasSEC07 ? "—‚   —œ─── safety_guardrail.py       # Guardrail Do-No-Harm y detector de contraindicaciones (BR-MED-05)" : null,
+    data.primaryTask === "M1.5" ? "—‚   —œ─── clinical_calculator.py    # Motor determinista de fórmulas médicas (GFR, MELD, CHADS2)" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB columnar para auditoría inmutable de afirmaciones" : "Capa de persistencia clínica"),
+    hasSEC06 ? "—‚   —œ─── alerts_dispatcher.py      # Gestor de alertas sanitarias y derivación urgente (SEC-MED-06)" : null,
+    hasSEC08 ? "—‚   —œ─── clinical_reporting.py     # Generador de informes clínicos auditables (PDF / JSON-LD)" : null,
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Tarjetas de afirmaciones, badges de verificación y visores FHIR",
+    "—‚       —”─── main_view.py          # Dashboard clínico y panel de operador sanitario",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Pruebas de esquemas Pydantic y serialización",
+    "—‚   —œ─── test_safety_guardrail.py  # Banco de pruebas de no-maleficencia y casos de jailbreak médico",
+    data.primaryTask === "M1.2" ? "—‚   —”─── test_fhir_conformity.py   # Validación de conformidad contra perfiles HL7 FHIR R4" : null,
+    "—œ─── data/                         # Datasets de prueba, ontologías y caché local",
+    "—œ─── requirements.txt              # fhir.resources, pydantic, duckdb, requests, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación clínica",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -311,7 +311,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -489,7 +489,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -610,7 +610,7 @@ export default function WizardMedicina() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -809,7 +809,7 @@ export default function WizardMedicina() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -856,7 +856,7 @@ export default function WizardMedicina() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

@@ -10,7 +10,7 @@ import { AlertTriangle } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Heart } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Psicología & Creatividad) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Psicología & Creatividad) ────────────────────────—€
 
 const PRIMARY_TASKS = [
   {
@@ -118,7 +118,7 @@ const STORAGE_ENGINES = [
   "Base de Datos en Memoria para Sesiones de Simulación de Negociación Temporales",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -145,7 +145,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "P1.1" || primaryId === "P1.4" || primaryId === "P1.6" || secondaryIds.includes("SEC-PSI-01") || secondaryIds.includes("SEC-PSI-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -171,30 +171,30 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Parámetros de diálogo, umbrales de carga emocional y protocolos de seguridad",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para estados emocionales, turnos y árboles de negociación" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails Deontológicos No Clínicos (BR-PSI-05)" : ""),
-    data.primaryTask === "P1.1" ? "—‚   —œ—€—€ empathic_engine.py        # Modulador de escucha activa y respuestas no clínicas (BR-PSI-01)" : null,
-    hasSEC01 || data.primaryTask === "P1.1" ? "—‚   —œ—€—€ crisis_guardrail.py       # Detector de señales críticas y protocolo de derivación oficial" : null,
-    data.primaryTask === "P1.2" || hasSEC02 ? "—‚   —œ—€—€ divergent_ideation.py     # Motor de pensamiento divergente y cálculo de distancia DAT (BR-PSI-02)" : null,
-    data.primaryTask === "P1.3" || hasSEC06 ? "—‚   —œ—€—€ tom_simulator.py          # Simulador de negociación con Teoría de la Mente y asimetrías (BR-PSI-03)" : null,
-    data.primaryTask === "P1.4" || hasSEC08 ? "—‚   —œ—€—€ tone_auditor.py           # Analizador de resonancia afectiva, hedges y clima de comunicaciones" : null,
-    data.primaryTask === "P1.5" ? "—‚   —œ—€—€ bias_detector.py          # Evaluador de sesgos cognitivos y trampas heurísticas" : null,
-    data.primaryTask === "P1.6" ? "—‚   —œ—€—€ reflective_coaching.py    # Facilitador de preguntas reflexivas socráticas no directivas" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-PSI-04) con registro inmutable de sesiones y estado" : "Capa de persistencia psicológica"),
-    "—‚   —œ—€—€ reporting.py              # Generador de informes de clima emocional y mapas de empatía (PDF / Markdown)",
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Visores de tono emocional, gráficos radar de empatía y paneles de diálogo",
-    "—‚       —”—€—€ main_view.py          # Dashboard interactivo y panel del facilitador/usuario",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Validación de modelos de datos conversacionales",
-    hasSEC01 ? "—‚   —œ—€—€ test_crisis_guardrail.py  # Batería de pruebas de seguridad y derivación inmediata ante ideación crítica" : null,
-    data.primaryTask === "P1.2" ? "—‚   —”—€—€ test_dat_distance.py      # Casos de prueba de cálculo de distancia semántica vectorial" : null,
-    "—œ—€—€ data/                         # Datasets de validación emocional, ontologías y caché local",
-    "—œ—€—€ requirements.txt              # pydantic, duckdb, scipy, requests, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación de psicología/creatividad",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Parámetros de diálogo, umbrales de carga emocional y protocolos de seguridad",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 para estados emocionales, turnos y árboles de negociación" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails Deontológicos No Clínicos (BR-PSI-05)" : ""),
+    data.primaryTask === "P1.1" ? "—‚   —œ─── empathic_engine.py        # Modulador de escucha activa y respuestas no clínicas (BR-PSI-01)" : null,
+    hasSEC01 || data.primaryTask === "P1.1" ? "—‚   —œ─── crisis_guardrail.py       # Detector de señales críticas y protocolo de derivación oficial" : null,
+    data.primaryTask === "P1.2" || hasSEC02 ? "—‚   —œ─── divergent_ideation.py     # Motor de pensamiento divergente y cálculo de distancia DAT (BR-PSI-02)" : null,
+    data.primaryTask === "P1.3" || hasSEC06 ? "—‚   —œ─── tom_simulator.py          # Simulador de negociación con Teoría de la Mente y asimetrías (BR-PSI-03)" : null,
+    data.primaryTask === "P1.4" || hasSEC08 ? "—‚   —œ─── tone_auditor.py           # Analizador de resonancia afectiva, hedges y clima de comunicaciones" : null,
+    data.primaryTask === "P1.5" ? "—‚   —œ─── bias_detector.py          # Evaluador de sesgos cognitivos y trampas heurísticas" : null,
+    data.primaryTask === "P1.6" ? "—‚   —œ─── reflective_coaching.py    # Facilitador de preguntas reflexivas socráticas no directivas" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-PSI-04) con registro inmutable de sesiones y estado" : "Capa de persistencia psicológica"),
+    "—‚   —œ─── reporting.py              # Generador de informes de clima emocional y mapas de empatía (PDF / Markdown)",
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Visores de tono emocional, gráficos radar de empatía y paneles de diálogo",
+    "—‚       —”─── main_view.py          # Dashboard interactivo y panel del facilitador/usuario",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Validación de modelos de datos conversacionales",
+    hasSEC01 ? "—‚   —œ─── test_crisis_guardrail.py  # Batería de pruebas de seguridad y derivación inmediata ante ideación crítica" : null,
+    data.primaryTask === "P1.2" ? "—‚   —”─── test_dat_distance.py      # Casos de prueba de cálculo de distancia semántica vectorial" : null,
+    "—œ─── data/                         # Datasets de validación emocional, ontologías y caché local",
+    "—œ─── requirements.txt              # pydantic, duckdb, scipy, requests, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación de psicología/creatividad",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -309,7 +309,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -487,7 +487,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -608,7 +608,7 @@ export default function WizardPsicologia() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -807,7 +807,7 @@ export default function WizardPsicologia() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -854,7 +854,7 @@ export default function WizardPsicologia() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

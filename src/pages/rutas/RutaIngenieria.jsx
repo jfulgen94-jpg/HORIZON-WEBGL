@@ -18,7 +18,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Ingeniería (data_engineering/rankings/) · HumanEval · MBPP · SWE-Bench", motivo: "Verificar scores reales en generación de código antes de elegir el modelo." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Decidir qué lenguajes y tipos de tarea cubre la v1 antes de tocar código." },
@@ -43,7 +43,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de modelos en generación de código y planificar v2 con soporte SQL." },
 ];
 
-// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phases overview ─────────────────────────────────────────────────────────—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",          summary: "Benchmarks de código (HumanEval, MBPP, SWE-Bench) y riesgos de ejecutar código generado por LLM." },
   { id: "1", label: "Capa 1", name: "Definición",              summary: "Perfil de usuario, problema, inputs/outputs, criterios de éxito y límites de la v1 (solo Python, sandbox básico)." },
@@ -55,7 +55,7 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",               summary: "Publicar en el Foro de Proyectos y planificar v2 con soporte SQL y sandbox Docker." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · Multi-lenguaje",
@@ -104,7 +104,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Sandbox security banner —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Sandbox security banner ────────────────────────────────────────────────—
 function SandboxBanner() {
   return (
     <div className="mb-8 flex items-start gap-3 px-5 py-4 rounded-xl border"
@@ -117,7 +117,7 @@ function SandboxBanner() {
   );
 }
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaIngenieria() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -1154,7 +1154,7 @@ Backlog v2 en formato tabla.`}
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Resultado esperado —€—€—€ */}
+        {/* ─── Resultado esperado ─── */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(59,111,212,0.05)", borderColor: "rgba(59,111,212,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1178,7 +1178,7 @@ Backlog v2 en formato tabla.`}
           </div>
         </div>
 
-        {/* —€—€—€ Version extensions —€—€—€ */}
+        {/* ─── Version extensions ─── */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

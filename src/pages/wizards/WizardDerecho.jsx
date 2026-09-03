@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Scale } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Derecho & LegalTech) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Derecho & LegalTech) ──────────────────────────────
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Base de Datos de Vectores para Búsqueda Semántica de Jurisprudencia",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -143,7 +143,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "D1.1" || primaryId === "D1.3" || primaryId === "D1.5" || secondaryIds.includes("SEC-LAW-01") || secondaryIds.includes("SEC-LAW-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -169,31 +169,31 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Parámetros del proyecto, claves de API y rutas de almacenamiento seguro",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para contratos, cláusulas y dictámenes" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de No-Asesoramiento (BR-LAW-05)" : ""),
-    data.primaryTask === "D1.1" || hasSEC06 ? "—‚   —œ—€—€ contract_parser.py        # Parser de contratos (PDF, DOCX, TXT) con segmentación atómica (BR-LAW-01)" : null,
-    data.primaryTask === "D1.1" ? "—‚   —œ—€—€ clause_auditor.py         # Clasificador CUAD (41 tipos) y detector de riesgos contractuales" : null,
-    hasSEC03 ? "—‚   —œ—€—€ liability_extractor.py    # Extractor especializado de topes de indemnización y responsabilidades" : null,
-    data.primaryTask === "D1.2" ? "—‚   —œ—€—€ jurisprudence_trends.py   # Analizador de sentencias y clustering de evolución doctrinal (BR-LAW-02)" : null,
-    data.primaryTask === "D1.3" ? "—‚   —œ—€—€ compliance_mapper.py      # Motor de mapeo regulatorio (AI Act, RGPD, DORA) y gap analysis" : null,
-    data.primaryTask === "D1.4" ? "—‚   —œ—€—€ legal_rag_engine.py       # Asistente semántico con recuperación de legislación y jurisprudencia" : null,
-    hasSEC01 ? "—‚   —œ—€—€ anti_hallucination.py     # Verificador estricto de anclaje textual y citas legislativas" : null,
-    hasSEC08 ? "—‚   —œ—€—€ boe_connector.py          # Conector para verificación de textos consolidados del BOE / EUR-Lex" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-LAW-04) con registro inmutable de auditorías" : "Capa de persistencia jurídica"),
-    "—‚   —œ—€—€ legal_reporting.py        # Generador de informes de auditoría legal con semáforos de riesgo (PDF / Markdown)",
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Visores de contratos anotados, badges de riesgo y tablas de cláusulas",
-    "—‚       —”—€—€ main_view.py          # Dashboard de auditoría y panel del jurista",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Validación de modelos de datos jurídicos",
-    data.primaryTask === "D1.1" ? "—‚   —œ—€—€ test_clause_auditor.py    # Casos de prueba de detección de cláusulas abusivas" : null,
-    hasSEC01 ? "—‚   —”—€—€ test_anti_hallucination.py# Banco de pruebas de no-alucinación y anclaje de citas" : null,
-    "—œ—€—€ data/                         # Contratos de prueba anonimizados, corpus normativo y caché",
-    "—œ—€—€ requirements.txt              # PyMuPDF, python-docx, duckdb, pydantic, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación LegalTech",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Parámetros del proyecto, claves de API y rutas de almacenamiento seguro",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 para contratos, cláusulas y dictámenes" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de No-Asesoramiento (BR-LAW-05)" : ""),
+    data.primaryTask === "D1.1" || hasSEC06 ? "—‚   —œ─── contract_parser.py        # Parser de contratos (PDF, DOCX, TXT) con segmentación atómica (BR-LAW-01)" : null,
+    data.primaryTask === "D1.1" ? "—‚   —œ─── clause_auditor.py         # Clasificador CUAD (41 tipos) y detector de riesgos contractuales" : null,
+    hasSEC03 ? "—‚   —œ─── liability_extractor.py    # Extractor especializado de topes de indemnización y responsabilidades" : null,
+    data.primaryTask === "D1.2" ? "—‚   —œ─── jurisprudence_trends.py   # Analizador de sentencias y clustering de evolución doctrinal (BR-LAW-02)" : null,
+    data.primaryTask === "D1.3" ? "—‚   —œ─── compliance_mapper.py      # Motor de mapeo regulatorio (AI Act, RGPD, DORA) y gap analysis" : null,
+    data.primaryTask === "D1.4" ? "—‚   —œ─── legal_rag_engine.py       # Asistente semántico con recuperación de legislación y jurisprudencia" : null,
+    hasSEC01 ? "—‚   —œ─── anti_hallucination.py     # Verificador estricto de anclaje textual y citas legislativas" : null,
+    hasSEC08 ? "—‚   —œ─── boe_connector.py          # Conector para verificación de textos consolidados del BOE / EUR-Lex" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-LAW-04) con registro inmutable de auditorías" : "Capa de persistencia jurídica"),
+    "—‚   —œ─── legal_reporting.py        # Generador de informes de auditoría legal con semáforos de riesgo (PDF / Markdown)",
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Visores de contratos anotados, badges de riesgo y tablas de cláusulas",
+    "—‚       —”─── main_view.py          # Dashboard de auditoría y panel del jurista",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Validación de modelos de datos jurídicos",
+    data.primaryTask === "D1.1" ? "—‚   —œ─── test_clause_auditor.py    # Casos de prueba de detección de cláusulas abusivas" : null,
+    hasSEC01 ? "—‚   —”─── test_anti_hallucination.py# Banco de pruebas de no-alucinación y anclaje de citas" : null,
+    "—œ─── data/                         # Contratos de prueba anonimizados, corpus normativo y caché",
+    "—œ─── requirements.txt              # PyMuPDF, python-docx, duckdb, pydantic, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación LegalTech",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -308,7 +308,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -486,7 +486,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -607,7 +607,7 @@ export default function WizardDerecho() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -806,7 +806,7 @@ export default function WizardDerecho() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -853,7 +853,7 @@ export default function WizardDerecho() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

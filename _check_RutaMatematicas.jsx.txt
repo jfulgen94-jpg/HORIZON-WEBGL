@@ -1,0 +1,53 @@
+Line 21: // —─── Tools table —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 46: // —─── Phases overview —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 58: // —─── Version extensions —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 63:     title: "Prisma Arena — Comparativa paralela de razonamiento",
+Line 78:     title: "Prisma AIME — Problemas de alta dificultad",
+Line 93:     title: "Prisma Report — Comparativa de modelos en PDF",
+Line 107: // —─── Math verification notice —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 120: // —─── Main component —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 219:             FASE 0 — INVESTIGACI“N
+Line 234:           <PromptBlock label="Prompt 0.A — Benchmarks matemáticos">
+Line 253:           <PromptBlock label="Prompt 0.B — Viabilidad de verificación automática">
+Line 266:             CAPA 1 — DEFINICI“N DEL PROBLEMA
+Line 281:           <PromptBlock label="Prompt 1.1 — Perfil de usuario">
+Line 303:           <PromptBlock label="Prompt 1.2 — Frase del problema">
+Line 322:           <PromptBlock label="Prompt 1.3 — Inputs de la app">
+Line 348:           <PromptBlock label="Prompt 1.4 — Outputs de la app">
+Line 374:           <PromptBlock label="Prompt 1.5 — Criterios de éxito">
+Line 393:           <PromptBlock label="Prompt 1.6 — Límites de la v1">
+Line 410:             CAPA 2 — DATOS
+Line 425:           <PromptBlock label="Prompt 2.1 — Fuente de datos">
+Line 451:           <PromptBlock label="Prompt 2.2 — Modelos Pydantic">
+Line 494:           <PromptBlock label="Prompt 2.3 — Extracción numérica">
+Line 523:           <PromptBlock label="Prompt 2.4 — DuckDB">
+Line 551:           <PromptBlock label="Prompt 2.5 — Dataset de ejemplo">
+Line 574:             CAPA 3 — L“GICA / IA
+Line 589:           <PromptBlock label="Prompt 3.1 — Selección del modelo">
+Line 613:           <PromptBlock label="Prompt 3.2 — Prompt Chain of Thought">
+Line 634:           <PromptBlock label="Prompt 3.3 — Llamada al modelo">
+Line 657:           <PromptBlock label="Prompt 3.4 — Parseo de respuesta">
+Line 679:           <PromptBlock label="Prompt 3.5 — Detección de issues">
+Line 701:           <PromptBlock label="Prompt 3.6 — Fallback">
+Line 722:             CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
+Line 737:           <PromptBlock label="Prompt 4.1 — Wireframe">
+Line 770:           <PromptBlock label="Prompt 4.2 — Formulario">
+Line 791:           <PromptBlock label="Prompt 4.3 — Área de resultados">
+Line 820:           <PromptBlock label="Prompt 4.4 — Estados de error">
+Line 839:           <PromptBlock label="Prompt 4.5 — Navegación">
+Line 856:             CAPA 5 — INTEGRACI“N
+Line 871:           <PromptBlock label="Prompt 5.1 — Conexión UI â†” lógica">
+Line 894:           <PromptBlock label="Prompt 5.2 — Pipeline completo">
+Line 915:           <PromptBlock label="Prompt 5.3 — Gestión de errores">
+Line 939:           <PromptBlock label="Prompt 5.4 — Logging">
+Line 959:           <PromptBlock label="Prompt 5.5 — Configuración">
+Line 982:             CAPA 6 — PRUEBAS Y EMPAQUETADO
+Line 997:           <PromptBlock label="Prompt 6.1 — Tests unitarios">
+Line 1017:           <PromptBlock label="Prompt 6.2 — Test de integración">
+Line 1040:           <PromptBlock label="Prompt 6.3 — Protocolo manual">
+Line 1061:           <PromptBlock label="Prompt 6.4 — PyInstaller">
+Line 1082:           <PromptBlock label="Prompt 6.5 — Prueba en máquina limpia">
+Line 1099:             FASE 7 — ITERACI“N
+Line 1114:           <PromptBlock label="Prompt 7.A — Planificar v2">
+Line 1138:           <PromptBlock label="Prompt 7.B — Publicar en Foro">
+Line 1141: 1. Título: "Prisma Matemático v1 — [SUBTÍTULO]"

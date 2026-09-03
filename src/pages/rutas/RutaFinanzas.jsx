@@ -19,7 +19,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "SEC EDGAR · Yahoo Finance · Alpha Vantage [VERIFICAR EN DOCUMENTACI“N OFICIAL] · Papers de sentimiento financiero", motivo: "Validar legalidad, cobertura, cuotas y formatos de datos fundamentales y textuales antes de programar." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Plantilla de especificación funcional y técnica", motivo: "Acotar el alcance estricto del proyecto, delimitando las fronteras entre investigación y trading." },
@@ -38,7 +38,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon · Markdown exporter", motivo: "Publicar informes de investigación en la comunidad y definir el roadmap de extensiones futuras." },
 ];
 
-// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phases overview ─────────────────────────────────────────────────────────—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Fuentes autorizadas de fundamentales y precios, licencias, cuotas y viabilidad del backstage de estrategias e indicadores reproducibles." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil del analista/investigador, problema de fragmentación y opacidad, inputs/outputs con clasificación epistemológica y límites: sin trading automático ni asesoría." },
@@ -50,7 +50,7 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Backlog v2 (conectores profesionales, backtesting multiactivo, alertas avanzadas) y publicación en el Foro de Proyectos." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · Multiactivo",
@@ -99,7 +99,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Financial disclaimer banner —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Financial disclaimer banner ─────────────────────────────────────────────—€
 function FinancialDisclaimerBanner() {
   return (
     <div className="mb-8 rounded-xl border overflow-hidden"
@@ -135,7 +135,7 @@ function FinancialDisclaimerBanner() {
   );
 }
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaFinanzas() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -1175,7 +1175,7 @@ Estructura de la ficha:
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Resultado esperado —€—€—€ */}
+        {/* ─── Resultado esperado ─── */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(5,150,105,0.04)", borderColor: "rgba(5,150,105,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1199,7 +1199,7 @@ Estructura de la ficha:
           </div>
         </div>
 
-        {/* —€—€—€ Version extensions —€—€—€ */}
+        {/* ─── Version extensions ─── */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

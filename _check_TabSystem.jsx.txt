@@ -1,0 +1,5 @@
+Line 5:  * TabSystem — Sistema de pestañas reutilizable.
+Line 8:  *   tabs     — Array de { id, label } (obligatorio)
+Line 9:  *   children — Contenido JSX, cada hijo debe tener data-tab-id={tab.id}
+Line 10:  *   accent   — Color hex del acento (opcional, default: var(--accent))
+Line 11:  *   variant  — "underline" (default) | "pills"

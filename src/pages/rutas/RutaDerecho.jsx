@@ -18,7 +18,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Derecho · LegalBench · CUAD · MMLU-Law", motivo: "Verificar qué modelos tienen mejor performance en razonamiento legal verificado." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Definir el tipo de análisis legal y las advertencias de responsabilidad de la v1." },
@@ -43,7 +43,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de modelos en razonamiento legal." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · RGPD",
@@ -92,7 +92,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Legal disclaimer banner (permanent, non-dismissible) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Legal disclaimer banner (permanent, non-dismissible) ──────────────────—
 function LegalBanner() {
   return (
     <div className="mb-8 flex items-start gap-3 px-5 py-4 rounded-xl border"
@@ -105,7 +105,7 @@ function LegalBanner() {
   );
 }
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaDerecho() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -1406,7 +1406,7 @@ Redacta la ficha de presentación de "Lex Analyst" para publicar en el Foro de l
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Result box —€—€—€ */}
+        {/* ─── Result box ─── */}
         <div className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "white", border: "1px solid rgba(59,111,212,0.2)" }}>
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
@@ -1436,7 +1436,7 @@ Redacta la ficha de presentación de "Lex Analyst" para publicar en el Foro de l
           </div>
         </div>
 
-        {/* —€—€—€ Version extensions —€—€—€ */}
+        {/* ─── Version extensions ─── */}
         <VersionExtensions versions={VERSIONS} />
 
         <div className="h-16" />

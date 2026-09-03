@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Palette } from "lucide-react";
 
-// —€—€—€ Constantes de datos (Diseño & Creatividad Visual) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos (Diseño & Creatividad Visual) ─────────────────────—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Almacén de Proyectos Creativos en Formato Markdown con Muestras de Color",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -144,7 +144,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "DS1.1" || primaryId === "DS1.2" || primaryId === "DS1.5" || secondaryIds.includes("SEC-DS-01") || secondaryIds.includes("SEC-DS-06") || secondaryIds.includes("SEC-DS-07");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -170,30 +170,30 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py                 # Configuración de diseño, perfiles de color y claves API (Google Fonts)",
-    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para paletas, tokens W3C y especificaciones de marca" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Asistencia Creativa (BR-DS-05)" : ""),
-    data.primaryTask === "DS1.1" ? "—‚   —œ—€—€ brand_generator.py        # Generador de direcciones creativas y conceptos de identidad (BR-DS-01)" : null,
-    hasSEC01 || data.primaryTask === "DS1.5" ? "—‚   —œ—€—€ wcag_contrast.py          # Calculador algorítmico de contraste WCAG 2.1 AA/AAA" : null,
-    hasSEC02 || data.primaryTask === "DS1.1" ? "—‚   —œ—€—€ font_validator.py         # Conector con Google Fonts API y validador de pares tipográficos" : null,
-    data.primaryTask === "DS1.2" || hasSEC08 ? "—‚   —œ—€—€ ui_auditor.py             # Auditor heurístico de interfaces y detector de bounding boxes (BR-DS-02)" : null,
-    data.primaryTask === "DS1.3" || hasSEC05 ? "—‚   —œ—€—€ design_tokens.py          # Generador de tokens W3C, CSS Variables y Tailwind Config (BR-DS-03)" : null,
-    data.primaryTask === "DS1.4" ? "—‚   —œ—€—€ svg_generator.py          # Constructor de gráficos y logotipos vectoriales limpios con svgwrite" : null,
-    hasSEC06 ? "—‚   —œ—€—€ cultural_checker.py       # Analizador de connotaciones y semiótica cultural del color" : null,
-    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de variantes" : "Capa de persistencia de diseño"),
-    "—‚   —œ—€—€ brand_reporting.py        # Generador de manuales de identidad y guías de estilo (Markdown / PDF)",
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py         # Visores de paletas de color, muestras tipográficas y renderizadores SVG",
-    "—‚       —”—€—€ main_view.py          # Dashboard de diseño y panel del director de arte",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py           # Pruebas de esquemas de tokens de diseño",
-    hasSEC01 ? "—‚   —œ—€—€ test_wcag_contrast.py     # Batería de cálculo de contrastes y luminancia relativa" : null,
-    data.primaryTask === "DS1.4" ? "—‚   —”—€—€ test_svg_output.py        # Validación sintáctica de SVG generados" : null,
-    "—œ—€—€ data/                         # Ficheros de tokens JSON, assets SVG y caché de tipografías",
-    "—œ—€—€ requirements.txt              # svgwrite, pydantic, duckdb, requests, pytest",
-    "—”—€—€ main.py                       # Punto de entrada de la aplicación de diseño",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py                 # Configuración de diseño, perfiles de color y claves API (Google Fonts)",
+    "—‚   —œ─── schemas.py                # Modelos Pydantic v2 para paletas, tokens W3C y especificaciones de marca" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Asistencia Creativa (BR-DS-05)" : ""),
+    data.primaryTask === "DS1.1" ? "—‚   —œ─── brand_generator.py        # Generador de direcciones creativas y conceptos de identidad (BR-DS-01)" : null,
+    hasSEC01 || data.primaryTask === "DS1.5" ? "—‚   —œ─── wcag_contrast.py          # Calculador algorítmico de contraste WCAG 2.1 AA/AAA" : null,
+    hasSEC02 || data.primaryTask === "DS1.1" ? "—‚   —œ─── font_validator.py         # Conector con Google Fonts API y validador de pares tipográficos" : null,
+    data.primaryTask === "DS1.2" || hasSEC08 ? "—‚   —œ─── ui_auditor.py             # Auditor heurístico de interfaces y detector de bounding boxes (BR-DS-02)" : null,
+    data.primaryTask === "DS1.3" || hasSEC05 ? "—‚   —œ─── design_tokens.py          # Generador de tokens W3C, CSS Variables y Tailwind Config (BR-DS-03)" : null,
+    data.primaryTask === "DS1.4" ? "—‚   —œ─── svg_generator.py          # Constructor de gráficos y logotipos vectoriales limpios con svgwrite" : null,
+    hasSEC06 ? "—‚   —œ─── cultural_checker.py       # Analizador de connotaciones y semiótica cultural del color" : null,
+    "—‚   —œ─── storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de variantes" : "Capa de persistencia de diseño"),
+    "—‚   —œ─── brand_reporting.py        # Generador de manuales de identidad y guías de estilo (Markdown / PDF)",
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py         # Visores de paletas de color, muestras tipográficas y renderizadores SVG",
+    "—‚       —”─── main_view.py          # Dashboard de diseño y panel del director de arte",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py           # Pruebas de esquemas de tokens de diseño",
+    hasSEC01 ? "—‚   —œ─── test_wcag_contrast.py     # Batería de cálculo de contrastes y luminancia relativa" : null,
+    data.primaryTask === "DS1.4" ? "—‚   —”─── test_svg_output.py        # Validación sintáctica de SVG generados" : null,
+    "—œ─── data/                         # Ficheros de tokens JSON, assets SVG y caché de tipografías",
+    "—œ─── requirements.txt              # svgwrite, pydantic, duckdb, requests, pytest",
+    "—”─── main.py                       # Punto de entrada de la aplicación de diseño",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -308,7 +308,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -486,7 +486,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -607,7 +607,7 @@ export default function WizardDiseno() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -806,7 +806,7 @@ export default function WizardDiseno() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -853,7 +853,7 @@ export default function WizardDiseno() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

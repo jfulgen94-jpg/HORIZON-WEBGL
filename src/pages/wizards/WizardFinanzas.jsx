@@ -8,7 +8,7 @@ import { RefreshCw } from "lucide-react";
 import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 
-// —€—€—€ Constantes de datos —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Constantes de datos ───────────────────────────────────────────────────—€
 
 const PRIMARY_TASKS = [
   {
@@ -125,7 +125,7 @@ const STORAGE_ENGINES = [
   "PostgreSQL / TimescaleDB (base de datos escalable para series temporales)",
 ];
 
-// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Helpers ───────────────────────────────────────────────────────────────—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -149,7 +149,7 @@ function needsBacktest(primaryId, secondaryIds) {
   return primaryId === "F1.2" || secondaryIds.includes("SEC-05");
 }
 
-// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Generador del informe ────────────────────────────────────────────────—
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -171,29 +171,29 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "—œ—€—€ src/",
-    "—‚   —œ—€—€ __init__.py",
-    "—‚   —œ—€—€ config.py             # Parámetros globales, claves de API y rutas locales",
-    "—‚   —œ—€—€ schemas.py            # Modelos Pydantic v2 para validación estricta de datos" + (hasSEC07 ? "\n—‚   —‚                         # â†’ incluye middleware Guardrails Antialucinación (BR-FIN-05)" : ""),
-    "—‚   —œ—€—€ data_fetcher.py       # Clientes HTTP asíncronos y conectores de mercado",
-    "—‚   —œ—€—€ analytics.py          # Fórmulas cuantitativas, ratios e indicadores",
-    hasBacktest ? "—‚   —œ—€—€ backtest_engine.py    # Simulación de órdenes, curvas de equidad y métricas (BR-FIN-01)" : null,
-    "—‚   —œ—€—€ storage.py            # " + (hasSEC04 ? "DuckDB + Parquet (BR-FIN-04) con dataset DEMO offline" : "Capa de persistencia de datos"),
-    "—‚   —œ—€—€ reporting.py          # Generador de informes exportables (Markdown / PDF)",
-    hasSEC03 ? "—‚   —œ—€—€ alerts.py             # Motor de notificaciones multicanal (SEC-03)" : null,
-    hasSEC08 ? "—‚   —œ—€—€ api.py                # API REST interna FastAPI + exportador Excel/CSV (SEC-08)" : null,
-    primary?.id === "F1.3" ? "—‚   —œ—€—€ sentiment_engine.py   # Procesamiento NLP y scoring textual (BR-FIN-02)" : null,
-    "—‚   —”—€—€ ui/",
-    "—‚       —œ—€—€ __init__.py",
-    "—‚       —œ—€—€ components.py     # Tarjetas de métricas, tablas y widgets reutilizables",
-    "—‚       —”—€—€ main_view.py      # Vistas y pantallas principales",
-    "—œ—€—€ tests/",
-    "—‚   —œ—€—€ test_schemas.py",
-    "—‚   —œ—€—€ test_analytics.py",
-    hasBacktest ? "—‚   —”—€—€ test_backtest.py" : null,
-    "—œ—€—€ data/                     # Ficheros locales Parquet y caché" + (hasSEC04 ? " — DEMO precargado" : ""),
-    "—œ—€—€ requirements.txt",
-    "—”—€—€ main.py                   # Punto de entrada de la aplicación",
+    "—œ─── src/",
+    "—‚   —œ─── __init__.py",
+    "—‚   —œ─── config.py             # Parámetros globales, claves de API y rutas locales",
+    "—‚   —œ─── schemas.py            # Modelos Pydantic v2 para validación estricta de datos" + (hasSEC07 ? "\n—‚   —‚                         # â†’ incluye middleware Guardrails Antialucinación (BR-FIN-05)" : ""),
+    "—‚   —œ─── data_fetcher.py       # Clientes HTTP asíncronos y conectores de mercado",
+    "—‚   —œ─── analytics.py          # Fórmulas cuantitativas, ratios e indicadores",
+    hasBacktest ? "—‚   —œ─── backtest_engine.py    # Simulación de órdenes, curvas de equidad y métricas (BR-FIN-01)" : null,
+    "—‚   —œ─── storage.py            # " + (hasSEC04 ? "DuckDB + Parquet (BR-FIN-04) con dataset DEMO offline" : "Capa de persistencia de datos"),
+    "—‚   —œ─── reporting.py          # Generador de informes exportables (Markdown / PDF)",
+    hasSEC03 ? "—‚   —œ─── alerts.py             # Motor de notificaciones multicanal (SEC-03)" : null,
+    hasSEC08 ? "—‚   —œ─── api.py                # API REST interna FastAPI + exportador Excel/CSV (SEC-08)" : null,
+    primary?.id === "F1.3" ? "—‚   —œ─── sentiment_engine.py   # Procesamiento NLP y scoring textual (BR-FIN-02)" : null,
+    "—‚   —”─── ui/",
+    "—‚       —œ─── __init__.py",
+    "—‚       —œ─── components.py     # Tarjetas de métricas, tablas y widgets reutilizables",
+    "—‚       —”─── main_view.py      # Vistas y pantallas principales",
+    "—œ─── tests/",
+    "—‚   —œ─── test_schemas.py",
+    "—‚   —œ─── test_analytics.py",
+    hasBacktest ? "—‚   —”─── test_backtest.py" : null,
+    "—œ─── data/                     # Ficheros locales Parquet y caché" + (hasSEC04 ? " — DEMO precargado" : ""),
+    "—œ─── requirements.txt",
+    "—”─── main.py                   # Punto de entrada de la aplicación",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -311,7 +311,7 @@ function generateReport(data) {
   ].filter(l => l !== null).join("\n");
 }
 
-// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componentes auxiliares ────────────────────────────────────────────────—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -489,7 +489,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Componente principal ───────────────────────────────────────────────────—€
 
 const TOTAL_STEPS = 6;
 
@@ -612,7 +612,7 @@ export default function WizardFinanzas() {
           </div>
         </div>
 
-        {/* —€—€ PASOS 1-6 —€—€ */}
+        {/* PASOS 1-6 */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -816,7 +816,7 @@ export default function WizardFinanzas() {
           </>
         )}
 
-        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
+        {/* PANTALLA FINAL: INFORME */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -863,7 +863,7 @@ export default function WizardFinanzas() {
   );
 }
 
-// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Renderizador de Markdown ligero ───────────────────────────────────────—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");

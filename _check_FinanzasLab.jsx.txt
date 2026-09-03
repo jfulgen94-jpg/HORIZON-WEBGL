@@ -1,0 +1,56 @@
+Line 15: // —─── Data —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 36:       detail: "92.5 FinQA · 91.4 ConvFinQA — líder en razonamiento multi-salto financiero",
+Line 67:       "Valorar una opción por Black-Scholes, calcular el VaR de una cartera o estimar el precio de un bono con cupones i
+Line 69:       "QuantEval_Math, MATH_Finance y GSM8K_Finance cubren esta franja desde la aritmética básica hasta el cálculo actua
+Line 71:       { name: "QuantEval_Math", desc: "Razonamiento matemático financiero cuantitativo — VaR, Black-Scholes, duración" }
+Line 78:       detail: "Diferencial de 0.1 con o1-preview en subconjunto — ver punto 4.2",
+Line 120:       detail: "Dato AFIB pendiente de verificar — ver punto 4.1 en Módulo 4",
+Line 132:       "RegAudit_Bench, Hallucination_FinBench y FinFact miden directamente el control de alucinaciones en contexto finan
+Line 134:       { name: "RegAudit_Bench", desc: "Trazabilidad en auditoría regulatoria — citas normativas verificadas" },
+Line 141:       detail: "Empate técnico — regla de desempate pendiente de documentar (ver punto 4.2)",
+Line 152:     desc: "ARGOS es el motor de investigación del laboratorio: un sistema de descarga, análisis y auditoría de datos fin
+Line 158:       { role: "Descarga de precios OHLCV con trazabilidad de fuente y timestamp", tech: "Yahoo Finance · Alpha Vantage ·
+Line 159:       { role: "Motor de análisis financiero: ratios, medias móviles, volatilidad histórica", tech: "Python · pandas · nu
+Line 161:       { role: "Backstage de estrategias: diseño, simulación y versionado", tech: "Python · backtesting.py — señales clas
+Line 162:       { role: "Generación de informes auditables con trazabilidad completa", tech: "Markdown · HTML · PDF — fuente verif
+Line 166:       { model: "DeepSeek-R1 / Claude 3.5 Sonnet", role: "Trazabilidad regulatoria y control de alucinaciones en informes
+Line 169:       "Zona C — Descarga de fundamentales: el investigador selecciona empresa/sector/período; ARGOS descarga datos de SE
+Line 170:       "Zona D — Descarga de precios OHLCV: precios de apertura, máximo, mínimo, cierre y volumen con timestamp de mercad
+Line 171:       "Zona E — Análisis financiero: tablas de ratios, gráficos de precio, indicadores técnicos; cada output incluye met
+Line 172:       "Zona G — Backstage de estrategias: el investigador define reglas de entrada/salida en lenguaje natural; ARGOS gen
+Line 173:       "Zona H — Generación de informes: informe auditable con trazabilidad completa por afirmación, exportable en MD/HTM
+Line 225:     tagline: "Detección de ventanas de asimetría informativa en mercados — señal antes que precio",
+Line 231:       { role: "Extracción de texto de fuentes financieras estructuradas y earnings calls", tech: "Python · scrapers RSS/
+Line 232:       { role: "Análisis semántico profundo y extracción de señales de sentimiento", tech: "DeepSeek-R1 — líder en QA fin
+Line 233:       { role: "Conversión de sentimiento en señal direccional de mercado", tech: "FinRobot Agent Swarm — líder en genera
+Line 234:       { role: "Almacenamiento de series temporales de sentimiento", tech: "DuckDB — historial de sentimiento por activo/
+Line 244:       "Puntuación de sentimiento por activo en escala [-1.0, +1.0] con nivel de confianza [0.0, 1.0] — clasificada como 
+Line 246:       "Señal direccional (FinRobot Agent Swarm): long / short / neutral con magnitud — clasificada como [ESCENARIO HIPOT
+Line 294:     desc: "Oráculo Bursátil permite que un investigador defina una estrategia en lenguaje natural, la traduzca automátic
+Line 299:       { role: "Interfaz de entrada: descripción en lenguaje natural + editor de reglas estructurado", tech: "Formulario 
+Line 300:       { role: "Generador de código Python financiero ejecutable", tech: "Claude 3.5 Sonnet — líder en generación de códi
+Line 301:       { role: "Verificador matemático de fórmulas de indicadores técnicos", tech: "DeepSeek-R1 — líder en razonamiento m
+Line 302:       { role: "Motor de backtesting sobre datos históricos reales", tech: "backtesting.py · yfinance — datos clasificado
+Line 303:       { role: "Entorno de ejecución seguro con timeout y límite de recursos", tech: "subprocess aislado — sandbox Python
+Line 307:       { model: "DeepSeek-R1", role: "Verificador matemático de fórmulas (RSI, Black-Scholes, VaR)", score: "94.3", area:
+Line 314:       "Ejecución en sandbox: retorno total, máximo drawdown, Sharpe ratio, número de operaciones — clasificados como [ES
+Line 396:       "Preguntas y Respuestas Financieras: DeepSeek-R1 tiene 2 benchmarks evaluados (FinQA, ConvFinQA), mientras que Cla
+Line 397:       "Generación de Código Python Financiero: DeepSeek-R1 tiene 2 evaluaciones registradas (QuantEval_Code, HumanEval_F
+Line 398:       "Fiabilidad de Agentes: FinRobot Agent Swarm tiene 2 evaluaciones (CM-LRS, AgentBench_Finance) pero carece de dato
+Line 399:       "Trazabilidad y Cumplimiento: DeepSeek-R1 tiene 2 evaluaciones (Hallucination_FinBench, FinFact) pero carece de da
+Line 406:       "DeepSeek-R1 y Claude 3.5 Sonnet presentan una puntuación compuesta idéntica de 93.3/100 en el área de Trazabilida
+Line 415:       "Entre el Top 1 (DeepSeek-R1 con 94.3/100) y el Top 2 (o1-preview con 94.2/100) la diferencia es de 0.1 puntos en 
+Line 439: // —─── Styles —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 462: // —─── Sub-components —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 587:               <strong className="text-yellow-300/80">Aviso de dominio:</strong> este proyecto es de apoyo a la investiga
+Line 663:             <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+Line 664:             <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
+Line 745:                   <strong className="text-yellow-300/80">Aviso de dominio:</strong> todos los proyectos descritos en est
+Line 769:         {/* —──€ Módulo 1 —──€ */}
+Line 796:         {/* —──€ Módulo 2 —──€ */}
+Line 817:         {/* —──€ Módulo 3 —──€ */}
+Line 859:         {/* —──€ Módulo 4 —──€ */}
+Line 880:         {/* —──€ Wizard CTA —──€ */}
+Line 889:                 Diseñador de Proyectos — Finanzas
+Line 892:                 Define tu aplicación financiera paso a paso — tarea principal, módulos, métricas, backtest y stack tecno
+Line 909:         {/* —──€ Footer CTA —──€ */}

@@ -1,0 +1,4 @@
+Line 137:     why: "La ingenieria combina ciencia con practica. Construir una app de ingenieria con IA te permite automatizar calc
+Line 163:     why: "El diseno no es solo estetica — es funcionalidad. Construir una app de diseno con IA te permite auditar interf
+Line 189:     why: "La psicologia estudia la mente humana, y la IA puede ayudar a crear herramientas que apoyen el bienestar emoci
+Line 280:                   <span className="text-xs text-[#525A70] ml-2">— {ex.desc}</span>

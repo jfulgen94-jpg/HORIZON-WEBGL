@@ -1,0 +1,48 @@
+Line 15: // —─── Data —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 26:       "Los benchmarks OK-VQA y A-OKVQA miden la capacidad de razonamiento visual que requiere conocimiento del mundo ext
+Line 57:       "La generación de distribuciones espaciales — planos de planta, disposiciones de muebles en un interior, ergonomía
+Line 59:       "Archigen_Spatial_Layout mide la capacidad de generar layouts arquitectónicos funcionales. Interior_Design_Style_C
+Line 76:       "WiserUI-Bench pregunta al modelo cuál de dos variantes ganó el test de conversión real, y comprueba si acierta. C
+Line 82:     topModel: { name: "Claude 3.7 Sonnet", score: "83.33", detail: "93.5 CTA_Visual_Hierarchy_Impact — cobertura parcial
+Line 93:       "WCAG_Accessibility_Compliance mide si el modelo puede auditar correctamente el cumplimiento de estos criterios. V
+Line 95:       { name: "WCAG_Accessibility_Compliance", desc: "Auditoría de cumplimiento WCAG 2.1 — ratio de contraste y accesibi
+Line 110:       { name: "CVQA", desc: "VQA cultural multilingüe — semántica visual por región" },
+Line 114:     topModel: { name: "Claude 3.7 Sonnet", score: "90.29", detail: "94.0 Multilingual_UI_Localization — líder en compren
+Line 124:     desc: "Toma la descripción de una marca y propone varias direcciones creativas completas — no elementos aislados, si
+Line 128:       { role: "Análisis de referencias visuales y generación de direcciones creativas", tech: "Claude 3.7 Sonnet — líder
+Line 129:       { role: "Verificación de sensibilidad cultural de las propuestas", tech: "Claude 3.7 Sonnet — líder comprensión cu
+Line 130:       { role: "Verificación de disponibilidad de tipografías", tech: "Google Fonts API — confirmación de que las tipogra
+Line 132:       { role: "Almacenamiento", tech: "DuckDB — histórico de direcciones generadas por proyecto" },
+Line 140:       "Entrada: briefing de marca en lenguaje natural — nombre y descripción del negocio, valores que debe transmitir, p
+Line 142:       "Generación de N direcciones creativas (Claude 3.7 Sonnet): para cada dirección — nombre del concepto, razonamient
+Line 143:       "Verificación de accesibilidad de paletas (cálculo algorítmico WCAG 2.1): ratio de contraste texto/fondo para cada
+Line 213:       { role: "Análisis heurístico y detección de puntos de fricción generales", tech: "Claude 3.7 Sonnet — líder jerarq
+Line 214:       { role: "Análisis de fricción específica en flujos transaccionales", tech: "DeepSeek-R1 — segundo en reducción de 
+Line 215:       { role: "Generación de wireframes textuales", tech: "Claude 3.7 Sonnet — especificaciones de pantalla en formato e
+Line 217:       { role: "Almacenamiento", tech: "DuckDB — historial de análisis de flujos por proyecto" },
+Line 222:       { model: "DeepSeek-R1", role: "Fricción en flujos transaccionales", score: "78.31", area: "Efectividad de UI/UX — 
+Line 225:       "Entrada: descripción del flujo de usuario — nombre del flujo, lista de pasos con descripción de qué ve el usuario
+Line 228:       "Generación de wireframes textuales (Claude 3.7 Sonnet): para cada pantalla — estructura de contenido, elemento CT
+Line 264: TAREA 1 — Análisis heurístico:
+Line 284: TAREA 2 — Generación de wireframe textual:
+Line 307:       { role: "Detección y localización de elementos de interfaz (Visual Grounding)", tech: "Gemini 2.0 Pro — líder grou
+Line 308:       { role: "Crítica de accesibilidad, jerarquía y composición", tech: "Claude 3.7 Sonnet — líder calidad estética y c
+Line 311:       { role: "Anotación de imagen con bounding boxes", tech: "Pillow — marcado por nivel de severidad: rojo (bloqueante
+Line 312:       { role: "Almacenamiento", tech: "DuckDB — histórico de auditorías por interfaz y por versión" },
+Line 315:       { model: "Gemini 2.0 Pro", role: "Visual Grounding — localización de elementos UI", score: "89.75", area: "Evidenc
+Line 321:       "Auditoría de contraste WCAG 2.1 (algorítmica): ratio de contraste texto/fondo para cada elemento de texto — etiqu
+Line 325:       "Generación de informe: por cada problema — descripción, elemento afectado con referencia al bounding box, severid
+Line 362: de Horizon. Tu función es analizar los elementos de una interfaz —ya detectados
+Line 363: y localizados por el sistema de grounding— y emitir una crítica fundamentada
+Line 442:       "Efectividad de UI/UX: ningún modelo alcanza el 100% de cobertura — Claude 3.7 Sonnet no tiene datos en Checkout_F
+Line 470:       "Permanece como [DATO PENDIENTE DE VERIFICAR] — dato relevante para Vitral Crítico en uso intensivo (auditoría de 
+Line 476: // —─── Styles —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 525: // —─── Sub-components —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 727:             <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+Line 728:             <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
+Line 814:                 El laboratorio distingue explícitamente entre criterios verificables — contraste WCAG, tasas de conversi
+Line 845:         {/* —──€ Módulo 1 —──€ */}
+Line 874:         {/* —──€ Módulo 2 —──€ */}
+Line 895:         {/* —──€ Módulo 3 —──€ */}
+Line 939:         {/* —──€ Módulo 4 —──€ */}
+Line 960:         {/* —──€ Footer CTA —──€ */}

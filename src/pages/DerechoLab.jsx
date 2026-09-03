@@ -12,7 +12,7 @@ import { GitBranch } from "lucide-react";
 import { BarChart3 } from "lucide-react";
 import { ShieldAlert } from "lucide-react";
 
-// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Data ──────────────────────────────────────────────────────────────────—
 
 const RESEARCH_LINES = [
   {
@@ -401,7 +401,7 @@ const VERIFICATION_POINTS = [
   },
 ];
 
-// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Sub-components ─────────────────────────────────────────────────────────—
 
 const STYLES = {
   violet: {
@@ -673,7 +673,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function DerechoLab() {
   return (
@@ -745,7 +745,7 @@ export default function DerechoLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* —€—€ Módulo 1 —€—€ */}
+        {/* Módulo 1 */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -777,7 +777,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* —€—€ Módulo 2 —€—€ */}
+        {/* Módulo 2 */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -798,7 +798,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* —€—€ Módulo 3 —€—€ */}
+        {/* Módulo 3 */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -841,7 +841,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* —€—€ Módulo 4 —€—€ */}
+        {/* Módulo 4 */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -862,7 +862,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* —€—€ Footer CTA —€—€ */}
+        {/* Footer CTA */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Legal & Compliance · 2026-08-29</p>

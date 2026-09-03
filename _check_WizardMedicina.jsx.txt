@@ -1,0 +1,42 @@
+Line 12: // —─── Constantes de datos (Medicina & IA Clínica) —───—───—───—───—───—───—───—───—───—€
+Line 122: // —─── Helpers —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 148: // —─── Generador del informe —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 174:     "—œ—──€ src/",
+Line 175:     "—‚   —œ—──€ __init__.py",
+Line 176:     "—‚   —œ—──€ config.py                 # Configuración del entorno, endpoints clínicos y claves de API",
+Line 177:     "—‚   —œ—──€ schemas.py                # Modelos Pydantic v2 y validadores de integridad clínica",
+Line 178:     data.primaryTask === "M1.1" ? "—‚   —œ—──€ claim_extractor.py        # Segmentador de afirmaciones clínicas atómicas
+Line 179:     data.primaryTask === "M1.1" || hasSEC05 ? "—‚   —œ—──€ pubmed_verifier.py        # Conector NCBI E-Utilities y valid
+Line 180:     data.primaryTask === "M1.2" || hasSEC03 ? "—‚   —œ—──€ fhir_builder.py           # Constructor y validador de recurs
+Line 181:     hasSEC02 ? "—‚   —œ—──€ terminology.py            # Mapeo a códigos CIE-10, SNOMED-CT, RxNorm y LOINC" : null,
+Line 182:     data.primaryTask === "M1.3" ? "—‚   —œ—──€ adherence_engine.py       # Planificador de tomas y registro de eventos d
+Line 183:     hasSEC01 || hasSEC07 ? "—‚   —œ—──€ safety_guardrail.py       # Guardrail Do-No-Harm y detector de contraindicacione
+Line 184:     data.primaryTask === "M1.5" ? "—‚   —œ—──€ clinical_calculator.py    # Motor determinista de fórmulas médicas (GFR, 
+Line 185:     "—‚   —œ—──€ storage.py                # " + (hasSEC04 ? "DuckDB columnar para auditoría inmutable de afirmaciones" 
+Line 186:     hasSEC06 ? "—‚   —œ—──€ alerts_dispatcher.py      # Gestor de alertas sanitarias y derivación urgente (SEC-MED-06)" 
+Line 187:     hasSEC08 ? "—‚   —œ—──€ clinical_reporting.py     # Generador de informes clínicos auditables (PDF / JSON-LD)" : nul
+Line 188:     "—‚   —”—──€ ui/",
+Line 189:     "—‚       —œ—──€ __init__.py",
+Line 190:     "—‚       —œ—──€ components.py         # Tarjetas de afirmaciones, badges de verificación y visores FHIR",
+Line 191:     "—‚       —”—──€ main_view.py          # Dashboard clínico y panel de operador sanitario",
+Line 192:     "—œ—──€ tests/",
+Line 193:     "—‚   —œ—──€ test_schemas.py           # Pruebas de esquemas Pydantic y serialización",
+Line 194:     "—‚   —œ—──€ test_safety_guardrail.py  # Banco de pruebas de no-maleficencia y casos de jailbreak médico",
+Line 195:     data.primaryTask === "M1.2" ? "—‚   —”—──€ test_fhir_conformity.py   # Validación de conformidad contra perfiles HL7
+Line 196:     "—œ—──€ data/                         # Datasets de prueba, ontologías y caché local",
+Line 197:     "—œ—──€ requirements.txt              # fhir.resources, pydantic, duckdb, requests, pytest",
+Line 198:     "—”—──€ main.py                       # Punto de entrada de la aplicación clínica",
+Line 306:     "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Medicina & IA Clínica.",
+Line 310:     "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon MedAppWizard v1.0_",
+Line 314: // —─── Componentes auxiliares —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 492: // —─── Componente principal —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 604:                 Diseñador de Proyectos — Medicina & IA Clínica
+Line 613:         {/* —──€ PASOS 1-6 —──€ */}
+Line 621:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
+Line 648:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
+Line 667:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito Clínico & Documental</h2>
+Line 690:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Métricas de Evaluación Clínica</h2>
+Line 732:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Seguridad Clínica y Guardrails Do-No-Ha
+Line 784:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico Sanitario</h2>
+Line 812:         {/* —──€ PANTALLA FINAL: INFORME —──€ */}
+Line 859: // —─── Renderizador de Markdown ligero —───—───—───—───—───—───—───—───—───—───—───—───—───—€

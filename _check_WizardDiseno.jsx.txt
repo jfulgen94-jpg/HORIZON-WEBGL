@@ -1,0 +1,41 @@
+Line 12: // —─── Constantes de datos (Diseño & Creatividad Visual) —───—───—───—───—───—───—───—€
+Line 120: // —─── Helpers —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 147: // —─── Generador del informe —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—──€
+Line 173:     "—œ—──€ src/",
+Line 174:     "—‚   —œ—──€ __init__.py",
+Line 175:     "—‚   —œ—──€ config.py                 # Configuración de diseño, perfiles de color y claves API (Google Fonts)",
+Line 176:     "—‚   —œ—──€ schemas.py                # Modelos Pydantic v2 para paletas, tokens W3C y especificaciones de marca" +
+Line 177:     data.primaryTask === "DS1.1" ? "—‚   —œ—──€ brand_generator.py        # Generador de direcciones creativas y concept
+Line 178:     hasSEC01 || data.primaryTask === "DS1.5" ? "—‚   —œ—──€ wcag_contrast.py          # Calculador algorítmico de contra
+Line 179:     hasSEC02 || data.primaryTask === "DS1.1" ? "—‚   —œ—──€ font_validator.py         # Conector con Google Fonts API y 
+Line 180:     data.primaryTask === "DS1.2" || hasSEC08 ? "—‚   —œ—──€ ui_auditor.py             # Auditor heurístico de interfaces
+Line 181:     data.primaryTask === "DS1.3" || hasSEC05 ? "—‚   —œ—──€ design_tokens.py          # Generador de tokens W3C, CSS Var
+Line 182:     data.primaryTask === "DS1.4" ? "—‚   —œ—──€ svg_generator.py          # Constructor de gráficos y logotipos vectoria
+Line 183:     hasSEC06 ? "—‚   —œ—──€ cultural_checker.py       # Analizador de connotaciones y semiótica cultural del color" : nu
+Line 184:     "—‚   —œ—──€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de vari
+Line 185:     "—‚   —œ—──€ brand_reporting.py        # Generador de manuales de identidad y guías de estilo (Markdown / PDF)",
+Line 186:     "—‚   —”—──€ ui/",
+Line 187:     "—‚       —œ—──€ __init__.py",
+Line 188:     "—‚       —œ—──€ components.py         # Visores de paletas de color, muestras tipográficas y renderizadores SVG",
+Line 189:     "—‚       —”—──€ main_view.py          # Dashboard de diseño y panel del director de arte",
+Line 190:     "—œ—──€ tests/",
+Line 191:     "—‚   —œ—──€ test_schemas.py           # Pruebas de esquemas de tokens de diseño",
+Line 192:     hasSEC01 ? "—‚   —œ—──€ test_wcag_contrast.py     # Batería de cálculo de contrastes y luminancia relativa" : null,
+Line 193:     data.primaryTask === "DS1.4" ? "—‚   —”—──€ test_svg_output.py        # Validación sintáctica de SVG generados" : nu
+Line 194:     "—œ—──€ data/                         # Ficheros de tokens JSON, assets SVG y caché de tipografías",
+Line 195:     "—œ—──€ requirements.txt              # svgwrite, pydantic, duckdb, requests, pytest",
+Line 196:     "—”—──€ main.py                       # Punto de entrada de la aplicación de diseño",
+Line 303:     "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Diseño & Creatividad Visual.",
+Line 307:     "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon DesignAppWizard v1.0_",
+Line 311: // —─── Componentes auxiliares —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 489: // —─── Componente principal —───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—───—€
+Line 601:                 Diseñador de Proyectos — Diseño & Creatividad Visual
+Line 610:         {/* —──€ PASOS 1-6 —──€ */}
+Line 618:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
+Line 645:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
+Line 664:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito de Diseño & Motores</h2>
+Line 687:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas de Diseño</h2>
+Line 729:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Accesibilidad WCAG y Guardrails Creativ
+Line 781:                 <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
+Line 809:         {/* —──€ PANTALLA FINAL: INFORME —──€ */}
+Line 856: // —─── Renderizador de Markdown ligero —───—───—───—───—───—───—───—───—───—───—───—───—───—€

@@ -18,7 +18,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table ────────────────────────────────────────────────────────────—
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Matemáticas (data_math/rankings/) · MATH · GSM8K · MAFBench · AIME", motivo: "Verificar qué modelos tienen scores reales verificables en razonamiento matemático formal." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Decidir qué tipos de problema (álgebra, cálculo, combinatoria, GSM8K) cubre la v1 y cuáles no son verificables automáticamente." },
@@ -43,7 +43,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de accuracy de modelos y planificar v2 con evaluación paralela de 3 modelos." },
 ];
 
-// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Phases overview ─────────────────────────────────────────────────────────—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Benchmarks matemáticos (MATH, GSM8K, AIME) y viabilidad de la verificación automática de respuestas." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil de usuario, problema, inputs/outputs, criterios de éxito y límites: solo respuestas numéricas verificables en v1." },
@@ -55,7 +55,7 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Publicar en el Foro de Proyectos y planificar v2 con evaluación simultánea de 3 modelos y formato AIME." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · Arena de modelos",
@@ -104,7 +104,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Math verification notice —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Math verification notice ────────────────────────────────────────────────—€
 function MathVerificationNotice() {
   return (
     <div className="mb-8 flex items-start gap-3 px-5 py-4 rounded-xl border"
@@ -117,7 +117,7 @@ function MathVerificationNotice() {
   );
 }
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaMatematicas() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -1148,7 +1148,7 @@ Genera el Backlog v2 en formato tabla:
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Resultado esperado —€—€—€ */}
+        {/* ─── Resultado esperado ─── */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(59,111,212,0.05)", borderColor: "rgba(59,111,212,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1172,7 +1172,7 @@ Genera el Backlog v2 en formato tabla:
           </div>
         </div>
 
-        {/* —€—€—€ Version extensions —€—€—€ */}
+        {/* ─── Version extensions ─── */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

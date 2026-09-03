@@ -17,7 +17,7 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// —€—€—€ Tools table data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Tools table data ─────────────────────────────────────────────────────────
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Contabilidad · BizFinBench · AuditBench", motivo: "Confirmar qué modelos lideran razonamiento contable antes de elegir." },
   { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Precisar tipo de conciliación y usuario final." },
@@ -42,7 +42,7 @@ const TOOLS_TABLE = [
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar y recoger feedback de contadores y auditores." },
 ];
 
-// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Version extensions ──────────────────────────────────────────────────────—€
 const VERSIONS = [
   {
     tag: "v2 · Impuestos",
@@ -88,7 +88,7 @@ const VERSIONS = [
   },
 ];
 
-// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
+// ─── Main component ─────────────────────────────────────────────────────────—
 export default function RutaContabilidad() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -122,7 +122,7 @@ export default function RutaContabilidad() {
           </div>
         </div>
 
-        {/* —€—€ Human validation warning —€—€ */}
+        {/* Human validation warning */}
         <HumanValidationWarning />
 
         {/* Map overview */}
@@ -1316,7 +1316,7 @@ Genera la ficha técnica formal de presentación de "Balance Inteligente v1" par
           </PromptBlock>
         </Step>
 
-        {/* —€—€—€ Recuadro de Resultado Final —€—€—€ */}
+        {/* ─── Recuadro de Resultado Final ─── */}
         <div 
           className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "white", border: "1px solid rgba(5,150,105,0.2)" }}
@@ -1354,7 +1354,7 @@ Genera la ficha técnica formal de presentación de "Balance Inteligente v1" par
           </div>
         </div>
 
-        {/* —€—€—€ Extensiones de Versión —€—€—€ */}
+        {/* ─── Extensiones de Versión ─── */}
         <VersionExtensions versions={VERSIONS} />
 
         <div className="h-16" />
