@@ -10,7 +10,7 @@ import { AlertTriangle } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Heart } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Psicología & Creatividad) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Psicología & Creatividad) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -118,7 +118,7 @@ const STORAGE_ENGINES = [
   "Base de Datos en Memoria para Sesiones de Simulación de Negociación Temporales",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -145,7 +145,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "P1.1" || primaryId === "P1.4" || primaryId === "P1.6" || secondaryIds.includes("SEC-PSI-01") || secondaryIds.includes("SEC-PSI-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -171,30 +171,30 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Parámetros de diálogo, umbrales de carga emocional y protocolos de seguridad",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para estados emocionales, turnos y árboles de negociación" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails Deontológicos No Clínicos (BR-PSI-05)" : ""),
-    data.primaryTask === "P1.1" ? "â”‚   â”œâ”€â”€ empathic_engine.py        # Modulador de escucha activa y respuestas no clínicas (BR-PSI-01)" : null,
-    hasSEC01 || data.primaryTask === "P1.1" ? "â”‚   â”œâ”€â”€ crisis_guardrail.py       # Detector de señales críticas y protocolo de derivación oficial" : null,
-    data.primaryTask === "P1.2" || hasSEC02 ? "â”‚   â”œâ”€â”€ divergent_ideation.py     # Motor de pensamiento divergente y cálculo de distancia DAT (BR-PSI-02)" : null,
-    data.primaryTask === "P1.3" || hasSEC06 ? "â”‚   â”œâ”€â”€ tom_simulator.py          # Simulador de negociación con Teoría de la Mente y asimetrías (BR-PSI-03)" : null,
-    data.primaryTask === "P1.4" || hasSEC08 ? "â”‚   â”œâ”€â”€ tone_auditor.py           # Analizador de resonancia afectiva, hedges y clima de comunicaciones" : null,
-    data.primaryTask === "P1.5" ? "â”‚   â”œâ”€â”€ bias_detector.py          # Evaluador de sesgos cognitivos y trampas heurísticas" : null,
-    data.primaryTask === "P1.6" ? "â”‚   â”œâ”€â”€ reflective_coaching.py    # Facilitador de preguntas reflexivas socráticas no directivas" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-PSI-04) con registro inmutable de sesiones y estado" : "Capa de persistencia psicológica"),
-    "â”‚   â”œâ”€â”€ reporting.py              # Generador de informes de clima emocional y mapas de empatía (PDF / Markdown)",
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visores de tono emocional, gráficos radar de empatía y paneles de diálogo",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard interactivo y panel del facilitador/usuario",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Validación de modelos de datos conversacionales",
-    hasSEC01 ? "â”‚   â”œâ”€â”€ test_crisis_guardrail.py  # Batería de pruebas de seguridad y derivación inmediata ante ideación crítica" : null,
-    data.primaryTask === "P1.2" ? "â”‚   â””â”€â”€ test_dat_distance.py      # Casos de prueba de cálculo de distancia semántica vectorial" : null,
-    "â”œâ”€â”€ data/                         # Datasets de validación emocional, ontologías y caché local",
-    "â”œâ”€â”€ requirements.txt              # pydantic, duckdb, scipy, requests, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación de psicología/creatividad",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Parámetros de diálogo, umbrales de carga emocional y protocolos de seguridad",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para estados emocionales, turnos y árboles de negociación" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails Deontológicos No Clínicos (BR-PSI-05)" : ""),
+    data.primaryTask === "P1.1" ? "—‚   —œ—€—€ empathic_engine.py        # Modulador de escucha activa y respuestas no clínicas (BR-PSI-01)" : null,
+    hasSEC01 || data.primaryTask === "P1.1" ? "—‚   —œ—€—€ crisis_guardrail.py       # Detector de señales críticas y protocolo de derivación oficial" : null,
+    data.primaryTask === "P1.2" || hasSEC02 ? "—‚   —œ—€—€ divergent_ideation.py     # Motor de pensamiento divergente y cálculo de distancia DAT (BR-PSI-02)" : null,
+    data.primaryTask === "P1.3" || hasSEC06 ? "—‚   —œ—€—€ tom_simulator.py          # Simulador de negociación con Teoría de la Mente y asimetrías (BR-PSI-03)" : null,
+    data.primaryTask === "P1.4" || hasSEC08 ? "—‚   —œ—€—€ tone_auditor.py           # Analizador de resonancia afectiva, hedges y clima de comunicaciones" : null,
+    data.primaryTask === "P1.5" ? "—‚   —œ—€—€ bias_detector.py          # Evaluador de sesgos cognitivos y trampas heurísticas" : null,
+    data.primaryTask === "P1.6" ? "—‚   —œ—€—€ reflective_coaching.py    # Facilitador de preguntas reflexivas socráticas no directivas" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-PSI-04) con registro inmutable de sesiones y estado" : "Capa de persistencia psicológica"),
+    "—‚   —œ—€—€ reporting.py              # Generador de informes de clima emocional y mapas de empatía (PDF / Markdown)",
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Visores de tono emocional, gráficos radar de empatía y paneles de diálogo",
+    "—‚       —”—€—€ main_view.py          # Dashboard interactivo y panel del facilitador/usuario",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Validación de modelos de datos conversacionales",
+    hasSEC01 ? "—‚   —œ—€—€ test_crisis_guardrail.py  # Batería de pruebas de seguridad y derivación inmediata ante ideación crítica" : null,
+    data.primaryTask === "P1.2" ? "—‚   —”—€—€ test_dat_distance.py      # Casos de prueba de cálculo de distancia semántica vectorial" : null,
+    "—œ—€—€ data/                         # Datasets de validación emocional, ontologías y caché local",
+    "—œ—€—€ requirements.txt              # pydantic, duckdb, scipy, requests, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación de psicología/creatividad",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -227,7 +227,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software de Psicología & Creatividad: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -293,7 +293,7 @@ function generateReport(data) {
     "",
     "### 7. Cláusula de Deontología y Descargo de Responsabilidad No Clínica",
     "",
-    "> **AVISO Ã‰TICO, DEONTOLÃ“GICO Y SANITARIO OBLIGATORIO**",
+    "> **AVISO Ã‰TICO, DEONTOL“GICO Y SANITARIO OBLIGATORIO**",
     ">",
     "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de herramienta de apoyo al bienestar conversacional, la creatividad aplicada y el entrenamiento en negociación**.",
     ">",
@@ -301,15 +301,15 @@ function generateReport(data) {
     "> - Si el usuario experimenta malestar psicológico severo, ideación lesiva o crisis emocional, el sistema está obligado a **derivar inmediatamente a los servicios de salud y líneas telefónicas oficiales de emergencia** (ej. 024 / 112 en España).",
     "> - El asistente recuerda en todo momento su condición de software basado en IA y no finge consciencia ni afecto humano real.",
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Psicología & Creatividad.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Psicología & Creatividad.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon PsychAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon PsychAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -487,7 +487,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -599,7 +599,7 @@ export default function WizardPsicologia() {
             <div className="w-12 h-12 bg-rose-500/10 border border-rose-500/20 rounded-xl flex items-center justify-center shrink-0 text-rose-600 font-display text-xl">ðŸ§ </div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Psicología & Creatividad
+                Diseñador de Proyectos — Psicología & Creatividad
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación psicológica y creativa paso a paso con escucha activa, distancia semántica y rigor deontológico.
@@ -608,7 +608,7 @@ export default function WizardPsicologia() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -616,18 +616,18 @@ export default function WizardPsicologia() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación de psicología o creatividad.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica psicométrica y creativa.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Ánima AI, Mente Abierta, Ágora Táctica, Vox Emotivaâ€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Ánima AI, Mente Abierta, Ágora Táctica, Vox Emotiva–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias, equipo de investigación o consultoría.">Diseñador / Equipo de Psicología</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Facilitador de Bienestar, Consultor de Innovaciónâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Facilitador de Bienestar, Consultor de Innovación–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función psicológica o creativa principal. Esto determinará los guardrails deontológicos y métricas requeridas.">Tarea principal de la aplicación</FieldLabel>
@@ -643,7 +643,7 @@ export default function WizardPsicologia() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades cognitivas y de seguridad</strong> para robustecer el sistema.</p>
 
                 <div className="bg-rose-500/[0.04] border border-rose-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -662,7 +662,7 @@ export default function WizardPsicologia() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ámbito Psicológico & Motores</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito Psicológico & Motores</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura los campos de la cognición y las librerías de procesamiento del lenguaje y cálculo vectorial.</p>
 
                 <div className="space-y-6">
@@ -685,12 +685,12 @@ export default function WizardPsicologia() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas Psicométricas</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas Psicométricas</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de empatía, creatividad divergente y Teoría de la Mente que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-rose-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -727,7 +727,7 @@ export default function WizardPsicologia() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Deontología y Guardrails de Seguridad</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Deontología y Guardrails de Seguridad</h2>
 
                 {hasValidation ? (
                   <>
@@ -779,12 +779,12 @@ export default function WizardPsicologia() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación de psicología y creatividad.</p>
 
                 {data.secondaryTasks.includes("SEC-PSI-04") && (
                   <div className="bg-rose-50 border border-rose-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-rose-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-PSI-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-PSI-04.
                   </div>
                 )}
 
@@ -807,7 +807,7 @@ export default function WizardPsicologia() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -854,7 +854,7 @@ export default function WizardPsicologia() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -870,7 +870,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-rose-600 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-rose-600 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

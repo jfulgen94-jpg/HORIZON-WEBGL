@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Calculator } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Contabilidad & ERP) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Contabilidad & ERP) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Integración Directa con la Base de Datos del ERP (Modo Read-Only Mirror)",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -144,7 +144,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "C1.1" || primaryId === "C1.2" || primaryId === "C1.4" || secondaryIds.includes("SEC-CONT-03") || secondaryIds.includes("SEC-CONT-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -170,32 +170,32 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Configuración general, umbrales de revisión y credenciales ERP",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para asientos, facturas y extractos" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails Anti-Autoasiento (BR-CONT-05)" : ""),
-    data.primaryTask === "C1.1" || hasSEC08 ? "â”‚   â”œâ”€â”€ bank_parser.py            # Parser multiformato (MT940, CAMT.053, Norma 43, CSV) (BR-CONT-01)" : null,
-    data.primaryTask === "C1.1" ? "â”‚   â”œâ”€â”€ reconciler.py             # Motor de cruce bancario y generación de propuestas de ajuste" : null,
-    data.primaryTask === "C1.2" ? "â”‚   â”œâ”€â”€ invoice_ocr.py            # Pipeline de extracción estructurada OCR y desglose de IVA (BR-CONT-02)" : null,
-    hasSEC01 ? "â”‚   â”œâ”€â”€ tax_validator.py          # Validador de reglas de IVA/IRPF, retenciones y censo VIES/AEAT" : null,
-    data.primaryTask === "C1.3" ? "â”‚   â”œâ”€â”€ assets_auditor.py         # Auditor de tablas de amortización y vidas útiles de activos" : null,
-    data.primaryTask === "C1.4" || hasSEC06 ? "â”‚   â”œâ”€â”€ expense_fraud.py          # Detector de anomalías en notas de gastos y duplicados" : null,
-    data.primaryTask === "C1.5" ? "â”‚   â”œâ”€â”€ cost_allocation.py        # Motor de reparto analítico y centros de coste" : null,
-    data.primaryTask === "C1.6" || hasSEC05 ? "â”‚   â”œâ”€â”€ erp_connector.py          # Conector para SAP, Sage, Holded y A3 Software" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-CONT-04) con pista de auditoría inmutable" : "Capa de persistencia contable"),
-    hasSEC03 ? "â”‚   â”œâ”€â”€ approval_workflow.py      # Gestor de aprobaciones para asientos superiores a umbral (SEC-CONT-03)" : null,
-    "â”‚   â”œâ”€â”€ reporting.py              # Generador de informes de conciliación y cierres (PDF / Excel)",
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Tablas de descuadres, visores de asientos y tarjetas de facturas",
-    "â”‚       â””â”€â”€ main_view.py          # Panel principal de revisión contable para el equipo",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Validación de esquemas contables y consistencia debe/haber",
-    data.primaryTask === "C1.1" ? "â”‚   â”œâ”€â”€ test_reconciler.py        # Casos de prueba de conciliación y tolerancia de redondeo" : null,
-    "â”‚   â””â”€â”€ test_tax_rules.py         # Batería de pruebas de retenciones y tipos de IVA vigentes",
-    "â”œâ”€â”€ data/                         # Ficheros Parquet, extractos DEMO y caché de clientes/proveedores",
-    "â”œâ”€â”€ requirements.txt              # pandas, duckdb, pydantic, openpyxl, requests, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación contable",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Configuración general, umbrales de revisión y credenciales ERP",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para asientos, facturas y extractos" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails Anti-Autoasiento (BR-CONT-05)" : ""),
+    data.primaryTask === "C1.1" || hasSEC08 ? "—‚   —œ—€—€ bank_parser.py            # Parser multiformato (MT940, CAMT.053, Norma 43, CSV) (BR-CONT-01)" : null,
+    data.primaryTask === "C1.1" ? "—‚   —œ—€—€ reconciler.py             # Motor de cruce bancario y generación de propuestas de ajuste" : null,
+    data.primaryTask === "C1.2" ? "—‚   —œ—€—€ invoice_ocr.py            # Pipeline de extracción estructurada OCR y desglose de IVA (BR-CONT-02)" : null,
+    hasSEC01 ? "—‚   —œ—€—€ tax_validator.py          # Validador de reglas de IVA/IRPF, retenciones y censo VIES/AEAT" : null,
+    data.primaryTask === "C1.3" ? "—‚   —œ—€—€ assets_auditor.py         # Auditor de tablas de amortización y vidas útiles de activos" : null,
+    data.primaryTask === "C1.4" || hasSEC06 ? "—‚   —œ—€—€ expense_fraud.py          # Detector de anomalías en notas de gastos y duplicados" : null,
+    data.primaryTask === "C1.5" ? "—‚   —œ—€—€ cost_allocation.py        # Motor de reparto analítico y centros de coste" : null,
+    data.primaryTask === "C1.6" || hasSEC05 ? "—‚   —œ—€—€ erp_connector.py          # Conector para SAP, Sage, Holded y A3 Software" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-CONT-04) con pista de auditoría inmutable" : "Capa de persistencia contable"),
+    hasSEC03 ? "—‚   —œ—€—€ approval_workflow.py      # Gestor de aprobaciones para asientos superiores a umbral (SEC-CONT-03)" : null,
+    "—‚   —œ—€—€ reporting.py              # Generador de informes de conciliación y cierres (PDF / Excel)",
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Tablas de descuadres, visores de asientos y tarjetas de facturas",
+    "—‚       —”—€—€ main_view.py          # Panel principal de revisión contable para el equipo",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Validación de esquemas contables y consistencia debe/haber",
+    data.primaryTask === "C1.1" ? "—‚   —œ—€—€ test_reconciler.py        # Casos de prueba de conciliación y tolerancia de redondeo" : null,
+    "—‚   —”—€—€ test_tax_rules.py         # Batería de pruebas de retenciones y tipos de IVA vigentes",
+    "—œ—€—€ data/                         # Ficheros Parquet, extractos DEMO y caché de clientes/proveedores",
+    "—œ—€—€ requirements.txt              # pandas, duckdb, pydantic, openpyxl, requests, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación contable",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -215,7 +215,7 @@ function generateReport(data) {
         "- **Modelo de verificación y control contable:** " + data.validationModel,
         "- **Guardrail de seguridad operativa:** " + data.safetyGuardrail,
         "- **Principio de Doble Revisión:** Todo descuadre o asiento de ajuste propuesto por la IA requiere confirmación expresa del responsable contable.",
-        "- **Umbral de Escalado Automático:** Toda transacción superior a 10.000 EUR queda marcada automáticamente como 'REQUIERE VALIDACIÃ“N DE RESPONSABLE CONTABLE'.",
+        "- **Umbral de Escalado Automático:** Toda transacción superior a 10.000 EUR queda marcada automáticamente como 'REQUIERE VALIDACI“N DE RESPONSABLE CONTABLE'.",
         "- **Trazabilidad Inmutable:** Cada propuesta contable queda vinculada a su documento de origen mediante hash SHA-256.",
       ].join("\n")
     : "La aplicación opera en modo de consulta o generación de informes analíticos. No genera propuestas automáticas de asientos contables.";
@@ -228,7 +228,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software Contable & ERP: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -302,15 +302,15 @@ function generateReport(data) {
     "> - **Toda propuesta de asiento, ajuste o liquidación de impuestos generada por la IA debe ser validada por un profesional contable o asesor fiscal colegiado** antes de su firma o presentación oficial.",
     "> - El sistema aplica un **principio de no auto-asiento**: ninguna transacción se inyecta en producción sin confirmación humana expresa.",
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Contabilidad & ERP.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Contabilidad & ERP.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon ContabilidadAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon ContabilidadAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -488,7 +488,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -600,7 +600,7 @@ export default function WizardContabilidad() {
             <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0 text-blue-600 font-display text-xl">ðŸ§¾</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Contabilidad & ERP
+                Diseñador de Proyectos — Contabilidad & ERP
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación contable paso a paso con rigor de cuadre, validación fiscal y trazabilidad inmutable.
@@ -609,7 +609,7 @@ export default function WizardContabilidad() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -617,18 +617,18 @@ export default function WizardContabilidad() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación contable.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica contable.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Balance Inteligente, Factura Flujo, Auditor Activos, Gasto Seguroâ€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Balance Inteligente, Factura Flujo, Auditor Activos, Gasto Seguro–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias o departamento de contabilidad / finanzas.">Diseñador / Departamento Contable</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Controller Financiero, Asesoría Fiscalâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Controller Financiero, Asesoría Fiscal–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función contable principal. Esto determinará las reglas de cuadre y los módulos requeridos.">Tarea principal de la aplicación</FieldLabel>
@@ -644,7 +644,7 @@ export default function WizardContabilidad() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades contables y de auditoría</strong> para robustecer el sistema.</p>
 
                 <div className="bg-blue-500/[0.04] border border-blue-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -663,7 +663,7 @@ export default function WizardContabilidad() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ecosistema ERP & Documentos</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ecosistema ERP & Documentos</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura los sistemas ERP con los que se integrará la aplicación y la tipología de documentos de entrada.</p>
 
                 <div className="space-y-6">
@@ -686,12 +686,12 @@ export default function WizardContabilidad() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas Contables</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas Contables</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de cuadre, precisión y cumplimiento fiscal que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-blue-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} contable{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} contable{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -728,7 +728,7 @@ export default function WizardContabilidad() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Control Operativo y Pista de Auditoría</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Control Operativo y Pista de Auditoría</h2>
 
                 {hasValidation ? (
                   <>
@@ -780,12 +780,12 @@ export default function WizardContabilidad() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación contable.</p>
 
                 {data.secondaryTasks.includes("SEC-CONT-04") && (
                   <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-blue-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-CONT-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-CONT-04.
                   </div>
                 )}
 
@@ -808,7 +808,7 @@ export default function WizardContabilidad() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -855,7 +855,7 @@ export default function WizardContabilidad() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -871,7 +871,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-blue-600 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-blue-600 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

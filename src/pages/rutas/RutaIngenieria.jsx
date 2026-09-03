@@ -18,10 +18,10 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Ingeniería (data_engineering/rankings/) · HumanEval · MBPP · SWE-Bench", motivo: "Verificar scores reales en generación de código antes de elegir el modelo." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Documento de definición", motivo: "Decidir qué lenguajes y tipos de tarea cubre la v1 antes de tocar código." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Decidir qué lenguajes y tipos de tarea cubre la v1 antes de tocar código." },
   { capa: "2", subcapa: "2.1", herramienta: "data_engineering/raw/ · openai/human-eval [VERIFICAR DOCS]", motivo: "Desafíos HumanEval ya descargados por el motor Horizon." },
   { capa: "2", subcapa: "2.2", herramienta: "Pydantic v2", motivo: "Esquemas para CodingChallenge, GeneratedCode, ExecutionResult y CodingEvaluation." },
   { capa: "2", subcapa: "2.3", herramienta: "ast (stdlib)", motivo: "Verificar sintaxis Python sin ejecutarlo; análisis de docstring, type hints y LOC." },
@@ -34,16 +34,16 @@ const TOOLS_TABLE = [
   { capa: "3", subcapa: "3.5", herramienta: "ast · análisis manual", motivo: "Análisis de calidad: docstring, type hints, LOC, quality score 0-100." },
   { capa: "3", subcapa: "3.6", herramienta: "try/except", motivo: "Si el LLM o el sandbox fallan, devuelve CodingEvaluation válida con estado descriptivo." },
   { capa: "4", subcapa: "4.1", herramienta: "Papel / Excalidraw", motivo: "Definir 3 pantallas (Generación, Comparativa, Historial) antes de codificar." },
-  { capa: "4", subcapa: "4.2â€“4.5", herramienta: "Flet", motivo: "Código en fuente monospace con scroll, badges de resultado y navegación entre pantallas." },
-  { capa: "5", subcapa: "5.1â€“5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conectar botón Generar con el pipeline; logging de sandbox y configuración centralizada." },
-  { capa: "6", subcapa: "6.1â€“6.2", herramienta: "Pytest", motivo: "Tests de extracción de código, análisis de calidad y test de integración con sandbox real." },
+  { capa: "4", subcapa: "4.2–4.5", herramienta: "Flet", motivo: "Código en fuente monospace con scroll, badges de resultado y navegación entre pantallas." },
+  { capa: "5", subcapa: "5.1–5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conectar botón Generar con el pipeline; logging de sandbox y configuración centralizada." },
+  { capa: "6", subcapa: "6.1–6.2", herramienta: "Pytest", motivo: "Tests de extracción de código, análisis de calidad y test de integración con sandbox real." },
   { capa: "6", subcapa: "6.3", herramienta: "Prompts de ingeniería reales", motivo: "7 escenarios de prueba manual incluyendo timeout de sandbox y modo offline." },
   { capa: "6", subcapa: "6.4", herramienta: "PyInstaller", motivo: "Ejecutable distribuible; decisión documentada sobre Python en el sandbox." },
   { capa: "6", subcapa: "6.5", herramienta: "VM sin Python", motivo: "Validar el ejecutable en entorno limpio; verificar comportamiento del sandbox." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de modelos en generación de código y planificar v2 con soporte SQL." },
 ];
 
-// â”€â”€â”€ Phases overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",          summary: "Benchmarks de código (HumanEval, MBPP, SWE-Bench) y riesgos de ejecutar código generado por LLM." },
   { id: "1", label: "Capa 1", name: "Definición",              summary: "Perfil de usuario, problema, inputs/outputs, criterios de éxito y límites de la v1 (solo Python, sandbox básico)." },
@@ -55,12 +55,12 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",               summary: "Publicar en el Foro de Proyectos y planificar v2 con soporte SQL y sandbox Docker." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · Multi-lenguaje",
     area: "JavaScript + SQL",
-    title: "Construtor Multi â€” Soporte para JS y SQL",
+    title: "Construtor Multi — Soporte para JS y SQL",
     desc: "Extiende el sandbox para ejecutar JavaScript con Node.js y consultas SQL con DuckDB como ejecutor, añadiendo dos nuevos lenguajes al dropdown de la pantalla de Generación.",
     badgeBg: "rgba(59,111,212,0.10)", badgeColor: C.accent,
     changes: [
@@ -75,7 +75,7 @@ const VERSIONS = [
   {
     tag: "v3 · Sandbox seguro",
     area: "Aislamiento con Docker",
-    title: "Construtor Secure â€” Sandbox con contenedores",
+    title: "Construtor Secure — Sandbox con contenedores",
     desc: "Reemplaza el subprocess básico por un contenedor Docker efímero para cada ejecución: sin acceso a red, sin acceso al sistema de archivos del host, con límite de memoria y CPU.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: C.emerald,
     changes: [
@@ -90,7 +90,7 @@ const VERSIONS = [
   {
     tag: "v4 · Comparativa paralela",
     area: "3 modelos simultáneos",
-    title: "Construtor Arena â€” Torneo de modelos",
+    title: "Construtor Arena — Torneo de modelos",
     desc: "Envía el mismo desafío a 3 modelos en paralelo (asyncio.gather), muestra los tres resultados en columnas y calcula un ranking automático por quality_score.",
     badgeBg: "rgba(217,119,6,0.10)", badgeColor: C.amber,
     changes: [
@@ -104,7 +104,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Sandbox security banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sandbox security banner —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 function SandboxBanner() {
   return (
     <div className="mb-8 flex items-start gap-3 px-5 py-4 rounded-xl border"
@@ -117,7 +117,7 @@ function SandboxBanner() {
   );
 }
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaIngenieria() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -139,7 +139,7 @@ export default function RutaIngenieria() {
           </h1>
           <p className="text-lg leading-relaxed mb-6"
             style={{ color: "rgba(17,17,17,0.55)", maxWidth: 620 }}>
-            App de escritorio que genera código Python con el LLM líder en HumanEval, lo ejecuta en un sandbox con timeout configurable, y produce un informe de calidad con métricas objetivas: tests pasados, docstring, type hints y quality score 0â€“100.
+            App de escritorio que genera código Python con el LLM líder en HumanEval, lo ejecuta en un sandbox con timeout configurable, y produce un informe de calidad con métricas objetivas: tests pasados, docstring, type hints y quality score 0–100.
           </p>
           <div className="flex flex-wrap gap-6">
             {[["7", "Fases"], ["6", "Capas"], ["30+", "Prompts"], ["App .exe", "Resultado"]].map(([v, l]) => (
@@ -216,7 +216,7 @@ export default function RutaIngenieria() {
         </div>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 0 â€” INVESTIGACIÃ“N
+            FASE 0 — INVESTIGACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Search}
@@ -231,7 +231,7 @@ export default function RutaIngenieria() {
           title="Benchmarks de generación de código" 
           goal="Identificar HumanEval, MBPP, SWE-Bench; entender la métrica pass@k; saber qué modelo lidera en el ranking del laboratorio."
         >
-          <PromptBlock label="Prompt 0.A â€” Benchmarks de código">
+          <PromptBlock label="Prompt 0.A — Benchmarks de código">
 {`Actúa como especialista en evaluación de LLMs para generación de código.
 Tengo acceso al Laboratorio de Ingeniería de Horizon (data_engineering/rankings/).
 
@@ -250,13 +250,13 @@ Cita scores específicos del archivo de rankings. No inventes datos.`}
           title="Riesgos de ejecutar código generado por LLM" 
           goal="Documentar qué protecciones ofrece subprocess, qué alternativas existen y qué nivel de sandbox es razonable para la v1."
         >
-          <PromptBlock label="Prompt 0.B â€” Riesgos del sandbox">
+          <PromptBlock label="Prompt 0.B — Riesgos del sandbox">
 {`Construtor IA ejecutará código Python generado por un LLM en el equipo del usuario.
 
 Antes de implementar el sandbox, necesito entender los riesgos:
 1. ¿Qué tipos de código malicioso podría generar un LLM aunque se le pida resolver un problema algorítmico? (ej. acceso a sistema de archivos, conexiones de red, fork bombs)
 2. ¿Qué protecciones ofrece subprocess.run() con timeout? ¿Es suficiente para aislar el código o necesito algo más robusto?
-3. ¿Cuáles son las alternativas más seguras para ejecutar código Python aislado en una app de escritorio? (RestrictedPython, PyPy sandboxing, Docker) [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL de cada opción]
+3. ¿Cuáles son las alternativas más seguras para ejecutar código Python aislado en una app de escritorio? (RestrictedPython, PyPy sandboxing, Docker) [VERIFICAR EN DOCUMENTACI“N OFICIAL de cada opción]
 4. Para la v1 con usuario técnico (desarrollador): ¿qué nivel de sandbox es razonable implementar sin añadir demasiada complejidad?
 
 Esta decisión de seguridad debe documentarse explícitamente en la v1.`}
@@ -264,7 +264,7 @@ Esta decisión de seguridad debe documentarse explícitamente en la v1.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 1 â€” DEFINICIÃ“N DEL PROBLEMA
+            CAPA 1 — DEFINICI“N DEL PROBLEMA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Layers}
@@ -279,7 +279,7 @@ Esta decisión de seguridad debe documentarse explícitamente en la v1.`}
           title="¿Quién usa esta app?" 
           goal="Ficha de usuario con rol técnico, tipos de código que necesita generar, nivel de lectura de código y métricas que le importan."
         >
-          <PromptBlock label="Prompt 1.1 â€” Perfil de usuario">
+          <PromptBlock label="Prompt 1.1 — Perfil de usuario">
 {`Define el perfil de usuario de Construtor IA.
 
 La app genera código con LLMs, lo ejecuta en sandbox y reporta calidad.
@@ -303,7 +303,7 @@ Esta información determina qué análisis de calidad implementar en la v1.`}
           title="¿Qué problema concreto resuelve?" 
           goal="Una sola frase en formato [ROL] + [TAREA] + [OBSTÁCULO] + [CONSECUENCIA]. ¿Usar código de forma más informada, aprender, o ambas?"
         >
-          <PromptBlock label="Prompt 1.2 â€” Frase del problema">
+          <PromptBlock label="Prompt 1.2 — Frase del problema">
 {`Basándome en el perfil ([PEGA EL RESUMEN DEL PERFIL]),
 escribe UNA SOLA FRASE del problema que Construtor IA resuelve.
 
@@ -321,7 +321,7 @@ Esto afecta qué tan técnicos deben ser los reportes de calidad.`}
           title="¿Qué datos entran?" 
           goal="Lista completa de inputs: prompt, desafío HumanEval, modelo, lenguaje, test cases, sandbox on/off y timeout de ejecución."
         >
-          <PromptBlock label="Prompt 1.3 â€” Inputs de la app">
+          <PromptBlock label="Prompt 1.3 — Inputs de la app">
 {`Para Construtor IA, define todos los datos de entrada.
 
 El usuario puede:
@@ -343,7 +343,7 @@ Incluye el parámetro "timeout de ejecución" (segundos antes de matar el proces
           title="¿Qué sale?" 
           goal="Outputs: código generado, resultado del sandbox, tests pasados/fallados, análisis de calidad (docstring, type hints, LOC, quality score), historial."
         >
-          <PromptBlock label="Prompt 1.4 â€” Outputs de la app">
+          <PromptBlock label="Prompt 1.4 — Outputs de la app">
 {`Define todos los outputs de Construtor IA para cada generación.
 
 La app debe producir:
@@ -355,20 +355,20 @@ La app debe producir:
    - ¿Tiene type hints? (Sí/No)
    - Número de líneas de código (LOC)
    - Complejidad ciclomática estimada (si se implementa)
-5. Pass/Fail badge (PASA / FALLA / ERROR DE EJECUCIÃ“N / NO EJECUTADO)
+5. Pass/Fail badge (PASA / FALLA / ERROR DE EJECUCI“N / NO EJECUTADO)
 6. Historial de generaciones del mismo prompt con distintos modelos
 
 Para cada output: formato, cuándo se genera, si se guarda en DuckDB.
-[AÃ‘ADE OUTPUTS ADICIONALES QUE NECESITES]`}
+[A‘ADE OUTPUTS ADICIONALES QUE NECESITES]`}
           </PromptBlock>
         </Step>
 
         <Step 
           num="1.5" 
           title="Criterios de éxito" 
-          goal="7â€“8 criterios verificables: extracción de código, timeout de sandbox, seguridad documentada, detección de docstring y rendimiento."
+          goal="7–8 criterios verificables: extracción de código, timeout de sandbox, seguridad documentada, detección de docstring y rendimiento."
         >
-          <PromptBlock label="Prompt 1.5 â€” Criterios de éxito">
+          <PromptBlock label="Prompt 1.5 — Criterios de éxito">
 {`Define los criterios de éxito de Construtor IA v1.
 
 Incluye criterios para:
@@ -387,7 +387,7 @@ Incluye criterios para:
           title="Límites explícitos de la v1" 
           goal="Solo Python, sandbox no completamente aislado, sin pip install en sandbox. Advertencia de seguridad para la primera activación."
         >
-          <PromptBlock label="Prompt 1.6 â€” Límites de la v1">
+          <PromptBlock label="Prompt 1.6 — Límites de la v1">
 {`Define los límites explícitos de Construtor IA v1.
 
 Límites técnicos obligatorios:
@@ -407,7 +407,7 @@ Genera también la advertencia de seguridad que aparece la primera vez que el us
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 2 â€” DATOS
+            CAPA 2 — DATOS
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Database}
@@ -422,7 +422,7 @@ Genera también la advertencia de seguridad que aparece la primera vez que el us
           title="Fuente de datos" 
           goal="load_humaneval_challenges() desde JSONL y create_manual_challenge() para entrada libre. Manejo de FileNotFoundError descriptivo."
         >
-          <PromptBlock label="Prompt 2.1 â€” Fuente de datos">
+          <PromptBlock label="Prompt 2.1 — Fuente de datos">
 {`Implementa la carga de desafíos de programación para Construtor IA.
 
 Fuente 1 (local): desafíos HumanEval en \`data_engineering/raw/humaneval.json\`
@@ -448,7 +448,7 @@ Usa \`pathlib\`. No uses rutas hardcodeadas.`}
           title="Esquema de datos con Pydantic" 
           goal="CodingChallenge, GeneratedCode, ExecutionResult con status Literal, y CodingEvaluation. Pydantic v2, docstrings en todos los modelos."
         >
-          <PromptBlock label="Prompt 2.2 â€” Modelos Pydantic">
+          <PromptBlock label="Prompt 2.2 — Modelos Pydantic">
 {`Crea los modelos Pydantic v2 para Construtor IA.
 
 1. \`CodingChallenge\`:
@@ -493,7 +493,7 @@ Pydantic v2. Docstrings en todos los modelos.`}
           title="Extracción de código y análisis básico" 
           goal="extract_code_block() con regex + ast.parse(), y analyze_code_quality() para has_docstring, has_type_hints y LOC. Sin dependencias externas."
         >
-          <PromptBlock label="Prompt 2.3 â€” Extracción y análisis">
+          <PromptBlock label="Prompt 2.3 — Extracción y análisis">
 {`Implementa la extracción del bloque de código de la respuesta del LLM.
 
 Escribe \`extract_code_block(llm_response: str) -> Optional[str]\` que:
@@ -519,7 +519,7 @@ No uses radon ni otras dependencias externas para el análisis básico.`}
           title="Almacenamiento en DuckDB" 
           goal="init_engineering_db(), store_evaluation(), get_model_code_stats() y get_challenge_history(). Vistas de comparativa por modelo."
         >
-          <PromptBlock label="Prompt 2.4 â€” DuckDB">
+          <PromptBlock label="Prompt 2.4 — DuckDB">
 {`Crea la capa de persistencia de Construtor IA con DuckDB.
 
 1. \`init_engineering_db(db_path: str) -> duckdb.DuckDBPyConnection\`:
@@ -546,7 +546,7 @@ Maneja excepciones DuckDB.`}
           title="Dataset mínimo de ejemplo" 
           goal="10 desafíos Python (4 fáciles, 3 medios, 3 difíciles) con tests verificables. Compatible con CodingChallenge de Pydantic."
         >
-          <PromptBlock label="Prompt 2.5 â€” Dataset de ejemplo">
+          <PromptBlock label="Prompt 2.5 — Dataset de ejemplo">
 {`Genera el dataset de ejemplo para Construtor IA.
 
 Archivo \`sample_coding_challenges.json\` con 10 desafíos Python:
@@ -567,7 +567,7 @@ Incluye el código Python para cargar y validar con \`CodingChallenge\`.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA
+            CAPA 3 — L“GICA / IA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Cpu}
@@ -582,7 +582,7 @@ Incluye el código Python para cargar y validar con \`CodingChallenge\`.`}
           title="Selección del modelo LLM" 
           goal="Modelo con mayor pass@1 en HumanEval según el ranking del laboratorio. Verificar que genera bloques markdown, límite de contexto y API disponible."
         >
-          <PromptBlock label="Prompt 3.1 â€” Selección del modelo">
+          <PromptBlock label="Prompt 3.1 — Selección del modelo">
 {`Para Construtor IA, necesito el LLM con mejor pass@1 en HumanEval.
 
 Según \`data_engineering/rankings/latest_rankings_engineering.json\`:
@@ -592,8 +592,8 @@ Según \`data_engineering/rankings/latest_rankings_engineering.json\`:
 Confirma:
 1. ¿El modelo elegido genera código Python funcional en un bloque markdown? (algunos modelos dan código en texto sin bloques, dificultando la extracción)
 2. ¿Tiene límite de contexto suficiente para el prompt + código generado (prompts HumanEval pueden ser largos)?
-3. ¿API pública? [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
-4. Alternativa open-source: ¿DeepSeek-Coder, CodeLlama o similar está disponible con API? [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
+3. ¿API pública? [VERIFICAR EN DOCUMENTACI“N OFICIAL]
+4. Alternativa open-source: ¿DeepSeek-Coder, CodeLlama o similar está disponible con API? [VERIFICAR EN DOCUMENTACI“N OFICIAL]
 
 Justifica la elección. Cita el pass@1 exacto del benchmark.`}
           </PromptBlock>
@@ -604,11 +604,11 @@ Justifica la elección. Cita el pass@1 exacto del benchmark.`}
           title="Diseño del prompt central (few-shot)" 
           goal="Few-shot con formato de respuesta esperada: código en bloque Python, docstring, type hints, comentario del algoritmo, sin dependencias externas."
         >
-          <PromptBlock label="Prompt 3.2 â€” Prompt central (few-shot)">
+          <PromptBlock label="Prompt 3.2 — Prompt central (few-shot)">
 {`Diseña el prompt maestro de Construtor IA para generación de código.
 
 El prompt debe:
-1. Pedir al modelo que genere ÃšNICAMENTE el código Python en un bloque \`\`\`python (sin texto adicional antes ni después del bloque)
+1. Pedir al modelo que genere šNICAMENTE el código Python en un bloque \`\`\`python (sin texto adicional antes ni después del bloque)
 2. Incluir docstring con: descripción, argumentos, valor de retorno, ejemplo
 3. Incluir type hints en la firma de la función
 4. Incluir al menos 1 comentario inline explicando el algoritmo principal
@@ -616,7 +616,7 @@ El prompt debe:
 6. Si el problema no se puede resolver solo con stdlib: indicar explícitamente qué librería necesitaría en un comentario al inicio
 
 System prompt: desarrollador senior Python que genera código limpio y legible.
-User prompt: plantilla con \`{{NOMBRE_FUNCIÃ“N}}\`, \`{{DESCRIPCIÃ“N_PROBLEMA}}\`, \`{{TESTS_DE_REFERENCIA}}\` (los tests que debe pasar, para que el modelo los use como spec).
+User prompt: plantilla con \`{{NOMBRE_FUNCI“N}}\`, \`{{DESCRIPCI“N_PROBLEMA}}\`, \`{{TESTS_DE_REFERENCIA}}\` (los tests que debe pasar, para que el modelo los use como spec).
 
 Genera ambos. Incluye un ejemplo de entrada/salida del prompt completo.`}
           </PromptBlock>
@@ -627,13 +627,13 @@ Genera ambos. Incluye un ejemplo de entrada/salida del prompt completo.`}
           title="Llamada al modelo y extracción de código" 
           goal="generate_code() con temperatura 0.2, retry 2 intentos, timeout 45s. prepare_generated_code() que extrae código y construye GeneratedCode completo."
         >
-          <PromptBlock label="Prompt 3.3 â€” Llamada + extracción">
+          <PromptBlock label="Prompt 3.3 — Llamada + extracción">
 {`Implementa \`generate_code(challenge: CodingChallenge, model_name: str) -> tuple[str, float]\` que:
 
 1. Construye el mensaje con el prompt del paso anterior
 2. Temperatura: 0.2 (código debe ser consistente; algo de variación para creatividad)
 3. Max tokens: 1500 (suficiente para función + docstring + comentarios)
-4. Llama a la API de [MODELO] [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL los parámetros]
+4. Llama a la API de [MODELO] [VERIFICAR EN DOCUMENTACI“N OFICIAL los parámetros]
 5. Mide el tiempo de generación
 6. Retry 2 intentos (espera 5s entre intentos)
 7. Timeout: 45 segundos
@@ -654,7 +654,7 @@ API key desde \`CONSTRUTOR_LLM_API_KEY\`. Log con: \`model_name\`, \`challenge_i
           title="Ejecución en sandbox" 
           goal="execute_in_sandbox() con subprocess + timeout. Archivo temporal, captura de stdout/stderr, limpieza garantizada. Documentar qué NO protege el sandbox."
         >
-          <PromptBlock label="Prompt 3.4 â€” Sandbox subprocess">
+          <PromptBlock label="Prompt 3.4 — Sandbox subprocess">
 {`Esta es la función más crítica de Construtor IA desde el punto de vista de seguridad.
 
 Implementa \`execute_in_sandbox(code: GeneratedCode, challenge: CodingChallenge, timeout_seconds: int = 10) -> ExecutionResult\` que:
@@ -680,7 +680,7 @@ El usuario debe ser advertido de esto en la UI (paso 1.6).`}
           title="Análisis de calidad" 
           goal="analyze_evaluation(): overall_badge, quality_score 0-100 por reglas fijas y improvement_tips generados por lógica, no por el LLM."
         >
-          <PromptBlock label="Prompt 3.5 â€” Análisis de calidad">
+          <PromptBlock label="Prompt 3.5 — Análisis de calidad">
 {`Además del resultado de ejecución, Construtor IA analiza la calidad del código.
 
 Escribe \`analyze_evaluation(code: GeneratedCode, result: ExecutionResult) -> dict\` que genera un resumen de calidad con:
@@ -708,7 +708,7 @@ Las \`improvement_tips\` no son inventadas por el LLM; se generan por reglas fij
           title="Función de fallback" 
           goal="generate_and_execute_with_fallback(): siempre devuelve CodingEvaluation válida; nunca lanza excepción al usuario final. Fallbacks para API caída y extracción fallida."
         >
-          <PromptBlock label="Prompt 3.6 â€” Fallback">
+          <PromptBlock label="Prompt 3.6 — Fallback">
 {`Implementa \`generate_and_execute_with_fallback(challenge: CodingChallenge, model_name: str, execute: bool = True) -> tuple[CodingEvaluation, bool]\` que:
 
 1. Intenta \`generate_code()\` + \`prepare_generated_code()\`
@@ -726,7 +726,7 @@ La ejecución puede fallar de forma independiente (código generado pero no ejec
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ DE ESCRITORIO (FLET)
+            CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Monitor}
@@ -741,7 +741,7 @@ La ejecución puede fallar de forma independiente (código generado pero no ejec
           title="Wireframe de 3 pantallas" 
           goal="Descripción textual de Generación, Comparativa e Historial con componentes Flet para cada elemento, antes de escribir código."
         >
-          <PromptBlock label="Prompt 4.1 â€” Wireframe">
+          <PromptBlock label="Prompt 4.1 — Wireframe">
 {`Define el wireframe de Construtor IA con 3 pantallas:
 
 1. Pantalla Generación (principal):
@@ -764,7 +764,7 @@ La ejecución puede fallar de forma independiente (código generado pero no ejec
    - Lista de evaluaciones pasadas con filtros
 
 Para cada elemento: componente Flet y justificación.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET los componentes disponibles]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET los componentes disponibles]`}
           </PromptBlock>
         </Step>
 
@@ -773,7 +773,7 @@ Para cada elemento: componente Flet y justificación.
           title="Formulario de entrada" 
           goal="TextField multiline, botón Cargar HumanEval, Dropdowns de modelo/dificultad, Checkbox sandbox con advertencia expandible y timeout visible condicionalmente."
         >
-          <PromptBlock label="Prompt 4.2 â€” Formulario">
+          <PromptBlock label="Prompt 4.2 — Formulario">
 {`Implementa el formulario de entrada de Construtor IA con Flet.
 
 Escribe código Flet para:
@@ -794,7 +794,7 @@ El timeout solo es visible cuando el sandbox está activado.`}
           title="Área de resultados" 
           goal="Badge de resultado prominente, código monospace con scroll, traceback en rojo si falla, improvement_tips con iconos y métricas en fila horizontal."
         >
-          <PromptBlock label="Prompt 4.3 â€” Área de resultados">
+          <PromptBlock label="Prompt 4.3 — Área de resultados">
 {`Implementa el área de resultados de Construtor IA con Flet.
 
 Recibe \`CodingEvaluation\` y el dict de \`analyze_evaluation()\`.
@@ -802,7 +802,7 @@ Recibe \`CodingEvaluation\` y el dict de \`analyze_evaluation()\`.
 Genera código Flet para:
 1. Badge de resultado prominente (PASA verde, FALLA rojo, TIMEOUT naranja, NO EJECUTADO gris) con el \`quality_score\` como número secundario
 2. El código extraído en \`ft.Text\` con \`font_family\` monospace y scroll
-   [VERIFICAR EN DOCUMENTACIÃ“N DE FLET cómo especificar font_family monospace]
+   [VERIFICAR EN DOCUMENTACI“N DE FLET cómo especificar font_family monospace]
    Tamaño reducido (ej. 12px) para que quepan más líneas
 3. Si \`status=FAIL\` o \`SYNTAX_ERROR\`: el \`error_message\` / traceback en \`ft.Text\` con fondo rojo claro, también monospace
 4. Lista de \`improvement_tips\` en \`ft.Column\` con iconos de bombilla o similar
@@ -819,7 +819,7 @@ Datos recibidos como parámetros, no hardcodeados.`}
           title="Estados vacíos y de error" 
           goal="7 estados: inicio sin prompt, generando, ejecutando en sandbox, código no ejecutado, extracción fallida, timeout y dataset no encontrado."
         >
-          <PromptBlock label="Prompt 4.4 â€” Estados de error">
+          <PromptBlock label="Prompt 4.4 — Estados de error">
 {`Define los estados excepcionales de Construtor IA.
 
 Código Flet para:
@@ -827,7 +827,7 @@ Código Flet para:
 2. Generando: \`ProgressRing\` + "Generando código con [MODELO]..."
 3. Ejecutando en sandbox: \`ProgressRing\` + "Ejecutando en sandbox (máx [N]s)..."
 4. Código generado pero no ejecutado (sandbox desactivado): Badge "NO EJECUTADO" gris + "Activa el sandbox para verificar el código"
-5. LLM no extrajo bloque de código (devolvió texto sin markdown): Badge "ERROR DE EXTRACCIÃ“N" + \`raw_response\` completa para inspección manual
+5. LLM no extrajo bloque de código (devolvió texto sin markdown): Badge "ERROR DE EXTRACCI“N" + \`raw_response\` completa para inspección manual
 6. Timeout de sandbox: Badge "TIMEOUT" naranja + "El código tardó más de [N]s"
 7. Dataset HumanEval no encontrado: mensaje con la ruta esperada del archivo`}
           </PromptBlock>
@@ -838,7 +838,7 @@ Código Flet para:
           title="Navegación entre 3 pantallas" 
           goal="NavigationBar, Comparativa se activa desde resultados con challenge_id, Historial con panel lateral. Botón Regenerar que limpia y reejecutar."
         >
-          <PromptBlock label="Prompt 4.5 â€” Navegación">
+          <PromptBlock label="Prompt 4.5 — Navegación">
 {`Implementa la navegación de Construtor IA con Flet.
 
 3 pantallas: Generación, Comparativa, Historial.
@@ -850,12 +850,12 @@ Implementa:
 4. Botón "Regenerar" en el área de resultados: limpia los resultados y vuelve a ejecutar el mismo prompt con el mismo modelo
 
 Esqueleto completo de la app con las 3 pantallas.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET el sistema de navegación recomendado]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET el sistema de navegación recomendado]`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 5 â€” INTEGRACIÃ“N
+            CAPA 5 — INTEGRACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Link2}
@@ -870,7 +870,7 @@ Esqueleto completo de la app con las 3 pantallas.
           title="Conectar interfaz con lógica" 
           goal="on_generate_click(): validación de prompt, advertencia de sandbox en primera activación, async con Flet sin bloquear la UI. Subprocess en hilo separado."
         >
-          <PromptBlock label="Prompt 5.1 â€” Conexión UI â†” lógica">
+          <PromptBlock label="Prompt 5.1 — Conexión UI â†” lógica">
 {`Implementa \`on_generate_click(e)\` para Construtor IA que:
 
 1. Valida que el prompt tiene al menos 20 caracteres
@@ -885,7 +885,7 @@ Esqueleto completo de la app con las 3 pantallas.
 
 Usa \`asyncio\` con Flet. No bloquees el hilo de UI.
 El proceso de sandbox corre en subprocess, no en async directamente.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET cómo lanzar subprocesos sin bloquear la UI]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET cómo lanzar subprocesos sin bloquear la UI]`}
           </PromptBlock>
         </Step>
 
@@ -894,7 +894,7 @@ El proceso de sandbox corre en subprocess, no en async directamente.
           title="Conectar lógica con datos" 
           goal="coding_evaluation_pipeline(): generate â†’ analyze â†’ store â†’ return. Sin lógica de UI. Log con challenge_id, model_name, status y quality_score."
         >
-          <PromptBlock label="Prompt 5.2 â€” Pipeline completo">
+          <PromptBlock label="Prompt 5.2 — Pipeline completo">
 {`Escribe \`coding_evaluation_pipeline(challenge: CodingChallenge, model_name: str, execute_sandbox: bool, timeout: int, conn: duckdb.DuckDBPyConnection) -> tuple[CodingEvaluation, dict]\` que:
 
 1. Genera código con \`generate_and_execute_with_fallback()\`
@@ -912,7 +912,7 @@ Registra en log: \`challenge_id\`, \`model_name\`, \`status\`, \`quality_score\`
           title="Gestión de errores en cascada" 
           goal="CodingError enum y CodingException. Regla principal: el pipeline siempre devuelve CodingEvaluation válida, nunca lanza excepción al usuario."
         >
-          <PromptBlock label="Prompt 5.3 â€” Gestión de errores">
+          <PromptBlock label="Prompt 5.3 — Gestión de errores">
 {`Define el plan de errores en cascada para Construtor IA.
 
 Puntos de fallo:
@@ -933,7 +933,7 @@ Regla principal: "El pipeline siempre devuelve un \`CodingEvaluation\` válido, 
           title="Logging separado para sandbox" 
           goal="engineering_logger.py con evaluations.log y sandbox.log independientes. log_generation(), log_sandbox_execution(), log_quality() y log_error()."
         >
-          <PromptBlock label="Prompt 5.4 â€” Logging de sandbox">
+          <PromptBlock label="Prompt 5.4 — Logging de sandbox">
 {`Escribe \`engineering_logger.py\` para Construtor IA:
 
 1. Dos handlers: \`evaluations.log\` (RotatingFileHandler 5MB) y \`sandbox.log\` (registro específico de ejecuciones en sandbox, para auditoría de seguridad)
@@ -951,7 +951,7 @@ Regla principal: "El pipeline siempre devuelve un \`CodingEvaluation\` válido, 
           title="Configuración centralizada" 
           goal="config.py con CONSTRUTOR_LLM_API_KEY, SANDBOX_TIMEOUT, HUMANEVAL_PATH, constantes SANDBOX_WARNING_TEXT y MAX_PROMPT_LENGTH. .env.example completo."
         >
-          <PromptBlock label="Prompt 5.5 â€” Configuración">
+          <PromptBlock label="Prompt 5.5 — Configuración">
 {`Escribe \`config.py\` para Construtor IA:
 
 Variables de entorno:
@@ -973,7 +973,7 @@ Genera \`.env.example\` completo con comentarios incluyendo la nota de seguridad
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO
+            CAPA 6 — PRUEBAS Y EMPAQUETADO
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={FlaskConical}
@@ -988,7 +988,7 @@ Genera \`.env.example\` completo con comentarios incluyendo la nota de seguridad
           title="Tests unitarios" 
           goal="tests/test_engineering_logic.py: extract_code_block(), analyze_code_quality(), analyze_evaluation(). Fixtures en conftest.py. Sin APIs ni sandbox."
         >
-          <PromptBlock label="Prompt 6.1 â€” Tests unitarios">
+          <PromptBlock label="Prompt 6.1 — Tests unitarios">
 {`Escribe tests unitarios con Pytest para Construtor IA.
 
 Crea \`tests/test_engineering_logic.py\`:
@@ -1011,7 +1011,7 @@ No llames a APIs. No uses sandbox en tests unitarios.`}
           title="Test de flujo completo" 
           goal="tests/test_engineering_integration.py: mock de generate_code(), sandbox real con código correcto, verificación en DuckDB en memoria. Test de extracción fallida."
         >
-          <PromptBlock label="Prompt 6.2 â€” Test de integración">
+          <PromptBlock label="Prompt 6.2 — Test de integración">
 {`Escribe \`tests/test_engineering_integration.py\`:
 
 1. Carga \`sample_coding_challenges.json\`
@@ -1034,7 +1034,7 @@ Test adicional: mock que devuelve texto sin bloque de código â†’ \`status=
           title="Prueba manual con datos reales" 
           goal="7 escenarios: factorial de HumanEval, prompt manual, comparativa de 2 modelos, prompt ambiguo, loop infinito (timeout), offline y persistencia entre sesiones."
         >
-          <PromptBlock label="Prompt 6.3 â€” Prueba manual">
+          <PromptBlock label="Prompt 6.3 — Prueba manual">
 {`Genera el protocolo de prueba manual de Construtor IA.
 
 Escenarios:
@@ -1059,7 +1059,7 @@ Señales de que está listo para empaquetar: [GENERA LA LISTA].`}
           title="Empaquetado con PyInstaller" 
           goal="Decisión documentada sobre Python en el sandbox (.exe vs. Python del usuario). Comando de empaquetado, nota al usuario sobre los requisitos del sandbox."
         >
-          <PromptBlock label="Prompt 6.4 â€” Empaquetado .exe">
+          <PromptBlock label="Prompt 6.4 — Empaquetado .exe">
 {`Instrucciones de empaquetado para Construtor IA.
 
 Dependencias: flet, duckdb, pydantic, httpx, python-dotenv
@@ -1070,7 +1070,7 @@ En el ejecutable empaquetado por PyInstaller, "python" puede no estar disponible
 
 Opciones:
 A) Incluir el intérprete Python en el ejecutable (\`PyInstaller --add-binary\`)
-   [VERIFICAR EN DOCUMENTACIÃ“N DE PYINSTALLER si esto es posible y cómo]
+   [VERIFICAR EN DOCUMENTACI“N DE PYINSTALLER si esto es posible y cómo]
 B) Requerir que el usuario tenga Python instalado (limitación de v1)
 C) Usar el ejecutable de Python que viene con la app Flet
 
@@ -1083,10 +1083,10 @@ Genera la recomendación para v1 con la justificación, el comando de empaquetad
           title="Prueba del ejecutable en máquina limpia" 
           goal="Protocolo en VM con/sin Python según decisión del paso 6.4. Checklist del sandbox, errores comunes de Flet/DuckDB/subprocess en Windows."
         >
-          <PromptBlock label="Prompt 6.5 â€” Prueba en máquina limpia">
+          <PromptBlock label="Prompt 6.5 — Prueba en máquina limpia">
 {`Protocolo de prueba del ejecutable de Construtor IA en entorno limpio.
 
-ATENCIÃ“N: el sandbox ejecuta Python. Verifica si la máquina limpia necesita Python instalado para el sandbox, según la decisión del paso 6.4.
+ATENCI“N: el sandbox ejecuta Python. Verifica si la máquina limpia necesita Python instalado para el sandbox, según la decisión del paso 6.4.
 
 1. Entorno de prueba: VM Windows con/sin Python según la decisión tomada
 2. Archivos necesarios junto al .exe: \`.env\`, archivos JSON de desafíos
@@ -1096,13 +1096,13 @@ ATENCIÃ“N: el sandbox ejecuta Python. Verifica si la máquina limpia necesita
    - El LLM genera código correctamente
    - El sandbox funciona (si Python está disponible)
    - Sin internet: aparece el estado de fallback
-4. Errores comunes de Flet/DuckDB/subprocess en Windows [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
+4. Errores comunes de Flet/DuckDB/subprocess en Windows [VERIFICAR EN DOCUMENTACI“N OFICIAL]
 5. Cómo actualizar el modelo LLM a usar sin reinstalar la app (\`.env\`)`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N
+            FASE 7 — ITERACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={RefreshCw}
@@ -1117,7 +1117,7 @@ ATENCIÃ“N: el sandbox ejecuta Python. Verifica si la máquina limpia necesita
           title="Planificar v2" 
           goal="Backlog en tabla: JS + SQL, sandbox Docker, comparativa paralela de 3 modelos. Capa afectada, complejidad, riesgo de seguridad adicional y prioridad."
         >
-          <PromptBlock label="Prompt 7.A â€” Backlog v2">
+          <PromptBlock label="Prompt 7.A — Backlog v2">
 {`Construtor IA v1 está funcionando. Planifica la v2.
 
 Ideas para v2:
@@ -1140,10 +1140,10 @@ Backlog v2 en formato tabla.`}
           title="Publicar en Foro de Proyectos" 
           goal="Ficha con advertencia de seguridad del sandbox (obligatoria), capturas de badge PASA y comparativa de modelos, pregunta abierta sobre nivel de aislamiento aceptable."
         >
-          <PromptBlock label="Prompt 7.B â€” Publicación en el Foro">
+          <PromptBlock label="Prompt 7.B — Publicación en el Foro">
 {`Genera la ficha de publicación de Construtor IA para el Foro Horizon.
 
-1. Título: "Construtor IA v1 â€” Generación y Evaluación Objetiva de Código con LLMs"
+1. Título: "Construtor IA v1 — Generación y Evaluación Objetiva de Código con LLMs"
 2. Área: Ingeniería & Arquitectura
 3. Descripción (máx 150 palabras)
 4. Advertencia de seguridad del sandbox (texto corto, obligatorio)
@@ -1154,7 +1154,7 @@ Backlog v2 en formato tabla.`}
           </PromptBlock>
         </Step>
 
-        {/* â”€â”€â”€ Resultado esperado â”€â”€â”€ */}
+        {/* —€—€—€ Resultado esperado —€—€—€ */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(59,111,212,0.05)", borderColor: "rgba(59,111,212,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1162,7 +1162,7 @@ Backlog v2 en formato tabla.`}
             <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: C.accent }}>Resultado esperado</span>
           </div>
           <p className="text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.65)" }}>
-            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1â€“6 + Fase 7), tendrás un <strong>ejecutable de Construtor IA</strong> que genera código Python con el LLM líder en HumanEval, lo ejecuta en un sandbox con timeout configurable, muestra el resultado (PASA / FALLA / TIMEOUT) con quality score 0â€“100, y guarda el historial completo de evaluaciones para comparar modelos a lo largo del tiempo.
+            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1–6 + Fase 7), tendrás un <strong>ejecutable de Construtor IA</strong> que genera código Python con el LLM líder en HumanEval, lo ejecuta en un sandbox con timeout configurable, muestra el resultado (PASA / FALLA / TIMEOUT) con quality score 0–100, y guarda el historial completo de evaluaciones para comparar modelos a lo largo del tiempo.
           </p>
           <div className="flex flex-wrap gap-3 justify-start mt-6">
             <Link to="/comunidad/aplicaciones"
@@ -1178,7 +1178,7 @@ Backlog v2 en formato tabla.`}
           </div>
         </div>
 
-        {/* â”€â”€â”€ Version extensions â”€â”€â”€ */}
+        {/* —€—€—€ Version extensions —€—€—€ */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

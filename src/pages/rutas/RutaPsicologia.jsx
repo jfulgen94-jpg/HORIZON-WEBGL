@@ -19,32 +19,32 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Psicología (data_psychology/rankings/) · ToMBench · SocialIQa · BIG-Bench Social · EmoBench · OpenToM", motivo: "Verificar qué modelos tienen mejor performance en razonamiento social antes de elegir el motor de Psique Lab." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Documento de definición", motivo: "Definir qué tipos de análisis psicológico cubre la v1 y las advertencias de interpretación necesarias en cada resultado." },
-  { capa: "2", subcapa: "2.1", herramienta: "data_psychology/raw/ · SocialIQa Hugging Face [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]", motivo: "Escenarios de razonamiento social ya descargados por el motor Horizon más fuente alternativa pública." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Definir qué tipos de análisis psicológico cubre la v1 y las advertencias de interpretación necesarias en cada resultado." },
+  { capa: "2", subcapa: "2.1", herramienta: "data_psychology/raw/ · SocialIQa Hugging Face [VERIFICAR EN DOCUMENTACI“N OFICIAL]", motivo: "Escenarios de razonamiento social ya descargados por el motor Horizon más fuente alternativa pública." },
   { capa: "2", subcapa: "2.2", herramienta: "Pydantic v2", motivo: "Esquemas estrictos para PsychScenario, BiasFlag, ModelResponse y PsychEvaluation con validadores de dominio." },
   { capa: "2", subcapa: "2.3", herramienta: "Pydantic validators", motivo: "Validar formato de escenario (mínimo 30 palabras), presencia de contexto social y rango de opciones." },
   { capa: "2", subcapa: "2.4", herramienta: "DuckDB", motivo: "Historial auditable con vistas vw_model_social_iq y vw_bias_distribution para estadísticas por modelo." },
   { capa: "2", subcapa: "2.5", herramienta: "JSON manual (15 escenarios)", motivo: "5 ToM + 5 SocialIQa + 5 de sesgo cognitivo para desarrollo completamente offline." },
   { capa: "3", subcapa: "3.1", herramienta: "data_psychology/rankings/", motivo: "Seleccionar modelo con mejor score verificado en SocialIQa y ToMBench, con capacidad de razonamiento de perspectiva." },
   { capa: "3", subcapa: "3.2", herramienta: "Chain of Thought social (perspectiva de actores)", motivo: "El prompt fuerza al modelo a identificar estados mentales de cada actor antes de responder." },
-  { capa: "3", subcapa: "3.3", herramienta: "httpx · openai SDK [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]", motivo: "Llamada async con temperatura 0.3 para razonamiento social con algo de variabilidad detectable." },
+  { capa: "3", subcapa: "3.3", herramienta: "httpx · openai SDK [VERIFICAR EN DOCUMENTACI“N OFICIAL]", motivo: "Llamada async con temperatura 0.3 para razonamiento social con algo de variabilidad detectable." },
   { capa: "3", subcapa: "3.4", herramienta: "Python puro + lista de patrones de sesgo", motivo: "Heurísticas para detectar atribución fundamental, sesgo de confirmación, estereotipos y simplificación moral." },
   { capa: "3", subcapa: "3.5", herramienta: "Comparación directa con ground truth SocialIQa", motivo: "Verificar si el modelo eligió la opción correcta cuando existe respuesta conocida." },
   { capa: "3", subcapa: "3.6", herramienta: "try/except", motivo: "Mostrar la respuesta sin análisis de sesgos si ese módulo falla; interpretation_warning NUNCA se suprime." },
   { capa: "4", subcapa: "4.1", herramienta: "Papel / Excalidraw", motivo: "Definir 3 pantallas (Evaluación, Estadísticas, Historial) antes de codificar." },
-  { capa: "4", subcapa: "4.2â€“4.5", herramienta: "Flet", motivo: "Escenarios y respuestas son texto narrativo largo; Flet gestiona scroll y tarjetas de sesgo más naturalmente que Tkinter." },
-  { capa: "5", subcapa: "5.1â€“5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Pipeline completo con INTERPRETATION_WARNING hardcodeada para que no pueda desactivarse." },
-  { capa: "6", subcapa: "6.1â€“6.2", herramienta: "Pytest", motivo: "Tests de extracción de opción elegida, detección de sesgos heurística y test de integración del pipeline completo." },
+  { capa: "4", subcapa: "4.2–4.5", herramienta: "Flet", motivo: "Escenarios y respuestas son texto narrativo largo; Flet gestiona scroll y tarjetas de sesgo más naturalmente que Tkinter." },
+  { capa: "5", subcapa: "5.1–5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Pipeline completo con INTERPRETATION_WARNING hardcodeada para que no pueda desactivarse." },
+  { capa: "6", subcapa: "6.1–6.2", herramienta: "Pytest", motivo: "Tests de extracción de opción elegida, detección de sesgos heurística y test de integración del pipeline completo." },
   { capa: "6", subcapa: "6.3", herramienta: "Escenarios del laboratorio de Psicología", motivo: "Validación manual con 7 escenarios psicológicos específicos incluyendo sesgos de género y ToM clásicos." },
-  { capa: "6", subcapa: "6.4", herramienta: "PyInstaller · flet build [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]", motivo: "Ejecutable distribuible; la INTERPRETATION_WARNING debe estar en código, no en .env." },
+  { capa: "6", subcapa: "6.4", herramienta: "PyInstaller · flet build [VERIFICAR EN DOCUMENTACI“N OFICIAL]", motivo: "Ejecutable distribuible; la INTERPRETATION_WARNING debe estar en código, no en .env." },
   { capa: "6", subcapa: "6.5", herramienta: "VM sin Python", motivo: "Prueba en entorno limpio verificando que la advertencia de interpretación aparece en todas las pantallas." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar Psique Lab con la advertencia de interpretación prominente y recoger feedback sobre heurísticas de sesgos." },
 ];
 
-// â”€â”€â”€ Phases overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Benchmarks de razonamiento social (ToMBench, SocialIQa, EmoBench) y validez epistemológica de evaluar psicología en LLMs." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil de usuario (investigador/docente), tipos de análisis disponibles, inputs/outputs, criterios de éxito y advertencia de interpretación como requisito no negociable." },
@@ -56,12 +56,12 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Publicar en el Foro con advertencia de interpretación prominente y planificar v2 con comparativa de 3 modelos y análisis batch." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · Arena de modelos",
     area: "Comparativa de razonamiento social",
-    title: "Psique Arena â€” 3 modelos ante el mismo escenario",
+    title: "Psique Arena — 3 modelos ante el mismo escenario",
     desc: "Envía el mismo escenario psicológico a 3 modelos en paralelo, muestra sus razonamientos en columnas y compara los patrones de sesgo detectados en cada uno. Especialmente útil para ver si el sesgo de atribución fundamental es consistente entre modelos o específico de uno.",
     badgeBg: "rgba(124,58,237,0.10)", badgeColor: "#7C3AED",
     changes: [
@@ -76,13 +76,13 @@ const VERSIONS = [
   {
     tag: "v3 · Análisis batch",
     area: "Estadísticas robustas",
-    title: "Psique Batch â€” Dataset completo de SocialIQa en un análisis",
-    desc: "Evalúa un conjunto de 50â€“200 escenarios SocialIQa de forma automática para obtener estadísticas robustas de accuracy por categoría, distribución de sesgos frecuentes y comparativa de modelos con tamaño de muestra significativo.",
+    title: "Psique Batch — Dataset completo de SocialIQa en un análisis",
+    desc: "Evalúa un conjunto de 50–200 escenarios SocialIQa de forma automática para obtener estadísticas robustas de accuracy por categoría, distribución de sesgos frecuentes y comparativa de modelos con tamaño de muestra significativo.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: C.emerald,
     changes: [
       "Capa 1: nueva acción 'Análisis batch'; el usuario elige subconjunto de SocialIQa y número de escenarios",
       "Capa 3: evaluate_batch(): asyncio.gather con semáforo (máx 5 llamadas simultáneas)",
-      "Capa 3: estimación de tiempo y coste antes de ejecutar (N escenarios Ã— tiempo medio por escenario)",
+      "Capa 3: estimación de tiempo y coste antes de ejecutar (N escenarios — tiempo medio por escenario)",
       "Capa 4: pantalla de progreso con barra y ETA; cancelable en cualquier momento",
       "Capa 4: informe de resultados batch: accuracy por analysis_type, top-5 sesgos más frecuentes",
       "Advertencia adicional: con n > 50, los patrones de sesgo son más robustos pero sigue siendo heurístico",
@@ -91,7 +91,7 @@ const VERSIONS = [
   {
     tag: "v4 · Sesgos adicionales",
     area: "Heurísticas extendidas",
-    title: "Psique Plus â€” Detección de sesgo de disponibilidad y anclaje",
+    title: "Psique Plus — Detección de sesgo de disponibilidad y anclaje",
     desc: "Amplía el catálogo de sesgos detectables en v1 (atribución fundamental, confirmación, estereotipos, simplificación moral) con dos nuevos: el sesgo de disponibilidad (el modelo sobrepesa casos extremos o recientes) y el efecto de anclaje (la primera información presentada domina el razonamiento).",
     badgeBg: "rgba(217,119,6,0.10)", badgeColor: C.amber,
     changes: [
@@ -105,7 +105,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Interpretation notice â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Interpretation notice —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 function InterpretationNotice() {
   return (
     <div className="mb-8 rounded-xl border overflow-hidden"
@@ -114,7 +114,7 @@ function InterpretationNotice() {
         style={{ background: "rgba(124,58,237,0.07)" }}>
         <Eye size={15} style={{ color: "#7C3AED" }} className="shrink-0" />
         <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: "#7C3AED" }}>
-          Advertencia de interpretación â€” Lectura obligatoria
+          Advertencia de interpretación — Lectura obligatoria
         </span>
       </div>
       <div className="px-5 py-4" style={{ background: "rgba(124,58,237,0.03)" }}>
@@ -141,7 +141,7 @@ function InterpretationNotice() {
   );
 }
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaPsicologia() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -240,7 +240,7 @@ export default function RutaPsicologia() {
         </div>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 0 â€” INVESTIGACIÃ“N
+            FASE 0 — INVESTIGACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Search}
@@ -255,7 +255,7 @@ export default function RutaPsicologia() {
           title="Benchmarks de psicología y teoría de la mente" 
           goal="Identificar ToMBench, SocialIQa, BIG-Bench Social, EmoBench y OpenToM; qué habilidades evalúan (perspectiva de terceros, estados mentales, predicción de comportamiento); modelo líder en el ranking del laboratorio; sesgos sistemáticos conocidos en LLMs para razonamiento social."
         >
-          <PromptBlock label="Prompt 0.A â€” Benchmarks de razonamiento social">
+          <PromptBlock label="Prompt 0.A — Benchmarks de razonamiento social">
 {`Actúa como especialista en evaluación de LLMs para tareas de razonamiento social y psicología cognitiva.
 Tengo acceso al Laboratorio de Psicología de Horizon (\`data_psychology/rankings/\`).
 
@@ -274,7 +274,7 @@ Cita scores específicos. No inventes datos.`}
           title="Validez de evaluar razonamiento psicológico con LLMs" 
           goal="Entender las limitaciones epistemológicas antes de construir: ¿los benchmarks de ToM miden 'comprensión' social o patrones estadísticos? ¿Es fiable la detección heurística de sesgos? ¿Qué advertencias de interpretación son obligatorias? Esta investigación determina el diseño de los avisos de la app."
         >
-          <PromptBlock label="Prompt 0.B â€” Validez epistemológica">
+          <PromptBlock label="Prompt 0.B — Validez epistemológica">
 {`Psique Lab evaluará el razonamiento social de LLMs usando benchmarks psicológicos.
 
 Antes de construirlo, necesito entender las limitaciones epistemológicas:
@@ -287,7 +287,7 @@ Esta información determinará el tono de los análisis y las advertencias de la
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 1 â€” DEFINICIÃ“N DEL PROBLEMA
+            CAPA 1 — DEFINICI“N DEL PROBLEMA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Layers}
@@ -302,7 +302,7 @@ Esta información determinará el tono de los análisis y las advertencias de la
           title="¿Quién usa esta app?" 
           goal="Ficha con rol (investigador de IA, psicólogo investigador, docente universitario), qué hace sin la app, tipos de escenarios que le interesan (ToM clásicos, dilemas morales, sesgos cognitivos), nivel técnico y cuántos escenarios evalúa por sesión."
         >
-          <PromptBlock label="Prompt 1.1 â€” Perfil de usuario">
+          <PromptBlock label="Prompt 1.1 — Perfil de usuario">
 {`Define el perfil de usuario de Psique Lab.
 
 La app evalúa el razonamiento social de LLMs con escenarios de Teoría de la Mente y SocialIQa.
@@ -324,7 +324,7 @@ Genera la ficha con:
           title="¿Qué problema concreto resuelve?" 
           goal="Una sola frase en formato [ROL] no puede [TAREA] porque [OBSTÁCULO]. Aclarar si la app mide RENDIMIENTO (comparar con ground truth) o CALIDAD DEL RAZONAMIENTO (detectar sesgos), y qué implica para el diseño que los resultados no midan 'psicología real' del modelo."
         >
-          <PromptBlock label="Prompt 1.2 â€” Frase del problema">
+          <PromptBlock label="Prompt 1.2 — Frase del problema">
 {`Basándome en el perfil ([PEGA EL RESUMEN DEL PERFIL]), escribe UNA SOLA FRASE del problema que Psique Lab resuelve.
 
 Formato: "[ROL] no puede [TAREA] porque [OBSTÁCULO], lo que provoca [CONSECUENCIA]."
@@ -342,7 +342,7 @@ Define la posición de la app en una frase que aparecerá en la pantalla de inic
           title="¿Qué datos entran?" 
           goal="Lista completa: escenario libre o cargado del dataset, tipo de análisis (ToM, dilema moral, razonamiento empático, detección de sesgo), ground truth opcional, modelo a evaluar. Tipo, restricciones y valor por defecto de cada campo."
         >
-          <PromptBlock label="Prompt 1.3 â€” Inputs de la app">
+          <PromptBlock label="Prompt 1.3 — Inputs de la app">
 {`Para Psique Lab, define todos los datos de entrada.
 
 El usuario puede:
@@ -364,7 +364,7 @@ Define también si el escenario puede tener múltiples opciones de respuesta (ti
           title="¿Qué sale?" 
           goal="Outputs: respuesta completa del LLM, resultado correcto/incorrecto/N-A, sesgos detectados con nivel de confianza, resumen del patrón de razonamiento, advertencia de interpretación obligatoria y score de la sesión si se evalúan múltiples escenarios."
         >
-          <PromptBlock label="Prompt 1.4 â€” Outputs de la evaluación">
+          <PromptBlock label="Prompt 1.4 — Outputs de la evaluación">
 {`Define todos los outputs de Psique Lab para cada evaluación.
 
 La app debe producir:
@@ -384,9 +384,9 @@ Para cada output: formato, cuándo se genera, si se guarda en DuckDB.`}
         <Step 
           num="1.5" 
           title="Criterios de éxito" 
-          goal="6â€“8 criterios verificables incluyendo: parseo de opción elegida â‰¥90% en SocialIQa, detección de atribución fundamental â‰¥70% en escenarios que la presentan, advertencia de interpretación visible en TODOS los resultados sin excepción y comparativa de 2 modelos en pantalla de estadísticas."
+          goal="6–8 criterios verificables incluyendo: parseo de opción elegida â‰¥90% en SocialIQa, detección de atribución fundamental â‰¥70% en escenarios que la presentan, advertencia de interpretación visible en TODOS los resultados sin excepción y comparativa de 2 modelos en pantalla de estadísticas."
         >
-          <PromptBlock label="Prompt 1.5 â€” Criterios de éxito">
+          <PromptBlock label="Prompt 1.5 — Criterios de éxito">
 {`Define los criterios de éxito de Psique Lab v1.
 
 El dominio psicológico requiere especial cuidado en no sobreinterpretar resultados.
@@ -407,7 +407,7 @@ Sé honesto: la detección automática de sesgos psicológicos tiene limitacione
           title="Límites explícitos de la v1" 
           goal="Límites de interpretación (heurística, no metodología psicológica formal; no diagnostica comportamiento humano; no apto para selección de personal) y límites técnicos. La INTERPRETATION_WARNING hardcodeada en código, no configurable, para que no pueda desactivarse."
         >
-          <PromptBlock label="Prompt 1.6 â€” Límites de la v1">
+          <PromptBlock label="Prompt 1.6 — Límites de la v1">
 {`Define los límites explícitos de Psique Lab v1.
 
 Límites de interpretación (críticos en el dominio psicológico):
@@ -426,7 +426,7 @@ Genera la advertencia de interpretación que aparecerá en cada resultado:
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 2 â€” DATOS
+            CAPA 2 — DATOS
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Database}
@@ -441,7 +441,7 @@ Genera la advertencia de interpretación que aparecerá en cada resultado:
           title="Fuente de datos" 
           goal="load_socialIQa_scenarios() y load_tom_scenarios() desde data_psychology/raw/ con pathlib; create_manual_scenario() para entrada libre sin opciones predefinidas. FileNotFoundError descriptivo. Ambas funciones devuelven lista de PsychScenario."
         >
-          <PromptBlock label="Prompt 2.1 â€” Carga de escenarios">
+          <PromptBlock label="Prompt 2.1 — Carga de escenarios">
 {`Implementa la carga de escenarios psicológicos para Psique Lab.
 
 Fuente 1 (local): escenarios en \`data_psychology/raw/\`
@@ -469,7 +469,7 @@ Usa \`pathlib\`. Maneja \`FileNotFoundError\` descriptivo.`}
           title="Esquema de datos con Pydantic" 
           goal="PsychScenario (context, options, analysis_type, difficulty, source), BiasFlag (bias_name, evidence_in_response, detection_confidence ALTO/MEDIO/BAJO), ModelResponse (chosen_option, is_correct, reasoning_summary, bias_flags, response_time) y PsychEvaluation (con interpretation_warning siempre presente)."
         >
-          <PromptBlock label="Prompt 2.2 â€” Modelos Pydantic">
+          <PromptBlock label="Prompt 2.2 — Modelos Pydantic">
 {`Crea los modelos Pydantic v2 para Psique Lab.
 
 1. \`PsychScenario\`:
@@ -511,9 +511,9 @@ Pydantic v2. Docstrings en todos los modelos.`}
         <Step 
           num="2.3" 
           title="Validación y detección de patrones de razonamiento" 
-          goal="validate_scenario() (mínimo 30 palabras, 2â€“4 opciones si las tiene, analysis_type válido), extract_chosen_option() (busca 'Opción A', 'B)', texto de la opción) y summarize_reasoning_pattern() (¿menciona perspectiva de terceros? ¿atribuciones internas o externas? 50â€“100 palabras sin sobreinterpretar)."
+          goal="validate_scenario() (mínimo 30 palabras, 2–4 opciones si las tiene, analysis_type válido), extract_chosen_option() (busca 'Opción A', 'B)', texto de la opción) y summarize_reasoning_pattern() (¿menciona perspectiva de terceros? ¿atribuciones internas o externas? 50–100 palabras sin sobreinterpretar)."
         >
-          <PromptBlock label="Prompt 2.3 â€” Validación y patrones">
+          <PromptBlock label="Prompt 2.3 — Validación y patrones">
 {`Implementa las funciones de validación y análisis básico para Psique Lab.
 
 1. \`validate_scenario(scenario: PsychScenario) -> tuple[bool, list[str]]\`:
@@ -543,7 +543,7 @@ Pydantic v2. Docstrings en todos los modelos.`}
           title="Almacenamiento en DuckDB" 
           goal="init_psychology_db(), store_evaluation(), get_model_social_stats() usando vw_model_social_iq (accuracy por modelo), get_bias_statistics() usando vw_bias_distribution (sesgos más frecuentes) y get_evaluation_history() con filtro por analysis_type."
         >
-          <PromptBlock label="Prompt 2.4 â€” DuckDB con vistas de sesgos">
+          <PromptBlock label="Prompt 2.4 — DuckDB con vistas de sesgos">
 {`Crea la capa de persistencia de Psique Lab con DuckDB.
 
 1. \`init_psychology_db(db_path: str) -> duckdb.DuckDBPyConnection\`:
@@ -573,7 +573,7 @@ Maneja excepciones DuckDB.`}
           title="Dataset mínimo de ejemplo" 
           goal="15 escenarios en sample_psych_scenarios.json: 5 ToM (2 False Belief, 2 perspectiva de segundo orden, 1 intención vs. acción) + 5 SocialIQa con opciones A/B/C + 5 de sesgo cognitivo (2 atribución fundamental, 2 sesgo de confirmación, 1 estereotipo sutil). Campo expected_bias para validar la detección."
         >
-          <PromptBlock label="Prompt 2.5 â€” Dataset de ejemplo">
+          <PromptBlock label="Prompt 2.5 — Dataset de ejemplo">
 {`Genera el dataset de escenarios psicológicos de ejemplo para Psique Lab.
 
 Archivo \`sample_psych_scenarios.json\` con 15 escenarios:
@@ -601,7 +601,7 @@ Incluye el código Python para cargar y validar con \`PsychScenario\`.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA
+            CAPA 3 — L“GICA / IA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Cpu}
@@ -616,7 +616,7 @@ Incluye el código Python para cargar y validar con \`PsychScenario\`.`}
           title="Selección del modelo LLM" 
           goal="Modelo #1 en SocialIQa y #1 en ToMBench del ranking; si son distintos, cuál es más relevante para Psique Lab. Confirmar: ¿conoce conceptos como Teoría de la Mente y atribución fundamental? ¿Hay evidencia de que reproduce sesgos específicos? Alternativa open-source."
         >
-          <PromptBlock label="Prompt 3.1 â€” Selección del modelo">
+          <PromptBlock label="Prompt 3.1 — Selección del modelo">
 {`Para Psique Lab, necesito el LLM con mejor razonamiento social.
 
 Según \`data_psychology/rankings/latest_rankings_psychology.json\`:
@@ -628,7 +628,7 @@ Según \`data_psychology/rankings/latest_rankings_psychology.json\`:
 Confirma:
 1. ¿El modelo elegido tiene conocimiento de psicología cognitiva y conceptos como "Teoría de la Mente" o "atribución fundamental"? (para que entienda el contexto de los escenarios sin necesidad de definirlos en cada prompt)
 2. ¿Hay evidencia de que el modelo reproduce sesgos cognitivos específicos? (cita investigaciones recientes si las hay, sin inventarlas)
-3. Alternativa open-source con buen razonamiento social? [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
+3. Alternativa open-source con buen razonamiento social? [VERIFICAR EN DOCUMENTACI“N OFICIAL]
 
 Justifica la elección considerando: score en benchmark + capacidad de razonamiento de perspectiva + disponibilidad de API.`}
           </PromptBlock>
@@ -639,7 +639,7 @@ Justifica la elección considerando: score en benchmark + capacidad de razonamie
           title="Diseño del prompt central" 
           goal="System prompt de investigador de psicología cognitiva + user prompt con {{CONTEXTO}}, {{PREGUNTA}}, {{OPCIONES_SI_EXISTEN}}: identificar estados mentales de cada actor, razonar y elegir opción (tipo test) o responder libre, considerar perspectivas alternativas, no reproducir estereotipos. Respuesta en JSON (response_text, chosen_option, actor_mental_states, alternative_perspectives, confidence)."
         >
-          <PromptBlock label="Prompt 3.2 â€” Prompt social central">
+          <PromptBlock label="Prompt 3.2 — Prompt social central">
 {`Diseña el prompt maestro de Psique Lab para análisis de escenarios psicológicos.
 
 El prompt debe:
@@ -664,7 +664,7 @@ Incluye la instrucción explícita de no reproducir estereotipos de género, cul
           title="Llamada al modelo y parseo" 
           goal="evaluate_social_scenario(): temperatura 0.3, max_tokens 1000, retry 2 intentos, timeout 45s. parse_social_response(): extraer JSON, llamar a extract_chosen_option(), verificar is_correct, llamar a summarize_reasoning_pattern(), construir ModelResponse (sin bias_flags aún). API key desde PSIQUE_LLM_API_KEY."
         >
-          <PromptBlock label="Prompt 3.3 â€” Llamada y parseo">
+          <PromptBlock label="Prompt 3.3 — Llamada y parseo">
 {`Implementa \`evaluate_social_scenario(scenario: PsychScenario, model_name: str) -> tuple[str, float]\` que:
 
 1. Construye el mensaje con el prompt del paso anterior
@@ -687,9 +687,9 @@ API key desde \`PSIQUE_LLM_API_KEY\`. Log con: \`model_name\`, \`scenario_id\`, 
         <Step 
           num="3.4" 
           title="Análisis de sesgos heurístico" 
-          goal="detect_cognitive_biases(): 4 heurísticas â€” atribución fundamental (adjetivos de carácter sin factores situacionales), sesgo de confirmación (alternative_perspectives < 2), estereotipo de género (género + atributo estereotipado en mismo contexto), simplificación moral (absolutos sin matización). Confianza máxima MEDIO para heurísticas; NUNCA ALTO."
+          goal="detect_cognitive_biases(): 4 heurísticas — atribución fundamental (adjetivos de carácter sin factores situacionales), sesgo de confirmación (alternative_perspectives < 2), estereotipo de género (género + atributo estereotipado en mismo contexto), simplificación moral (absolutos sin matización). Confianza máxima MEDIO para heurísticas; NUNCA ALTO."
         >
-          <PromptBlock label="Prompt 3.4 â€” Detección de sesgos">
+          <PromptBlock label="Prompt 3.4 — Detección de sesgos">
 {`Implementa el sistema de detección de sesgos cognitivos en las respuestas del LLM.
 
 Los sesgos que Psique Lab puede detectar heurísticamente en v1:
@@ -712,7 +712,7 @@ Cada flag tiene \`detection_confidence\` BAJO o MEDIO (no ALTO para heurísticas
           title="Comparación con ground truth" 
           goal="compare_with_ground_truth(): si chosen_option es None â†’ is_correct=None con nota 'Opción no extractable'; si ambos disponibles â†’ comparar. calculate_session_accuracy(): total, con ground truth, accuracy_pct y accuracy_by_type para el score de sesión."
         >
-          <PromptBlock label="Prompt 3.5 â€” Ground truth y accuracy">
+          <PromptBlock label="Prompt 3.5 — Ground truth y accuracy">
 {`Implementa la comparación de la respuesta del LLM con el ground truth del benchmark.
 
 Escribe \`compare_with_ground_truth(response: ModelResponse, scenario: PsychScenario) -> ModelResponse\` que:
@@ -736,7 +736,7 @@ Esta función se usa para mostrar el score de la sesión en la pantalla de estad
           title="Función de fallback" 
           goal="evaluate_scenario_with_fallback(): si API falla â†’ ModelResponse vacío; si parseo falla â†’ guardar raw_response sin bias_flags; si llega a parse â†’ apply detect_cognitive_biases() + compare_with_ground_truth(). PsychEvaluation SIEMPRE contiene interpretation_warning. Devuelve (evaluation, is_model_available)."
         >
-          <PromptBlock label="Prompt 3.6 â€” Fallback seguro">
+          <PromptBlock label="Prompt 3.6 — Fallback seguro">
 {`Implementa \`evaluate_scenario_with_fallback(scenario: PsychScenario, model_name: str) -> tuple[PsychEvaluation, bool]\` que:
 
 1. Intenta \`evaluate_social_scenario()\` + \`parse_social_response()\`
@@ -755,7 +755,7 @@ La \`interpretation_warning\` SIEMPRE aparece, incluso si \`is_model_available=F
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ DE ESCRITORIO (FLET)
+            CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Monitor}
@@ -770,7 +770,7 @@ La \`interpretation_warning\` SIEMPRE aparece, incluso si \`is_model_available=F
           title="Wireframe de 3 pantallas" 
           goal="Descripción textual de Evaluación (TextField, Dropdowns, panel de resultados con tarjetas de sesgo), Estadísticas (tablas vw_model_social_iq y vw_bias_distribution con filtros) e Historial (lista + panel lateral al hacer clic). Componente Flet específico para cada elemento."
         >
-          <PromptBlock label="Prompt 4.1 â€” Wireframe">
+          <PromptBlock label="Prompt 4.1 — Wireframe">
 {`Define el wireframe de Psique Lab con 3 pantallas:
 
 1. Pantalla Evaluación (principal):
@@ -796,7 +796,7 @@ La \`interpretation_warning\` SIEMPRE aparece, incluso si \`is_model_available=F
    - Clic en evaluación: ver detalles en panel lateral
 
 Para cada elemento: componente Flet específico.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET los componentes disponibles]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET los componentes disponibles]`}
           </PromptBlock>
         </Step>
 
@@ -805,11 +805,11 @@ Para cada elemento: componente Flet específico.
           title="Formulario de entrada" 
           goal="ft.Banner no descartable con interpretation_warning al inicio + ft.TextField multiline (máx 1000 chars) + botón 'Cargar escenario del dataset' con diálogo + Dropdowns de tipo de análisis y modelo + ft.Switch 'Tiene respuesta correcta' con Dropdown condicional A/B/C + botón 'Evaluar'."
         >
-          <PromptBlock label="Prompt 4.2 â€” Formulario de escenario">
+          <PromptBlock label="Prompt 4.2 — Formulario de escenario">
 {`Implementa el formulario de Psique Lab con Flet.
 
 PRIMERO: la advertencia de interpretación en \`ft.Banner\` no descartable al inicio:
-"âš ️ Los análisis de Psique Lab miden el comportamiento del LLM en este escenario. No reflejan capacidades cognitivas generales ni comportamiento humano real."
+"→ ️ Los análisis de Psique Lab miden el comportamiento del LLM en este escenario. No reflejan capacidades cognitivas generales ni comportamiento humano real."
 
 Luego el formulario:
 1. \`ft.TextField\` multiline para el escenario (scroll, máx 1000 chars)
@@ -819,7 +819,7 @@ Luego el formulario:
 5. \`ft.ElevatedButton\` "Evaluar"
 6. Contador de evaluaciones de la sesión en la barra de estado
 
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET Switch y comportamiento condicional de Dropdown]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET Switch y comportamiento condicional de Dropdown]`}
           </PromptBlock>
         </Step>
 
@@ -828,7 +828,7 @@ Luego el formulario:
           title="Área de resultados" 
           goal="Badge CORRECTO/INCORRECTO/N-A + score de sesión; respuesta scrollable; ft.Column de tarjetas de sesgo con nombre + evidencia + badge de confianza BAJO/MEDIO + nota 'Detectado heurísticamente; verificar manualmente'; resumen de patrón en contenedor azul claro; interpretation_warning al pie siempre visible; botones Guardar y 'Evaluar con otro modelo'."
         >
-          <PromptBlock label="Prompt 4.3 â€” Área de resultados">
+          <PromptBlock label="Prompt 4.3 — Área de resultados">
 {`Implementa el área de resultados de Psique Lab con Flet.
 
 Recibe \`PsychEvaluation\`, \`session_stats\` (dict del cálculo de accuracy).
@@ -853,7 +853,7 @@ Datos recibidos como parámetros, no hardcodeados.`}
           title="Estados vacíos y de error" 
           goal="7 estados como funciones reutilizables: inicio (3 botones de ejemplo por categoría), evaluando (ProgressRing), LLM no disponible (banner rojo + interpretation_warning reforzada), escenario < 30 palabras (SnackBar), 0 sesgos detectados (texto educativo, no engañoso), opción no extractable (badge N-A con explicación), dataset no encontrado (modo manual con mensaje descriptivo)."
         >
-          <PromptBlock label="Prompt 4.4 â€” Estados de error">
+          <PromptBlock label="Prompt 4.4 — Estados de error">
 {`Define los estados excepcionales de Psique Lab.
 
 Código Flet para:
@@ -872,7 +872,7 @@ Código Flet para:
           title="Navegación básica" 
           goal="NavigationBar con 3 íconos; Estadísticas se actualiza al navegar; Historial con panel lateral al hacer clic en evaluación (solo lectura) + botón 'Reutilizar escenario' que lleva a Evaluación pre-cargada para probar con otro modelo. Interpretation_warning visible en todas las pantallas."
         >
-          <PromptBlock label="Prompt 4.5 â€” Navegación">
+          <PromptBlock label="Prompt 4.5 — Navegación">
 {`Implementa la navegación de Psique Lab con Flet.
 
 3 pantallas: Evaluación, Estadísticas, Historial.
@@ -885,12 +885,12 @@ Implementa:
 4. Botón "Reutilizar escenario" en el historial: lleva a Evaluación con el escenario pre-cargado para probar con otro modelo
 
 Escribe el esqueleto completo de la app.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET el sistema de navegación]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET el sistema de navegación]`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 5 â€” INTEGRACIÃ“N
+            CAPA 5 — INTEGRACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Link2}
@@ -903,9 +903,9 @@ Escribe el esqueleto completo de la app.
         <Step 
           num="5.1" 
           title="Conectar interfaz con lógica" 
-          goal="on_evaluate_click(): validar â‰¥30 palabras, mostrar 'Evaluandoâ€¦', construir PsychScenario, llamar a psych_evaluation_pipeline() async, actualizar UI, actualizar score de sesión, guardar en DuckDB, banner si is_model_available=False. Interpretation_warning visible durante y después del análisis."
+          goal="on_evaluate_click(): validar â‰¥30 palabras, mostrar 'Evaluando–¦', construir PsychScenario, llamar a psych_evaluation_pipeline() async, actualizar UI, actualizar score de sesión, guardar en DuckDB, banner si is_model_available=False. Interpretation_warning visible durante y después del análisis."
         >
-          <PromptBlock label="Prompt 5.1 â€” on_evaluate_click()">
+          <PromptBlock label="Prompt 5.1 — on_evaluate_click()">
 {`Implementa \`on_evaluate_click(e)\` para Psique Lab que:
 
 1. Valida el escenario (mínimo 30 palabras)
@@ -917,7 +917,7 @@ Escribe el esqueleto completo de la app.
 7. Guarda en DuckDB con \`store_evaluation()\`
 8. Si \`is_model_available=False\`: muestra el banner de error
 
-Usa asyncio con Flet [VERIFICAR EN DOCUMENTACIÃ“N DE FLET].
+Usa asyncio con Flet [VERIFICAR EN DOCUMENTACI“N DE FLET].
 La advertencia de interpretación debe ser visible durante Y después del análisis.`}
           </PromptBlock>
         </Step>
@@ -927,7 +927,7 @@ La advertencia de interpretación debe ser visible durante Y después del análi
           title="Conectar lógica con datos" 
           goal="psych_evaluation_pipeline(): evaluate_scenario_with_fallback() + store_evaluation() + devolver (evaluation, is_model_available). Sin lógica de UI. Log: scenario_id, model_name, analysis_type, is_correct, num_bias_flags, confidence_levels, response_time."
         >
-          <PromptBlock label="Prompt 5.2 â€” Pipeline completo">
+          <PromptBlock label="Prompt 5.2 — Pipeline completo">
 {`Escribe \`psych_evaluation_pipeline(scenario: PsychScenario, model_name: str, conn: duckdb.DuckDBPyConnection) -> tuple[PsychEvaluation, bool]\` que:
 
 1. Llama a \`evaluate_scenario_with_fallback()\`
@@ -944,7 +944,7 @@ Registra en log: \`scenario_id\`, \`model_name\`, \`analysis_type\`, \`is_correc
           title="Gestión de errores en cascada" 
           goal="PsyqueError enum + PsyqueException + tabla de decisiones para 6 puntos de fallo. Regla principal: 'La interpretation_warning NUNCA puede suprimirse, ni en errores.' La detection de sesgos puede fallar silenciosamente (bias_flags=[]), el resultado se muestra igualmente."
         >
-          <PromptBlock label="Prompt 5.3 â€” Errores en cascada">
+          <PromptBlock label="Prompt 5.3 — Errores en cascada">
 {`Define el plan de errores en cascada para Psique Lab.
 
 Puntos de fallo:
@@ -965,10 +965,10 @@ Regla principal: "La interpretation_warning NUNCA puede suprimirse, ni en errore
           title="Logging sin datos de escenarios" 
           goal="psychology_logger.py: evaluations.log + biases.log separado para análisis estadístico de tendencias. log_evaluation() SIN texto del escenario ni de la respuesta (puede contener contenido sensible). log_bias_detection() para estadísticas de sesgos detectados. Justificación del diseño de privacidad."
         >
-          <PromptBlock label="Prompt 5.4 â€” Logging con privacidad">
+          <PromptBlock label="Prompt 5.4 — Logging con privacidad">
 {`Escribe \`psychology_logger.py\` para Psique Lab.
 
-CONSIDERACIÃ“N: los escenarios psicológicos pueden incluir contenido sensible que el usuario crea. El log nunca debe contener el texto del escenario.
+CONSIDERACI“N: los escenarios psicológicos pueden incluir contenido sensible que el usuario crea. El log nunca debe contener el texto del escenario.
 
 1. Dos handlers: \`evaluations.log\` (\`RotatingFileHandler\` 5MB) y \`biases.log\` (registro específico de sesgos detectados, para análisis de tendencias)
 2. \`log_evaluation(scenario_id: str, model_name: str, analysis_type: str, is_correct: Optional[bool], num_bias_flags: int, response_time: float)\`: SIN el texto del escenario ni de la respuesta
@@ -984,7 +984,7 @@ CONSIDERACIÃ“N: los escenarios psicológicos pueden incluir contenido sensibl
           title="Configuración centralizada" 
           goal="config.py: PSIQUE_LLM_API_KEY, MODEL, DB_PATH, SOCIALQA_PATH, TOM_PATH, LLM_TIMEOUT. Constantes ANALYSIS_TYPES, INTERPRETATION_WARNING (hardcodeada, no variable de entorno), BIAS_TYPES (4 en v1) y MIN_SCENARIO_WORDS=30. .env.example con explicación de por qué INTERPRETATION_WARNING es obligatoria."
         >
-          <PromptBlock label="Prompt 5.5 â€” config.py">
+          <PromptBlock label="Prompt 5.5 — config.py">
 {`Escribe \`config.py\` para Psique Lab:
 
 Variables de entorno:
@@ -1007,7 +1007,7 @@ Genera \`.env.example\` con comentarios, incluyendo una explicación de por qué
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO
+            CAPA 6 — PRUEBAS Y EMPAQUETADO
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={FlaskConical}
@@ -1022,7 +1022,7 @@ Genera \`.env.example\` con comentarios, incluyendo una explicación de por qué
           title="Tests unitarios" 
           goal="tests/test_psychology_logic.py: extract_chosen_option (4 variantes: letra, paréntesis, texto, ambigua â†’ None), detect_cognitive_biases (atribuciones internas â†’ flag MEDIO, respuesta equilibrada â†’ 0 flags, estereotipo de género â†’ flag), summarize_reasoning_pattern (con y sin perspectiva de terceros). conftest.py con 4 fixtures."
         >
-          <PromptBlock label="Prompt 6.1 â€” Tests unitarios">
+          <PromptBlock label="Prompt 6.1 — Tests unitarios">
 {`Escribe tests unitarios con Pytest para Psique Lab.
 
 Crea \`tests/test_psychology_logic.py\`:
@@ -1045,7 +1045,7 @@ No llames a APIs. No uses DuckDB en tests unitarios.`}
           title="Test de flujo completo" 
           goal="tests/test_psychology_integration.py: sample_psych_scenarios.json + DuckDB en memoria + mock de evaluate_social_scenario() con respuesta que incluye chosen_option=0 (correcta) y atribución fundamental obvia. Verificar: is_correct=True, â‰¥1 BiasFlag, interpretation_warning presente y get_model_social_stats() actualizado."
         >
-          <PromptBlock label="Prompt 6.2 â€” Test de integración">
+          <PromptBlock label="Prompt 6.2 — Test de integración">
 {`Escribe \`tests/test_psychology_integration.py\`:
 
 1. Carga \`sample_psych_scenarios.json\`
@@ -1070,7 +1070,7 @@ Test adicional: escenario sin opciones (respuesta libre) â†’ \`chosen_optio
           title="Prueba manual con datos reales" 
           goal="Checklist con 7 escenarios: ToM clásico (razona desde perspectiva del actor?), SocialIQa difícil (acierta?), escenario con sesgo de género implícito (detección heurística funciona?), mismo escenario con 2 modelos (estadísticas reflejan diferencias?), sin internet (interpretation_warning aparece igualmente?), advertencia visible en 3 pantallas, historial persiste entre sesiones."
         >
-          <PromptBlock label="Prompt 6.3 â€” Prueba manual">
+          <PromptBlock label="Prompt 6.3 — Prueba manual">
 {`Genera el protocolo de prueba manual de Psique Lab.
 
 Escenarios (usando escenarios del dataset del laboratorio):
@@ -1091,7 +1091,7 @@ Señales de que está listo para empaquetar: [GENERA LA LISTA].`}
           title="Empaquetado" 
           goal="PyInstaller o flet build (verificar cuál es el recomendado para la versión actual de Flet), incluir sample_psych_scenarios.json, INTERPRETATION_WARNING hardcodeada en el código (no en .env para que no pueda desactivarse eliminando el archivo), instrucciones de 3 pasos para el usuario final."
         >
-          <PromptBlock label="Prompt 6.4 â€” Empaquetado .exe">
+          <PromptBlock label="Prompt 6.4 — Empaquetado .exe">
 {`Instrucciones de empaquetado para Psique Lab.
 
 Dependencias: \`flet\`, \`duckdb\`, \`pydantic\`, \`httpx\`, \`python-dotenv\`
@@ -1099,7 +1099,7 @@ Archivos de datos: \`sample_psych_scenarios.json\`
 El \`.env\` NO se incluye.
 
 Genera:
-1. Comando de empaquetado (PyInstaller o \`flet build\`) [VERIFICAR EN DOCUMENTACIÃ“N DE FLET Y PYINSTALLER]
+1. Comando de empaquetado (PyInstaller o \`flet build\`) [VERIFICAR EN DOCUMENTACI“N DE FLET Y PYINSTALLER]
 2. Cómo incluir los archivos de escenarios en el ejecutable
 3. La \`INTERPRETATION_WARNING\` debe estar hardcodeada en el código (no en el \`.env\`) para que no pueda desactivarse eliminando el \`.env\`
 4. Instrucciones de instalación de 3 pasos para el usuario final
@@ -1112,7 +1112,7 @@ Genera:
           title="Prueba del ejecutable en máquina limpia" 
           goal="Protocolo en VM Windows/macOS sin Python: archivos necesarios, checklist (interpretation_warning en pantalla principal, cargar escenario del dataset, bias_flags visibles, estadísticas de sesgos), errores comunes de Flet/DuckDB y cómo el usuario puede añadir escenarios propios sin reinstalar."
         >
-          <PromptBlock label="Prompt 6.5 â€” Prueba en entorno limpio">
+          <PromptBlock label="Prompt 6.5 — Prueba en entorno limpio">
 {`Protocolo de prueba del ejecutable de Psique Lab en entorno limpio.
 
 1. Entorno: VM Windows o macOS sin Python instalado
@@ -1124,13 +1124,13 @@ Genera:
    - Las estadísticas de sesgos se muestran correctamente
    - El historial persiste entre sesiones
    - Sin internet: aparece el banner de error SIN suprimir la advertencia
-4. Errores comunes de Flet/DuckDB en Windows/macOS [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
+4. Errores comunes de Flet/DuckDB en Windows/macOS [VERIFICAR EN DOCUMENTACI“N OFICIAL]
 5. Cómo el usuario puede añadir escenarios propios al dataset sin reinstalar`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N
+            FASE 7 — ITERACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={RefreshCw}
@@ -1145,7 +1145,7 @@ Genera:
           title="Planificar v2" 
           goal="Backlog en tabla con columna 'Riesgo de malinterpretación': comparativa de 3 modelos (Arena), análisis batch de 50 escenarios SocialIQa, heurísticas de disponibilidad y anclaje, exportar informe PDF de comparativa. Para cada idea: capa afectada, complejidad, prioridad y advertencias adicionales necesarias."
         >
-          <PromptBlock label="Prompt 7.A â€” Backlog v2">
+          <PromptBlock label="Prompt 7.A — Backlog v2">
 {`Psique Lab v1 está funcionando. Planifica la v2.
 
 Ideas para v2: [ej. "comparar 3 modelos en el mismo escenario en paralelo", "análisis batch de 50 escenarios SocialIQa con estadísticas completas", "heurísticas de sesgos adicionales (sesgo de disponibilidad, anclaje)", "exportar informe PDF de comparativa de modelos"]
@@ -1162,12 +1162,12 @@ Backlog v2 en formato tabla con columna "Riesgo de malinterpretación".`}
         <Step 
           num="7.B" 
           title="Publicar en Foro de Proyectos" 
-          goal="Ficha con título 'Psique Lab v1 â€” [SUBTÍTULO]', área Psicología, descripción â‰¤150 palabras, advertencia de interpretación completa y prominente en la ficha, capturas (evaluación con bias_flags, pantalla de estadísticas de sesgos), instalación en 3 pasos y pregunta: '¿Qué sesgos cognitivos habéis observado en LLMs que Psique Lab debería detectar en v2?'"
+          goal="Ficha con título 'Psique Lab v1 — [SUBTÍTULO]', área Psicología, descripción â‰¤150 palabras, advertencia de interpretación completa y prominente en la ficha, capturas (evaluación con bias_flags, pantalla de estadísticas de sesgos), instalación en 3 pasos y pregunta: '¿Qué sesgos cognitivos habéis observado en LLMs que Psique Lab debería detectar en v2?'"
         >
-          <PromptBlock label="Prompt 7.B â€” Publicación en el Foro">
+          <PromptBlock label="Prompt 7.B — Publicación en el Foro">
 {`Genera la ficha de publicación de Psique Lab para el Foro Horizon.
 
-1. Título: "Psique Lab v1 â€” [SUBTÍTULO]"
+1. Título: "Psique Lab v1 — [SUBTÍTULO]"
 2. Área: Psicología & Ciencias del Comportamiento
 3. Descripción (máx 150 palabras)
 4. Advertencia de interpretación (texto completo, prominente en la ficha)
@@ -1186,7 +1186,7 @@ Backlog v2 en formato tabla con columna "Riesgo de malinterpretación".`}
             <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: "#7C3AED" }}>Resultado esperado</span>
           </div>
           <p className="text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.65)" }}>
-            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1â€“6 + Fase 7), tendrás un <strong>ejecutable de Psique Lab</strong> que evalúa el razonamiento social de cualquier LLM disponible por API: introduce un escenario de Teoría de la Mente o SocialIQa, obtén la respuesta razonada del modelo con análisis heurístico de sesgos cognitivos detectados, y compara el rendimiento entre modelos con historial estadístico de sesgos en DuckDB. La advertencia de interpretación está presente en todas las pantallas de forma indesactivable.
+            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1–6 + Fase 7), tendrás un <strong>ejecutable de Psique Lab</strong> que evalúa el razonamiento social de cualquier LLM disponible por API: introduce un escenario de Teoría de la Mente o SocialIQa, obtén la respuesta razonada del modelo con análisis heurístico de sesgos cognitivos detectados, y compara el rendimiento entre modelos con historial estadístico de sesgos en DuckDB. La advertencia de interpretación está presente en todas las pantallas de forma indesactivable.
           </p>
           <div className="flex flex-wrap gap-3 justify-start mt-6">
             <Link to="/comunidad/aplicaciones"

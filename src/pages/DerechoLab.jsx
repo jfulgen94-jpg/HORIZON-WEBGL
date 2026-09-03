@@ -12,7 +12,7 @@ import { GitBranch } from "lucide-react";
 import { BarChart3 } from "lucide-react";
 import { ShieldAlert } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -49,7 +49,7 @@ const RESEARCH_LINES = [
     title: "Mapeo de cumplimiento normativo frente a marcos regulatorios",
     color: "teal",
     summary: "El AI Act de la UE, el GDPR, DORA y la ISO 42001 establecen requisitos que las organizaciones deben cumplir. Mapear qué requisitos ya se cumplen y cuáles presentan huecos requiere cruzar documentación interna con el texto normativo.",
-    detail: "El laboratorio investiga si un modelo puede hacer ese cotejo de forma sistemática y trazable. EUR-LEX, RegAudit_Regulatory_Adherence y GDPR_Privacy_Policy_Audit evalúan esta capacidad. Toda referencia normativa se marca con [VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA].",
+    detail: "El laboratorio investiga si un modelo puede hacer ese cotejo de forma sistemática y trazable. EUR-LEX, RegAudit_Regulatory_Adherence y GDPR_Privacy_Policy_Audit evalúan esta capacidad. Toda referencia normativa se marca con [VERIFICAR REDACCI“N OFICIAL DE LA NORMA].",
     benchmarks: [
       { name: "LexGLUE_EURLEX_Compliance", desc: "Cotejo de políticas contra normativa comunitaria" },
       { name: "RegAudit_Regulatory_Adherence", desc: "Auditoría regulatoria sistemática" },
@@ -70,11 +70,11 @@ const PROJECTS = [
     researchLines: ["01"],
     legalDisclaimer: true,
     stack: [
-      { role: "Extracción y clasificación de cláusulas", tech: "Claude 3.7 Sonnet â€” líder análisis contractual CUAD+LEDGAR (92.85/100)" },
-      { role: "Extracción de responsabilidades e indemnizaciones", tech: "Claude 3.7 Sonnet â€” líder obligaciones y caps de responsabilidad (94.49/100)" },
-      { role: "Verificación anti-alucinación de referencias", tech: "Claude 3.7 Sonnet â€” líder prevención de citas jurídicas falsas (96.66/100)" },
+      { role: "Extracción y clasificación de cláusulas", tech: "Claude 3.7 Sonnet — líder análisis contractual CUAD+LEDGAR (92.85/100)" },
+      { role: "Extracción de responsabilidades e indemnizaciones", tech: "Claude 3.7 Sonnet — líder obligaciones y caps de responsabilidad (94.49/100)" },
+      { role: "Verificación anti-alucinación de referencias", tech: "Claude 3.7 Sonnet — líder prevención de citas jurídicas falsas (96.66/100)" },
       { role: "Parser de documentos legales", tech: "PyMuPDF (PDF) · python-docx (Word) · preservación de numeración de cláusulas" },
-      { role: "Almacenamiento", tech: "DuckDB â€” registro de auditorías por contrato + historial de cláusulas por tipo" },
+      { role: "Almacenamiento", tech: "DuckDB — registro de auditorías por contrato + historial de cláusulas por tipo" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Análisis contractual + anti-alucinación", score: "96.66", area: "Trazabilidad y Prevención de Alucinaciones Jurídicas" },
@@ -86,7 +86,7 @@ const PROJECTS = [
       "Clasificación por tipo de cláusula (Claude 3.7 Sonnet): etiquetado según los 41 tipos CUAD con confianza por clasificación",
       "Análisis de riesgo: ¿cláusula inusual para su tipo? ¿desequilibrio entre partes? ¿límite de responsabilidad inusualmente bajo? ¿no competencia desproporcionada?",
       "Detección de ausencias: cláusulas habituales no presentes para este tipo de contrato",
-      "Verificación anti-alucinación: cada afirmación anclada en cita textual literal del contrato â€” prohibición de citar artículos de ley no presentes en el texto",
+      "Verificación anti-alucinación: cada afirmación anclada en cita textual literal del contrato — prohibición de citar artículos de ley no presentes en el texto",
       "Salida A: informe con cláusula + tipo + riesgo + cita textual · Salida B: semáforo BAJO/MEDIO/ALTO/CRÍTICO · Salida C: ausencias · Salida D: resumen en lenguaje no jurídico",
     ],
     promptIDE: `Crea un módulo Python llamado lex_guardian.py con las siguientes funciones:
@@ -142,7 +142,7 @@ Restricciones críticas absolutas:
 - NUNCA cites un artículo de ley, reglamento o sentencia que no aparezca
   literalmente en el texto de la cláusula que te doy.
 - Si necesitas referenciar una norma general, escribe:
-  "[VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA]".
+  "[VERIFICAR REDACCI“N OFICIAL DE LA NORMA]".
 - Cada afirmación de riesgo debe estar acompañada de la cita textual exacta
   de la cláusula que la fundamenta. Sin cita textual, no hay afirmación de riesgo.
 - No uses lenguaje categórico ("esta cláusula es ilegal"):
@@ -159,8 +159,8 @@ Responde en JSON conforme al esquema de analyze_clause_risk.`,
     researchLines: ["02"],
     legalDisclaimer: true,
     stack: [
-      { role: "Análisis jurídico de resoluciones individuales", tech: "DeepSeek-R1 â€” líder razonamiento jurisprudencial (91.81/100)" },
-      { role: "Síntesis de tendencias y trazabilidad", tech: "Claude 3.7 Sonnet â€” líder prevención de alucinaciones jurídicas (96.66/100)" },
+      { role: "Análisis jurídico de resoluciones individuales", tech: "DeepSeek-R1 — líder razonamiento jurisprudencial (91.81/100)" },
+      { role: "Síntesis de tendencias y trazabilidad", tech: "Claude 3.7 Sonnet — líder prevención de alucinaciones jurídicas (96.66/100)" },
       { role: "Motor de búsqueda semántica", tech: "Embeddings sobre corpus de resoluciones + DuckDB para el índice" },
       { role: "Fuente de resoluciones", tech: "Corpus proporcionado por el usuario (PDF/texto) o API jurisprudencial externa [VERIFICAR DISPONIBILIDAD]" },
     ],
@@ -174,7 +174,7 @@ Responde en JSON conforme al esquema de analyze_clause_risk.`,
       "Recuperación de las N resoluciones más relevantes para la materia (búsqueda semántica, default N=20)",
       "Análisis de cada resolución (DeepSeek-R1): norma aplicada, argumentos aceptados/rechazados, fallo, precedentes citados",
       "Síntesis de tendencias (Claude 3.7 Sonnet): dirección clara o divergencia, argumentos con mayor frecuencia, cambios en los últimos 12/24 meses",
-      "Verificación de trazabilidad: cada afirmación de tendencia cita la resolución específica que la sustenta â€” señales basadas en menos de 3 resoluciones etiquetadas como SEÃ‘AL DÃ‰BIL",
+      "Verificación de trazabilidad: cada afirmación de tendencia cita la resolución específica que la sustenta — señales basadas en menos de 3 resoluciones etiquetadas como SE‘AL DÃ‰BIL",
       "Salida A: informe de tendencia con citas · Salida B: línea temporal · Salida C: mapa de argumentos · Salida D: advertencias de divergencia entre instancias",
     ],
     promptIDE: `Crea un módulo Python llamado sententia_nova.py con las siguientes funciones:
@@ -239,11 +239,11 @@ Responde en JSON conforme al esquema de analyze_single_case.`,
     researchLines: ["03"],
     legalDisclaimer: true,
     stack: [
-      { role: "Cotejo documentación interna vs. requisitos normativos", tech: "Claude 3.7 Sonnet â€” líder auditoría regulatoria EUR-LEX y GDPR (94.26/100)" },
-      { role: "Trazabilidad y anti-alucinación de requisitos", tech: "Claude 3.7 Sonnet â€” líder prevención de alucinaciones jurídicas (96.66/100)" },
-      { role: "Obligaciones contractuales con proveedores (DORA)", tech: "Claude 3.7 Sonnet â€” líder intersección finanzas-derecho (94.17/100)" },
-      { role: "Base de requisitos normativos", tech: "Catálogo estructurado por artículo/sección [VERIFICAR REDACCIÃ“N OFICIAL DE CADA NORMA antes de producción]" },
-      { role: "Almacenamiento", tech: "DuckDB â€” mapa de cumplimiento por organización + histórico de evaluaciones periódicas" },
+      { role: "Cotejo documentación interna vs. requisitos normativos", tech: "Claude 3.7 Sonnet — líder auditoría regulatoria EUR-LEX y GDPR (94.26/100)" },
+      { role: "Trazabilidad y anti-alucinación de requisitos", tech: "Claude 3.7 Sonnet — líder prevención de alucinaciones jurídicas (96.66/100)" },
+      { role: "Obligaciones contractuales con proveedores (DORA)", tech: "Claude 3.7 Sonnet — líder intersección finanzas-derecho (94.17/100)" },
+      { role: "Base de requisitos normativos", tech: "Catálogo estructurado por artículo/sección [VERIFICAR REDACCI“N OFICIAL DE CADA NORMA antes de producción]" },
+      { role: "Almacenamiento", tech: "DuckDB — mapa de cumplimiento por organización + histórico de evaluaciones periódicas" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Auditoría regulatoria + trazabilidad", score: "96.66", area: "Trazabilidad y Prevención de Alucinaciones" },
@@ -256,7 +256,7 @@ Responde en JSON conforme al esquema de analyze_single_case.`,
       "Cotejo requisito a requisito (Claude 3.7 Sonnet): búsqueda de evidencias â†’ CUMPLIDO / PARCIALMENTE CUMPLIDO / HUECO con cita textual del documento interno",
       "Si no hay evidencia: declarar HUECO con descripción de qué documento falta",
       "Análisis de huecos: CRÍTICO (puede derivar en sanción) / RELEVANTE (requiere acción antes de auditoría) / MENOR (buena práctica no implementada)",
-      "Salida A: mapa completo (requisito Ã— estado Ã— evidencia) · Salida B: huecos por criticidad · Salida C: dashboard de cumplimiento % · Salida D: plan de acción priorizado",
+      "Salida A: mapa completo (requisito — estado — evidencia) · Salida B: huecos por criticidad · Salida C: dashboard de cumplimiento % · Salida D: plan de acción priorizado",
     ],
     promptIDE: `Crea un módulo Python llamado norma_aurea.py con las siguientes funciones:
 1. load_regulatory_catalog(framework: str) -> list[dict]:
@@ -312,7 +312,7 @@ Restricciones absolutas:
 - No afirmes COMPLIANT si el documento solo menciona el tema sin regularlo.
 - No infiertes que algo se cumple porque "sería habitual en este tipo de organización".
   Solo lo que está documentado cuenta como evidencia.
-- Añade siempre "[VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA]" si necesitas interpretar
+- Añade siempre "[VERIFICAR REDACCI“N OFICIAL DE LA NORMA]" si necesitas interpretar
   el requisito más allá del texto que te proporcionan.
 
 Responde en JSON conforme al esquema de assess_requirement.`,
@@ -370,7 +370,7 @@ const VERIFICATION_POINTS = [
     title: "Diferencial estrecho entre DeepSeek-R1 y GPT-4.5 en Razonamiento Jurídico",
     items: [
       "DeepSeek-R1 lidera con 91.81/100 y GPT-4.5 ocupa el segundo lugar con 91.16/100: una diferencia de 0.65 puntos, ambos con 100% de cobertura.",
-      "Caso de inversión: Claude 3.7 Sonnet obtiene 92.8 en LegalBench_162_Tasks y 93.5 en LexGLUE_SCOTUS_Decisions â€” puntuaciones individuales más altas que DeepSeek-R1 â€” pero queda en tercera posición compuesta (88.47/100) por penalización de cobertura al no haber sido evaluado en LexGLUE_CaseHOLD_Precedents.",
+      "Caso de inversión: Claude 3.7 Sonnet obtiene 92.8 en LegalBench_162_Tasks y 93.5 en LexGLUE_SCOTUS_Decisions — puntuaciones individuales más altas que DeepSeek-R1 — pero queda en tercera posición compuesta (88.47/100) por penalización de cobertura al no haber sido evaluado en LexGLUE_CaseHOLD_Precedents.",
       "Implicación para Sententia Nova: si el corpus en producción es mayoritariamente de SCOTUS o LegalBench, Claude 3.7 Sonnet podría ser preferible al líder compuesto. Decisión pendiente de evaluación en producción.",
     ],
   },
@@ -387,21 +387,21 @@ const VERIFICATION_POINTS = [
     title: "Lex-Guardian Agent como alternativa especializada en extracción de cláusulas",
     items: [
       "El Lex-Guardian Agent aparece con 96.5 en CUAD_41_Clauses_Extraction, superando al Claude 3.7 Sonnet base en ese benchmark específico, pero con solo 33% de cobertura de benchmarks en su área.",
-      "La decisión de si este agente especializado es preferible a Claude 3.7 Sonnet para extracción de cláusulas en volumen debe evaluarse en producción. Queda documentada como [DATO PENDIENTE DE VERIFICAR EN EVALUACIÃ“N COMPARATIVA PROPIA].",
+      "La decisión de si este agente especializado es preferible a Claude 3.7 Sonnet para extracción de cláusulas en volumen debe evaluarse en producción. Queda documentada como [DATO PENDIENTE DE VERIFICAR EN EVALUACI“N COMPARATIVA PROPIA].",
     ],
   },
   {
     id: "v5",
     title: "Legislación y normativas referenciadas",
     items: [
-      "Toda referencia normativa en este cuaderno (Reglamento de IA de la UE, GDPR, DORA, ISO 42001) está marcada con [VERIFICAR REDACCIÃ“N OFICIAL DE LA NORMA].",
+      "Toda referencia normativa en este cuaderno (Reglamento de IA de la UE, GDPR, DORA, ISO 42001) está marcada con [VERIFICAR REDACCI“N OFICIAL DE LA NORMA].",
       "Los textos normativos se actualizan, pueden tener actos delegados posteriores y pueden tener interpretaciones de la autoridad supervisora que modifiquen su aplicación.",
       "Ningún dato de este cuaderno debe usarse como referencia definitiva de obligaciones normativas sin consulta al texto oficial y a un abogado especializado en cumplimiento regulatorio.",
     ],
   },
 ];
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const STYLES = {
   violet: {
@@ -523,7 +523,7 @@ function PromptBlock({ label, content }) {
           <span className="text-xs text-white/50 font-mono">{label}</span>
         </div>
         <button onClick={copy} className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10">
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -559,7 +559,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -636,8 +636,8 @@ function ProjectCard({ project }) {
 
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -673,7 +673,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function DerechoLab() {
   return (
@@ -745,7 +745,7 @@ export default function DerechoLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -777,7 +777,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -798,7 +798,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -841,7 +841,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -862,7 +862,7 @@ export default function DerechoLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Legal & Compliance · 2026-08-29</p>

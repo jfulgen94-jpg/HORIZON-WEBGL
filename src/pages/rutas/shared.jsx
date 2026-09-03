@@ -16,7 +16,7 @@ export const C = {
   red:     "#DC2626",
 };
 
-// â”€â”€â”€ Copy button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Copy button —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export function CopyBtn({ text }) {
   const [copied, setCopied] = useState(false);
   const handle = () => {
@@ -40,7 +40,7 @@ export function CopyBtn({ text }) {
   );
 }
 
-// â”€â”€â”€ Prompt block â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Prompt block —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export function PromptBlock({ label, children }) {
   const text = children || "Copia aquí el texto del prompt";
   const isEmpty = !children;
@@ -61,7 +61,7 @@ export function PromptBlock({ label, children }) {
   );
 }
 
-// â”€â”€â”€ Accordion step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Accordion step —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export function Step({ num, title, goal, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
@@ -91,7 +91,7 @@ export function Step({ num, title, goal, children, defaultOpen = false }) {
   );
 }
 
-// â”€â”€â”€ Phase header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Phase header —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export function PhaseHeader({ icon: Icon, label, color, title, desc }) {
   return (
     <div className="flex items-start gap-4 mb-6 mt-10">
@@ -109,7 +109,7 @@ export function PhaseHeader({ icon: Icon, label, color, title, desc }) {
   );
 }
 
-// â”€â”€â”€ Back link â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Back link —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export function BackLink() {
   return (
     <Link to="/taller"
@@ -120,7 +120,7 @@ export function BackLink() {
   );
 }
 
-// â”€â”€â”€ HUMAN VALIDATION WARNING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ HUMAN VALIDATION WARNING —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 // This component is mandatory in every route page.
 export function HumanValidationWarning() {
   const [open, setOpen] = useState(false);
@@ -128,11 +128,11 @@ export function HumanValidationWarning() {
     <div className="mb-10 rounded-2xl overflow-hidden border"
       style={{ borderColor: "rgba(217,119,6,0.30)", background: "rgba(217,119,6,0.06)" }}>
 
-      {/* Header â€” always visible */}
+      {/* Header — always visible */}
       <div className="flex items-start gap-4 px-6 py-5">
         <div className="shrink-0 mt-0.5 w-9 h-9 rounded-full flex items-center justify-center text-lg"
           style={{ background: "rgba(217,119,6,0.15)" }}>
-          âš ️
+          → ️
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-semibold text-[15px] mb-1" style={{ color: "#92400E" }}>
@@ -160,7 +160,7 @@ export function HumanValidationWarning() {
                 ¿Por qué ocurre esto?
               </h4>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(146,64,14,0.8)" }}>
-                Los modelos de IA generan código funcional en la mayoría de los casos, pero cometen errores predecibles: asumen dependencias que no están instaladas, generan rutas de archivo que no existen, usan APIs de una versión incorrecta, o producen lógica que pasa los tests pero falla en producción con datos reales. Esto no es un defecto puntual â€” es el estado actual de la tecnología.
+                Los modelos de IA generan código funcional en la mayoría de los casos, pero cometen errores predecibles: asumen dependencias que no están instaladas, generan rutas de archivo que no existen, usan APIs de una versión incorrecta, o producen lógica que pasa los tests pero falla en producción con datos reales. Esto no es un defecto puntual — es el estado actual de la tecnología.
               </p>
             </div>
 
@@ -200,7 +200,7 @@ export function HumanValidationWarning() {
   );
 }
 
-// â”€â”€â”€ VERSION EXTENSIONS (v2, v3 ideas) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ VERSION EXTENSIONS (v2, v3 ideas) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export function VersionExtensions({ versions }) {
   // versions: [{ tag, title, area, desc, changes: [str], badge }]
   const [open, setOpen] = useState(null);
@@ -213,7 +213,7 @@ export function VersionExtensions({ versions }) {
         <div className="h-px flex-1" style={{ background: "rgba(17,17,17,0.08)" }} />
       </div>
       <p className="text-sm text-center mb-8" style={{ color: "rgba(17,17,17,0.45)" }}>
-        Misma esencia, aplicada a otros contextos del área. Ãšsalas como punto de partida para una segunda ronda.
+        Misma esencia, aplicada a otros contextos del área. šsalas como punto de partida para una segunda ronda.
       </p>
       <div className="grid sm:grid-cols-3 gap-4">
         {versions.map((v, i) => (

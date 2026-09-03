@@ -11,7 +11,7 @@ import { GitBranch } from "lucide-react";
 import { BarChart3 } from "lucide-react";
 import { Calculator } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -20,13 +20,13 @@ const RESEARCH_LINES = [
     title: "Matemáticas de competición y razonamiento formal",
     color: "indigo",
     summary:
-      "Los problemas de olimpiada matemática â€” AMC, AIME y competiciones Olympiad â€” son los más duros del canon matemático preuniversitario. No son problemas de cálculo mecánico: requieren elegancia, intuición y un salto creativo no trivial.",
+      "Los problemas de olimpiada matemática — AMC, AIME y competiciones Olympiad — son los más duros del canon matemático preuniversitario. No son problemas de cálculo mecánico: requieren elegancia, intuición y un salto creativo no trivial.",
     detail:
       "MATH_Competition evalúa la resolución de problemas de olimpiada con distintos niveles de dificultad. MATH_500 es un subconjunto depurado de 500 problemas representativos de todo el espectro. AIME_2025 mide el desempeño en los problemas más recientes del examen de invitación americano, el nivel inmediatamente anterior a la Olimpiada Internacional. Estos benchmarks miden si el modelo acierta el resultado, no si el camino es correcto.",
     benchmarks: [
       { name: "MATH_Competition", desc: "Resolución de problemas de olimpiada de distintos niveles" },
       { name: "MATH_500", desc: "500 problemas representativos del espectro completo de dificultad" },
-      { name: "AIME_2025", desc: "Examen de invitación americano â€” problemas 2025" },
+      { name: "AIME_2025", desc: "Examen de invitación americano — problemas 2025" },
     ],
     topModel: { name: "DeepSeek-R1", score: "97.08", detail: "Líder en matemáticas de competición con razonamiento extendido en tiempo de inferencia" },
   },
@@ -38,7 +38,7 @@ const RESEARCH_LINES = [
     summary:
       "Un problema de ocho pasos con un error en el paso tres produce un resultado final incorrecto, aunque los pasos cuatro a ocho sean impecables. El Chain-of-Thought obliga al modelo a escribir cada paso intermedio antes de dar el resultado, exponiendo los razonamientos intermedios para que puedan verificarse.",
     detail:
-      "GSM8K (Grade School Math) evalúa aritmética verbal con solución en múltiples pasos. GSM8K-Platinum es la variante más depurada y difícil. Socratic_Math mide la coherencia del razonamiento mediante preguntas socráticas que obligan al modelo a justificar cada transición. El diferencial entre DeepSeek-R1 (97.18/100) y Claude 3.7 Sonnet (96.95/100) es de 0.23 puntos â€” ver Módulo 4, punto 4.2.",
+      "GSM8K (Grade School Math) evalúa aritmética verbal con solución en múltiples pasos. GSM8K-Platinum es la variante más depurada y difícil. Socratic_Math mide la coherencia del razonamiento mediante preguntas socráticas que obligan al modelo a justificar cada transición. El diferencial entre DeepSeek-R1 (97.18/100) y Claude 3.7 Sonnet (96.95/100) es de 0.23 puntos — ver Módulo 4, punto 4.2.",
     benchmarks: [
       { name: "GSM8K_ChainOfThought", desc: "Aritmética verbal multi-paso con razonamiento explícito" },
       { name: "GSM8K_Platinum", desc: "Variante depurada y más difícil de GSM8K" },
@@ -55,7 +55,7 @@ const RESEARCH_LINES = [
     summary:
       "Hay una clase de problemas donde la dificultad no es la operación, sino entender qué se está preguntando: problemas verbales que mezclan contexto físico, lógica espacial y aritmética aplicada. Son los que más se parecen a los problemas reales de ingeniería o análisis de datos.",
     detail:
-      "CSQA-Math mide el razonamiento matemático con sentido común en contextos del mundo real. ARC (Abstraction and Reasoning Corpus) evalúa la abstracción y el razonamiento analógico aplicados a problemas cuantitativos. SVAMP (Simple Variations on Arithmetic Math Problems) evalúa la robustez ante variaciones de formulación de problemas de aritmética verbal â€” si el modelo entiende el problema o solo reconoce su patrón superficial.",
+      "CSQA-Math mide el razonamiento matemático con sentido común en contextos del mundo real. ARC (Abstraction and Reasoning Corpus) evalúa la abstracción y el razonamiento analógico aplicados a problemas cuantitativos. SVAMP (Simple Variations on Arithmetic Math Problems) evalúa la robustez ante variaciones de formulación de problemas de aritmética verbal — si el modelo entiende el problema o solo reconoce su patrón superficial.",
     benchmarks: [
       { name: "CSQA_Math_Reasoning", desc: "Razonamiento matemático con sentido común en contexto real" },
       { name: "ARC_Math_Challenge", desc: "Abstracción y razonamiento analógico en problemas cuantitativos" },
@@ -77,7 +77,7 @@ const RESEARCH_LINES = [
       { name: "MAFBench_Coordination", desc: "Sincronización entre agentes sin bloqueos ni inconsistencias" },
       { name: "MAFBench_Integration", desc: "Integración de resultados parciales en solución coherente" },
     ],
-    topModel: { name: "AutoGen-Sonnet-Team", score: "92.30", detail: "93.5 MAFBench_Planning â€” líder en planificación y coordinación multi-agente matemática" },
+    topModel: { name: "AutoGen-Sonnet-Team", score: "92.30", detail: "93.5 MAFBench_Planning — líder en planificación y coordinación multi-agente matemática" },
     warning: true,
   },
   {
@@ -88,13 +88,13 @@ const RESEARCH_LINES = [
     summary:
       "Un modelo que calcula âˆš2 por su cuenta comete errores de precisión acumulados. Un modelo que llama a un intérprete Python con NumPy o SymPy y devuelve el resultado computado externaliza el cálculo al motor correcto. La herramienta adecuada en el momento correcto con los argumentos correctos.",
     detail:
-      "StableToolBench_Math mide la fiabilidad y robustez en el uso de herramientas matemáticas. ToolUse_Calculator_Python evalúa específicamente la capacidad de generar y ejecutar código Python correcto para cálculos matemáticos. MemoryAgentBench mide si el modelo mantiene el estado del problema a lo largo de un diálogo matemático extendido. Ningún modelo alcanza el 100% de cobertura â€” ver Módulo 4, punto 4.1.",
+      "StableToolBench_Math mide la fiabilidad y robustez en el uso de herramientas matemáticas. ToolUse_Calculator_Python evalúa específicamente la capacidad de generar y ejecutar código Python correcto para cálculos matemáticos. MemoryAgentBench mide si el modelo mantiene el estado del problema a lo largo de un diálogo matemático extendido. Ningún modelo alcanza el 100% de cobertura — ver Módulo 4, punto 4.1.",
     benchmarks: [
       { name: "StableToolBench_Math", desc: "Fiabilidad y robustez en el uso de herramientas matemáticas" },
       { name: "ToolUse_Calculator_Python", desc: "Generación y ejecución de código Python correcto para cálculos" },
       { name: "MemoryAgentBench", desc: "Mantenimiento del estado del problema en diálogos matemáticos extendidos" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "90.44", detail: "96.0 ToolUse_Calculator_Python â€” líder en tool-use matemático con Python" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "90.44", detail: "96.0 ToolUse_Calculator_Python — líder en tool-use matemático con Python" },
     warning: true,
   },
   {
@@ -105,7 +105,7 @@ const RESEARCH_LINES = [
     summary:
       "Dada una cadena de razonamiento simbólico, ¿es cada paso algebraicamente equivalente al anterior? ¿Hay un error de signo en el paso 5 que el modelo no detectó? Esta línea investiga no cómo resolver el problema, sino cómo auditar que la resolución de cualquier agente es correcta.",
     detail:
-      "Math_Equivalence_Verification mide la capacidad de comprobar si dos expresiones simbólicas son equivalentes. ProofStep_Validity_Index evalúa la detección de pasos de prueba inválidos en una cadena de razonamiento. GSM_Symbolic_Robustness mide la robustez del razonamiento simbólico ante perturbaciones. DeepSeek-R1 lidera con 98.0 en equivalencia â€” la capacidad más directamente relevante para Prisma Matemático.",
+      "Math_Equivalence_Verification mide la capacidad de comprobar si dos expresiones simbólicas son equivalentes. ProofStep_Validity_Index evalúa la detección de pasos de prueba inválidos en una cadena de razonamiento. GSM_Symbolic_Robustness mide la robustez del razonamiento simbólico ante perturbaciones. DeepSeek-R1 lidera con 98.0 en equivalencia — la capacidad más directamente relevante para Prisma Matemático.",
     benchmarks: [
       { name: "Math_Equivalence_Verification", desc: "Verificación de equivalencia entre expresiones simbólicas" },
       { name: "ProofStep_Validity_Index", desc: "Detección de pasos de prueba inválidos en cadenas de razonamiento" },
@@ -119,16 +119,16 @@ const PROJECTS = [
   {
     id: "prisma",
     name: "Prisma Matemático",
-    tagline: "Verificar es más fácil que generar â€” y más importante",
+    tagline: "Verificar es más fácil que generar — y más importante",
     desc: "Toma una demostración, una derivación algebraica o una solución multi-paso generada por cualquier modelo, la desmonta paso a paso, y verifica si cada eslabón es válido antes de aceptar el resultado final. No resuelve problemas matemáticos: audita soluciones ya generadas. Usa DeepSeek-R1 para la verificación lógica de cada paso y Claude 3.7 Sonnet + SymPy para la verificación simbólica computacional de equivalencias algebraicas.",
     color: "indigo",
     researchLines: ["02", "06"],
     stack: [
-      { role: "Verificación lógica de cada paso del razonamiento", tech: "DeepSeek-R1 â€” líder verificación formal y equivalencia (96.55/100, 98.0 Math_Equivalence_Verification)" },
-      { role: "Ejecución simbólica verificada con herramientas computacionales", tech: "Claude 3.7 Sonnet â€” líder tool-use matemático (90.44/100, 96.0 ToolUse_Calculator_Python)" },
-      { role: "Motor de verificación simbólica algebraica", tech: "SymPy â€” álgebra simbólica Python: simplify(lhs - rhs) == 0 para equivalencia computacional" },
-      { role: "Segmentación de cadenas de razonamiento en pasos atómicos", tech: "Claude 3.7 Sonnet â€” clasificación: aritmético | algebraico | lógico | definitorio" },
-      { role: "Almacenamiento", tech: "DuckDB â€” registro de verificaciones con resultado por paso y veredicto global" },
+      { role: "Verificación lógica de cada paso del razonamiento", tech: "DeepSeek-R1 — líder verificación formal y equivalencia (96.55/100, 98.0 Math_Equivalence_Verification)" },
+      { role: "Ejecución simbólica verificada con herramientas computacionales", tech: "Claude 3.7 Sonnet — líder tool-use matemático (90.44/100, 96.0 ToolUse_Calculator_Python)" },
+      { role: "Motor de verificación simbólica algebraica", tech: "SymPy — álgebra simbólica Python: simplify(lhs - rhs) == 0 para equivalencia computacional" },
+      { role: "Segmentación de cadenas de razonamiento en pasos atómicos", tech: "Claude 3.7 Sonnet — clasificación: aritmético | algebraico | lógico | definitorio" },
+      { role: "Almacenamiento", tech: "DuckDB — registro de verificaciones con resultado por paso y veredicto global" },
     ],
     whyModels: [
       { model: "DeepSeek-R1", role: "Verificación lógica y formal de pasos", score: "96.55", area: "Trazabilidad, Verificación y Equivalencia Formal" },
@@ -137,8 +137,8 @@ const PROJECTS = [
     flow: [
       "Entrada: cadena de razonamiento matemático generada por cualquier modelo (demostración, derivación algebraica, solución multi-paso en LaTeX o texto plano)",
       "Segmentación en pasos atómicos (Claude 3.7 Sonnet): identificación de cada afirmación individual, clasificación del tipo de paso (aritmético | algebraico | lógico | definitorio), extracción de premisas y conclusión de cada paso",
-      "Para cada paso â€” verificación lógica (DeepSeek-R1): ¿la conclusión se sigue de las premisas por las reglas invocadas? ¿la regla existe y se aplica correctamente? Etiquetado: VÁLIDO | INVÁLIDO | INDETERMINADO",
-      "Para cada paso algebraico â€” verificación simbólica (Claude 3.7 Sonnet + SymPy): simplify(lhs - rhs) == 0 en sandbox aislado con timeout. Resultado: EQUIVALENTE | NO_EQUIVALENTE | ERROR_EJECUCIÃ“N",
+      "Para cada paso — verificación lógica (DeepSeek-R1): ¿la conclusión se sigue de las premisas por las reglas invocadas? ¿la regla existe y se aplica correctamente? Etiquetado: VÁLIDO | INVÁLIDO | INDETERMINADO",
+      "Para cada paso algebraico — verificación simbólica (Claude 3.7 Sonnet + SymPy): simplify(lhs - rhs) == 0 en sandbox aislado con timeout. Resultado: EQUIVALENTE | NO_EQUIVALENTE | ERROR_EJECUCI“N",
       "Síntesis del informe: pasos válidos N, pasos inválidos N (con descripción del error), pasos indeterminados N (requieren revisión humana), veredicto global: VERIFICADO | CONTIENE_ERRORES | PARCIALMENTE_VERIFICADO",
       "Salida: informe JSON estructurado + anotación del razonamiento original con marcas por paso",
     ],
@@ -201,11 +201,11 @@ Responde en JSON:
     color: "teal",
     researchLines: ["02", "05"],
     stack: [
-      { role: "Análisis del problema y formulación de variables con distribuciones", tech: "DeepSeek-R1 â€” líder razonamiento multi-paso (97.18/100, 98.4 GSM8K_ChainOfThought)" },
-      { role: "Generación y ejecución de código de simulación con Python/NumPy", tech: "Claude 3.7 Sonnet â€” líder tool-use matemático (90.44/100, 96.0 ToolUse_Calculator_Python)" },
-      { role: "Orquestación del flujo multi-etapa completo", tech: "AutoGen-Sonnet-Team â€” líder planificación multi-agente (92.30/100, 93.5 MAFBench_Planning)" },
+      { role: "Análisis del problema y formulación de variables con distribuciones", tech: "DeepSeek-R1 — líder razonamiento multi-paso (97.18/100, 98.4 GSM8K_ChainOfThought)" },
+      { role: "Generación y ejecución de código de simulación con Python/NumPy", tech: "Claude 3.7 Sonnet — líder tool-use matemático (90.44/100, 96.0 ToolUse_Calculator_Python)" },
+      { role: "Orquestación del flujo multi-etapa completo", tech: "AutoGen-Sonnet-Team — líder planificación multi-agente (92.30/100, 93.5 MAFBench_Planning)" },
       { role: "Motor de simulación Monte Carlo", tech: "NumPy (muestreo aleatorio) + SciPy (distribuciones: normal, lognormal, triangular, uniforme, beta)" },
-      { role: "Visualización y entorno de ejecución", tech: "matplotlib/plotly â€” sandbox Python aislado con timeout configurable" },
+      { role: "Visualización y entorno de ejecución", tech: "matplotlib/plotly — sandbox Python aislado con timeout configurable" },
     ],
     whyModels: [
       { model: "DeepSeek-R1", role: "Formulación de variables y distribuciones", score: "97.18", area: "Razonamiento Multi-Paso y Chain-of-Thought" },
@@ -253,7 +253,7 @@ Usa numpy, scipy, matplotlib, subprocess y la librería estándar.`,
 de Matemáticas & Procesos Complejos de Horizon.
 Se te proporciona una descripción en lenguaje natural de un problema con incertidumbre.
 
-Tarea 1 â€” Identificación de variables:
+Tarea 1 — Identificación de variables:
 Para cada variable incierta mencionada:
 1. Identifica su nombre y unidad.
 2. Selecciona la distribución de probabilidad más apropiada:
@@ -264,11 +264,11 @@ Para cada variable incierta mencionada:
    - Beta: cuando la variable está acotada en [0,1] (porcentajes, probabilidades).
 3. Extrae los parámetros de la distribución de los datos del enunciado.
 
-Tarea 2 â€” Correlaciones:
+Tarea 2 — Correlaciones:
 Si el enunciado implica que dos variables están relacionadas, identifícalo y estima
 un coeficiente de correlación de Pearson entre -1 y 1.
 
-Tarea 3 â€” Definición de la métrica de salida:
+Tarea 3 — Definición de la métrica de salida:
 Define la fórmula matemática que combina las variables de entrada en la métrica
 que el usuario quiere estimar. Exprésala como una expresión Python evaluable.
 
@@ -284,15 +284,15 @@ Responde en JSON conforme a la estructura de parse_risk_problem.`,
     id: "simplex",
     name: "Simplex Helios",
     tagline: "Claridad donde había confusión: del enunciado verbal a la solución óptima",
-    desc: "Convierte una descripción en lenguaje natural de un problema de asignación de recursos en una formulación de programación lineal correcta, la resuelve con scipy.optimize.linprog o PuLP, y devuelve la solución con una interpretación práctica de qué significa en el contexto original. La formulación del problema es siempre el cuello de botella â€” Simplex Helios lo elimina.",
+    desc: "Convierte una descripción en lenguaje natural de un problema de asignación de recursos en una formulación de programación lineal correcta, la resuelve con scipy.optimize.linprog o PuLP, y devuelve la solución con una interpretación práctica de qué significa en el contexto original. La formulación del problema es siempre el cuello de botella — Simplex Helios lo elimina.",
     color: "violet",
     researchLines: ["03", "04", "06"],
     stack: [
-      { role: "Formulación del problema LP a partir de enunciado verbal", tech: "Claude 3.7 Sonnet â€” líder razonamiento cuantitativo mixto (94.34/100, 97.2 SVAMP_Math_Word_Problems)" },
-      { role: "Verificación de coherencia de restricciones y validación de solución", tech: "DeepSeek-R1 â€” líder verificación formal (96.55/100, 98.0 Math_Equivalence_Verification)" },
-      { role: "Orquestación del flujo multi-etapa", tech: "AutoGen-Sonnet-Team â€” líder planificación multi-agente (92.30/100)" },
-      { role: "Motor de optimización (LP continuo)", tech: "scipy.optimize.linprog â€” programación lineal continua" },
-      { role: "Motor de optimización (LP entero)", tech: "PuLP â€” programación lineal entera (variables enteras o binarias)" },
+      { role: "Formulación del problema LP a partir de enunciado verbal", tech: "Claude 3.7 Sonnet — líder razonamiento cuantitativo mixto (94.34/100, 97.2 SVAMP_Math_Word_Problems)" },
+      { role: "Verificación de coherencia de restricciones y validación de solución", tech: "DeepSeek-R1 — líder verificación formal (96.55/100, 98.0 Math_Equivalence_Verification)" },
+      { role: "Orquestación del flujo multi-etapa", tech: "AutoGen-Sonnet-Team — líder planificación multi-agente (92.30/100)" },
+      { role: "Motor de optimización (LP continuo)", tech: "scipy.optimize.linprog — programación lineal continua" },
+      { role: "Motor de optimización (LP entero)", tech: "PuLP — programación lineal entera (variables enteras o binarias)" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Formulación LP desde enunciado verbal", score: "94.34", area: "Razonamiento Cuantitativo Mixto (97.2 SVAMP)" },
@@ -300,12 +300,12 @@ Responde en JSON conforme a la estructura de parse_risk_problem.`,
       { model: "AutoGen-Sonnet-Team", role: "Orquestación multi-etapa", score: "92.30", area: "Planificación y Coordinación Multi-Agente" },
     ],
     flow: [
-      "Entrada: descripción en lenguaje natural del problema de asignación de recursos (ej. «Una empresa produce dos productos A y B. Cada unidad de A requiere 2h de máquina y 1h de mano de obraâ€¦»)",
+      "Entrada: descripción en lenguaje natural del problema de asignación de recursos (ej. «Una empresa produce dos productos A y B. Cada unidad de A requiere 2h de máquina y 1h de mano de obra–¦»)",
       "Formulación del problema LP (Claude 3.7 Sonnet): identificación de variables de decisión y sus dominios, función objetivo con coeficientes y dirección (maximizar/minimizar), restricciones con matriz de coeficientes A, vector de límites b y tipo (<= | >= | =), restricciones de no negatividad y de entero si aplica",
       "Verificación de coherencia (DeepSeek-R1): ¿el sistema de restricciones es factible? ¿hay restricciones redundantes o contradictorias? ¿la función objetivo está acotada en la región factible?",
       "Resolución (scipy.optimize.linprog o PuLP): ejecución del solucionador con los parámetros formulados, obtención de la solución óptima o informe de infactibilidad",
       "Verificación de la solución (DeepSeek-R1): comprobación de que cada restricción se satisface con la solución, cálculo del valor de la función objetivo, identificación de restricciones activas (saturadas) vs. holgadas",
-      "Interpretación en lenguaje natural (Claude 3.7 Sonnet): traducción de la solución a términos del problema original, explicación de qué restricciones limitan el óptimo, análisis de sensibilidad â€” ¿cuánto puede cambiar un parámetro antes de que cambie la solución?",
+      "Interpretación en lenguaje natural (Claude 3.7 Sonnet): traducción de la solución a términos del problema original, explicación de qué restricciones limitan el óptimo, análisis de sensibilidad — ¿cuánto puede cambiar un parámetro antes de que cambie la solución?",
       "Salida A: vector de solución con valores de cada variable · Salida B: valor de la función objetivo · Salida C: análisis de sensibilidad · Salida D: gráfico 2D de la región factible (si hay 2 variables) · Salida E: formulación LP en LaTeX",
     ],
     promptIDE: `Crea un módulo Python llamado simplex_helios.py con las siguientes funciones:
@@ -361,7 +361,7 @@ Requisitos críticos:
 - Genera la función objetivo y cada restricción también en formato LaTeX.
 
 Responde en JSON conforme a la estructura de parse_lp_problem.
-Después del JSON, añade una sección "FORMULACIÃ“N LaTeX" con el problema completo
+Después del JSON, añade una sección "FORMULACI“N LaTeX" con el problema completo
 en notación matemática estándar.`,
   },
 ];
@@ -407,7 +407,7 @@ const VERIFICATION_POINTS = [
       "Matemáticas de Competición: Claude 3.7 Sonnet (67%) carece de evaluación en AIME_2025 (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
       "Razonamiento Multi-Paso: o1-preview (67%) no cuenta con datos registrados para Socratic_Math.",
       "Razonamiento Común Cuantitativo: GPT-4.5 (67%) carece de resultado en ARC_Math_Challenge.",
-      "Memoria y Uso de Herramientas: ningún modelo alcanza el 100% de cobertura â€” Claude 3.7 Sonnet carece de datos en MemoryAgentBench, AutoGen-Sonnet-Team no tiene registro en ToolUse_Calculator_Python y GPT-4.5 sólo cuenta con evaluación en StableToolBench_Math (33% de cobertura).",
+      "Memoria y Uso de Herramientas: ningún modelo alcanza el 100% de cobertura — Claude 3.7 Sonnet carece de datos en MemoryAgentBench, AutoGen-Sonnet-Team no tiene registro en ToolUse_Calculator_Python y GPT-4.5 sólo cuenta con evaluación en StableToolBench_Math (33% de cobertura).",
       "Trazabilidad y Verificación Formal: tanto o1-preview (67%) como Claude 3.7 Sonnet (67%) no registran evaluación en GSM_Symbolic_Robustness.",
     ],
   },
@@ -444,12 +444,12 @@ const VERIFICATION_POINTS = [
     items: [
       "AutoGen-Sonnet-Team aparece como líder en planificación multi-agente con 92.30/100 (Fuente: STATER Math Leaderboard, latest_rankings_math.md).",
       "La disponibilidad de esta arquitectura específica como componente integrable en producción (vía AutoGen Studio u otras interfaces), incluyendo la versión exacta de AutoGen utilizada en la evaluación, debe verificarse antes de basar en ella una decisión de stack técnico.",
-      "Predictor de Riesgo y Simplex Helios dependen de esta arquitectura para la orquestación â€” verificar disponibilidad antes de iniciar los prototipos.",
+      "Predictor de Riesgo y Simplex Helios dependen de esta arquitectura para la orquestación — verificar disponibilidad antes de iniciar los prototipos.",
     ],
   },
 ];
 
-// â”€â”€â”€ Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Styles —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const STYLES = {
   indigo: {
@@ -481,7 +481,7 @@ const STYLES = {
   },
 };
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ResearchLineCard({ line }) {
   const [open, setOpen] = useState(false);
@@ -572,7 +572,7 @@ function PromptBlock({ label, content }) {
           <span className="text-xs text-white/50 font-mono">{label}</span>
         </div>
         <button onClick={copy} className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10">
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -607,7 +607,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -672,8 +672,8 @@ function ProjectCard({ project }) {
         )}
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -709,7 +709,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function MatematicasLab() {
   return (
@@ -780,7 +780,7 @@ export default function MatematicasLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -807,7 +807,7 @@ export default function MatematicasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -828,7 +828,7 @@ export default function MatematicasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -870,7 +870,7 @@ export default function MatematicasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -891,7 +891,7 @@ export default function MatematicasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Reasoning & Math Leaderboard · 2026-08-29</p>

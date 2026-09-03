@@ -17,10 +17,10 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Contabilidad · BizFinBench · AuditBench", motivo: "Confirmar qué modelos lideran razonamiento contable antes de elegir." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Documento de definición", motivo: "Precisar tipo de conciliación y usuario final." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Precisar tipo de conciliación y usuario final." },
   { capa: "2", subcapa: "2.1", herramienta: "csv (stdlib) · pandas", motivo: "Leer extractos bancarios CSV con distintos formatos de fecha e importe." },
   { capa: "2", subcapa: "2.2", herramienta: "Pydantic v2", motivo: "Esquemas estrictos para transacciones bancarias y asientos ERP." },
   { capa: "2", subcapa: "2.3", herramienta: "Pydantic validators · Decimal", motivo: "Normalizar importes con precisión contable (no float)." },
@@ -33,21 +33,21 @@ const TOOLS_TABLE = [
   { capa: "3", subcapa: "3.5", herramienta: "Pydantic validators", motivo: "Verificar que las causas son genéricas, sin datos inventados." },
   { capa: "3", subcapa: "3.6", herramienta: "try/except", motivo: "Si falla el LLM, marcar para revisión manual sin bloquear." },
   { capa: "4", subcapa: "4.1", herramienta: "Papel / Excalidraw", motivo: "Definir las 3 pantallas antes de codificar." },
-  { capa: "4", subcapa: "4.2â€“4.5", herramienta: "Flet", motivo: "Carga de archivos y tablas grandes en pocas líneas." },
-  { capa: "5", subcapa: "5.1â€“5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conectar capas y gestionar configuración." },
-  { capa: "6", subcapa: "6.1â€“6.2", herramienta: "Pytest", motivo: "Tests del algoritmo de matching y parseo de CSV." },
+  { capa: "4", subcapa: "4.2–4.5", herramienta: "Flet", motivo: "Carga de archivos y tablas grandes en pocas líneas." },
+  { capa: "5", subcapa: "5.1–5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conectar capas y gestionar configuración." },
+  { capa: "6", subcapa: "6.1–6.2", herramienta: "Pytest", motivo: "Tests del algoritmo de matching y parseo de CSV." },
   { capa: "6", subcapa: "6.3", herramienta: "Extractos reales del usuario", motivo: "Validación con datos reales antes de empaquetar." },
   { capa: "6", subcapa: "6.4", herramienta: "PyInstaller", motivo: "Ejecutable distribuible." },
   { capa: "6", subcapa: "6.5", herramienta: "VM sin Python", motivo: "Prueba en entorno limpio." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar y recoger feedback de contadores y auditores." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · Impuestos",
     area: "Contabilidad fiscal",
-    title: "Fisco Cero â€” Asistente de cierre fiscal",
+    title: "Fisco Cero — Asistente de cierre fiscal",
     desc: "Misma arquitectura de Balance Inteligente aplicada al análisis de declaraciones de IVA e IS: detecta discrepancias entre los libros y las declaraciones presentadas, y explica cada diferencia.",
     badgeBg: "rgba(239,68,68,0.10)", badgeColor: "#DC2626",
     changes: [
@@ -61,7 +61,7 @@ const VERSIONS = [
   {
     tag: "v2 · Activos",
     area: "Contabilidad de activos",
-    title: "Atlas Activos â€” Control de amortizaciones",
+    title: "Atlas Activos — Control de amortizaciones",
     desc: "Importa el registro de activos fijos y verifica que las amortizaciones contabilizadas son coherentes con el método y los años de vida útil declarados, señalando desviaciones con causa explicada.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: "#059669",
     changes: [
@@ -75,7 +75,7 @@ const VERSIONS = [
   {
     tag: "v2 · Intercompany",
     area: "Grupos empresariales",
-    title: "Nexo Grupo â€” Conciliación intercompany",
+    title: "Nexo Grupo — Conciliación intercompany",
     desc: "Extiende Balance Inteligente a grupos de empresas: cruza las transacciones intercompany declaradas por cada entidad, detecta asimetrías y genera el informe de eliminaciones para la consolidación.",
     badgeBg: "rgba(59,111,212,0.10)", badgeColor: C.accent,
     changes: [
@@ -88,7 +88,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaContabilidad() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -122,7 +122,7 @@ export default function RutaContabilidad() {
           </div>
         </div>
 
-        {/* â”€â”€ Human validation warning â”€â”€ */}
+        {/* —€—€ Human validation warning —€—€ */}
         <HumanValidationWarning />
 
         {/* Map overview */}
@@ -130,10 +130,10 @@ export default function RutaContabilidad() {
           <h2 className="font-display text-lg mb-4" style={{ color: C.dark }}>Mapa de la ruta</h2>
           <div className="flex flex-col gap-2">
             {[
-              { label: "Fase 0", desc: "Investigación â€” benchmarks contables", color: "#7C3AED" },
+              { label: "Fase 0", desc: "Investigación — benchmarks contables", color: "#7C3AED" },
               { label: "Capa 1", desc: "Definición del problema", color: C.accent },
-              { label: "Capa 2", desc: "Datos â€” CSV, Pydantic, DuckDB", color: C.emerald },
-              { label: "Capa 3", desc: "Lógica / IA â€” matching + LLM", color: C.amber },
+              { label: "Capa 2", desc: "Datos — CSV, Pydantic, DuckDB", color: C.emerald },
+              { label: "Capa 3", desc: "Lógica / IA — matching + LLM", color: C.amber },
               { label: "Capa 4", desc: "Interfaz de escritorio (Flet)", color: "#0891B2" },
               { label: "Capa 5", desc: "Integración y gestión de errores", color: C.red },
               { label: "Capa 6", desc: "Pruebas y empaquetado", color: C.emerald },
@@ -188,13 +188,13 @@ export default function RutaContabilidad() {
 
         <Step num="0.A" title="Benchmarks contables clave"
           goal="Identificar qué benchmarks del laboratorio evalúan tareas de conciliación y ERP, y qué modelo lidera esas tareas.">
-          <PromptBlock label="Prompt 0.A â€” Benchmarks contables">{`Actúa como Investigador Principal de Benchmarks de Inteligencia Artificial especializado en Finanzas y Contabilidad Corporativa.
+          <PromptBlock label="Prompt 0.A — Benchmarks contables">{`Actúa como Investigador Principal de Benchmarks de Inteligencia Artificial especializado en Finanzas y Contabilidad Corporativa.
 
 Tengo como objetivo seleccionar el modelo fundacional más preciso para una aplicación de conciliación bancaria y auditoría contable llamada "Balance Inteligente".
 
 Analiza los benchmarks de dominio contable (BizFinBench, AuditBench, FinBen_Accounting) y responde de forma rigurosa y técnica a los siguientes puntos:
 
-1. METODOLOGÍA DE EVALUACIÃ“N:
+1. METODOLOGÍA DE EVALUACI“N:
    - ¿Qué métricas específicas evalúan BizFinBench y AuditBench en tareas de:
      a) Casación de asientos contables (Journal entry matching).
      b) Detección de descuadres y anomalías contables.
@@ -203,7 +203,7 @@ Analiza los benchmarks de dominio contable (BizFinBench, AuditBench, FinBen_Acco
 2. RANKING DE RENDIMIENTO DE MODELOS:
    - Basándote en datos empíricos de BizFinBench_ERP y AuditBench, ¿qué modelos actuales (Claude 3.5/3.7, GPT-4o, DeepSeek-R1, Gemini 1.5/2.0 Pro) obtienen la mayor tasa de acierto y menor tasa de alucinación en razonamiento deductivo contable?
 
-3. POLÍTICA DE SELECCIÃ“N:
+3. POLÍTICA DE SELECCI“N:
    - Define el criterio técnico para justificar si la explicación de un descuadre debe delegarse a un LLM grande (Cloud API) o si es viable mediante un modelo SLM local (Small Language Model tipo Llama-3.1-8B-Instruct o Mistral-7B).
 
 REGLAS ESTRICTAS:
@@ -212,11 +212,11 @@ REGLAS ESTRICTAS:
         </Step>
         <Step num="0.B" title="Viabilidad técnica de la conciliación automática"
           goal="Confirmar si es técnicamente posible conciliar CSV bancario con CSV ERP, y qué papel juega el LLM.">
-          <PromptBlock label="Prompt 0.B â€” Viabilidad técnica">{`Actúa como Arquitecto de Software Financiero y Especialista en Sistemas ERP (SAP S/4HANA, Oracle NetSuite, Sage, A3).
+          <PromptBlock label="Prompt 0.B — Viabilidad técnica">{`Actúa como Arquitecto de Software Financiero y Especialista en Sistemas ERP (SAP S/4HANA, Oracle NetSuite, Sage, A3).
 
 Antes de iniciar la codificación de "Balance Inteligente", necesito una memoria de viabilidad técnica sobre los estándares de interoperabilidad bancaria y contable:
 
-1. ESPECIFICACIÃ“N DE FORMATOS DE ENTRADA:
+1. ESPECIFICACI“N DE FORMATOS DE ENTRADA:
    - Detalla la estructura de campos requerida para procesar extractos bancarios en:
      a) Cuaderno bancario español Norma 43 (CSB 43 / AEB 43).
      b) Estándar internacional ISO 20022 (CAMT.053 XML).
@@ -224,14 +224,14 @@ Antes de iniciar la codificación de "Balance Inteligente", necesito una memoria
    - Define qué columnas mínimas del Libro Mayor (Cuenta 572 - Tesorería) son indispensables en el archivo exportado desde el ERP (Fecha apunte, Fecha valor, Documento, Concepto, Debe, Haber, Saldo, Referencia).
 
 2. ARQUITECTURA DE DESACOPLE (Determinismo vs. IA):
-   - Justifica por qué el algoritmo de casación (Matching) DEBE ser 100% determinista en Python puro, y por qué el LLM debe utilizarse ÃšNICAMENTE en la capa posterior de explicación y diagnóstico de discrepancias.
+   - Justifica por qué el algoritmo de casación (Matching) DEBE ser 100% determinista en Python puro, y por qué el LLM debe utilizarse šNICAMENTE en la capa posterior de explicación y diagnóstico de discrepancias.
 
 3. TAXONOMÍA DE DESCUADRES BANCARIOS:
    - Clasifica los 5 motivos más recurrentes de descuadre en auditoría contable (Decalaje fecha valor, comisiones bancarias no contabilizadas, cobros de remesas agrupadas, retenciones fiscales imprevistas y errores tipográficos de dígito invertido).`}</PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 1 â€” DEFINICIÃ“N DEL PROBLEMA (BALANCE INTELIGENTE)
+            CAPA 1 — DEFINICI“N DEL PROBLEMA (BALANCE INTELIGENTE)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={BookOpen} 
@@ -251,14 +251,14 @@ Antes de iniciar la codificación de "Balance Inteligente", necesito una memoria
 Define la ficha formal del perfil de usuario (User Persona) para "Balance Inteligente", una aplicación de escritorio que automatiza la conciliación entre extractos bancarios y el libro mayor con diagnóstico de descuadres por IA.
 
 Genera una ficha técnica con los siguientes apartados:
-1. IDENTIFICACIÃ“N Y ROL:
+1. IDENTIFICACI“N Y ROL:
    - Nombre ficticio y puesto (ej. Responsable de Contabilidad / Controller Financiero en PYME o Asesoría Externa).
    - Volumen operativo: 500 a 3.000 transacciones mensuales distribuidas en 3 cuentas bancarias principales.
 2. FLUJO DE TRABAJO ACTUAL (Pain Points):
    - Proceso manual actual: Cotejo fila a fila en Microsoft Excel con fórmulas BUSCARV / XLOOKUP y coloreado manual de celdas.
    - Tiempo invertido: Entre 3 y 5 horas por cada cierre mensual y bancario.
    - Puntos críticos de frustración: Descuadres por comisiones bancarias no registradas, transacciones agrupadas en remesas y errores tipográficos de dígito invertido.
-3. ENTORNO TECNOLÃ“GICO Y FORMATOS REALES:
+3. ENTORNO TECNOL“GICO Y FORMATOS REALES:
    - Formato bancario disponible: Extractos en formato CSV delimitado por punto y coma (banca española / internacional) y cuadernos Norma 43.
    - Formato ERP: Exportación del Libro Mayor (Cuenta 572 - Tesorería) en CSV / Excel desde ERPs como SAP, Sage 50/200, A3 o Contasol.
    - Nivel técnico: Usuario avanzado en hojas de cálculo y conceptos contables, pero sin conocimientos de programación ni consola de comandos (requiere ejecutable gráfico .exe).`
@@ -289,16 +289,16 @@ Genera:
 
 Define la especificación exhaustiva de todas las entradas (Inputs) requeridas por Balance Inteligente para ejecutar la conciliación:
 
-1. FICHERO A â€” EXTRACTO BANCARIO:
+1. FICHERO A — EXTRACTO BANCARIO:
    - Formatos admitidos: CSV (delimitado por , ; \\t) y Norma 43 (CSB 43).
    - Columnas obligatorias: Fecha de operación, Fecha valor, Concepto/Descripción, Importe (con signo o columna Debe/Haber) y Saldo resultante.
    - Reglas de autodetección: Detección automática de codificación (UTF-8, UTF-8-BOM, Latin-1) y separador decimal (coma europea vs. punto anglosajón).
 
-2. FICHERO B â€” LIBRO MAYOR ERP (Cuentas 572):
+2. FICHERO B — LIBRO MAYOR ERP (Cuentas 572):
    - Formato admitido: CSV o JSON exportado del software contable.
    - Columnas requeridas: Fecha de apunte, Número de asiento/documento, Código de subcuenta, Concepto, Importe Debe, Importe Haber y Saldo.
 
-3. PARÁMETROS DE CONFIGURACIÃ“N OPERATIVA:
+3. PARÁMETROS DE CONFIGURACI“N OPERATIVA:
    - Rango temporal: Fecha inicial y Fecha final del período contable.
    - Tolerancia de fechas: Margen configurable de decalaje bancario (por defecto: ±3 días hábiles).
    - Tolerancia de importes: Margen para diferencias de redondeo o microcomisiones (por defecto: ±0.00 â‚¬ o ±0.05 â‚¬).`
@@ -337,13 +337,13 @@ Define los contratos de salida (Outputs) que producirá Balance Inteligente tras
 Define los Criterios de Aceptación Cuantitativos (DoD - Definition of Done) para certificar que Balance Inteligente v1 funciona correctamente y está lista para entrega:
 
 Genera entre 6 y 8 criterios formulados estrictamente bajo la estructura:
-"La aplicación se considera correcta y lista para producción cuando [CONDICIÃ“N VERIFICABLE Y MEDIBLE]."
+"La aplicación se considera correcta y lista para producción cuando [CONDICI“N VERIFICABLE Y MEDIBLE]."
 
 Incluye obligatoriamente:
-1. PRECISIÃ“N DEL MATCHING: "El algoritmo determinista empareja el 100% de las transacciones del dataset sintético oficial que comparten importe exacto y fecha dentro del margen."
+1. PRECISI“N DEL MATCHING: "El algoritmo determinista empareja el 100% de las transacciones del dataset sintético oficial que comparten importe exacto y fecha dentro del margen."
 2. RESILIENCIA DE INGESTA: "La aplicación procesa sin fallos ni bloqueos archivos CSV con formato de número europeo (1.234,56 â‚¬) y anglosajón (1,234.56 $), detectando automáticamente el delimitador."
 3. RENDIMIENTO TEMPORAL: "El procesamiento y cuadre de 2.000 líneas contables se completa en menos de 2.5 segundos en local."
-4. ROBUSTEZ ANTE DESCONEXIÃ“N: "Si la máquina no tiene acceso a internet o la API de IA no responde, la app completa la conciliación y muestra las hipótesis heurísticas locales sin emitir errores no controlados."
+4. ROBUSTEZ ANTE DESCONEXI“N: "Si la máquina no tiene acceso a internet o la API de IA no responde, la app completa la conciliación y muestra las hipótesis heurísticas locales sin emitir errores no controlados."
 5. EXPORTABILIDAD: "El informe generado en Markdown y PDF se abre y renderiza correctamente en cualquier visor estándar, incluyendo el resumen numérico y el descargo legal."`
           ],
           [
@@ -364,7 +364,7 @@ Define la Declaración Formal de Límites y Exclusiones para la versión 1.0 de 
    - No gestión de conciliación multimoneda con tipos de cambio fluctuantes en tiempo real.
    - No conciliación compleja de remesas 1 a N (agrupación de N facturas en un único pago bancario).
 
-3. DECLARACIÃ“N DE EXENCIÃ“N DE RESPONSABILIDAD (Legal Disclaimer):
+3. DECLARACI“N DE EXENCI“N DE RESPONSABILIDAD (Legal Disclaimer):
    - Redacta el texto legal formal que aparecerá en la pantalla de inicio y en los informes exportados, advirtiendo que la aplicación es una herramienta de asistencia contable que no sustituye la obligación legal de auditoría y supervisión del profesional financiero.`
           ]
         ].map(([num, title, goal, prompt]) => (
@@ -374,7 +374,7 @@ Define la Declaración Formal de Límites y Exclusiones para la versión 1.0 de 
         ))}
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 2 â€” DATOS (BALANCE INTELIGENTE)
+            CAPA 2 — DATOS (BALANCE INTELIGENTE)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Layers} 
@@ -389,12 +389,12 @@ Define la Declaración Formal de Límites y Exclusiones para la versión 1.0 de 
           title="Fuente de datos" 
           goal="Lectura de CSV del extracto bancario y del libro mayor con detección automática de columnas."
         >
-          <PromptBlock label="Prompt 2.1 â€” Lectura de archivos">
+          <PromptBlock label="Prompt 2.1 — Lectura de archivos">
 {`Actúa como Ingeniero de Datos Senior en Python especializado en sistemas financieros.
 
 Escribe un módulo robusto llamado \`parsers.py\` para la lectura e ingesta de extractos bancarios y libros mayores contables en formato tabular:
 
-1. ESPECIFICACIÃ“N DE FUNCIONES:
+1. ESPECIFICACI“N DE FUNCIONES:
    - \`read_bank_statement(file_path: Path) -> list[dict]\`:
      * Utiliza \`csv.Sniffer\` para detectar automáticamente el delimitador del archivo (',', ';', '\\t', '|').
      * Soporta múltiples codificaciones sin lanzar excepciones de decodificación ('utf-8', 'utf-8-sig' con BOM de Excel, 'latin-1' / 'cp1252').
@@ -410,7 +410,7 @@ Escribe un módulo robusto llamado \`parsers.py\` para la lectura e ingesta de e
      * Soporta exportaciones estándar del Libro Mayor (Cuenta 572) desde SAP, Sage, A3 o Contasol.
      * Identifica automáticamente si el archivo contiene columnas de 'Debe' y 'Haber' separadas o una columna única de 'Importe' con signo.
 
-2. GESTIÃ“N DE ERRORES:
+2. GESTI“N DE ERRORES:
    - Define la excepción \`DataIngestionError(Exception)\` que incluye: \`file_path\`, \`row_number\`, \`raw_content\` y \`missing_columns\`.
    - Si el archivo está vacío o carece de cabeceras reconocibles, lanza un error explicativo que informe al usuario del formato esperado.
 
@@ -431,12 +431,12 @@ Escribe un módulo robusto llamado \`parsers.py\` para la lectura e ingesta de e
           >
             <strong style={{ color: C.emerald }}>Modelos clave:</strong> BankTransaction · ERPEntry · ReconciliationMatch · ReconciliationResult
           </div>
-          <PromptBlock label="Prompt 2.2 â€” Esquema Pydantic">
+          <PromptBlock label="Prompt 2.2 — Esquema Pydantic">
 {`Actúa como Arquitecto de Software Python y Especialista en Modelado Financiero.
 
 Crea el archivo \`schemas.py\` con los modelos de dominio para "Balance Inteligente" utilizando Pydantic v2 con tipado estricto y precisión contable:
 
-1. ESPECIFICACIÃ“N DE MODELOS DE DOMINIO:
+1. ESPECIFICACI“N DE MODELOS DE DOMINIO:
    \`\`\`python
    from pydantic import BaseModel, Field, field_validator
    from typing import Literal, Optional
@@ -490,7 +490,7 @@ Crea el archivo \`schemas.py\` con los modelos de dominio para "Balance Intelige
        created_at: datetime = Field(default_factory=datetime.utcnow)
    \`\`\`
 
-2. REGLAS DE VALIDACIÃ“N:
+2. REGLAS DE VALIDACI“N:
    - Prohíbe estrictamente el uso del tipo nativo \`float\` para importes monetarios.
    - Aplica validadores \`@field_validator\` para convertir automáticamente strings numéricos a \`Decimal\` redondeando a 2 decimales.`}
           </PromptBlock>
@@ -507,12 +507,12 @@ Crea el archivo \`schemas.py\` con los modelos de dominio para "Balance Intelige
           >
             <strong style={{ color: C.amber }}>Punto crítico:</strong> CSV bancarios españoles usan coma decimal (1.234,56). Usa <code className="text-xs bg-black/5 px-1 rounded-sm">Decimal</code>, nunca <code className="text-xs bg-black/5 px-1 rounded-sm">float</code>.
           </div>
-          <PromptBlock label="Prompt 2.3 â€” Normalización de importes">
+          <PromptBlock label="Prompt 2.3 — Normalización de importes">
 {`Actúa como Especialista en Limpieza de Datos Financieros y Calidad de Código.
 
 Crea el módulo \`normalizers.py\` con funciones puras y pruebas unitarias exhaustivas para normalizar formatos numéricos y fechas heterogéneas:
 
-1. FUNCIÃ“N \`normalize_amount(raw_value: Any) -> Decimal\`:
+1. FUNCI“N \`normalize_amount(raw_value: Any) -> Decimal\`:
    - Detecta automáticamente si el número utiliza:
      * Notación española / europea: '1.234.567,89 â‚¬' -> Decimal('1234567.89')
      * Notación anglosajona: '1,234,567.89 $' -> Decimal('1234567.89')
@@ -524,7 +524,7 @@ Crea el módulo \`normalizers.py\` con funciones puras y pruebas unitarias exhau
    - Limpieza automática de símbolos de moneda ('â‚¬', '$', '£', 'EUR', 'USD') y espacios de no separación ('\\xa0').
    - Lanza \`ValueError\` con el valor original en el mensaje si la cadena no es convertible a número.
 
-2. FUNCIÃ“N \`normalize_date(raw_date: Any, date_hint: Optional[str] = None) -> date\`:
+2. FUNCI“N \`normalize_date(raw_date: Any, date_hint: Optional[str] = None) -> date\`:
    - Evalúa de forma jerárquica los formatos: 'DD/MM/YYYY', 'YYYY-MM-DD', 'DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY'.
    - Soporta marcas de tiempo ISO 8601 completas ('2025-11-30T14:32:00Z' -> date(2025, 11, 30)).
 
@@ -538,7 +538,7 @@ Crea el módulo \`normalizers.py\` con funciones puras y pruebas unitarias exhau
           title="Almacenamiento en DuckDB" 
           goal="Base de datos que guarda el historial de conciliaciones para consulta y auditoría."
         >
-          <PromptBlock label="Prompt 2.4 â€” Persistencia DuckDB">
+          <PromptBlock label="Prompt 2.4 — Persistencia DuckDB">
 {`Actúa como Ingeniero de Bases de Datos y Especialista en Persistencia Analítica OLAP.
 
 Crea el módulo \`storage.py\` para la persistencia transaccional del historial de conciliaciones utilizando DuckDB embebido:
@@ -571,7 +571,7 @@ Crea el módulo \`storage.py\` para la persistencia transaccional del historial 
           >
             <strong style={{ color: C.accent }}>Descuadres a incluir:</strong> 1 por diferencia de fecha · 1 por diferencia de importe (â‚¬1.234,56 banco vs â‚¬1.234,50 ERP)
           </div>
-          <PromptBlock label="Prompt 2.5 â€” Dataset de ejemplo">
+          <PromptBlock label="Prompt 2.5 — Dataset de ejemplo">
 {`Actúa como QA Engineer y Generador de Datos Sintéticos Financieros.
 
 Crea un script \`generate_demo_dataset.py\` que genere dos archivos CSV de prueba para el mes de noviembre de 2025 con 20 transacciones y 2 descuadres controlados:
@@ -591,13 +591,13 @@ Crea un script \`generate_demo_dataset.py\` que genere dos archivos CSV de prueb
    - **Descuadre 3 (Comisión no contabilizada):** Comisión de mantenimiento bancario de 25,00 â‚¬ en banco sin contrapartida en el ERP.
    - **Descuadre 4 (Asiento pendiente de pago):** Provisión de gastos de auditoría de 800,00 â‚¬ en ERP sin cargo en cuenta.
 
-4. CÃ“DIGO DE VALIDACIÃ“N:
+4. C“DIGO DE VALIDACI“N:
    - Incluye una función de prueba que lee ambos archivos con \`parsers.py\`, valida contra los esquemas Pydantic y confirma que se detectan exactamente las 18 coincidencias y los 2 descuadres principales.`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA (BALANCE INTELIGENTE)
+            CAPA 3 — L“GICA / IA (BALANCE INTELIGENTE)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Cpu} 
@@ -616,9 +616,9 @@ Crea un script \`generate_demo_dataset.py\` que genere dos archivos CSV de prueb
             className="mt-3 p-4 rounded-lg text-sm"
             style={{ background: "rgba(17,17,17,0.04)", borderLeft: "3px solid rgba(17,17,17,0.15)", color: "rgba(17,17,17,0.65)" }}
           >
-            El LLM <strong>no hace la conciliación</strong> â€” eso lo hace el algoritmo determinista en Python. El LLM solo diagnostica las causas posibles de los descuadres.
+            El LLM <strong>no hace la conciliación</strong> — eso lo hace el algoritmo determinista en Python. El LLM solo diagnostica las causas posibles de los descuadres.
           </div>
-          <PromptBlock label="Prompt 3.1 â€” Selección del modelo">
+          <PromptBlock label="Prompt 3.1 — Selección del modelo">
 {`Actúa como Investigador de Inteligencia Artificial especializado en Modelos Contables y Auditoría.
 
 Para "Balance Inteligente", define el criterio de selección del modelo fundacional para explicar las causas de los descuadres contables:
@@ -627,7 +627,7 @@ Para "Balance Inteligente", define el criterio de selección del modelo fundacio
    - Según los rankings de BizFinBench_ERP y AuditBench, identifica los 2 modelos comerciales (ej. Claude 3.5 Sonnet, GPT-4o) y el modelo open-source líder (ej. DeepSeek-R1 / Llama-3.3-70B) con mayor precisión en deducción contable.
    - Justifica por qué el LLM NO debe realizar la conciliación numérica (tarea reservada al algoritmo determinista en Python) y solo debe diagnosticar hipótesis conceptuales.
 
-2. ESTIMACIÃ“N DE COSTES Y LATENCIA:
+2. ESTIMACI“N DE COSTES Y LATENCIA:
    - Para un lote de 20 descuadres por cierre mensual (~300 tokens de contexto y ~150 tokens de salida por llamada), calcula el coste operativo aproximado por sesión.
    - Especifica los parámetros recomendados para la llamada: temperature=0.1 o 0.2 (máximo determinismo) y timeout=20s.
 
@@ -643,20 +643,20 @@ Para "Balance Inteligente", define el criterio de selección del modelo fundacio
         >
           <div className="mt-3 grid sm:grid-cols-2 gap-3">
             <div className="p-4 rounded-lg text-sm" style={{ background: "rgba(5,150,105,0.05)", borderLeft: "3px solid " + C.emerald }}>
-              <div className="font-semibold mb-1" style={{ color: C.emerald }}>Parte A â€” Algoritmo determinista</div>
-              <div style={{ color: "rgba(17,17,17,0.6)" }}>Match EXACT · DATE_TOLERANCE · DESCRIPTION_FUZZY · confidence 0â€“1</div>
+              <div className="font-semibold mb-1" style={{ color: C.emerald }}>Parte A — Algoritmo determinista</div>
+              <div style={{ color: "rgba(17,17,17,0.6)" }}>Match EXACT · DATE_TOLERANCE · DESCRIPTION_FUZZY · confidence 0–1</div>
             </div>
             <div className="p-4 rounded-lg text-sm" style={{ background: "rgba(217,119,6,0.05)", borderLeft: "3px solid " + C.amber }}>
-              <div className="font-semibold mb-1" style={{ color: C.amber }}>Parte B â€” Prompt LLM</div>
+              <div className="font-semibold mb-1" style={{ color: C.amber }}>Parte B — Prompt LLM</div>
               <div style={{ color: "rgba(17,17,17,0.6)" }}>3 causas genéricas por descuadre · Prohibido inventar nombres, CIFs o importes</div>
             </div>
           </div>
-          <PromptBlock label="Prompt 3.2 â€” Algoritmo + prompt LLM">
+          <PromptBlock label="Prompt 3.2 — Algoritmo + prompt LLM">
 {`Actúa como Desarrollador Senior de Algoritmos Financieros y Prompt Engineer.
 
 Balance Inteligente utiliza dos sistemas de inteligencia complementarios que debes implementar en \`reconciliation_engine.py\`:
 
-PARTE A â€” ALGORITMO DETERMINISTA (Python puro):
+PARTE A — ALGORITMO DETERMINISTA (Python puro):
 Escribe \`reconcile_transactions(bank_list: list[BankTransaction], erp_list: list[ERPEntry], date_tolerance_days: int = 3, amount_tolerance: Decimal = Decimal("0.00")) -> ReconciliationResult\`:
 1. Paso Exacto: Mismo importe exacto y misma fecha. Asigna confidence_score = 1.0.
 2. Paso Decalaje: Mismo importe exacto y diferencia de fechas <= date_tolerance_days. Asigna confidence_score = 0.85.
@@ -664,7 +664,7 @@ Escribe \`reconcile_transactions(bank_list: list[BankTransaction], erp_list: lis
 4. Regla 1 a 1: Cada registro casado se elimina del pool para evitar duplicidades.
 5. Los no conciliados se clasifican en unmatched_bank y unmatched_erp.
 
-PARTE B â€” PROMPT LLM PARA DIAGNÃ“STICO DE DESCUADRES:
+PARTE B — PROMPT LLM PARA DIAGN“STICO DE DESCUADRES:
 Diseña el prompt que, dado un movimiento no conciliado (tipo, importe, fecha relativa y descripción sanitizada), solicita al modelo:
 - Identificar exactamente 3 hipótesis contables plausibles (decalaje fecha valor, comisión bancaria no registrada, asiento de provisión pendiente, etc.).
 - Prohibición estricta: No inventar nombres de empresas, CIFs ni cifras que no figuren en los datos.
@@ -677,12 +677,12 @@ Diseña el prompt que, dado un movimiento no conciliado (tipo, importe, fecha re
           title="Llamada al modelo" 
           goal="Función que envía cada descuadre al LLM con blindaje de privacidad Zero-PII para obtener las causas posibles."
         >
-          <PromptBlock label="Prompt 3.3 â€” Llamada al modelo">
+          <PromptBlock label="Prompt 3.3 — Llamada al modelo">
 {`Actúa como Ingeniero de Integración de LLMs en Python.
 
 Implementa en \`llm_client.py\` la función \`explain_discrepancy(transaction: BankTransaction, model_name: str) -> str\`:
 
-1. CONSTRUCCIÃ“N DE LA PETICIÃ“N:
+1. CONSTRUCCI“N DE LA PETICI“N:
    - Sanitiza el concepto bancario eliminando nombres propios, CIFs e IBANs (Zero-PII).
    - Inyecta el prompt estructurado con los datos del movimiento (Importe, Fecha, Concepto normalizado).
 
@@ -693,7 +693,7 @@ Implementa en \`llm_client.py\` la función \`explain_discrepancy(transaction: B
    - Reintentos: Máximo 2 reintentos con backoff exponencial ante errores HTTP 429 o 5xx.
    - Ejecución secuencial o en pequeños batches para respetar los rate limits de la API.
 
-3. GESTIÃ“N DE CREDENCIALES:
+3. GESTI“N DE CREDENCIALES:
    - Carga segura de la clave desde la variable de entorno BALANCE_LLM_API_KEY.
    - Registro en log del tiempo de respuesta y tokens consumidos (sin registrar datos personales).`}
           </PromptBlock>
@@ -704,7 +704,7 @@ Implementa en \`llm_client.py\` la función \`explain_discrepancy(transaction: B
           title="Parseo de la respuesta" 
           goal="Convertir la respuesta del LLM en una lista estructurada de causas posibles mediante Pydantic."
         >
-          <PromptBlock label="Prompt 3.4 â€” Parseo de la respuesta">
+          <PromptBlock label="Prompt 3.4 — Parseo de la respuesta">
 {`Actúa como Ingeniero de Software especializado en Structured Outputs y Pydantic.
 
 Crea el módulo \`response_parser.py\` para procesar las explicaciones devueltas por el LLM:
@@ -717,12 +717,12 @@ class DiscrepancyExplanation(BaseModel):
     requires_manual_review: bool = True
 \`\`\`
 
-2. FUNCIÃ“N DE PARSEO RESILIENTE:
+2. FUNCI“N DE PARSEO RESILIENTE:
 Escribe \`parse_discrepancy_explanation(raw_response: str) -> DiscrepancyExplanation\`:
 - Extrae el bloque JSON utilizando expresiones regulares si la respuesta contiene texto explicativo alrededor.
 - Si el JSON es válido, instancia y valida el modelo DiscrepancyExplanation.
 - Trunca cualquier causa que exceda los 120 caracteres para mantener la limpieza en la UI.
-- Si el parseo falla o el JSON está incompleto, recupera las causas que pueda o genera por defecto: "Causa no identificada automáticamente â€” Revisión manual requerida".
+- Si el parseo falla o el JSON está incompleto, recupera las causas que pueda o genera por defecto: "Causa no identificada automáticamente — Revisión manual requerida".
 - La función NUNCA lanza una excepción no controlada hacia la interfaz de usuario.`}
           </PromptBlock>
         </Step>
@@ -738,17 +738,17 @@ Escribe \`parse_discrepancy_explanation(raw_response: str) -> DiscrepancyExplana
           >
             <strong style={{ color: C.red }}>Regla crítica:</strong> No usar un segundo LLM para validar el primero. Detección heurística determinista simple con expresiones regulares.
           </div>
-          <PromptBlock label="Prompt 3.5 â€” validate_explanation()">
+          <PromptBlock label="Prompt 3.5 — validate_explanation()">
 {`Actúa como Ingeniero de Calidad y Seguridad en Sistemas de Inteligencia Artificial.
 
 Crea el módulo \`guardrails.py\` con la función \`validate_explanation(explanation: DiscrepancyExplanation, transaction: BankTransaction) -> tuple[DiscrepancyExplanation, list[str]]\`:
 
-1. REGLAS DE DETECCIÃ“N HEURÍSTICA DETERMINISTA (Sin usar un segundo LLM):
+1. REGLAS DE DETECCI“N HEURÍSTICA DETERMINISTA (Sin usar un segundo LLM):
    - Regla 1 (Importes inventados): Analiza el texto con expresiones regulares en busca de cantidades monetarias. Si detecta importes numéricos distintos al de la transacción, activa flag_invented_amount = True.
    - Regla 2 (Entidades inventadas): Busca patrones de CIF/NIF o nombres de bancos no proporcionados en los datos de entrada.
    - Regla 3 (Verificación de razonabilidad): Comprueba que las causas citan conceptos contables reconocidos (fecha valor, remesa, comisión, provisión, redondeo).
 
-2. ACCIÃ“N DE MITIGACIÃ“N:
+2. ACCI“N DE MITIGACI“N:
    - Si se detecta cualquier anomalía, marca requires_manual_review = True y anexa un aviso al reporte: "[ADVERTENCIA: Causa no confirmada documentalmente. Verificar antes de regularizar]".
    - Retorna la explicación auditada junto con la lista de advertencias detectadas.`}
           </PromptBlock>
@@ -757,38 +757,38 @@ Crea el módulo \`guardrails.py\` con la función \`validate_explanation(explana
         <Step 
           num="3.6" 
           title="Función de fallback" 
-          goal="Comportamiento cuando el LLM no está disponible â€” la conciliación determinista siempre funciona en modo offline."
+          goal="Comportamiento cuando el LLM no está disponible — la conciliación determinista siempre funciona en modo offline."
         >
-          <PromptBlock label="Prompt 3.6 â€” explain_discrepancy_with_fallback()">
+          <PromptBlock label="Prompt 3.6 — explain_discrepancy_with_fallback()">
 {`Actúa como Arquitecto de Resiliencia de Software.
 
 Implementa en \`fallback_engine.py\` la función \`explain_discrepancy_with_fallback(transaction: BankTransaction, model_name: str) -> tuple[DiscrepancyExplanation, bool]\`:
 
-1. FLUJO DE DEGRADACIÃ“N CONTROLADA:
+1. FLUJO DE DEGRADACI“N CONTROLADA:
    - Intenta la llamada remota al LLM mediante \`explain_discrepancy()\`.
    - Si la API no está disponible (sin internet, timeout, cuota agotada o sin API key configurada):
      * Activa el Motor Heurístico Local con reglas deterministas:
        - Si el concepto contiene "COMIS" o "MANT" -> "Comisión bancaria no contabilizada en cuenta 669".
        - Si es un cobro a final de mes sin asiento -> "Remesa o cobro de cliente pendiente de contabilizar".
        - Si es un cargo directo sin contrapartida -> "Pago o adeudo domiciliado pendiente de registrar".
-       - En cualquier otro caso -> "Partida pendiente de regularización â€” Revisión contable manual requerida".
+       - En cualquier otro caso -> "Partida pendiente de regularización — Revisión contable manual requerida".
      * Genera una DiscrepancyExplanation válida con requires_manual_review = True.
      * Retorna (explanation, is_llm_used=False).
 
-2. INTEGRACIÃ“N VISUAL:
+2. INTEGRACI“N VISUAL:
    - La interfaz gráfica mostrará un badge ámbar [ANÁLISIS HEURÍSTICO LOCAL] cuando is_llm_used sea False, garantizando que la conciliación nunca se detenga.`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ DE ESCRITORIO (FLET)
+            CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Monitor} 
           label="Capa 4" 
           color="#0891B2" 
           title="Interfaz de escritorio (Flet)"
-          desc="Las 3 pantallas de Balance Inteligente â€” carga, resultados e historial." 
+          desc="Las 3 pantallas de Balance Inteligente — carga, resultados e historial." 
         />
 
         <Step 
@@ -815,7 +815,7 @@ Implementa en \`fallback_engine.py\` la función \`explain_discrepancy_with_fall
               </div>
             ))}
           </div>
-          <PromptBlock label="Prompt 4.1 â€” Wireframe Flet">
+          <PromptBlock label="Prompt 4.1 — Wireframe Flet">
 {`Actúa como Diseñador de Interfaces y Desarrollador Frontend Senior en Python con Flet (Flutter Engine).
 
 Crea la arquitectura de interfaz de usuario de "Balance Inteligente" en el módulo \`ui/app.py\`:
@@ -830,12 +830,12 @@ Crea la arquitectura de interfaz de usuario de "Balance Inteligente" en el módu
      * Tarjetas KPI en la cabecera: Total Registros, % Cuadre, Total Conciliado (â‚¬) y Descuadre Neto (â‚¬).
      * ft.Tabs con dos pestañas:
        a) Pestaña "Partidas Conciliadas": ft.DataTable paginada con scroll virtualizado.
-       b) Pestaña "Descuadres & Diagnóstico IA": Lista de tarjetas (ft.Card) con badges de confianza ([EXACTO], [TOLERANCIA], [IA DIAGNÃ“STICO], [FALLBACK]).
+       b) Pestaña "Descuadres & Diagnóstico IA": Lista de tarjetas (ft.Card) con badges de confianza ([EXACTO], [TOLERANCIA], [IA DIAGN“STICO], [FALLBACK]).
      * Botón flotante para exportar informe ("Descargar Informe PDF / Markdown").
    - Vista 3 (Historial y Auditoría):
      * Tabla cronológica de conciliaciones almacenadas en DuckDB con opción de recargar cualquier sesión pasada.
 
-2. GESTIÃ“N DE ESTADOS Y FEEDBACK:
+2. GESTI“N DE ESTADOS Y FEEDBACK:
    - Indicador de progreso (ft.ProgressRing / ft.ProgressBar) con mensaje de estado dinámico durante el cómputo.
    - Notificaciones emergentes (ft.SnackBar) con código de color (Verde = Cuadre satisfactorio, Rojo = Error de fichero, Ámbar = Descuadre detectado).`}
           </PromptBlock>
@@ -846,12 +846,12 @@ Crea la arquitectura de interfaz de usuario de "Balance Inteligente" en el módu
           title="Formulario de entrada" 
           goal="Pantalla de carga de archivos con validación visual en Flet."
         >
-          <PromptBlock label="Prompt 4.2 â€” Componente carga de ficheros">
+          <PromptBlock label="Prompt 4.2 — Componente carga de ficheros">
 {`Actúa como Especialista en UI/UX para Aplicaciones de Productividad.
 
 Implementa el componente de ingesta de ficheros \`ui/components/file_loader.py\` en Flet:
 
-1. ESPECIFICACIÃ“N TÃ‰CNICA:
+1. ESPECIFICACI“N TÃ‰CNICA:
    - Implementa FilePicker para interceptar la selección de archivos .csv, .txt o .json.
    - Tras la selección, ejecuta una pre-lectura de las primeras 5 líneas (preview) sin bloquear el hilo principal de la UI.
    - Muestra inmediatamente:
@@ -870,7 +870,7 @@ Implementa el componente de ingesta de ficheros \`ui/components/file_loader.py\`
           title="Área de resultados" 
           goal="Tabla de matches (tabs Conciliados / Descuadres) y tarjetas con diagnóstico IA."
         >
-          <PromptBlock label="Prompt 4.3 â€” Área de resultados">
+          <PromptBlock label="Prompt 4.3 — Área de resultados">
 {`Actúa como Diseñador Frontend en Python con Flet.
 
 Implementa la pantalla de resultados de Balance Inteligente en \`ui/views/results_view.py\`:
@@ -882,14 +882,14 @@ Implementa la pantalla de resultados de Balance Inteligente en \`ui/views/result
      * Total Importe Conciliado (â‚¬).
      * Descuadre Neto Total (â‚¬).
 
-2. PESTAÃ‘AS DE VISUALIZACIÃ“N (ft.Tabs):
+2. PESTA‘AS DE VISUALIZACI“N (ft.Tabs):
    - Pestaña 1 ("Conciliadas"): ft.DataTable con scroll virtualizado que muestra las coincidencias: Fecha Banco, Concepto Banco, Importe, Asiento ERP, Fecha ERP, Concepto ERP, Tipo Match y Score. Fondo verde tenue para coincidencias exactas.
    - Pestaña 2 ("Descuadres"): Lista de tarjetas (ft.Card) por cada partida no conciliada, mostrando:
      * Datos del movimiento (Fecha, Concepto, Importe).
      * Las 3 hipótesis del diagnóstico IA (o regla heurística).
-     * Badge de estado: [EXACTO], [TOLERANCIA], [IA DIAGNÃ“STICO], [VERIFICAR MANUALMENTE].
+     * Badge de estado: [EXACTO], [TOLERANCIA], [IA DIAGN“STICO], [VERIFICAR MANUALMENTE].
 
-3. ACCIONES DE EXPORTACIÃ“N:
+3. ACCIONES DE EXPORTACI“N:
    - ft.ElevatedButton ("Descargar Informe Markdown / PDF") con selector de ruta local.
    - ft.OutlinedButton ("Nueva Conciliación") que regresa a la pantalla de carga previa confirmación.`}
           </PromptBlock>
@@ -910,7 +910,7 @@ Implementa la pantalla de resultados de Balance Inteligente en \`ui/views/result
               </div>
             ))}
           </div>
-          <PromptBlock label="Prompt 4.4 â€” Estados de error">
+          <PromptBlock label="Prompt 4.4 — Estados de error">
 {`Actúa como Especialista en UX y Gestión de Estados Excepcionales en Flet.
 
 Implementa el módulo \`ui/components/error_states.py\` para gestionar de forma elegante todas las situaciones límite de Balance Inteligente:
@@ -930,7 +930,7 @@ Implementa el módulo \`ui/components/error_states.py\` para gestionar de forma 
           title="Navegación básica" 
           goal="Flujo entre las 3 pantallas: Carga â†’ Resultados â†’ (opcional) Historial."
         >
-          <PromptBlock label="Prompt 4.5 â€” Navegación Flet">
+          <PromptBlock label="Prompt 4.5 — Navegación Flet">
 {`Actúa como Arquitecto Frontend en Flet.
 
 Implementa la arquitectura de navegación fluida entre las 3 pantallas de Balance Inteligente en \`ui/navigation.py\`:
@@ -940,7 +940,7 @@ Implementa la arquitectura de navegación fluida entre las 3 pantallas de Balanc
    - Pantalla 2 (Resultados): Dashboard de KPIs, tabla de matches, tarjetas de descuadres y exportador.
    - Pantalla 3 (Historial): Listado de sesiones pasadas guardadas en DuckDB.
 
-2. REGLAS DE NAVEGACIÃ“N:
+2. REGLAS DE NAVEGACI“N:
    - Al pulsar "Conciliar" y concluir el pipeline con éxito: Transición automática a la pantalla de Resultados con los datos ya renderizados.
    - Botón "Historial" accesible en la barra superior (ft.AppBar) desde cualquier vista.
    - En la vista de Historial, cada fila cuenta con el botón "Cargar sesión" que abre los resultados pasados en modo consulta.
@@ -949,7 +949,7 @@ Implementa la arquitectura de navegación fluida entre las 3 pantallas de Balanc
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 5 â€” INTEGRACIÃ“N (BALANCE INTELIGENTE)
+            CAPA 5 — INTEGRACI“N (BALANCE INTELIGENTE)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Link2} 
@@ -964,7 +964,7 @@ Implementa la arquitectura de navegación fluida entre las 3 pantallas de Balanc
           title="Conectar interfaz con lógica" 
           goal="La función on_reconcile_click() que ejecuta el pipeline completo desde la UI sin bloquear la ventana gráfica."
         >
-          <PromptBlock label="Prompt 5.1 â€” Evento UI Asíncrono">
+          <PromptBlock label="Prompt 5.1 — Evento UI Asíncrono">
 {`Actúa como Ingeniero Frontend Senior en Python con Flet.
 
 Implementa la función controladora de eventos \`on_reconcile_click(e)\` en \`ui/controllers.py\` para disparar la conciliación desde la interfaz:
@@ -988,12 +988,12 @@ Implementa la función controladora de eventos \`on_reconcile_click(e)\` en \`ui
           title="Conectar lógica con datos" 
           goal="Pipeline puro reconciliation_pipeline() que conecta la lectura, el algoritmo, la IA y la persistencia en DuckDB."
         >
-          <PromptBlock label="Prompt 5.2 â€” Pipeline Orquestador">
+          <PromptBlock label="Prompt 5.2 — Pipeline Orquestador">
 {`Actúa como Ingeniero de Integración y Arquitecto de Software en Python.
 
 Escribe el módulo \`pipeline.py\` con la función orquestadora central \`reconciliation_pipeline(...)\` completamente desacoplada de la interfaz gráfica:
 
-1. CONTRATO FORMAL DE LA FUNCIÃ“N:
+1. CONTRATO FORMAL DE LA FUNCI“N:
    \`\`\`python
    def run_reconciliation_pipeline(
        bank_file_path: Path,
@@ -1008,7 +1008,7 @@ Escribe el módulo \`pipeline.py\` con la función orquestadora central \`reconc
    ) -> ReconciliationResult:
    \`\`\`
 
-2. FLUJO DE EJECUCIÃ“N SECUENCIAL (End-to-End):
+2. FLUJO DE EJECUCI“N SECUENCIAL (End-to-End):
    - **Paso 1 (Ingesta):** Llama a \`read_bank_statement()\` y \`read_erp_ledger()\` de \`parsers.py\` (15% progreso).
    - **Paso 2 (Validación):** Instancia y valida las listas de modelos Pydantic \`BankTransaction\` y \`ERPEntry\` (30% progreso).
    - **Paso 3 (Filtrado Temporal):** Filtra los registros que correspondan estrictamente al rango [period_start, period_end].
@@ -1027,7 +1027,7 @@ Escribe el módulo \`pipeline.py\` con la función orquestadora central \`reconc
           title="Gestión de errores en cascada" 
           goal="Plan de resiliencia ante CSVs malformados, períodos vacíos, caídas de la API del LLM o fallos de base de datos."
         >
-          <PromptBlock label="Prompt 5.3 â€” Matriz de Errores y Excepciones">
+          <PromptBlock label="Prompt 5.3 — Matriz de Errores y Excepciones">
 {`Actúa como Arquitecto de Resiliencia de Software en Sistemas Críticos.
 
 Crea el módulo \`exceptions.py\` con la jerarquía de excepciones personalizadas y la matriz de decisiones de error de "Balance Inteligente":
@@ -1068,12 +1068,12 @@ Crea el módulo \`exceptions.py\` con la jerarquía de excepciones personalizada
           >
             <strong style={{ color: C.red }}>RGPD:</strong> No guardar el concepto bancario en el log. Puede contener nombres de personas o empresas.
           </div>
-          <PromptBlock label="Prompt 5.4 â€” reconciliation_logger.py">
+          <PromptBlock label="Prompt 5.4 — reconciliation_logger.py">
 {`Actúa como Especialista en Ciberseguridad y Privacidad de Datos en Software Financiero.
 
 Crea el módulo \`logger.py\` para la auditoría técnica y depuración en producción cumpliendo estrictamente con el RGPD:
 
-1. CONFIGURACIÃ“N DEL SISTEMA DE LOGGING:
+1. CONFIGURACI“N DEL SISTEMA DE LOGGING:
    - Archivo destino: \`~/.balance_inteligente/logs/reconciliation.log\`.
    - Rotación automática: \`RotatingFileHandler\` con tamaño máximo de 5MB y 3 ficheros de respaldo.
    - Formato estructurado: \`[%(asctime)s UTC] [%(levelname)s] [%(name)s] %(message)s\`.
@@ -1091,12 +1091,12 @@ Crea el módulo \`logger.py\` para la auditoría técnica y depuración en produ
           title="Configuración centralizada" 
           goal="config.py con Pydantic Settings v2 para gestionar variables de entorno, constantes de negocio y fichero .env."
         >
-          <PromptBlock label="Prompt 5.5 â€” config.py + .env.example">
+          <PromptBlock label="Prompt 5.5 — config.py + .env.example">
 {`Actúa como Ingeniero DevOps / SRE en Python.
 
 Crea el módulo \`config.py\` utilizando \`pydantic-settings\` para la gestión centralizada de la configuración de "Balance Inteligente":
 
-1. ESPECIFICACIÃ“N DEL MODELO DE AJUSTES:
+1. ESPECIFICACI“N DEL MODELO DE AJUSTES:
    \`\`\`python
    from pydantic_settings import BaseSettings, SettingsConfigDict
    from pathlib import Path
@@ -1116,7 +1116,7 @@ Crea el módulo \`config.py\` utilizando \`pydantic-settings\` para la gestión 
        BALANCE_MAX_TRANSACTIONS: int = 5000
    \`\`\`
 
-2. FUNCIÃ“N DE INICIALIZACIÃ“N:
+2. FUNCI“N DE INICIALIZACI“N:
    - \`init_environment() -> AppSettings\`: Crea automáticamente en el sistema de archivos los directorios necesarios (\`data/\`, \`logs/\`, \`exports/\`) si no existen al arrancar la app.
 
 3. GENERADOR DEL FICHERO \`.env.example\`:
@@ -1125,7 +1125,7 @@ Crea el módulo \`config.py\` utilizando \`pydantic-settings\` para la gestión 
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO (BALANCE INTELIGENTE)
+            CAPA 6 — PRUEBAS Y EMPAQUETADO (BALANCE INTELIGENTE)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={FlaskConical} 
@@ -1140,12 +1140,12 @@ Crea el módulo \`config.py\` utilizando \`pydantic-settings\` para la gestión 
           title="Tests unitarios" 
           goal="Tests Pytest para el algoritmo de matching determinista, normalización de importes Decimal y parseo de respuestas."
         >
-          <PromptBlock label="Prompt 6.1 â€” Suite Pytest Unitaria">
+          <PromptBlock label="Prompt 6.1 — Suite Pytest Unitaria">
 {`Actúa como QA Lead y Especialista en Testing Automatizado de Software Financiero.
 
 Crea la suite de pruebas unitarias en el archivo \`tests/test_unit_reconciliation.py\` utilizando \`pytest\`:
 
-1. PRUEBAS DE NORMALIZACIÃ“N (\`normalizers.py\`):
+1. PRUEBAS DE NORMALIZACI“N (\`normalizers.py\`):
    - \`test_normalize_amount_spanish_format\`: Verifica que '1.234.567,89 â‚¬' se convierte exactamente en \`Decimal('1234567.89')\`.
    - \`test_normalize_amount_english_format\`: Verifica que '1,234,567.89' se convierte en \`Decimal('1234567.89')\`.
    - \`test_normalize_amount_accounting_parentheses\`: Verifica que '(450,20)' se convierte en \`Decimal('-450.20')\`.
@@ -1168,12 +1168,12 @@ REQUISITO: Todos los tests deben ejecutarse sin conexión y en menos de 1.5 segu
           title="Test de flujo completo" 
           goal="Test de integración End-to-End del pipeline con los archivos CSV de ejemplo y DuckDB en memoria."
         >
-          <PromptBlock label="Prompt 6.2 â€” Test de Integración E2E">
+          <PromptBlock label="Prompt 6.2 — Test de Integración E2E">
 {`Actúa como Ingeniero de Integración y Automatización de Pruebas.
 
 Escribe el test de integración en \`tests/test_pipeline_integration.py\`:
 
-1. ESPECIFICACIÃ“N DEL ESCENARIO E2E:
+1. ESPECIFICACI“N DEL ESCENARIO E2E:
    - Carga los ficheros sintéticos \`demo_bank_statement.csv\` y \`demo_erp_ledger.csv\`.
    - Inicializa una base de datos DuckDB en memoria (\`:memory:\`).
    - Mockea la llamada externa al LLM (\`unittest.mock.patch\` sobre \`explain_discrepancy\`) para devolver un diagnóstico controlado sin consumir tokens ni requerir API Key.
@@ -1192,14 +1192,14 @@ Escribe el test de integración en \`tests/test_pipeline_integration.py\`:
           title="Prueba manual con datos reales" 
           goal="Protocolo de aceptación UAT con los extractos reales del usuario antes del empaquetado final."
         >
-          <PromptBlock label="Prompt 6.3 â€” Protocolo UAT Manual">
+          <PromptBlock label="Prompt 6.3 — Protocolo UAT Manual">
 {`Actúa como Consultor de Calidad y Especialista en Aceptación de Usuario (UAT).
 
 Genera el protocolo de prueba manual de "Balance Inteligente" para que un contable valide la aplicación con datos reales de su empresa:
 
 1. MATRIZ DE ESCENARIOS DE PRUEBA:
    - **Escenario 1 (Carga de Extracto Real):** Carga un CSV bancario de su entidad (Santander, BBVA, CaixaBank, Sabadell) -> Comprobar que las columnas e importes con coma se detectan automáticamente sin error.
-   - **Escenario 2 (Cierre del Ãšltimo Mes):** Ejecutar la conciliación del mes vencido -> Comparar el porcentaje de coincidencia automático con el resultado manual histórico.
+   - **Escenario 2 (Cierre del šltimo Mes):** Ejecutar la conciliación del mes vencido -> Comparar el porcentaje de coincidencia automático con el resultado manual histórico.
    - **Escenario 3 (Revisión de Descuadres):** Analizar 2 descuadres reales en pantalla -> Comprobar que las hipótesis generadas por la IA son coherentes con la operativa contable.
    - **Escenario 4 (Exportación del Dictamen):** Pulsar "Exportar Informe Markdown" -> Abrir el fichero generado y comprobar que contiene el resumen de cifras y la advertencia legal.
    - **Escenario 5 (Simulación Offline):** Desconectar el cable de red / WiFi y pulsar "Conciliar" -> Comprobar que la app opera con el motor heurístico local sin bloquearse.`}
@@ -1217,12 +1217,12 @@ Genera el protocolo de prueba manual de "Balance Inteligente" para que un contab
           >
             <strong style={{ color: C.emerald }}>Nota técnica:</strong> Se genera un binario sin ventana de consola (<code className="text-xs bg-black/5 px-1 rounded-sm">console=False</code>) que empaqueta DuckDB, Flet y Pydantic v2.
           </div>
-          <PromptBlock label="Prompt 6.4 â€” Especificación de Compilación (.spec)">
+          <PromptBlock label="Prompt 6.4 — Especificación de Compilación (.spec)">
 {`Actúa como Ingeniero de Empaquetado y Despliegue de Aplicaciones de Escritorio.
 
 Genera el archivo \`balance_inteligente.spec\` y el script de compilación para construir el ejecutable autónomo (\`.exe\` en Windows o binario en macOS) mediante PyInstaller:
 
-1. CONFIGURACIÃ“N DEL ARCHIVO \`.spec\`:
+1. CONFIGURACI“N DEL ARCHIVO \`.spec\`:
    - Script de entrada: \`main.py\`.
    - Inclusión de archivos estáticos (\`datas\`):
      * Carpeta de datasets de ejemplo: \`('demo_data', 'demo_data')\`.
@@ -1234,7 +1234,7 @@ Genera el archivo \`balance_inteligente.spec\` y el script de compilación para 
      * \`icon='assets/icon.ico'\`
      * Modo distribuible optimizado (\`onedir=True\` para arranque ultrarrápido o \`onefile=True\`).
 
-2. RESOLUCIÃ“N DE BINARIOS DINÁMICOS:
+2. RESOLUCI“N DE BINARIOS DINÁMICOS:
    - Instrucciones para asegurar que las librerías dinámicas de C++ de DuckDB y el motor Flutter de Flet queden correctamente enlazadas en máquinas sin Python.`}
           </PromptBlock>
         </Step>
@@ -1244,7 +1244,7 @@ Genera el archivo \`balance_inteligente.spec\` y el script de compilación para 
           title="Prueba del ejecutable en máquina limpia" 
           goal="Verificación y checklist formal del ejecutable en un entorno sin Python instalado."
         >
-          <PromptBlock label="Prompt 6.5 â€” Checklist de Validación en Máquina Limpia">
+          <PromptBlock label="Prompt 6.5 — Checklist de Validación en Máquina Limpia">
 {`Actúa como Ingeniero de Release y Control de Calidad Final.
 
 Genera el protocolo de verificación formal del ejecutable en una máquina virtual limpia (Windows 10/11 sin Python, sin Git y sin dependencias previas):
@@ -1259,7 +1259,7 @@ Genera el protocolo de verificación formal del ejecutable en una máquina virtu
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N Y PUBLICACIÃ“N (BALANCE INTELIGENTE)
+            FASE 7 — ITERACI“N Y PUBLICACI“N (BALANCE INTELIGENTE)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={RefreshCw} 
@@ -1274,7 +1274,7 @@ Genera el protocolo de verificación formal del ejecutable en una máquina virtu
           title="Planificar v2" 
           goal="Backlog de funcionalidades para la siguiente versión: Norma 43, MT940, remesas 1 a N y APIs de ERPs."
         >
-          <PromptBlock label="Prompt 7.A â€” Planificación v2">
+          <PromptBlock label="Prompt 7.A — Planificación v2">
 {`Actúa como Product Owner y Estratega de Software Financiero.
 
 Una vez consolidada la versión 1.0 de "Balance Inteligente", genera el backlog técnico y funcional estructurado para la versión 2.0:
@@ -1297,13 +1297,13 @@ Una vez consolidada la versión 1.0 de "Balance Inteligente", genera el backlog 
           title="Publicar en Foro de Proyectos" 
           goal="Generar la ficha técnica formal de presentación de Balance Inteligente para el Foro Horizon."
         >
-          <PromptBlock label="Prompt 7.B â€” Ficha para el Foro">
+          <PromptBlock label="Prompt 7.B — Ficha para el Foro">
 {`Actúa como Tech Lead y Portavoz del Proyecto en la Comunidad Horizon.
 
 Genera la ficha técnica formal de presentación de "Balance Inteligente v1" para su publicación en el Foro de Proyectos Horizon:
 
 1. ESTRUCTURA DE LA FICHA:
-- Título: Balance Inteligente v1 â€” Conciliación Bancaria Determinista y Diagnóstico Contable Asistido por IA
+- Título: Balance Inteligente v1 — Conciliación Bancaria Determinista y Diagnóstico Contable Asistido por IA
 - Área Temática: Contabilidad Financiera, Auditoría ERP & Automatización.
 - Resumen Ejecutivo (Máximo 120 palabras): Aplicación de escritorio desarrollada en Python y Flet que resuelve el cierre contable mensual conciliando extractos bancarios y libros mayores en segundos, combinando un motor determinista 1-a-1 con diagnóstico inteligente de descuadres sin alucinaciones numéricas.
 - Arquitectura y Stack: Python 3.11+, Flet (Flutter UI), Pydantic v2 (Strict Decimal Types), DuckDB (OLAP local inmutable), Pytest y PyInstaller.
@@ -1316,7 +1316,7 @@ Genera la ficha técnica formal de presentación de "Balance Inteligente v1" par
           </PromptBlock>
         </Step>
 
-        {/* â”€â”€â”€ Recuadro de Resultado Final â”€â”€â”€ */}
+        {/* —€—€—€ Recuadro de Resultado Final —€—€—€ */}
         <div 
           className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "white", border: "1px solid rgba(5,150,105,0.2)" }}
@@ -1334,7 +1334,7 @@ Genera la ficha técnica formal de presentación de "Balance Inteligente v1" par
             className="text-base leading-relaxed mb-6 max-w-[520px] mx-auto"
             style={{ color: "rgba(17,17,17,0.6)" }}
           >
-            Un ejecutable de <strong style={{ color: C.dark }}>Balance Inteligente</strong> que importa dos CSV, concilia en segundos y exporta un informe con las diferencias explicadas por el modelo líder en contabilidad â€” sin Python instalado ni conexión a ningún ERP.
+            Un ejecutable de <strong style={{ color: C.dark }}>Balance Inteligente</strong> que importa dos CSV, concilia en segundos y exporta un informe con las diferencias explicadas por el modelo líder en contabilidad — sin Python instalado ni conexión a ningún ERP.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link 
@@ -1354,7 +1354,7 @@ Genera la ficha técnica formal de presentación de "Balance Inteligente v1" par
           </div>
         </div>
 
-        {/* â”€â”€â”€ Extensiones de Versión â”€â”€â”€ */}
+        {/* —€—€—€ Extensiones de Versión —€—€—€ */}
         <VersionExtensions versions={VERSIONS} />
 
         <div className="h-16" />

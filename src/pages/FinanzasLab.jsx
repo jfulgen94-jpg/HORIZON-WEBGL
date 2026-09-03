@@ -12,7 +12,7 @@ import { BarChart3 } from "lucide-react";
 import { TrendingUp } from "lucide-react";
 import { Shield } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -33,7 +33,7 @@ const RESEARCH_LINES = [
     topModel: {
       name: "DeepSeek-R1",
       score: "92.0",
-      detail: "92.5 FinQA · 91.4 ConvFinQA â€” líder en razonamiento multi-salto financiero",
+      detail: "92.5 FinQA · 91.4 ConvFinQA — líder en razonamiento multi-salto financiero",
     },
     warning: true,
   },
@@ -64,18 +64,18 @@ const RESEARCH_LINES = [
     title: "Razonamiento matemático y cálculo financiero",
     color: "blue",
     summary:
-      "Valorar una opción por Black-Scholes, calcular el VaR de una cartera o estimar el precio de un bono con cupones irregulares son problemas de álgebra financiera aplicada. Los errores de precisión en decimales tienen consecuencias reales â€” no es razonamiento abstracto.",
+      "Valorar una opción por Black-Scholes, calcular el VaR de una cartera o estimar el precio de un bono con cupones irregulares son problemas de álgebra financiera aplicada. Los errores de precisión en decimales tienen consecuencias reales — no es razonamiento abstracto.",
     detail:
-      "QuantEval_Math, MATH_Finance y GSM8K_Finance cubren esta franja desde la aritmética básica hasta el cálculo actuarial. DeepSeek-R1 lidera con 94.3/100 compuesto â€” el diferencial de 0.1 puntos con o1-preview en el subconjunto de fisiopatología financiera debe confirmarse (ver Módulo 4, punto 4.2). Para aplicaciones críticas como la valoración de derivados, este diferencial puede ser determinante.",
+      "QuantEval_Math, MATH_Finance y GSM8K_Finance cubren esta franja desde la aritmética básica hasta el cálculo actuarial. DeepSeek-R1 lidera con 94.3/100 compuesto — el diferencial de 0.1 puntos con o1-preview en el subconjunto de fisiopatología financiera debe confirmarse (ver Módulo 4, punto 4.2). Para aplicaciones críticas como la valoración de derivados, este diferencial puede ser determinante.",
     benchmarks: [
-      { name: "QuantEval_Math", desc: "Razonamiento matemático financiero cuantitativo â€” VaR, Black-Scholes, duración" },
+      { name: "QuantEval_Math", desc: "Razonamiento matemático financiero cuantitativo — VaR, Black-Scholes, duración" },
       { name: "MATH_Finance", desc: "Problemas matemáticos financieros de dificultad gradual" },
       { name: "GSM8K_Finance", desc: "Aritmética financiera aplicada desde básico hasta cálculo actuarial" },
     ],
     topModel: {
       name: "DeepSeek-R1",
       score: "94.3",
-      detail: "Diferencial de 0.1 con o1-preview en subconjunto â€” ver punto 4.2",
+      detail: "Diferencial de 0.1 con o1-preview en subconjunto — ver punto 4.2",
     },
     warning: true,
   },
@@ -117,7 +117,7 @@ const RESEARCH_LINES = [
     topModel: {
       name: "FinRobot Agent Swarm",
       score: "85.1",
-      detail: "Dato AFIB pendiente de verificar â€” ver punto 4.1 en Módulo 4",
+      detail: "Dato AFIB pendiente de verificar — ver punto 4.1 en Módulo 4",
     },
     warning: true,
   },
@@ -129,16 +129,16 @@ const RESEARCH_LINES = [
     summary:
       "En finanzas, una alucinación no es un fallo gracioso: puede ser el fundamento de una decisión de inversión errónea o una infracción normativa. Esta línea mide la tasa a la que un modelo inventa cifras, citas normativas o hechos que no existen en el documento fuente.",
     detail:
-      "RegAudit_Bench, Hallucination_FinBench y FinFact miden directamente el control de alucinaciones en contexto financiero. DeepSeek-R1 y Claude 3.5 Sonnet empatan a 93.3/100 en esta área â€” el orden de desempate entre ambos no está documentado (ver Módulo 4, punto 4.2). Para cualquier aplicación regulatoria, esta ambigüedad debe resolverse antes de elegir modelo.",
+      "RegAudit_Bench, Hallucination_FinBench y FinFact miden directamente el control de alucinaciones en contexto financiero. DeepSeek-R1 y Claude 3.5 Sonnet empatan a 93.3/100 en esta área — el orden de desempate entre ambos no está documentado (ver Módulo 4, punto 4.2). Para cualquier aplicación regulatoria, esta ambigüedad debe resolverse antes de elegir modelo.",
     benchmarks: [
-      { name: "RegAudit_Bench", desc: "Trazabilidad en auditoría regulatoria â€” citas normativas verificadas" },
+      { name: "RegAudit_Bench", desc: "Trazabilidad en auditoría regulatoria — citas normativas verificadas" },
       { name: "Hallucination_FinBench", desc: "Tasa de alucinación en cifras financieras y datos de mercado" },
       { name: "FinFact", desc: "Verificación factual de afirmaciones financieras contra fuentes documentadas" },
     ],
     topModel: {
       name: "DeepSeek-R1 / Claude 3.5 Sonnet",
       score: "93.3",
-      detail: "Empate técnico â€” regla de desempate pendiente de documentar (ver punto 4.2)",
+      detail: "Empate técnico — regla de desempate pendiente de documentar (ver punto 4.2)",
     },
     warning: true,
   },
@@ -149,28 +149,28 @@ const PROJECTS = [
     id: "argos",
     name: "ARGOS",
     tagline: "Motor de investigación financiera con trazabilidad epistemológica completa",
-    desc: "ARGOS es el motor de investigación del laboratorio: un sistema de descarga, análisis y auditoría de datos financieros donde cada dato lleva etiquetado su origen epistemológico â€” si es un precio declarado, una cifra calculada, una inferencia de modelo o un escenario hipotético simulado. El objetivo no es automatizar decisiones de inversión, sino garantizar que el investigador nunca confunda la fuente de un dato con su fiabilidad.",
+    desc: "ARGOS es el motor de investigación del laboratorio: un sistema de descarga, análisis y auditoría de datos financieros donde cada dato lleva etiquetado su origen epistemológico — si es un precio declarado, una cifra calculada, una inferencia de modelo o un escenario hipotético simulado. El objetivo no es automatizar decisiones de inversión, sino garantizar que el investigador nunca confunda la fuente de un dato con su fiabilidad.",
     color: "blue",
     financeDisclaimer: true,
     researchLines: ["01", "06"],
     stack: [
-      { role: "Descarga y estructuración de datos fundamentales (10-K, 10-Q, earnings calls)", tech: "SEC EDGAR API · Yahoo Finance API · Alpha Vantage · [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]" },
-      { role: "Descarga de precios OHLCV con trazabilidad de fuente y timestamp", tech: "Yahoo Finance · Alpha Vantage · Twelve Data â€” [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]" },
-      { role: "Motor de análisis financiero: ratios, medias móviles, volatilidad histórica", tech: "Python · pandas · numpy · scipy â€” cálculos etiquetados como [DATO CALCULADO]" },
+      { role: "Descarga y estructuración de datos fundamentales (10-K, 10-Q, earnings calls)", tech: "SEC EDGAR API · Yahoo Finance API · Alpha Vantage · [VERIFICAR EN DOCUMENTACI“N OFICIAL]" },
+      { role: "Descarga de precios OHLCV con trazabilidad de fuente y timestamp", tech: "Yahoo Finance · Alpha Vantage · Twelve Data — [VERIFICAR EN DOCUMENTACI“N OFICIAL]" },
+      { role: "Motor de análisis financiero: ratios, medias móviles, volatilidad histórica", tech: "Python · pandas · numpy · scipy — cálculos etiquetados como [DATO CALCULADO]" },
       { role: "Separación epistemológica en todos los outputs", tech: "[DATO OBSERVADO] · [DATO CALCULADO] · [INFERENCIA IA] · [ESCENARIO HIPOTÃ‰TICO]" },
-      { role: "Backstage de estrategias: diseño, simulación y versionado", tech: "Python · backtesting.py â€” señales clasificadas como [ESCENARIO HIPOTÃ‰TICO]" },
-      { role: "Generación de informes auditables con trazabilidad completa", tech: "Markdown · HTML · PDF â€” fuente verificada por afirmación" },
+      { role: "Backstage de estrategias: diseño, simulación y versionado", tech: "Python · backtesting.py — señales clasificadas como [ESCENARIO HIPOTÃ‰TICO]" },
+      { role: "Generación de informes auditables con trazabilidad completa", tech: "Markdown · HTML · PDF — fuente verificada por afirmación" },
     ],
     whyModels: [
       { model: "DeepSeek-R1", role: "Extracción de información de documentos financieros densos (10-K, earnings calls)", score: "92.0", area: "QA Financiero Complejo (92.5 FinQA · 91.4 ConvFinQA)" },
-      { model: "DeepSeek-R1 / Claude 3.5 Sonnet", role: "Trazabilidad regulatoria y control de alucinaciones en informes", score: "93.3", area: "Empate técnico â€” desempate pendiente de documentar (ver punto 4.2)" },
+      { model: "DeepSeek-R1 / Claude 3.5 Sonnet", role: "Trazabilidad regulatoria y control de alucinaciones en informes", score: "93.3", area: "Empate técnico — desempate pendiente de documentar (ver punto 4.2)" },
     ],
     flow: [
-      "Zona C â€” Descarga de fundamentales: el investigador selecciona empresa/sector/período; ARGOS descarga datos de SEC EDGAR o Yahoo Finance y etiqueta cada campo como [DATO OBSERVADO] con fuente, fecha y moneda",
-      "Zona D â€” Descarga de precios OHLCV: precios de apertura, máximo, mínimo, cierre y volumen con timestamp de mercado; clasificados como [DATO OBSERVADO]; medias móviles derivadas etiquetadas como [DATO CALCULADO]",
-      "Zona E â€” Análisis financiero: tablas de ratios, gráficos de precio, indicadores técnicos; cada output incluye metaetiqueta de tipo de dato, fuente y método de cálculo",
-      "Zona G â€” Backstage de estrategias: el investigador define reglas de entrada/salida en lenguaje natural; ARGOS genera código backtesting.py y clasifica todas las señales simuladas como [ESCENARIO HIPOTÃ‰TICO]",
-      "Zona H â€” Generación de informes: informe auditable con trazabilidad completa por afirmación, exportable en MD/HTML/PDF/CSV/JSON; cada cifra lleva etiqueta epistemológica y referencia de fuente",
+      "Zona C — Descarga de fundamentales: el investigador selecciona empresa/sector/período; ARGOS descarga datos de SEC EDGAR o Yahoo Finance y etiqueta cada campo como [DATO OBSERVADO] con fuente, fecha y moneda",
+      "Zona D — Descarga de precios OHLCV: precios de apertura, máximo, mínimo, cierre y volumen con timestamp de mercado; clasificados como [DATO OBSERVADO]; medias móviles derivadas etiquetadas como [DATO CALCULADO]",
+      "Zona E — Análisis financiero: tablas de ratios, gráficos de precio, indicadores técnicos; cada output incluye metaetiqueta de tipo de dato, fuente y método de cálculo",
+      "Zona G — Backstage de estrategias: el investigador define reglas de entrada/salida en lenguaje natural; ARGOS genera código backtesting.py y clasifica todas las señales simuladas como [ESCENARIO HIPOTÃ‰TICO]",
+      "Zona H — Generación de informes: informe auditable con trazabilidad completa por afirmación, exportable en MD/HTML/PDF/CSV/JSON; cada cifra lleva etiqueta epistemológica y referencia de fuente",
       "Aviso permanente: ninguna salida del sistema constituye recomendación de inversión ni señal de trading con validez financiera",
     ],
     promptIDE: `Crea un módulo Python llamado argos_core.py con las siguientes funciones:
@@ -207,7 +207,7 @@ Reglas obligatorias:
    - "CALCULATED": cifra que requiere operación aritmética sobre datos del documento
    - "INFERRED": interpretación del tono o contexto que no está cifrada explícitamente
 3. Para cada dato, incluye: value (str), data_type (str), source_quote (str, máx. 100 chars),
-   confidence (float 0â€“1), note (str | null).
+   confidence (float 0–1), note (str | null).
 
 Responde exclusivamente en JSON con esquema:
 {
@@ -222,16 +222,16 @@ devuelve facts: [] y un warning explicando por qué.`,
   {
     id: "kairos",
     name: "Kairós Sentimiento",
-    tagline: "Detección de ventanas de asimetría informativa en mercados â€” señal antes que precio",
+    tagline: "Detección de ventanas de asimetría informativa en mercados — señal antes que precio",
     desc: "Kairós Sentimiento cruza tres tipos de señales: noticias financieras de fuentes estructuradas, transcripciones de earnings calls y datos de precio/volumen. El objetivo no es predecir el precio, sino estimar el sentimiento agregado de un activo o sector y convertirlo en un indicador de riesgo accionable. La hipótesis es que el lenguaje de los directivos en una earnings call contiene señal antes de que los estados financieros la hagan explícita.",
     color: "indigo",
     financeDisclaimer: true,
     researchLines: ["01", "02"],
     stack: [
-      { role: "Extracción de texto de fuentes financieras estructuradas y earnings calls", tech: "Python · scrapers RSS/API + parsers PDF/HTML â€” fuentes verificadas individualmente" },
-      { role: "Análisis semántico profundo y extracción de señales de sentimiento", tech: "DeepSeek-R1 â€” líder en QA financiero complejo (92.0/100, Fuente: STATER Leaderboard)" },
-      { role: "Conversión de sentimiento en señal direccional de mercado", tech: "FinRobot Agent Swarm â€” líder en generación de señales de trading (85.1/100)" },
-      { role: "Almacenamiento de series temporales de sentimiento", tech: "DuckDB â€” historial de sentimiento por activo/sector con timestamps" },
+      { role: "Extracción de texto de fuentes financieras estructuradas y earnings calls", tech: "Python · scrapers RSS/API + parsers PDF/HTML — fuentes verificadas individualmente" },
+      { role: "Análisis semántico profundo y extracción de señales de sentimiento", tech: "DeepSeek-R1 — líder en QA financiero complejo (92.0/100, Fuente: STATER Leaderboard)" },
+      { role: "Conversión de sentimiento en señal direccional de mercado", tech: "FinRobot Agent Swarm — líder en generación de señales de trading (85.1/100)" },
+      { role: "Almacenamiento de series temporales de sentimiento", tech: "DuckDB — historial de sentimiento por activo/sector con timestamps" },
     ],
     whyModels: [
       { model: "DeepSeek-R1", role: "Análisis semántico multi-salto sobre texto financiero denso", score: "92.0", area: "QA Financiero Complejo (92.5 FinQA · 91.4 ConvFinQA)" },
@@ -241,9 +241,9 @@ devuelve facts: [] y un warning explicando por qué.`,
       "Fuentes de entrada: noticias (RSS/API), transcripciones de earnings calls (PDF/transcript), precios históricos (API de mercado)",
       "Extracción y limpieza de texto: fragmentos de â‰¤2.000 tokens por documento con identificador de speaker (CEO, CFO, Analyst) cuando está disponible",
       "Análisis semántico multi-salto (DeepSeek-R1): hechos nuevos revelados, evasión de preguntas, variación de vocabulario respecto al período anterior, tonalidad implícita vs. explícita",
-      "Puntuación de sentimiento por activo en escala [-1.0, +1.0] con nivel de confianza [0.0, 1.0] â€” clasificada como [INFERENCIA IA]",
+      "Puntuación de sentimiento por activo en escala [-1.0, +1.0] con nivel de confianza [0.0, 1.0] — clasificada como [INFERENCIA IA]",
       "Agregación sectorial: indicador de riesgo sistémico compuesto por sector",
-      "Señal direccional (FinRobot Agent Swarm): long / short / neutral con magnitud â€” clasificada como [ESCENARIO HIPOTÃ‰TICO]",
+      "Señal direccional (FinRobot Agent Swarm): long / short / neutral con magnitud — clasificada como [ESCENARIO HIPOTÃ‰TICO]",
       "Almacenamiento en serie temporal (DuckDB) y emisión de alerta si se supera umbral configurado",
     ],
     promptIDE: `Crea un módulo Python llamado kairos_sentiment.py con las siguientes clases y funciones:
@@ -291,27 +291,27 @@ financiera relevante, devuelve sentiment_score: 0.0 y confidence: 0.1.`,
     id: "oraculo",
     name: "Oráculo Bursátil",
     tagline: "Banco de pruebas de estrategias: de lenguaje natural a backtest auditado",
-    desc: "Oráculo Bursátil permite que un investigador defina una estrategia en lenguaje natural, la traduzca automáticamente a código ejecutable con backtesting.py, la corra sobre datos históricos y reciba un informe de resultados: retorno total, máximo drawdown, Sharpe ratio, número de operaciones y distribución de ganancias/pérdidas. La hipótesis es que la generación de código financiero de alta precisión es el cuello de botella principal â€” si el código tiene un bug sutil, el backtest miente.",
+    desc: "Oráculo Bursátil permite que un investigador defina una estrategia en lenguaje natural, la traduzca automáticamente a código ejecutable con backtesting.py, la corra sobre datos históricos y reciba un informe de resultados: retorno total, máximo drawdown, Sharpe ratio, número de operaciones y distribución de ganancias/pérdidas. La hipótesis es que la generación de código financiero de alta precisión es el cuello de botella principal — si el código tiene un bug sutil, el backtest miente.",
     color: "blue",
     financeDisclaimer: true,
     researchLines: ["03", "04"],
     stack: [
-      { role: "Interfaz de entrada: descripción en lenguaje natural + editor de reglas estructurado", tech: "Formulario con parser NLP â€” salida como dict estructurado de estrategia" },
-      { role: "Generador de código Python financiero ejecutable", tech: "Claude 3.5 Sonnet â€” líder en generación de código financiero (91.3/100, 92.0 QuantEval_Code)" },
-      { role: "Verificador matemático de fórmulas de indicadores técnicos", tech: "DeepSeek-R1 â€” líder en razonamiento matemático financiero (94.3/100)" },
-      { role: "Motor de backtesting sobre datos históricos reales", tech: "backtesting.py · yfinance â€” datos clasificados como [DATO OBSERVADO]" },
-      { role: "Entorno de ejecución seguro con timeout y límite de recursos", tech: "subprocess aislado â€” sandbox Python con captura de stdout/stderr" },
+      { role: "Interfaz de entrada: descripción en lenguaje natural + editor de reglas estructurado", tech: "Formulario con parser NLP — salida como dict estructurado de estrategia" },
+      { role: "Generador de código Python financiero ejecutable", tech: "Claude 3.5 Sonnet — líder en generación de código financiero (91.3/100, 92.0 QuantEval_Code)" },
+      { role: "Verificador matemático de fórmulas de indicadores técnicos", tech: "DeepSeek-R1 — líder en razonamiento matemático financiero (94.3/100)" },
+      { role: "Motor de backtesting sobre datos históricos reales", tech: "backtesting.py · yfinance — datos clasificados como [DATO OBSERVADO]" },
+      { role: "Entorno de ejecución seguro con timeout y límite de recursos", tech: "subprocess aislado — sandbox Python con captura de stdout/stderr" },
     ],
     whyModels: [
       { model: "Claude 3.5 Sonnet", role: "Generador principal de código backtesting.py", score: "91.3", area: "Código Python Financiero (92.0 QuantEval_Code · 93.4 HumanEval_FinData)" },
-      { model: "DeepSeek-R1", role: "Verificador matemático de fórmulas (RSI, Black-Scholes, VaR)", score: "94.3", area: "Razonamiento Matemático Financiero â€” ver diferencial 0.1 pts con o1-preview" },
+      { model: "DeepSeek-R1", role: "Verificador matemático de fórmulas (RSI, Black-Scholes, VaR)", score: "94.3", area: "Razonamiento Matemático Financiero — ver diferencial 0.1 pts con o1-preview" },
     ],
     flow: [
       "Entrada: descripción en lenguaje natural de la estrategia ('compra cuando RSI < 30, vende cuando RSI > 70, stop-loss 5%')",
       "Extracción de parámetros estructurados (Claude 3.5 Sonnet): indicadores técnicos con fórmulas y parámetros, reglas de entrada/salida/stop-loss/take-profit, universo de activos y período temporal",
       "Verificación matemática de fórmulas (DeepSeek-R1): ¿el RSI está calculado correctamente? ¿el lookback es el correcto? ¿el stop-loss está en porcentaje o puntos absolutos?",
       "Generación de código backtesting.py (Claude 3.5 Sonnet): código ejecutable con manejo de NaN, sin desfases temporales, conforme a Python 3.10+",
-      "Ejecución en sandbox: retorno total, máximo drawdown, Sharpe ratio, número de operaciones â€” clasificados como [ESCENARIO HIPOTÃ‰TICO]",
+      "Ejecución en sandbox: retorno total, máximo drawdown, Sharpe ratio, número de operaciones — clasificados como [ESCENARIO HIPOTÃ‰TICO]",
       "Síntesis del informe en lenguaje natural + código fuente descargable + aviso: estos resultados son históricos y no garantizan rendimientos futuros",
     ],
     promptIDE: `Crea un módulo Python llamado oraculo_bursatil.py con las siguientes funciones:
@@ -393,17 +393,17 @@ const VERIFICATION_POINTS = [
     id: "v1",
     title: "4.1 Asimetría en la cobertura de benchmarks por modelo",
     items: [
-      "Preguntas y Respuestas Financieras: DeepSeek-R1 tiene 2 benchmarks evaluados (FinQA, ConvFinQA), mientras que Claude 3.5 Sonnet y GPT-4o tienen 4 (FinBen_QA, BizFinBench_QA, FinQA, ConvFinQA). Falta confirmar la evaluación de DeepSeek-R1 en FinBen_QA y BizFinBench_QA â€” Fuente: STATER Leaderboard, latest_rankings.md.",
-      "Generación de Código Python Financiero: DeepSeek-R1 tiene 2 evaluaciones registradas (QuantEval_Code, HumanEval_FinData), sin dato para LiveCodeBench_Finance â€” Fuente: STATER Leaderboard, latest_rankings.md.",
-      "Fiabilidad de Agentes: FinRobot Agent Swarm tiene 2 evaluaciones (CM-LRS, AgentBench_Finance) pero carece de dato en AFIB â€” Fuente: STATER Leaderboard, latest_rankings.md.",
-      "Trazabilidad y Cumplimiento: DeepSeek-R1 tiene 2 evaluaciones (Hallucination_FinBench, FinFact) pero carece de dato en RegAudit_Bench â€” Fuente: STATER Leaderboard, latest_rankings.md.",
+      "Preguntas y Respuestas Financieras: DeepSeek-R1 tiene 2 benchmarks evaluados (FinQA, ConvFinQA), mientras que Claude 3.5 Sonnet y GPT-4o tienen 4 (FinBen_QA, BizFinBench_QA, FinQA, ConvFinQA). Falta confirmar la evaluación de DeepSeek-R1 en FinBen_QA y BizFinBench_QA — Fuente: STATER Leaderboard, latest_rankings.md.",
+      "Generación de Código Python Financiero: DeepSeek-R1 tiene 2 evaluaciones registradas (QuantEval_Code, HumanEval_FinData), sin dato para LiveCodeBench_Finance — Fuente: STATER Leaderboard, latest_rankings.md.",
+      "Fiabilidad de Agentes: FinRobot Agent Swarm tiene 2 evaluaciones (CM-LRS, AgentBench_Finance) pero carece de dato en AFIB — Fuente: STATER Leaderboard, latest_rankings.md.",
+      "Trazabilidad y Cumplimiento: DeepSeek-R1 tiene 2 evaluaciones (Hallucination_FinBench, FinFact) pero carece de dato en RegAudit_Bench — Fuente: STATER Leaderboard, latest_rankings.md.",
     ],
   },
   {
     id: "v2",
     title: "4.2 Empate en Trazabilidad y regla de desempate no documentada",
     items: [
-      "DeepSeek-R1 y Claude 3.5 Sonnet presentan una puntuación compuesta idéntica de 93.3/100 en el área de Trazabilidad, Cumplimiento Normativo y Auditabilidad â€” Fuente: STATER Leaderboard, latest_rankings.md.",
+      "DeepSeek-R1 y Claude 3.5 Sonnet presentan una puntuación compuesta idéntica de 93.3/100 en el área de Trazabilidad, Cumplimiento Normativo y Auditabilidad — Fuente: STATER Leaderboard, latest_rankings.md.",
       "El ranking asigna Top 1 a DeepSeek-R1 y Top 2 a Claude 3.5 Sonnet sin documentar la regla de desempate (ponderación interna, fecha de evaluación, orden de registro).",
       "Pendiente de aclaración antes de recomendar públicamente uno sobre otro en aplicaciones regulatorias.",
     ],
@@ -412,7 +412,7 @@ const VERIFICATION_POINTS = [
     id: "v3",
     title: "4.3 Diferencial de 0.1 puntos en Razonamiento Matemático",
     items: [
-      "Entre el Top 1 (DeepSeek-R1 con 94.3/100) y el Top 2 (o1-preview con 94.2/100) la diferencia es de 0.1 puntos en el área de Razonamiento Matemático Financiero â€” Fuente: STATER Leaderboard, latest_rankings.md.",
+      "Entre el Top 1 (DeepSeek-R1 con 94.3/100) y el Top 2 (o1-preview con 94.2/100) la diferencia es de 0.1 puntos en el área de Razonamiento Matemático Financiero — Fuente: STATER Leaderboard, latest_rankings.md.",
       "Para aplicaciones de cálculo crítico (valoración de derivados, Black-Scholes, VaR), este diferencial mínimo puede ser relevante en contextos de alta precisión.",
       "Se recomienda verificar con benchmarks específicos del caso de uso antes de tomar decisiones de stack basadas únicamente en la puntuación compuesta.",
     ],
@@ -436,7 +436,7 @@ const VERIFICATION_POINTS = [
   },
 ];
 
-// â”€â”€â”€ Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Styles —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const STYLES = {
   blue: {
@@ -459,7 +459,7 @@ const STYLES = {
   },
 };
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ResearchLineCard({ line }) {
   const [open, setOpen] = useState(false);
@@ -550,7 +550,7 @@ function PromptBlock({ label, content }) {
           <span className="text-xs text-white/50 font-mono">{label}</span>
         </div>
         <button onClick={copy} className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10">
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -584,7 +584,7 @@ function ProjectCard({ project }) {
           <div className="mb-4 flex items-start gap-2.5 border border-yellow-400/20 bg-yellow-400/5 rounded-xl px-4 py-3">
             <Shield size={13} className="text-yellow-400/70 shrink-0 mt-0.5" />
             <p className="text-xs text-yellow-300/60 leading-relaxed">
-              <strong className="text-yellow-300/80">Aviso de dominio:</strong> este proyecto es de apoyo a la investigación y análisis. Ninguna salida del sistema â€” señal, puntuación o informe â€” constituye recomendación de inversión, asesoramiento financiero ni señal de trading con validez financiera.
+              <strong className="text-yellow-300/80">Aviso de dominio:</strong> este proyecto es de apoyo a la investigación y análisis. Ninguna salida del sistema — señal, puntuación o informe — constituye recomendación de inversión, asesoramiento financiero ni señal de trading con validez financiera.
             </p>
           </div>
         )}
@@ -595,7 +595,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -660,8 +660,8 @@ function ProjectCard({ project }) {
         )}
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -697,7 +697,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function FinanzasLab() {
   return (
@@ -742,7 +742,7 @@ export default function FinanzasLab() {
               <div className="mt-5 flex items-start gap-2.5 border border-yellow-400/20 bg-yellow-400/5 rounded-xl px-4 py-3 max-w-2xl">
                 <Shield size={14} className="text-yellow-400/70 shrink-0 mt-0.5" />
                 <p className="text-xs text-yellow-300/60 leading-relaxed">
-                  <strong className="text-yellow-300/80">Aviso de dominio:</strong> todos los proyectos descritos en este laboratorio son de apoyo a la investigación y análisis. Ningún output â€” señal, puntuación, informe ni resultado de backtest â€” constituye recomendación de inversión ni asesoramiento financiero.
+                  <strong className="text-yellow-300/80">Aviso de dominio:</strong> todos los proyectos descritos en este laboratorio son de apoyo a la investigación y análisis. Ningún output — señal, puntuación, informe ni resultado de backtest — constituye recomendación de inversión ni asesoramiento financiero.
                 </p>
               </div>
 
@@ -766,7 +766,7 @@ export default function FinanzasLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -793,7 +793,7 @@ export default function FinanzasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -814,7 +814,7 @@ export default function FinanzasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -856,7 +856,7 @@ export default function FinanzasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -877,19 +877,19 @@ export default function FinanzasLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Wizard CTA â”€â”€ */}
+        {/* —€—€ Wizard CTA —€—€ */}
         <div className="mt-16 mb-10 bg-gradient-to-br from-[#1a2540] to-[#0f1830] border border-[#3B6FD4]/25 rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-start gap-5">
             <div className="w-14 h-14 bg-[#3B6FD4]/15 border border-[#3B6FD4]/30 rounded-xl flex items-center justify-center shrink-0 text-[#3B6FD4] text-2xl">
-              âš™
+              →™
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#3B6FD4]/70 mb-1">Herramienta interactiva · Horizon Lab</p>
               <h3 className="font-display text-[22px] sm:text-[26px] text-white leading-tight tracking-[-0.01em]">
-                Diseñador de Proyectos â€” Finanzas
+                Diseñador de Proyectos — Finanzas
               </h3>
               <p className="text-white/45 text-sm mt-2 max-w-[420px] leading-relaxed">
-                Define tu aplicación financiera paso a paso â€” tarea principal, módulos, métricas, backtest y stack tecnológico â€” y genera automáticamente su especificación técnica completa lista para desarrollar.
+                Define tu aplicación financiera paso a paso — tarea principal, módulos, métricas, backtest y stack tecnológico — y genera automáticamente su especificación técnica completa lista para desarrollar.
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {["6 pasos guiados","Lógica condicional","Informe ejecutivo","Descarga en .md"].map(tag => (
@@ -906,7 +906,7 @@ export default function FinanzasLab() {
           </Link>
         </div>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Finance Leaderboard · 2026-08-29</p>

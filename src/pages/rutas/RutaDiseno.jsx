@@ -18,10 +18,10 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Diseño · AlpacaEval · MT-Bench Creative · LMSYS Chatbot Arena", motivo: "Verificar qué modelos tienen mejor performance en escritura creativa y UX copy antes de elegir." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Documento de definición", motivo: "Definir qué tipos de copy UX y criterios de evaluación cubre la v1." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Definir qué tipos de copy UX y criterios de evaluación cubre la v1." },
   { capa: "2", subcapa: "2.1", herramienta: "JSON local · entrada manual", motivo: "Biblioteca de tareas UX predefinidas + entrada libre del usuario." },
   { capa: "2", subcapa: "2.2", herramienta: "Pydantic v2", motivo: "Esquemas para tareas UX y sus evaluaciones." },
   { capa: "2", subcapa: "2.3", herramienta: "Pydantic validators · re", motivo: "Validar longitudes de copy, presencia de criterios obligatorios." },
@@ -34,25 +34,25 @@ const TOOLS_TABLE = [
   { capa: "3", subcapa: "3.5", herramienta: "httpx · openai SDK [VERIFICAR DOCS]", motivo: "LLM-as-judge: un segundo LLM puntúa la calidad UX del copy." },
   { capa: "3", subcapa: "3.6", herramienta: "try/except", motivo: "Mostrar copy sin puntuación si el LLM-judge falla." },
   { capa: "4", subcapa: "4.1", herramienta: "Papel / Excalidraw", motivo: "Definir pantallas antes de codificar." },
-  { capa: "4", subcapa: "4.2â€“4.5", herramienta: "Flet", motivo: "Tarjetas comparativas y paneles de puntuación." },
-  { capa: "5", subcapa: "5.1â€“5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conexión entre capas." },
-  { capa: "6", subcapa: "6.1â€“6.2", herramienta: "Pytest", motivo: "Tests de parseo de variantes y criterios de puntuación." },
+  { capa: "4", subcapa: "4.2–4.5", herramienta: "Flet", motivo: "Tarjetas comparativas y paneles de puntuación." },
+  { capa: "5", subcapa: "5.1–5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conexión entre capas." },
+  { capa: "6", subcapa: "6.1–6.2", herramienta: "Pytest", motivo: "Tests de parseo de variantes y criterios de puntuación." },
   { capa: "6", subcapa: "6.3", herramienta: "Tareas UX reales del usuario", motivo: "Validación con casos de uso reales." },
   { capa: "6", subcapa: "6.4", herramienta: "PyInstaller", motivo: "Ejecutable distribuible." },
   { capa: "6", subcapa: "6.5", herramienta: "VM sin Python", motivo: "Prueba en entorno limpio." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de modelos en tareas creativas." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · Multimodal",
     area: "Diseño & UX",
-    title: "Génesis Visual â€” Evaluador de copy con contexto visual",
+    title: "Génesis Visual — Evaluador de copy con contexto visual",
     desc: "Extiende Forma IA añadiendo la imagen de la pantalla o componente como contexto. El LLM evalúa si el copy es coherente con el diseño visual circundante, no solo con la descripción de texto.",
     badgeBg: "rgba(59,111,212,0.10)", badgeColor: C.accent,
     changes: [
-      "Capa 1: el alcance incluye análisis de coherencia copyâ€“visual; requiere modelo multimodal (GPT-4o Vision, Claude Opus)",
+      "Capa 1: el alcance incluye análisis de coherencia copy–visual; requiere modelo multimodal (GPT-4o Vision, Claude Opus)",
       "Capa 2: UXTask añade campo screenshot_path (imagen del componente o pantalla)",
       "Capa 3: el prompt del generador incluye la imagen y el texto como contexto conjunto",
       "Capa 3: el LLM-judge evalúa adicionalmente si el tono del copy encaja con el estilo visual detectado",
@@ -63,7 +63,7 @@ const VERSIONS = [
   {
     tag: "v3 · Multimarca",
     area: "Diseño & UX",
-    title: "Ariadna UX â€” Gestor de guías de tono de marca",
+    title: "Ariadna UX — Gestor de guías de tono de marca",
     desc: "Forma IA con perfiles de marca guardados. El usuario define una vez el tono, vocabulario y restricciones de cada cliente o producto; cada generación aplica automáticamente el perfil correcto.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: C.emerald,
     changes: [
@@ -72,13 +72,13 @@ const VERSIONS = [
       "Capa 3: el prompt del generador inyecta el perfil completo de marca como instrucción del sistema",
       "Capa 4: pantalla de gestión de perfiles (crear, editar, duplicar) antes de la pantalla de generación",
       "Capa 5: la selección de perfil actualiza automáticamente los criterios de evaluación configurados en ese perfil",
-      "Ãštil para consultores de contenido que trabajan con múltiples marcas con tonos muy diferentes",
+      "štil para consultores de contenido que trabajan con múltiples marcas con tonos muy diferentes",
     ],
   },
   {
     tag: "v4 · Votación",
     area: "Diseño & UX",
-    title: "Vitral Crítico â€” Modo revisión con voto humano",
+    title: "Vitral Crítico — Modo revisión con voto humano",
     desc: "Añade un sistema de votación donde el usuario marca su variante favorita tras leer las puntuaciones del LLM-judge. Las preferencias humanas acumuladas generan un segundo leaderboard de modelos basado en criterio humano real.",
     badgeBg: "rgba(217,119,6,0.10)", badgeColor: C.amber,
     changes: [
@@ -92,7 +92,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Phase map data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Phase map data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const PHASES = [
   {
     icon: Search,
@@ -103,7 +103,7 @@ const PHASES = [
   },
   {
     icon: Layers,
-    label: "Capas 1â€“2",
+    label: "Capas 1–2",
     title: "Definición y datos",
     color: "#7C3AED",
     summary: "Alcance de v1, esquemas Pydantic, DuckDB y biblioteca de tareas UX",
@@ -124,7 +124,7 @@ const PHASES = [
   },
   {
     icon: RefreshCw,
-    label: "Capas 5â€“6",
+    label: "Capas 5–6",
     title: "Integración y pruebas",
     color: C.amber,
     summary: "Pipeline completo, gestión de errores, tests y empaquetado",
@@ -138,7 +138,7 @@ const PHASES = [
   },
 ];
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaDiseno() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -148,7 +148,7 @@ export default function RutaDiseno() {
 
         <BackLink to="/taller" label="Volver al Taller" />
 
-        {/* â”€â”€ Header â”€â”€ */}
+        {/* —€—€ Header —€—€ */}
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
@@ -167,7 +167,7 @@ export default function RutaDiseno() {
             Forma IA
           </h1>
           <p className="text-base leading-relaxed max-w-2xl" style={{ color: "rgba(17,17,17,0.55)" }}>
-            App de escritorio que ayuda a diseñadores y creativos a evaluar la calidad de contenido UX/copy generado por LLMs â€” microcopy, mensajes de error, flujos de onboarding â€” calificándolo según criterios de diseño profesionales y comparando la calidad entre modelos.
+            App de escritorio que ayuda a diseñadores y creativos a evaluar la calidad de contenido UX/copy generado por LLMs — microcopy, mensajes de error, flujos de onboarding — calificándolo según criterios de diseño profesionales y comparando la calidad entre modelos.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {["Python", "Flet", "Pydantic v2", "DuckDB", "LLM-as-judge", "PyInstaller"].map(t => (
@@ -179,7 +179,7 @@ export default function RutaDiseno() {
           </div>
         </div>
 
-        {/* â”€â”€ Resultado esperado â”€â”€ */}
+        {/* —€—€ Resultado esperado —€—€ */}
         <div className="rounded-2xl border p-6 mb-10"
           style={{ borderColor: "rgba(219,39,119,0.18)", background: "rgba(219,39,119,0.03)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -192,10 +192,10 @@ export default function RutaDiseno() {
           </p>
         </div>
 
-        {/* â”€â”€ Human validation warning â”€â”€ */}
+        {/* —€—€ Human validation warning —€—€ */}
         <HumanValidationWarning />
 
-        {/* â”€â”€ Phase map â”€â”€ */}
+        {/* —€—€ Phase map —€—€ */}
         <div className="mb-10">
           <div className="text-[11px] font-semibold tracking-widest uppercase mb-5"
             style={{ color: "rgba(17,17,17,0.35)" }}>Mapa de la ruta</div>
@@ -223,7 +223,7 @@ export default function RutaDiseno() {
           </div>
         </div>
 
-        {/* â”€â”€ Tools table â”€â”€ */}
+        {/* —€—€ Tools table —€—€ */}
         <div className="mb-10">
           <button
             onClick={() => setToolsOpen(v => !v)}
@@ -262,33 +262,33 @@ export default function RutaDiseno() {
         </div>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 0 â€” INVESTIGACIÃ“N
+            FASE 0 — INVESTIGACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Search}
           color={C.accent}
           label="Fase 0"
-          title="Investigación â€” Benchmarks de creatividad y LLM-as-judge"
+          title="Investigación — Benchmarks de creatividad y LLM-as-judge"
           desc="Antes de construir, entender qué modelos son más potentes en escritura creativa y si el patrón LLM-as-judge es viable para evaluar copy UX."
         />
 
         <Step num="0.A" title="Benchmarks de escritura creativa y copy UX" defaultOpen
           goal="Saber qué benchmarks miden la calidad de escritura creativa en LLMs y qué modelo lidera.">
-          <PromptBlock label="Prompt 0.A â€” Benchmarks de creatividad">
+          <PromptBlock label="Prompt 0.A — Benchmarks de creatividad">
 {`Actúa como Investigador Principal en Evaluación de Inteligencia Artificial para Tareas Creativas y Copywriting UX.
 
 Tengo como objetivo seleccionar los modelos más capaces para "Forma IA", una herramienta de generación y evaluación de microcopy y textos de interfaz de usuario.
 
 Analiza los benchmarks y entornos de evaluación de creatividad (AlpacaEval, MT-Bench Creative, LMSYS Chatbot Arena Creative, CreativeBench) y responde de forma estructurada a los siguientes puntos:
 
-1. EVALUACIÃ“N DE ESCRITURA CREATIVA VS. COPYWRITING DE INTERFAZ:
+1. EVALUACI“N DE ESCRITURA CREATIVA VS. COPYWRITING DE INTERFAZ:
    - ¿Qué diferencias metodológicas existen entre evaluar "escritura creativa abierta" (relatos, metáforas) frente a "UX writing / microcopy" (concisión, claridad operativa, reducción de fricción cognitiva, llamadas a la acción directas)?
    - ¿En qué medida los benchmarks de seguimiento estricto de instrucciones (Instruction Following / IFEval) son más representativos para UX copy con límites de caracteres que los benchmarks literarios?
 
 2. RANKING COMPARATIVO DE MODELOS GENERADORES:
    - Basándote en datos de AlpacaEval y LMSYS Arena, ¿qué modelos actuales (Claude 3.5 Sonnet / 3.7, GPT-4o, Gemini 1.5/2.0 Pro) exhiben la mayor versatilidad tonal y el menor índice de redundancia o frases de relleno?
 
-3. PRECISIÃ“N EN RESTRICCIONES DE LONGITUD:
+3. PRECISI“N EN RESTRICCIONES DE LONGITUD:
    - En microcopy para botones y tooltips (límite estricto de 20-30 caracteres), ¿qué modelos respetan consistentemente las restricciones de longitud sin truncar de forma incoherente?
 
 REGLAS ESTRICTAS:
@@ -298,12 +298,12 @@ REGLAS ESTRICTAS:
 
         <Step num="0.B" title="LLM-as-Judge: viabilidad para evaluar copy UX"
           goal="Entender las limitaciones del patrón LLM-as-judge antes de implementarlo.">
-          <PromptBlock label="Prompt 0.B â€” LLM-as-judge">
+          <PromptBlock label="Prompt 0.B — LLM-as-judge">
 {`Actúa como Especialista en Arquitecturas de Evaluación Automática y Patrón LLM-as-a-Judge.
 
 Antes de implementar el motor evaluador de "Forma IA", necesito definir la arquitectura de juicio automático para calificar copy UX:
 
-1. SESGOS CONOCIDOS DEL PATRÃ“N LLM-AS-A-JUDGE:
+1. SESGOS CONOCIDOS DEL PATR“N LLM-AS-A-JUDGE:
    - Sesgo de autocomplacencia (*Self-enhancement bias*): ¿Tiende un modelo a calificar mejor sus propias respuestas que las de modelos competidores?
    - Sesgo de longitud (*Verbosity bias*): ¿Penaliza o premia indebidamente textos más largos en contextos donde se requiere extrema brevedad (microcopy)?
    - Sesgo de orden (*Position bias*): ¿Afecta el orden de presentación de las variantes al emitir una puntuación comparativa?
@@ -325,24 +325,24 @@ Entrega la rúbrica formal de evaluación con escala 0-10 para los criterios sem
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPAS 1â€“2 â€” DEFINICIÃ“N Y DATOS
+            CAPAS 1–2 — DEFINICI“N Y DATOS
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Layers}
           color="#7C3AED"
-          label="Capas 1â€“2"
+          label="Capas 1–2"
           title="Definición del problema y estructura de datos"
           desc="Quién usa la app, qué entra y sale, esquemas Pydantic y biblioteca de tareas UX."
         />
 
         <Step num="1.1" title="¿Quién usa esta app?"
           goal="Perfil de usuario concreto que determina el diseño de la interfaz.">
-          <PromptBlock label="Prompt 1.1 â€” Perfil de usuario">
+          <PromptBlock label="Prompt 1.1 — Perfil de usuario">
 {`Actúa como Diseñador de Producto y UX Strategist en Sistemas de Diseño.
 
 Define la ficha formal de perfil de usuario (User Persona) para "Forma IA":
 
-1. IDENTIFICACIÃ“N Y ROL OPERATIVO:
+1. IDENTIFICACI“N Y ROL OPERATIVO:
    - Perfil principal: Diseñador de Producto / UX Writer en startups o agencias digitales que redacta microcopy para flujos de conversión, onboarding y estados de error en interfaces web/móvil.
    - Perfil secundario: Consultor de contenido o Growth Marketer que gestiona múltiples marcas con manuales de tono diferenciados.
 
@@ -350,7 +350,7 @@ Define la ficha formal de perfil de usuario (User Persona) para "Forma IA":
    - Proceso actual: Redacción manual o prompting ad-hoc en interfaces web de chat (ChatGPT/Claude), copiando y pegando variantes sin métricas objetivas de longitud ni control de tono unificado.
    - Puntos críticos: Exceder los límites de caracteres de los componentes de diseño (botones, banners), usar jerga técnica agresiva en mensajes de error y falta de trazabilidad en las decisiones de copy.
 
-3. REQUERIMIENTOS CLAVE DE LA APLICACIÃ“N:
+3. REQUERIMIENTOS CLAVE DE LA APLICACI“N:
    - Vista en paralelo de 3 variantes contrastadas con justificación de enfoque.
    - Puntuación automática inmediata (longitud, verbos de acción, tono de marca).
    - Copiado en un solo clic al portapapeles para pegar directamente en Figma o en el código fuente.`}
@@ -359,15 +359,15 @@ Define la ficha formal de perfil de usuario (User Persona) para "Forma IA":
 
         <Step num="1.2" title="¿Qué problema concreto resuelve?"
           goal="Una sola frase de problema. Tres variantes; elige una.">
-          <PromptBlock label="Prompt 1.2 â€” Definición del problema">
+          <PromptBlock label="Prompt 1.2 — Definición del problema">
 {`Actúa como Especialista en Propuesta de Valor y Estrategia UX.
 
 Redacta la declaración formal del problema que resuelve "Forma IA":
 
 1. ESTRUCTURA FORMAL DE LA FRASE MAESTRA:
-   "[DISEÃ‘ADOR/A UX] invierte [TIEMPO EXCESIVO] iterando microcopy y textos de interfaz sin contar con [MÃ‰TRICAS OBJETIVAS NI COMPARATIVAS DE MODELOS], lo que provoca [COPY INCONSISTENTE CON EL TONO DE MARCA, ROTURA DE COMPONENTES POR EXCESO DE LONGITUD Y FRICCIÃ“N EN LA EXPERIENCIA DEL USUARIO]."
+   "[DISE‘ADOR/A UX] invierte [TIEMPO EXCESIVO] iterando microcopy y textos de interfaz sin contar con [MÃ‰TRICAS OBJETIVAS NI COMPARATIVAS DE MODELOS], lo que provoca [COPY INCONSISTENTE CON EL TONO DE MARCA, ROTURA DE COMPONENTES POR EXCESO DE LONGITUD Y FRICCI“N EN LA EXPERIENCIA DEL USUARIO]."
 
-2. GENERACIÃ“N DE 3 VARIANTES DE ENFOQUE:
+2. GENERACI“N DE 3 VARIANTES DE ENFOQUE:
    - Variante 1 (Enfoque en Eficiencia y Velocidad de Iteración): Reducción drástica del tiempo de redacción de variantes en Figma.
    - Variante 2 (Enfoque en Calidad y Consistencia de Marca): Garantía de adhesión a guías de tono y erradicación de lenguaje técnico en errores.
    - Variante 3 (Enfoque en Auditoría y Benchmarking): Comparación objetiva de rendimiento entre diferentes modelos de lenguaje.
@@ -379,7 +379,7 @@ Redacta la declaración formal del problema que resuelve "Forma IA":
 
         <Step num="1.3" title="¿Qué datos entran?"
           goal="Lista completa de inputs con tipo, restricciones y valor por defecto.">
-          <PromptBlock label="Prompt 1.3 â€” Inputs">
+          <PromptBlock label="Prompt 1.3 — Inputs">
 {`Actúa como Arquitecto de Información y Diseñador de Entradas en Sistemas de Diseño.
 
 Define la especificación exhaustiva de todas las entradas (Inputs) admitidas por "Forma IA":
@@ -393,7 +393,7 @@ Define la especificación exhaustiva de todas las entradas (Inputs) admitidas po
 2. BIBLIOTECA PRECARGADA DE EJEMPLOS:
    - Selector para cargar instantáneamente cualquiera de las 15 tareas preconfiguradas del archivo local \`sample_ux_tasks.json\`.
 
-3. PARÁMETROS DE GENERACIÃ“N Y EVALUACIÃ“N:
+3. PARÁMETROS DE GENERACI“N Y EVALUACI“N:
    - **Modelo Generador:** Selector de modelo (Claude 3.5 Sonnet por defecto).
    - **Número de Variantes:** 2 o 3 variantes divergentes.
    - **Criterios de Evaluación Seleccionados:** Checkboxes activos: Claridad, Verbo de Acción, Longitud Apropiada, Empatía Tonal.
@@ -403,7 +403,7 @@ Define la especificación exhaustiva de todas las entradas (Inputs) admitidas po
 
         <Step num="1.4" title="¿Qué sale?"
           goal="Outputs por tarea: variantes, puntuaciones, comparativa, recomendación.">
-          <PromptBlock label="Prompt 1.4 â€” Outputs">
+          <PromptBlock label="Prompt 1.4 — Outputs">
 {`Actúa como Diseñador de Salidas de Información y Experiencia de Usuario.
 
 Define las especificaciones de salida (Outputs) producidas por "Forma IA":
@@ -416,7 +416,7 @@ Define las especificaciones de salida (Outputs) producidas por "Forma IA":
    - **Puntuaciones por Criterio (0 a 10):** Desglose visual en barras de progreso para cada criterio evaluado.
    - **Puntuación Agregada (Aggregate Score):** Promedio ponderado de todas las dimensiones evaluadas.
 
-2. COMPARATIVA Y RECOMENDACIÃ“N GLOBAL:
+2. COMPARATIVA Y RECOMENDACI“N GLOBAL:
    - **Badge de Variante Recomendada:** Destacado visual en la tarjeta con la mayor puntuación agregada.
    - **Botón de Copiado en 1 Clic:** Copiado directo al portapapeles del sistema con feedback visual (SnackBar / cambio de icono).
    - **Exportación en Texto Plano / Markdown:** Informe descargable con todas las variantes y sus justificaciones para documentar el sistema de diseño.`}
@@ -424,17 +424,17 @@ Define las especificaciones de salida (Outputs) producidas por "Forma IA":
         </Step>
 
         <Step num="1.5" title="Criterios de éxito"
-          goal="6â€“8 criterios verificables para saber cuándo la v1 está lista.">
-          <PromptBlock label="Prompt 1.5 â€” Criterios de éxito">
+          goal="6–8 criterios verificables para saber cuándo la v1 está lista.">
+          <PromptBlock label="Prompt 1.5 — Criterios de éxito">
 {`Actúa como QA Lead y Evaluador de Calidad en Aplicaciones de Diseño.
 
 Define los Criterios de Aceptación Cuantitativos (Definition of Done - DoD) para certificar que Forma IA v1 está lista para producción:
 
 Formula entre 6 y 8 criterios verificables bajo la estructura:
-"La aplicación se considera correcta y lista para entrega cuando [CONDICIÃ“N VERIFICABLE Y MEDIBLE]."
+"La aplicación se considera correcta y lista para entrega cuando [CONDICI“N VERIFICABLE Y MEDIBLE]."
 
 Incluye obligatoriamente:
-1. EXTRACCIÃ“N Y PARSEO RESILIENTE: "El parser extrae correctamente el 100% de las 3 variantes estructuradas a partir de la respuesta del modelo generador."
+1. EXTRACCI“N Y PARSEO RESILIENTE: "El parser extrae correctamente el 100% de las 3 variantes estructuradas a partir de la respuesta del modelo generador."
 2. CÁLCULO DETERMINISTA DE LONGITUD: "El recuento de caracteres y la validación de longitud máxima se calculan con 100% de exactitud mediante código Python puro sin delegar en el LLM."
 3. TOLERANCIA A FALLOS DEL JUEZ: "Si el modelo juez no responde o agota el timeout, la app despliega las variantes generadas con las métricas automáticas sin bloquear la interfaz."
 4. PERSISTENCIA EN HISTORIAL: "Todas las tareas, variantes generadas y puntuaciones se persisten de forma íntegra en DuckDB y se recuperan instantáneamente entre sesiones."
@@ -445,7 +445,7 @@ Incluye obligatoriamente:
 
         <Step num="1.6" title="Límites explícitos de la v1"
           goal="Declaración de lo que la app no hace. Fundamental para gestionar expectativas.">
-          <PromptBlock label="Prompt 1.6 â€” Límites de la v1">
+          <PromptBlock label="Prompt 1.6 — Límites de la v1">
 {`Actúa como Product Manager y Diseñador de Sistemas.
 
 Redacta la Declaración Formal de Límites y Alcance para "Forma IA v1":
@@ -455,21 +455,21 @@ Redacta la Declaración Formal de Límites y Alcance para "Forma IA v1":
    - Idioma: Optimizado exclusivamente para español e inglés en la v1.
    - Sin análisis multimodal de pantallas: No procesa capturas de pantalla ni archivos de Figma de forma directa (reservado para v2 Génesis Visual).
 
-2. LÍMITES EN LA EVALUACIÃ“N AUTOMÁTICA (LLM-AS-A-JUDGE):
+2. LÍMITES EN LA EVALUACI“N AUTOMÁTICA (LLM-AS-A-JUDGE):
    - Naturaleza Orientativa: Las puntuaciones emitidas por el modelo juez son asistenciales y no sustituyen las pruebas de usabilidad con usuarios reales ni el criterio del diseñador.
    - Factores Subjetivos: La evaluación no puede certificar la "belleza" ni el "impacto emocional" absoluto de un copy fuera de su contexto interactivo completo.
 
-3. COMUNICACIÃ“N EN LA INTERFAZ:
+3. COMUNICACI“N EN LA INTERFAZ:
    - Inclusión de un badge visual permanente *"Evaluación Asistida por IA (Orientativa)"* junto a las barras de puntuación.`}
           </PromptBlock>
         </Step>
 
         <Step 
           num="2.1" 
-          title="Fuente de datos â€” Biblioteca de tareas UX" 
+          title="Fuente de datos — Biblioteca de tareas UX" 
           goal="Función de carga de la biblioteca y creación de tareas manuales."
         >
-          <PromptBlock label="Prompt 2.1 â€” Fuente de datos">
+          <PromptBlock label="Prompt 2.1 — Fuente de datos">
 {`Actúa como Ingeniero de Datos en Python y Diseñador de Bibliotecas UX.
 
 Implementa el módulo de ingesta y carga de tareas \`task_loader.py\` para "Forma IA":
@@ -494,7 +494,7 @@ Implementa el módulo de ingesta y carga de tareas \`task_loader.py\` para "Form
           title="Esquemas Pydantic v2" 
           goal="UXTask, CopyVariant y UXEvaluation bien definidos con docstrings."
         >
-          <PromptBlock label="Prompt 2.2 â€” Modelos Pydantic">
+          <PromptBlock label="Prompt 2.2 — Modelos Pydantic">
 {`Actúa como Arquitecto de Software en Python y Especialista en Pydantic v2.
 
 Crea el archivo \`models.py\` con los modelos de dominio de datos para "Forma IA":
@@ -535,18 +535,18 @@ Incluye docstrings exhaustivos y tipado estricto conforme a Pydantic v2.`}
           title="Validación del copy" 
           goal="Validación no bloqueante: advertencias, no errores. El copy nunca se rechaza."
         >
-          <PromptBlock label="Prompt 2.3 â€” Validación y normalización">
+          <PromptBlock label="Prompt 2.3 — Validación y normalización">
 {`Actúa como Ingeniero de Calidad y Validación Lingüística en Python.
 
 Crea el módulo \`validator.py\` con la función de comprobación heurística \`validate_copy_variant(copy_text: str, task: UXTask) -> tuple[bool, list[str]]\`:
 
-1. POLÍTICA DE VALIDACIÃ“N NO BLOQUEANTE:
+1. POLÍTICA DE VALIDACI“N NO BLOQUEANTE:
    - El copy nunca se rechaza automáticamente; la función devuelve una tupla \`(is_valid, warnings)\` con sugerencias de mejora para el diseñador.
 
 2. REGLAS HEURÍSTICAS A COMPROBAR:
    - **Comprobación de Vacío:** Si el copy está vacío o solo contiene espacios, \`is_valid = False\`.
    - **Límite de Longitud:** Si \`task.max_length\` está definido y \`len(copy_text) > task.max_length\`, añade warning: *"Excede el límite por X caracteres"*.
-   - **Detección de Verbos de Acción:** Comprueba si la primera palabra coincide con un verbo de acción conjugado en imperativo o infinitivo (ej. *"Comprar"*, *"Descubre"*, *"Empieza"*, *"Guardar"*, *"Confirmar"*, *"Ãšnete"*).
+   - **Detección de Verbos de Acción:** Comprueba si la primera palabra coincide con un verbo de acción conjugado en imperativo o infinitivo (ej. *"Comprar"*, *"Descubre"*, *"Empieza"*, *"Guardar"*, *"Confirmar"*, *"šnete"*).
    - **Filtrado de Lenguaje Agresivo en Errores:** Si la categoría es \`error_messages\`, detecta si inicia con términos punitivos como *"Error"*, *"Fallo"*, *"Prohibido"* o *"Inválido"*, sugiriendo reformular en clave constructiva orientada a la solución.`}
           </PromptBlock>
         </Step>
@@ -556,7 +556,7 @@ Crea el módulo \`validator.py\` con la función de comprobación heurística \`
           title="Almacenamiento en DuckDB" 
           goal="Historial de evaluaciones y vistas de comparativa de modelos."
         >
-          <PromptBlock label="Prompt 2.4 â€” Persistencia DuckDB">
+          <PromptBlock label="Prompt 2.4 — Persistencia DuckDB">
 {`Actúa como Administrador de Bases de Datos Embebidas y Analista de Datos en DuckDB.
 
 Crea el módulo \`storage.py\` para gestionar el almacenamiento y la analítica de "Forma IA":
@@ -577,10 +577,10 @@ Crea el módulo \`storage.py\` para gestionar el almacenamiento y la analítica 
 
         <Step 
           num="2.5" 
-          title="Dataset mínimo â€” 15 tareas UX de ejemplo" 
+          title="Dataset mínimo — 15 tareas UX de ejemplo" 
           goal="sample_ux_tasks.json listo para usar desde el primer arranque."
         >
-          <PromptBlock label="Prompt 2.5 â€” Biblioteca de ejemplo">
+          <PromptBlock label="Prompt 2.5 — Biblioteca de ejemplo">
 {`Actúa como Especialista en UX Writing y Curador de Datasets de Diseño.
 
 Genera el archivo estructurado \`sample_ux_tasks.json\` con 15 casos prácticos reales distribuidos en 3 categorías clave:
@@ -611,13 +611,13 @@ Incluye el script Python de validación de integridad para comprobar que las 15 
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA
+            CAPA 3 — L“GICA / IA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Cpu}
           color={C.emerald}
           label="Capa 3"
-          title="Lógica / IA â€” Generación, parseo y evaluación"
+          title="Lógica / IA — Generación, parseo y evaluación"
           desc="Prompt maestro de variantes, llamada al modelo, evaluación automática y sistema LLM-as-judge."
         />
 
@@ -626,17 +626,17 @@ Incluye el script Python de validación de integridad para comprobar que las 15 
           title="Selección del modelo" 
           goal="Elegir el mejor modelo para generación y un segundo para juicio."
         >
-          <PromptBlock label="Prompt 3.1 â€” Selección de modelos">
+          <PromptBlock label="Prompt 3.1 — Selección de modelos">
 {`Actúa como Arquitecto de Inteligencia Artificial y Evaluador de LLMs.
 
 Define la selección formal de modelos generador y juez para "Forma IA":
 
-1. SELECCIÃ“N DEL MODELO GENERADOR:
+1. SELECCI“N DEL MODELO GENERADOR:
    - Modelo seleccionado: Claude 3.5 Sonnet / GPT-4o.
    - Justificación técnica: Liderazgo en benchmarks creativos (AlpacaEval > 90% Win Rate), alta fluidez sintáctica y mínima propensión a clichés o párrafos de relleno.
    - Parámetros de inferencia: Temperatura 0.7 para asegurar divergencia entre variantes, max_tokens 800.
 
-2. SELECCIÃ“N DEL MODELO JUEZ (LLM-as-a-Judge):
+2. SELECCI“N DEL MODELO JUEZ (LLM-as-a-Judge):
    - Modelo seleccionado: GPT-4o / Claude 3.5 Sonnet (o DeepSeek-V3 como alternativa de alta eficiencia).
    - Justificación técnica: Excelente adhesión a esquemas JSON estrictos y consistencia evaluativa.
    - Parámetros de inferencia: Temperatura 0.1 para garantizar objetividad y neutralidad en la calificación.
@@ -649,10 +649,10 @@ Define la selección formal de modelos generador y juez para "Forma IA":
 
         <Step 
           num="3.2" 
-          title="Prompt central â€” Generación de variantes" 
+          title="Prompt central — Generación de variantes" 
           goal="Prompt maestro que garantiza 3 variantes diferentes entre sí."
         >
-          <PromptBlock label="Prompt 3.2 â€” Prompt maestro">
+          <PromptBlock label="Prompt 3.2 — Prompt maestro">
 {`Actúa como Lead UX Writer y Diseñador de Prompts en Sistemas de Diseño.
 
 Diseña el prompt maestro para la generación de variantes en \`generator.py\`:
@@ -662,27 +662,27 @@ Diseña el prompt maestro para la generación de variantes en \`generator.py\`:
 
 2. USER PROMPT ESTRUCTURADO:
    \`\`\`
-   TAREA DE DISEÃ‘O: {{task_description}}
+   TAREA DE DISE‘O: {{task_description}}
    CATEGORÍA: {{category}}
    CONTEXTO DE MARCA: {{brand_context}}
    LÍMITE MÁXIMO DE CARACTERES: {{max_length_str}}
-   NÃšMERO DE VARIANTES A PRODUCIR: {{num_variants}}
+   NšMERO DE VARIANTES A PRODUCIR: {{num_variants}}
 
-   INSTRUCCIONES DE GENERACIÃ“N:
+   INSTRUCCIONES DE GENERACI“N:
    1. Produce exactamente {{num_variants}} variantes numeradas utilizando el delimitador 'VARIANTE X:'.
    2. Cada variante debe adoptar un enfoque comunicativo DIFERENTE (ej. Variante 1: Directa y funcional; Variante 2: Empática y cercana; Variante 3: Orientada al beneficio de valor).
-   3. Añade una línea 'JUSTIFICACIÃ“N:' por cada variante explicando la estrategia psicológica empleada.
+   3. Añade una línea 'JUSTIFICACI“N:' por cada variante explicando la estrategia psicológica empleada.
    4. No uses comillas ni etiquetas adicionales.
    \`\`\`
 
-3. ESPECIFICACIÃ“N DEL PATRÃ“N DE RESPUESTA ESPERADO:
+3. ESPECIFICACI“N DEL PATR“N DE RESPUESTA ESPERADO:
    VARIANTE 1:
    [Texto del copy]
-   JUSTIFICACIÃ“N: [Enfoque directo centrado en la acción inmediata]
+   JUSTIFICACI“N: [Enfoque directo centrado en la acción inmediata]
 
    VARIANTE 2:
    [Texto del copy]
-   JUSTIFICACIÃ“N: [Enfoque empático que reduce la incertidumbre del usuario]`}
+   JUSTIFICACI“N: [Enfoque empático que reduce la incertidumbre del usuario]`}
           </PromptBlock>
         </Step>
 
@@ -691,18 +691,18 @@ Diseña el prompt maestro para la generación de variantes en \`generator.py\`:
           title="Llamada al modelo y parseo" 
           goal="generate_copy_variants() y parse_copy_variants() con manejo de respuestas incompletas."
         >
-          <PromptBlock label="Prompt 3.3 â€” Llamada y parseo">
+          <PromptBlock label="Prompt 3.3 — Llamada y parseo">
 {`Actúa como Ingeniero de Backend en Python y Conectores de LLM.
 
 Implementa en \`generator.py\` las funciones de llamada asíncrona y parseo resiliente:
 
-1. FUNCIÃ“N \`generate_copy_variants(task: UXTask, model_name: str, num_variants: int = 3) -> tuple[str, float]\`:
+1. FUNCI“N \`generate_copy_variants(task: UXTask, model_name: str, num_variants: int = 3) -> tuple[str, float]\`:
    - Utiliza cliente asíncrono \`httpx.AsyncClient\` con timeout estricto de 30 segundos y 2 reintentos exponenciales.
    - Registra el tiempo exacto de generación (\`gen_time\` en segundos).
    - Retorna la respuesta sin procesar junto a la métrica de latencia.
 
-2. FUNCIÃ“N \`parse_copy_variants(raw_response: str, task: UXTask) -> list[CopyVariant]\`:
-   - Aplica expresiones regulares multilínea para capturar los bloques \`VARIANTE (\\d+):\\s*(.+?)\\s*JUSTIFICACIÃ“N:\\s*(.+?)(?=(?:VARIANTE \\d+:|$))\`.
+2. FUNCI“N \`parse_copy_variants(raw_response: str, task: UXTask) -> list[CopyVariant]\`:
+   - Aplica expresiones regulares multilínea para capturar los bloques \`VARIANTE (\\d+):\\s*(.+?)\\s*JUSTIFICACI“N:\\s*(.+?)(?=(?:VARIANTE \\d+:|$))\`.
    - Limpia espacios en blanco, saltos de línea superfluos y comillas no deseadas.
    - Calcula el recuento exacto de caracteres y ejecuta \`validate_copy_variant()\` para obtener \`has_action_verb\` y \`exceeds_max_length\`.
    - En caso de que el modelo solo devuelva 2 variantes en lugar de 3, parsea las rescatables sin lanzar excepción.`}
@@ -712,9 +712,9 @@ Implementa en \`generator.py\` las funciones de llamada asíncrona y parseo resi
         <Step 
           num="3.4" 
           title="Evaluación automática por criterios" 
-          goal="Puntuaciones 0â€“10 medibles sin LLM: longitud, verbo de acción, claridad heurística."
+          goal="Puntuaciones 0–10 medibles sin LLM: longitud, verbo de acción, claridad heurística."
         >
-          <PromptBlock label="Prompt 3.4 â€” Evaluación automática">
+          <PromptBlock label="Prompt 3.4 — Evaluación automática">
 {`Actúa como Desarrollador de Algoritmos Heurísticos en Python.
 
 Crea el módulo \`scorer.py\` con la función pura \`evaluate_criteria_automatically(variant: CopyVariant, task: UXTask) -> dict[str, float]\`:
@@ -733,7 +733,7 @@ Crea el módulo \`scorer.py\` con la función pura \`evaluate_criteria_automatic
      * Resta 1.5 puntos por cada término técnico punitivo detectado (ej. *"error"*, *"fallo"*, *"inválido"*).
      * Mínimo acotado en 0.0.
 
-2. INTEGRACIÃ“N CON CRITERIOS SEMÁNTICOS:
+2. INTEGRACI“N CON CRITERIOS SEMÁNTICOS:
    - Para criterios que requieren análisis contextual (ej. "empatía", "coherencia de marca"), devuelve \`None\` para delegar su evaluación al juez LLM.`}
           </PromptBlock>
         </Step>
@@ -743,7 +743,7 @@ Crea el módulo \`scorer.py\` con la función pura \`evaluate_criteria_automatic
           title="LLM-as-judge" 
           goal="Un segundo LLM puntúa la calidad UX del copy. Respuesta en JSON estructurado."
         >
-          <PromptBlock label="Prompt 3.5 â€” Sistema LLM-as-judge">
+          <PromptBlock label="Prompt 3.5 — Sistema LLM-as-judge">
 {`Actúa como Ingeniero de Evaluación LLM-as-a-Judge y Rúbricas Heurísticas.
 
 Implementa en \`judge.py\` el sistema de evaluación semántica \`judge_copy_variant(variant: CopyVariant, task: UXTask, judge_model_name: str) -> dict[str, float]\`:
@@ -751,18 +751,18 @@ Implementa en \`judge.py\` el sistema de evaluación semántica \`judge_copy_var
 1. PROMPT DEL JUEZ CON ESQUEMA JSON ESTRICTO:
    "Eres un Diseñador Principal y Crítico Experto de UX Writing. Tu tarea es evaluar una variante de copy frente a su tarea y contexto de marca. Evalúa cada criterio con una puntuación objetiva de 0.0 a 10.0 y proporciona una justificación concisa en una sola frase."
 
-2. INVOCACIÃ“N ASÍNCRONA:
+2. INVOCACI“N ASÍNCRONA:
    - Envía el copy, el contexto de marca y la lista de criterios semánticos.
    - Configura temperatura 0.1 y activa el modo JSON nativo del proveedor.
 
-3. CONSOLIDACIÃ“N DE PUNTUACIONES:
+3. CONSOLIDACI“N DE PUNTUACIONES:
    - Fusiona los scores automáticos del paso 3.4 con los scores semánticos del LLM-judge.
    - Calcula \`aggregate_score\` como la media aritmética ponderada de todos los criterios evaluados.
    - En caso de fallo de red o parseo en el juez, preserva los scores automáticos calculados en Python.`}
           </PromptBlock>
           <div className="mt-4 p-4 rounded-xl text-sm leading-relaxed"
             style={{ background: "rgba(245,158,11,0.08)", borderLeft: "3px solid " + C.amber, color: "#92400E" }}>
-            <strong>Recordatorio:</strong> El juez LLM puede mostrar sesgo hacia su propio estilo de escritura. Nunca presentes las puntuaciones como evaluación definitiva en la interfaz â€” incluye siempre el badge "Evaluación orientativa (IA)".
+            <strong>Recordatorio:</strong> El juez LLM puede mostrar sesgo hacia su propio estilo de escritura. Nunca presentes las puntuaciones como evaluación definitiva en la interfaz — incluye siempre el badge "Evaluación orientativa (IA)".
           </div>
         </Step>
 
@@ -771,12 +771,12 @@ Implementa en \`judge.py\` el sistema de evaluación semántica \`judge_copy_var
           title="Función de fallback" 
           goal="La generación falla en silencio: nunca bloquear los resultados disponibles."
         >
-          <PromptBlock label="Prompt 3.6 â€” Fallback completo">
+          <PromptBlock label="Prompt 3.6 — Fallback completo">
 {`Actúa como Arquitecto de Tolerancia a Fallos en Python.
 
 Implementa en \`pipeline_core.py\` la función orquestadora con contingencia en cascada \`generate_and_evaluate_with_fallback(task: UXTask, generator_model: str, judge_model: str, num_variants: int = 3, use_judge: bool = True) -> tuple[UXEvaluation, bool, bool]\`:
 
-1. MATRIZ DE DEGRADACIÃ“N GRADUAL:
+1. MATRIZ DE DEGRADACI“N GRADUAL:
    - **Fase 1 (Generación de Variantes):** Invoca \`generate_copy_variants()\`. Si falla la API generadora, retorna un objeto \`UXEvaluation\` vacío con \`is_generator_used = False\` y mensaje claro para la interfaz.
    - **Fase 2 (Evaluación Heurística Determinista):** Aplica \`evaluate_criteria_automatically()\` a todas las variantes extraídas.
    - **Fase 3 (Evaluación Semántica con Juez):** Si \`use_judge = True\`, intenta calificar con el modelo juez. Si el juez agota el timeout o devuelve JSON erróneo, captura la excepción, registra el incidente en \`judges.log\` y continúa con los scores automáticos (\`is_judge_used = False\`).
@@ -788,7 +788,7 @@ Implementa en \`pipeline_core.py\` la función orquestadora con contingencia en 
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ (FLET)
+            CAPA 4 — INTERFAZ (FLET)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Monitor}
@@ -800,10 +800,10 @@ Implementa en \`pipeline_core.py\` la función orquestadora con contingencia en 
 
         <Step 
           num="4.1" 
-          title="Wireframe mínimo â€” 3 pantallas" 
+          title="Wireframe mínimo — 3 pantallas" 
           goal="Definir la estructura antes de escribir código Flet."
         >
-          <PromptBlock label="Prompt 4.1 â€” Wireframe">
+          <PromptBlock label="Prompt 4.1 — Wireframe">
 {`Actúa como Diseñador de Interfaces UI y Especialista en Flet.
 
 Diseña la arquitectura visual y wireframe de 3 pantallas para "Forma IA":
@@ -828,7 +828,7 @@ Diseña la arquitectura visual y wireframe de 3 pantallas para "Forma IA":
           title="Formulario de entrada" 
           goal="Todos los campos del formulario con Flet: tipos, placeholders, interacciones."
         >
-          <PromptBlock label="Prompt 4.2 â€” Formulario Flet">
+          <PromptBlock label="Prompt 4.2 — Formulario Flet">
 {`Actúa como Desarrollador de Frontend en Python y Flet.
 
 Crea en \`views/generator_form.py\` el componente interactivo de formulario de entrada para "Forma IA":
@@ -854,7 +854,7 @@ Crea en \`views/generator_form.py\` el componente interactivo de formulario de e
           title="Tarjetas comparativas de resultados" 
           goal="N tarjetas con copy, justificación, barras de puntuación y botón de copia."
         >
-          <PromptBlock label="Prompt 4.3 â€” Tarjetas de resultados">
+          <PromptBlock label="Prompt 4.3 — Tarjetas de resultados">
 {`Actúa como Desarrollador de Componentes Visuales en Flet.
 
 Implementa en \`views/results_view.py\` el componente de renderizado de variantes para "Forma IA":
@@ -876,7 +876,7 @@ Implementa en \`views/results_view.py\` el componente de renderizado de variante
           title="Estados vacíos y de error" 
           goal="La interfaz nunca queda en un estado confuso: cada situación tiene su mensaje."
         >
-          <PromptBlock label="Prompt 4.4 â€” Estados de la interfaz">
+          <PromptBlock label="Prompt 4.4 — Estados de la interfaz">
 {`Actúa como Especialista en Estados de Interfaz y Manejo de Errores Visuales en Flet.
 
 Diseña e implementa el catálogo de los 7 estados de visualización de "Forma IA":
@@ -886,7 +886,7 @@ Diseña e implementa el catálogo de los 7 estados de visualización de "Forma I
    - **Estado Generando:** Deshabilita el botón de acción y muestra un \`ft.ProgressRing\` con el mensaje: *"Generando 3 variantes con [Modelo]..."*.
    - **Estado Evaluando (Juez):** Muestra un spinner secundario: *"Evaluando calidad UX con [Modelo Juez]..."*.
    - **Estado Reintento por Formato:** Si el LLM no genera delimitadores válidos, muestra alerta no intrusiva: *"Reintentando generación con temperatura reducida..."*.
-   - **Estado Juez Inaccesible:** Muestra las variantes generadas con normalidad y un badge amarillo: *"Juez IA no disponible â€” Mostrando métricas automáticas"*.
+   - **Estado Juez Inaccesible:** Muestra las variantes generadas con normalidad y un badge amarillo: *"Juez IA no disponible — Mostrando métricas automáticas"*.
    - **Estado Biblioteca Ausente:** Si falta \`sample_ux_tasks.json\`, muestra SnackBar informativo y permite operar en modo 100% manual.
    - **Estado Validación de Entrada:** SnackBar rojo si el usuario intenta generar con < 20 caracteres o sin criterios seleccionados.`}
           </PromptBlock>
@@ -894,34 +894,34 @@ Diseña e implementa el catálogo de los 7 estados de visualización de "Forma I
 
         <Step 
           num="4.5" 
-          title="Navegación â€” 3 pantallas" 
+          title="Navegación — 3 pantallas" 
           goal="NavigationBar con Generación, Historial y Estadísticas de modelos."
         >
-          <PromptBlock label="Prompt 4.5 â€” Navegación Flet">
+          <PromptBlock label="Prompt 4.5 — Navegación Flet">
 {`Actúa como Arquitecto de Aplicaciones de Escritorio en Flet.
 
 Crea el archivo principal \`main.py\` con el controlador de navegación y ciclo de vida de "Forma IA":
 
-1. ESTRUCTURA DE NAVEGACIÃ“N MULTIPANTALLA:
-   - Configura la ventana (\`title="Forma IA â€” Evaluador de Copy UX"\`, \`width=1100\`, \`height=850\`, \`theme_mode=ft.ThemeMode.LIGHT\`).
+1. ESTRUCTURA DE NAVEGACI“N MULTIPANTALLA:
+   - Configura la ventana (\`title="Forma IA — Evaluador de Copy UX"\`, \`width=1100\`, \`height=850\`, \`theme_mode=ft.ThemeMode.LIGHT\`).
    - Implementa \`ft.NavigationBar\` inferior con 3 destinos:
      * Destino 0: \`ft.NavigationDestination(icon=ft.icons.AUTO_AWESOME, label="Generador")\`.
      * Destino 1: \`ft.NavigationDestination(icon=ft.icons.HISTORY, label="Historial")\`.
      * Destino 2: \`ft.NavigationDestination(icon=ft.icons.BAR_CHART, label="Estadísticas")\`.
 
-2. GESTIÃ“N DE VISTAS Y REUTILIZACIÃ“N DE TAREAS:
+2. GESTI“N DE VISTAS Y REUTILIZACI“N DE TAREAS:
    - Controlador de cambio de pestaña que monta y desmonta las vistas de forma eficiente.
    - Evento "Reutilizar Tarea" desde el Historial: Carga los parámetros en el formulario del Generador y conmuta automáticamente a la pestaña 0 para permitir comparar contra otro LLM.`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPAS 5â€“6 â€” INTEGRACIÃ“N Y PRUEBAS
+            CAPAS 5–6 — INTEGRACI“N Y PRUEBAS
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={RefreshCw}
           color={C.amber}
-          label="Capas 5â€“6"
+          label="Capas 5–6"
           title="Integración y logging"
           desc="Pipeline asíncrono completo, gestión de errores en cascada, doble sistema de logs y configuración centralizada."
         />
@@ -931,21 +931,21 @@ Crea el archivo principal \`main.py\` con el controlador de navegación y ciclo 
           title="Conectar interfaz con lógica" 
           goal="on_generate_click() asíncrono que no bloquea la UI."
         >
-          <PromptBlock label="Prompt 5.1 â€” on_generate_click">
+          <PromptBlock label="Prompt 5.1 — on_generate_click">
 {`Actúa como Ingeniero de Integración Asíncrona en Python y Flet.
 
 Implementa en \`controller.py\` el handler asíncrono de generación \`on_generate_click(e)\`:
 
-1. VALIDACIÃ“N PREVIA Y GUARDRAILS:
+1. VALIDACI“N PREVIA Y GUARDRAILS:
    - Comprueba que la descripción de la tarea tenga al menos 20 caracteres y que al menos 1 criterio de evaluación esté seleccionado.
    - Despliega un \`ft.SnackBar\` de advertencia si la validación no se cumple.
 
-2. ORQUESTACIÃ“N NO BLOQUEANTE:
+2. ORQUESTACI“N NO BLOQUEANTE:
    - Activa el estado visual de carga (deshabilita el botón y muestra \`ProgressRing\`).
    - Construye el objeto \`UXTask\` a partir de los campos del formulario.
    - Lanza la corutina \`ux_evaluation_pipeline()\` en segundo plano mediante \`asyncio.create_task()\` para mantener la interfaz 100% responsiva.
 
-3. DESPLIEGUE Y ACTUALIZACIÃ“N:
+3. DESPLIEGUE Y ACTUALIZACI“N:
    - Recibe la \`UXEvaluation\` consolidada.
    - Invoca \`results_view.render(evaluation)\` para dibujar las tarjetas con animación fluida.
    - Si la variante recomendada tiene una nota inferior a 6.0, muestra un aviso de sugerencia de re-escritura.`}
@@ -957,7 +957,7 @@ Implementa en \`controller.py\` el handler asíncrono de generación \`on_genera
           title="Pipeline de evaluación completo" 
           goal="ux_evaluation_pipeline() sin lógica de UI, con logging."
         >
-          <PromptBlock label="Prompt 5.2 â€” Pipeline de evaluación">
+          <PromptBlock label="Prompt 5.2 — Pipeline de evaluación">
 {`Actúa como Ingeniero de Backend y Pipeline de Procesamiento en Python.
 
 Crea en \`pipeline.py\` la función pura de orquestación \`ux_evaluation_pipeline(task: UXTask, generator_model: str, judge_model: str | None, num_variants: int, use_judge: bool, conn: duckdb.DuckDBPyConnection) -> tuple[UXEvaluation, bool, bool]\`:
@@ -977,7 +977,7 @@ Crea en \`pipeline.py\` la función pura de orquestación \`ux_evaluation_pipeli
           title="Gestión de errores en cascada" 
           goal="DesignError, DesignException y tabla de decisiones por punto de fallo."
         >
-          <PromptBlock label="Prompt 5.3 â€” Errores en cascada">
+          <PromptBlock label="Prompt 5.3 — Errores en cascada">
 {`Actúa como Arquitecto de Tolerancia a Fallos en Python.
 
 Crea el archivo \`exceptions.py\` con la jerarquía de excepciones y la matriz de contingencia en cascada para "Forma IA":
@@ -1012,34 +1012,34 @@ class DesignException(Exception):
 
         <Step 
           num="5.4" 
-          title="Logging â€” generations.log y judges.log" 
+          title="Logging — generations.log y judges.log" 
           goal="Dos logs separados para analizar el generador y el juez por separado."
         >
-          <PromptBlock label="Prompt 5.4 â€” Logging">
+          <PromptBlock label="Prompt 5.4 — Logging">
 {`Actúa como Ingeniero de Observabilidad y Logging en Python.
 
 Crea el módulo \`design_logger.py\` con doble sistema de registro desacoplado:
 
-1. CONFIGURACIÃ“N DE LOS DOS CANALES DE LOG:
+1. CONFIGURACI“N DE LOS DOS CANALES DE LOG:
    - **Canal 1 (\`generations.log\` con RotatingFileHandler 5MB, 3 backups):** Registra cada llamada de generación: \`timestamp\`, \`task_id\`, \`generator_model\`, \`num_variants_requested\`, \`num_variants_obtained\`, \`gen_time_seconds\`, \`char_counts\`.
    - **Canal 2 (\`judges.log\` con RotatingFileHandler 5MB, 3 backups):** Registra las evaluaciones del juez: \`timestamp\`, \`task_id\`, \`judge_model\`, \`variant_index\`, \`criteria_evaluated\`, \`individual_scores\`, \`aggregate_score\`, \`judge_latency_seconds\`.
 
-2. JUSTIFICACIÃ“N DE LA SEPARACIÃ“N:
+2. JUSTIFICACI“N DE LA SEPARACI“N:
    - Permite auditar la estabilidad y consistencia de las puntuaciones del LLM-as-a-Judge de forma independiente a la generación de texto.`}
           </PromptBlock>
         </Step>
 
         <Step 
           num="5.5" 
-          title="Configuración â€” config.py y .env.example" 
+          title="Configuración — config.py y .env.example" 
           goal="Variables de entorno, constantes y .env.example comentado."
         >
-          <PromptBlock label="Prompt 5.5 â€” Configuración">
+          <PromptBlock label="Prompt 5.5 — Configuración">
 {`Actúa como Ingeniero de Infraestructura y Configuración en Python.
 
 Crea el módulo \`config.py\` y la plantilla \`.env.example\` mediante \`pydantic-settings\`:
 
-1. ESPECIFICACIÃ“N DE \`config.py\`:
+1. ESPECIFICACI“N DE \`config.py\`:
 \`\`\`python
 from pydantic_settings import BaseSettings
 from pathlib import Path
@@ -1067,7 +1067,7 @@ settings = FormaConfig()
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO (FORMA IA)
+            CAPA 6 — PRUEBAS Y EMPAQUETADO (FORMA IA)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={FlaskConical} 
@@ -1082,7 +1082,7 @@ settings = FormaConfig()
           title="Tests unitarios con Pytest" 
           goal="Validación de copy, parseo y evaluación automática sin llamadas a APIs."
         >
-          <PromptBlock label="Prompt 6.1 â€” Tests unitarios">
+          <PromptBlock label="Prompt 6.1 — Tests unitarios">
 {`Actúa como QA Lead y Especialista en Testing Automatizado de Software en Python.
 
 Crea la suite de pruebas unitarias en \`tests/test_design_logic.py\` y sus fixtures en \`tests/conftest.py\`:
@@ -1090,7 +1090,7 @@ Crea la suite de pruebas unitarias en \`tests/test_design_logic.py\` y sus fixtu
 1. FIXTURES EN \`conftest.py\`:
    - \`sample_microcopy_task\`: Objeto \`UXTask\` para botón con \`max_length = 30\`.
    - \`sample_onboarding_task\`: Objeto \`UXTask\` sin límite de longitud estricto.
-   - \`sample_three_variants_raw_response\`: String simulado con 3 bloques \`VARIANTE X:\` y \`JUSTIFICACIÃ“N:\` válidos.
+   - \`sample_three_variants_raw_response\`: String simulado con 3 bloques \`VARIANTE X:\` y \`JUSTIFICACI“N:\` válidos.
    - \`sample_malformed_response\`: Texto sin delimitadores para probar la tolerancia a fallos del parser.
 
 2. CASOS DE PRUEBA EN \`test_design_logic.py\`:
@@ -1117,12 +1117,12 @@ Crea la suite de pruebas unitarias en \`tests/test_design_logic.py\` y sus fixtu
           title="Test de flujo completo" 
           goal="Pipeline completo con mocks del generador y el juez. Verificar DuckDB."
         >
-          <PromptBlock label="Prompt 6.2 â€” Test de integración">
+          <PromptBlock label="Prompt 6.2 — Test de integración">
 {`Actúa como Ingeniero de Integración y Testing E2E en Python.
 
 Crea el test de integración en \`tests/test_design_integration.py\` que valida el pipeline completo de "Forma IA" sin consumir créditos de API:
 
-1. CONFIGURACIÃ“N DEL ENTORNO:
+1. CONFIGURACI“N DEL ENTORNO:
    - Carga una tarea real desde \`sample_ux_tasks.json\`.
    - Inicializa una base de datos DuckDB volátil en memoria (\`conn = duckdb.connect(':memory:')\`).
 
@@ -1144,7 +1144,7 @@ Crea el test de integración en \`tests/test_design_integration.py\` que valida 
           title="Protocolo de prueba manual" 
           goal="7 escenarios reales que validan la app antes del empaquetado."
         >
-          <PromptBlock label="Prompt 6.3 â€” Prueba manual">
+          <PromptBlock label="Prompt 6.3 — Prueba manual">
 {`Actúa como Diseñador de Producto y Lead QA en Entornos UX.
 
 Redacta el protocolo de validación manual exhaustivo (UAT) para certificar "Forma IA v1":
@@ -1165,19 +1165,19 @@ Redacta el protocolo de validación manual exhaustivo (UAT) para certificar "For
           title="Empaquetado con PyInstaller" 
           goal="Ejecutable distribuible con las tareas incluidas. Sin .env en el paquete."
         >
-          <PromptBlock label="Prompt 6.4 â€” Empaquetado">
+          <PromptBlock label="Prompt 6.4 — Empaquetado">
 {`Actúa como Ingeniero de Distribución y Empaquetado de Software en Python.
 
 Genera las especificaciones de compilación para crear el ejecutable autónomo \`FormaIA.exe\`:
 
-1. ARCHIVO DE CONFIGURACIÃ“N \`forma_ia.spec\`:
+1. ARCHIVO DE CONFIGURACI“N \`forma_ia.spec\`:
    - Configura PyInstaller con:
      * \`entry_point = "main.py"\`
      * \`datas = [('data_design/sample_ux_tasks.json', 'data_design'), ('assets', 'assets')]\`
      * Exclusión estricta de archivos \`.env\`, \`*.duckdb\` y carpetas de logs para evitar fugas de credenciales.
      * Modo ventana (\`console=False\` en Windows/macOS).
 
-2. GUÍA DE INSTALACIÃ“N EN 3 PASOS PARA EL USUARIO FINAL:
+2. GUÍA DE INSTALACI“N EN 3 PASOS PARA EL USUARIO FINAL:
    - Paso 1: Descomprimir \`FormaIA_v1.0_Win64.zip\`.
    - Paso 2: Crear el archivo \`.env\` junto al ejecutable con \`FORMA_GENERATOR_API_KEY=tu_clave\`.
    - Paso 3: Ejecutar \`FormaIA.exe\` con doble clic sin necesidad de instalar Python.`}
@@ -1189,12 +1189,12 @@ Genera las especificaciones de compilación para crear el ejecutable autónomo \
           title="Prueba del ejecutable en máquina limpia" 
           goal="Checklist en VM sin Python. Detectar errores comunes de Flet en Windows/macOS."
         >
-          <PromptBlock label="Prompt 6.5 â€” Prueba en entorno limpio">
+          <PromptBlock label="Prompt 6.5 — Prueba en entorno limpio">
 {`Actúa como Ingeniero de QA y Certificación de Entornos Limpios.
 
 Diseña el protocolo de validación del binario \`FormaIA.exe\` en una máquina virtual Windows 11 / macOS limpia (sin Python ni Git):
 
-1. CHECKLIST DE EJECUCIÃ“N LIMPIA:
+1. CHECKLIST DE EJECUCI“N LIMPIA:
    - Arranque en frío en menos de 3.0 segundos sin terminal emergente.
    - Despliegue correcto de la biblioteca precargada (15 tareas UX seleccionables).
    - Generación de variantes en vivo conectando con la API externa vía \`.env\`.
@@ -1205,7 +1205,7 @@ Diseña el protocolo de validación del binario \`FormaIA.exe\` en una máquina 
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N Y PUBLICACIÃ“N (FORMA IA)
+            FASE 7 — ITERACI“N Y PUBLICACI“N (FORMA IA)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Star}
@@ -1220,7 +1220,7 @@ Diseña el protocolo de validación del binario \`FormaIA.exe\` en una máquina 
           title="Planificar la v2" 
           goal="Backlog priorizado con análisis de impacto por capa."
         >
-          <PromptBlock label="Prompt 7.A â€” Backlog v2">
+          <PromptBlock label="Prompt 7.A — Backlog v2">
 {`Actúa como Product Manager y Estratega en Herramientas de Diseño IA.
 
 Elabora el backlog técnico y funcional estructurado para la versión 2.0 de "Forma IA":
@@ -1233,7 +1233,7 @@ Elabora el backlog técnico y funcional estructurado para la versión 2.0 de "Fo
    | V3 | **Vitral Crítico (Voto Humano):** Botón "Mi Favorita" para crear un leaderboard de preferencia humana vs LLM-judge | Capas 2, 4 y 5 | Media | Calibra la fiabilidad del juez contrastándolo con el criterio del diseñador |
    | V4 | **Soporte Multilingüe Simultáneo:** Generación y traducción alineada en español, inglés y portugués | Capa 3 | Baja | Agiliza la internacionalización de flujos de onboarding |
 
-2. SELECCIÃ“N DE SPRINT V2:
+2. SELECCI“N DE SPRINT V2:
    - Define las 2 funcionalidades clave para el lanzamiento de la v2.0 justificando el valor aportado a los equipos de producto.`}
           </PromptBlock>
         </Step>
@@ -1243,13 +1243,13 @@ Elabora el backlog técnico y funcional estructurado para la versión 2.0 de "Fo
           title="Publicar en el Foro de Proyectos Horizon" 
           goal="Ficha de publicación lista para copiar y pegar en el foro de la comunidad."
         >
-          <PromptBlock label="Prompt 7.B â€” Ficha de publicación">
+          <PromptBlock label="Prompt 7.B — Ficha de publicación">
 {`Actúa como Divulgador de Herramientas de Diseño y Creador en la Comunidad Horizon.
 
 Redacta la ficha de presentación de "Forma IA" para publicar en el Foro de la Comunidad Horizon (/comunidad/aplicaciones):
 
-1. ESTRUCTURA DE LA PUBLICACIÃ“N:
-   - **Título:** \`[PROYECTO] Forma IA v1.0 â€” Generador y Evaluador de Microcopy UX con LLM-as-a-Judge y DuckDB\`
+1. ESTRUCTURA DE LA PUBLICACI“N:
+   - **Título:** \`[PROYECTO] Forma IA v1.0 — Generador y Evaluador de Microcopy UX con LLM-as-a-Judge y DuckDB\`
    - **Etiquetas:** \`#DesignOps\` \`#UXWriting\` \`#Flet\` \`#Python\` \`#Pydantic\` \`#DuckDB\`
    - **Resumen Ejecutivo (150 palabras):** Aplicación de escritorio que genera 3 variantes conceptuales de microcopy para interfaces y las califica con métricas deterministas y evaluación semántica mediante un segundo LLM juez.
    - **Innovación Técnica:** Arquitectura de degradación elegante (si el juez falla, preserva métricas automáticas) y comparativa visual de modelos con persistencia analítica local.
@@ -1258,7 +1258,7 @@ Redacta la ficha de presentación de "Forma IA" para publicar en el Foro de la C
           </PromptBlock>
         </Step>
 
-        {/* â”€â”€â”€ Result box â”€â”€â”€ */}
+        {/* —€—€—€ Result box —€—€—€ */}
         <div className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "white", border: "1px solid rgba(219,39,119,0.2)" }}>
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
@@ -1272,7 +1272,7 @@ Redacta la ficha de presentación de "Forma IA" para publicar en el Foro de la C
           </p>
           <p className="text-sm mb-6 max-w-[480px] mx-auto"
             style={{ color: "rgba(17,17,17,0.40)" }}>
-            No sustituye al diseñador â€” le proporciona un banco de pruebas objetivo y divergente para acelerar decisiones de diseño.
+            No sustituye al diseñador — le proporciona un banco de pruebas objetivo y divergente para acelerar decisiones de diseño.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link to="/comunidad/aplicaciones"
@@ -1288,7 +1288,7 @@ Redacta la ficha de presentación de "Forma IA" para publicar en el Foro de la C
           </div>
         </div>
 
-        {/* â”€â”€â”€ Version extensions â”€â”€ */}
+        {/* —€—€—€ Version extensions —€—€ */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

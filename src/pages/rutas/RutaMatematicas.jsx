@@ -18,10 +18,10 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Matemáticas (data_math/rankings/) · MATH · GSM8K · MAFBench · AIME", motivo: "Verificar qué modelos tienen scores reales verificables en razonamiento matemático formal." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Documento de definición", motivo: "Decidir qué tipos de problema (álgebra, cálculo, combinatoria, GSM8K) cubre la v1 y cuáles no son verificables automáticamente." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Decidir qué tipos de problema (álgebra, cálculo, combinatoria, GSM8K) cubre la v1 y cuáles no son verificables automáticamente." },
   { capa: "2", subcapa: "2.1", herramienta: "data_math/raw/ · openai/gsm8k [VERIFICAR DOCS]", motivo: "Problemas GSM8K con respuesta numérica verificable ya descargados por el motor Horizon." },
   { capa: "2", subcapa: "2.2", herramienta: "Pydantic v2", motivo: "Esquemas para MathProblem, MathSolution y EvaluationSession con campos de verificación." },
   { capa: "2", subcapa: "2.3", herramienta: "Pydantic validators · re (regex)", motivo: "Extraer respuesta numérica de LaTeX \\boxed{}, fracciones, porcentajes y texto libre." },
@@ -34,16 +34,16 @@ const TOOLS_TABLE = [
   { capa: "3", subcapa: "3.5", herramienta: "math.isclose", motivo: "Comparar respuestas numéricas con tolerancia relativa; nunca usar == con floats." },
   { capa: "3", subcapa: "3.6", herramienta: "try/except", motivo: "Marcar como 'No verificable automáticamente' cuando la extracción falla sin bloquear la app." },
   { capa: "4", subcapa: "4.1", herramienta: "Papel / Excalidraw", motivo: "Definir las 3 pantallas antes de codificar." },
-  { capa: "4", subcapa: "4.2â€“4.5", herramienta: "Flet", motivo: "Área scrollable para CoT largo, DataTable para estadísticas y badges de resultado prominentes." },
-  { capa: "5", subcapa: "5.1â€“5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Pipeline completo: evaluar â†’ parsear â†’ detectar issues â†’ persistir â†’ actualizar UI." },
-  { capa: "6", subcapa: "6.1â€“6.2", herramienta: "Pytest", motivo: "Tests de extracción numérica, comparación con tolerancia y test de integración del pipeline." },
+  { capa: "4", subcapa: "4.2–4.5", herramienta: "Flet", motivo: "Área scrollable para CoT largo, DataTable para estadísticas y badges de resultado prominentes." },
+  { capa: "5", subcapa: "5.1–5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Pipeline completo: evaluar â†’ parsear â†’ detectar issues â†’ persistir â†’ actualizar UI." },
+  { capa: "6", subcapa: "6.1–6.2", herramienta: "Pytest", motivo: "Tests de extracción numérica, comparación con tolerancia y test de integración del pipeline." },
   { capa: "6", subcapa: "6.3", herramienta: "Problemas GSM8K reales", motivo: "Validación con datos del laboratorio de Matemáticas." },
   { capa: "6", subcapa: "6.4", herramienta: "PyInstaller", motivo: "Ejecutable distribuible; consideración especial con sympy." },
   { capa: "6", subcapa: "6.5", herramienta: "VM sin Python", motivo: "Prueba en entorno limpio." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de accuracy de modelos y planificar v2 con evaluación paralela de 3 modelos." },
 ];
 
-// â”€â”€â”€ Phases overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Benchmarks matemáticos (MATH, GSM8K, AIME) y viabilidad de la verificación automática de respuestas." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil de usuario, problema, inputs/outputs, criterios de éxito y límites: solo respuestas numéricas verificables en v1." },
@@ -55,12 +55,12 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Publicar en el Foro de Proyectos y planificar v2 con evaluación simultánea de 3 modelos y formato AIME." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · Arena de modelos",
     area: "3 modelos simultáneos",
-    title: "Prisma Arena â€” Comparativa paralela de razonamiento",
+    title: "Prisma Arena — Comparativa paralela de razonamiento",
     desc: "Envía el mismo problema a 3 modelos en paralelo con asyncio.gather, muestra los tres razonamientos en columnas y declara ganador automáticamente por accuracy y tiempo de respuesta.",
     badgeBg: "rgba(59,111,212,0.10)", badgeColor: C.accent,
     changes: [
@@ -75,7 +75,7 @@ const VERSIONS = [
   {
     tag: "v3 · AIME",
     area: "Competición matemática",
-    title: "Prisma AIME â€” Problemas de alta dificultad",
+    title: "Prisma AIME — Problemas de alta dificultad",
     desc: "Extiende Prisma para soportar el formato AIME (problemas de competición matemática con respuesta entera 0-999), con timeout extendido y análisis de errores por etapa del razonamiento.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: C.emerald,
     changes: [
@@ -90,7 +90,7 @@ const VERSIONS = [
   {
     tag: "v4 · Informe PDF",
     area: "Exportación de resultados",
-    title: "Prisma Report â€” Comparativa de modelos en PDF",
+    title: "Prisma Report — Comparativa de modelos en PDF",
     desc: "Genera un informe PDF profesional con la comparativa de 2 o más modelos evaluados sobre el mismo conjunto estándar de 50 problemas GSM8K, con gráficos de accuracy por nivel y análisis de errores comunes.",
     badgeBg: "rgba(217,119,6,0.10)", badgeColor: C.amber,
     changes: [
@@ -104,7 +104,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Math verification notice â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Math verification notice —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 function MathVerificationNotice() {
   return (
     <div className="mb-8 flex items-start gap-3 px-5 py-4 rounded-xl border"
@@ -117,7 +117,7 @@ function MathVerificationNotice() {
   );
 }
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaMatematicas() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -216,7 +216,7 @@ export default function RutaMatematicas() {
         </div>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 0 â€” INVESTIGACIÃ“N
+            FASE 0 — INVESTIGACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Search}
@@ -231,7 +231,7 @@ export default function RutaMatematicas() {
           title="Benchmarks matemáticos clave" 
           goal="Identificar MATH, GSM8K, AIME y MAFBench; diferencias entre niveles; modelo líder en el ranking del laboratorio y alternativas open-source."
         >
-          <PromptBlock label="Prompt 0.A â€” Benchmarks matemáticos">
+          <PromptBlock label="Prompt 0.A — Benchmarks matemáticos">
 {`Actúa como especialista en evaluación de LLMs para razonamiento matemático.
 Tengo acceso al Laboratorio de Matemáticas de Horizon (\`data_math/rankings/\`).
 
@@ -250,7 +250,7 @@ No inventes datos. Cita scores específicos del archivo de rankings.`}
           title="Viabilidad de la verificación automática" 
           goal="Confirmar qué tipos de problemas tienen respuesta verificable automáticamente y cuáles no (demostraciones, geometría gráfica, múltiples soluciones equivalentes)."
         >
-          <PromptBlock label="Prompt 0.B â€” Viabilidad de verificación automática">
+          <PromptBlock label="Prompt 0.B — Viabilidad de verificación automática">
 {`Quiero construir Prisma Matemático, que verifica automáticamente si un LLM resuelve correctamente problemas matemáticos.
 
 Antes de empezar, confirma:
@@ -263,7 +263,7 @@ Esto determinará qué tipos de problemas puede evaluar la v1 de forma fiable.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 1 â€” DEFINICIÃ“N DEL PROBLEMA
+            CAPA 1 — DEFINICI“N DEL PROBLEMA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Layers}
@@ -278,7 +278,7 @@ Esto determinará qué tipos de problemas puede evaluar la v1 de forma fiable.`}
           title="¿Quién usa esta app?" 
           goal="Ficha con rol (docente, investigador, estudiante), nivel de matemáticas, volumen de evaluaciones por sesión y formato de resultados esperado."
         >
-          <PromptBlock label="Prompt 1.1 â€” Perfil de usuario">
+          <PromptBlock label="Prompt 1.1 — Perfil de usuario">
 {`Define el perfil de usuario de Prisma Matemático.
 
 La app evalúa el razonamiento matemático de LLMs comparando sus respuestas con soluciones correctas conocidas.
@@ -300,7 +300,7 @@ Genera una ficha con:
           title="¿Qué problema concreto resuelve?" 
           goal="Una sola frase del problema. Aclarar si la app mide rendimiento del LLM, ayuda a aprender matemáticas, o ambas, siendo honesto sobre los límites de la verificación automática."
         >
-          <PromptBlock label="Prompt 1.2 â€” Frase del problema">
+          <PromptBlock label="Prompt 1.2 — Frase del problema">
 {`Basándome en el perfil ([PEGA EL RESUMEN DEL PERFIL]), escribe UNA SOLA FRASE que defina el problema que Prisma Matemático resuelve.
 
 Formato:
@@ -319,7 +319,7 @@ Sé honesto sobre las limitaciones de la verificación automática en matemátic
           title="¿Qué datos entran?" 
           goal="Lista completa: enunciado, carga desde GSM8K, modelo, nivel de dificultad, respuesta correcta opcional, área matemática y timeout de respuesta."
         >
-          <PromptBlock label="Prompt 1.3 â€” Inputs de la app">
+          <PromptBlock label="Prompt 1.3 — Inputs de la app">
 {`Para Prisma Matemático, define todos los datos de entrada.
 
 El usuario puede:
@@ -336,7 +336,7 @@ Genera la lista completa de inputs con:
 - Restricciones (ej. longitud máxima del enunciado)
 - Qué hace la app si el campo obligatorio falta
 
-[AÃ‘ADE CUALQUIER INPUT ADICIONAL QUE NECESITES: ej. área matemática (álgebra, cálculo, combinatoria), tiempo máximo para que el LLM responda]`}
+[A‘ADE CUALQUIER INPUT ADICIONAL QUE NECESITES: ej. área matemática (álgebra, cálculo, combinatoria), tiempo máximo para que el LLM responda]`}
           </PromptBlock>
         </Step>
 
@@ -345,7 +345,7 @@ Genera la lista completa de inputs con:
           title="¿Qué sale?" 
           goal="Outputs: CoT completo, respuesta extraída, badge CORRECTO/INCORRECTO/NO VERIFICABLE, paso del primer error, score acumulado y estadísticas de sesión."
         >
-          <PromptBlock label="Prompt 1.4 â€” Outputs de la app">
+          <PromptBlock label="Prompt 1.4 — Outputs de la app">
 {`Define todos los outputs de Prisma Matemático para cada evaluación.
 
 La app debe producir:
@@ -369,9 +369,9 @@ Para cada output especifica:
         <Step 
           num="1.5" 
           title="Criterios de éxito" 
-          goal="6â€“8 criterios verificables: precisión de extracción â‰¥95% en GSM8K, tiempo de evaluación, manejo de respuestas no numéricas, persistencia y comparativa de modelos."
+          goal="6–8 criterios verificables: precisión de extracción â‰¥95% en GSM8K, tiempo de evaluación, manejo de respuestas no numéricas, persistencia y comparativa de modelos."
         >
-          <PromptBlock label="Prompt 1.5 â€” Criterios de éxito">
+          <PromptBlock label="Prompt 1.5 — Criterios de éxito">
 {`Define los criterios de éxito de Prisma Matemático v1.
 
 Genera 6-8 criterios verificables. Incluye obligatoriamente:
@@ -390,7 +390,7 @@ No uses criterios vagos. Cada uno debe poder verificarse en < 5 minutos.`}
           title="Límites explícitos de la v1" 
           goal="Declaración formal: solo respuestas numéricas exactas. Lista de tipos de problema que requieren revisión manual y en qué versión podrían añadirse."
         >
-          <PromptBlock label="Prompt 1.6 â€” Límites de la v1">
+          <PromptBlock label="Prompt 1.6 — Límites de la v1">
 {`Define los límites explícitos de Prisma Matemático v1.
 
 Problemas matemáticos que NO puede verificar automáticamente en v1:
@@ -407,7 +407,7 @@ Genera la declaración de límites:
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 2 â€” DATOS
+            CAPA 2 — DATOS
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Database}
@@ -422,11 +422,11 @@ Genera la declaración de límites:
           title="Fuente de datos" 
           goal="load_gsm8k_problems() desde JSONL local (extrae respuesta del campo '####') y create_manual_problem() para entrada libre. Manejo de FileNotFoundError descriptivo."
         >
-          <PromptBlock label="Prompt 2.1 â€” Fuente de datos">
+          <PromptBlock label="Prompt 2.1 — Fuente de datos">
 {`Para Prisma Matemático, implementa la carga de problemas matemáticos.
 
 Fuente 1 (local): problemas GSM8K en \`data_math/raw/gsm8k_problems.json\`
-Formato de cada problema GSM8K: \`question\`: str, \`answer\`: str (donde \`answer\` incluye el razonamiento paso a paso y termina con "#### [NÃšMERO]").
+Formato de cada problema GSM8K: \`question\`: str, \`answer\`: str (donde \`answer\` incluye el razonamiento paso a paso y termina con "#### [NšMERO]").
 
 Escribe:
 1. \`load_gsm8k_problems(file_path: str, limit: int = 50) -> list[MathProblem]\`:
@@ -448,7 +448,7 @@ Usa \`pathlib\` para rutas. No uses rutas hardcodeadas.`}
           title="Esquema de datos con Pydantic" 
           goal="MathProblem (con is_verifiable), MathSolution (con is_correct y error_step) y EvaluationSession (con accuracy). Pydantic v2, docstrings en todos."
         >
-          <PromptBlock label="Prompt 2.2 â€” Modelos Pydantic">
+          <PromptBlock label="Prompt 2.2 — Modelos Pydantic">
 {`Crea los modelos Pydantic v2 para Prisma Matemático.
 
 1. \`MathProblem\`:
@@ -491,7 +491,7 @@ Usa Pydantic v2. Docstrings en cada modelo.`}
           title="Extracción y normalización de respuestas" 
           goal="extract_numeric_answer(): busca \boxed{}, patrones de texto, fracciones y último número. compare_answers() con math.isclose, nunca ==. Tests unitarios extensos."
         >
-          <PromptBlock label="Prompt 2.3 â€” Extracción numérica">
+          <PromptBlock label="Prompt 2.3 — Extracción numérica">
 {`La parte más crítica de Prisma Matemático es extraer la respuesta numérica del texto del LLM. Los LLMs pueden responder de formas muy distintas:
 - "La respuesta es **42**"
 - "Por tanto, x = 3/4"
@@ -520,7 +520,7 @@ Incluye tests unitarios extensos para \`extract_numeric_answer\`.`}
           title="Almacenamiento en DuckDB" 
           goal="init_math_db(), store_solution(), get_model_stats() y get_history(). Vistas vw_model_accuracy y vw_difficulty_breakdown para la pantalla de estadísticas."
         >
-          <PromptBlock label="Prompt 2.4 â€” DuckDB">
+          <PromptBlock label="Prompt 2.4 — DuckDB">
 {`Crea la capa de persistencia de Prisma Matemático con DuckDB.
 
 1. \`init_math_db(db_path: str) -> duckdb.DuckDBPyConnection\`:
@@ -548,7 +548,7 @@ Maneja excepciones DuckDB. No uses rutas hardcodeadas.`}
           title="Dataset mínimo de ejemplo" 
           goal="15 problemas (5 básicos, 5 intermedios, 5 avanzados) con respuesta numérica exacta, explanation paso a paso y math_area. Compatible con MathProblem de Pydantic."
         >
-          <PromptBlock label="Prompt 2.5 â€” Dataset de ejemplo">
+          <PromptBlock label="Prompt 2.5 — Dataset de ejemplo">
 {`Genera un dataset de ejemplo para Prisma Matemático.
 
 Archivo \`sample_math_problems.json\` con 15 problemas:
@@ -571,7 +571,7 @@ Incluye el código Python que carga y valida este archivo con \`MathProblem\`.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA
+            CAPA 3 — L“GICA / IA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Cpu}
@@ -586,7 +586,7 @@ Incluye el código Python que carga y valida este archivo con \`MathProblem\`.`}
           title="Selección del modelo LLM" 
           goal="Modelo con mejor score en MATH y GSM8K. Verificar soporte de CoT, límite de contexto para AIME, temperatura recomendada para matemáticas y alternativa open-source."
         >
-          <PromptBlock label="Prompt 3.1 â€” Selección del modelo">
+          <PromptBlock label="Prompt 3.1 — Selección del modelo">
 {`Para Prisma Matemático, necesito el LLM con mejor razonamiento matemático.
 
 Según \`data_math/rankings/latest_rankings_math.json\`:
@@ -598,8 +598,8 @@ Según \`data_math/rankings/latest_rankings_math.json\`:
 Confirma:
 1. ¿El modelo elegido soporta Chain of Thought (razonamiento paso a paso)?
 2. ¿Cuál es su límite de contexto? ¿Es suficiente para problemas AIME (que pueden ser complejos y requerir razonamientos largos)?
-3. ¿Tiene modo "math" o temperatura recomendada para tareas matemáticas? [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
-4. Alternativa open-source: ¿DeepSeek-Math o similar está disponible con API? [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
+3. ¿Tiene modo "math" o temperatura recomendada para tareas matemáticas? [VERIFICAR EN DOCUMENTACI“N OFICIAL]
+4. Alternativa open-source: ¿DeepSeek-Math o similar está disponible con API? [VERIFICAR EN DOCUMENTACI“N OFICIAL]
 
 Justifica la elección en 3 líneas.`}
           </PromptBlock>
@@ -610,7 +610,7 @@ Justifica la elección en 3 líneas.`}
           title="Diseño del prompt central" 
           goal="System prompt + user prompt con CoT numerado, \boxed{RESPUESTA} obligatorio al final, \boxed{NO_SOLUTION} si no puede resolver, y variante para nivel avanzado."
         >
-          <PromptBlock label="Prompt 3.2 â€” Prompt Chain of Thought">
+          <PromptBlock label="Prompt 3.2 — Prompt Chain of Thought">
 {`Diseña el prompt maestro de Prisma Matemático para que el LLM [MODELO ELEGIDO] resuelva problemas matemáticos con Chain of Thought.
 
 El prompt debe:
@@ -631,12 +631,12 @@ Genera ambos. Incluye también una variante del prompt para problemas de nivel a
           title="Llamada al modelo" 
           goal="solve_math_problem(): temperatura 0.0, retry 2 intentos, timeout 30s/60s según dificultad. Mide tiempo de respuesta. API key desde variable de entorno."
         >
-          <PromptBlock label="Prompt 3.3 â€” Llamada al modelo">
+          <PromptBlock label="Prompt 3.3 — Llamada al modelo">
 {`Implementa \`solve_math_problem(problem: MathProblem, model_name: str) -> tuple[str, float]\` que:
 
 1. Construye el mensaje con el prompt del paso anterior
 2. Elige la temperatura: 0.0 para problemas básicos e intermedios (respuestas deterministas), 0.1 para avanzados (algo de flexibilidad en notación)
-   [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL si temperatura 0.0 está soportada]
+   [VERIFICAR EN DOCUMENTACI“N OFICIAL si temperatura 0.0 está soportada]
 3. Mide el tiempo de respuesta con \`time.time()\`
 4. Hace la llamada a la API de [MODELO]
 5. Retry 2 intentos (máximo) con espera de 5s entre ellos
@@ -654,7 +654,7 @@ No hardcodees ningún valor sensible.`}
           title="Parseo y estructuración de la respuesta" 
           goal="parse_math_solution(): extrae respuesta numérica, cuenta pasos del CoT, maneja NO_SOLUTION, compara con la correcta y construye MathSolution completo."
         >
-          <PromptBlock label="Prompt 3.4 â€” Parseo de respuesta">
+          <PromptBlock label="Prompt 3.4 — Parseo de respuesta">
 {`Implementa \`parse_math_solution(raw_response: str, problem: MathProblem, model_name: str, response_time: float) -> MathSolution\` que:
 
 1. Usa \`extract_numeric_answer()\` del paso 2.3 para extraer la respuesta final
@@ -676,7 +676,7 @@ Si \`extract_numeric_answer\` devuelve \`None\` y \`problem.is_verifiable=True\`
           title="Detección de issues en el razonamiento" 
           goal="detect_math_issues(): probabilidad > 1.0, división entre cero en texto, respuesta del CoT â‰  respuesta del boxed, número de pasos insuficiente para dificultad."
         >
-          <PromptBlock label="Prompt 3.5 â€” Detección de issues">
+          <PromptBlock label="Prompt 3.5 — Detección de issues">
 {`En matemáticas, las alucinaciones son errores de razonamiento específicos.
 Implementa \`detect_math_issues(solution: MathSolution) -> list[str]\` que detecta:
 
@@ -698,7 +698,7 @@ Muestra los issues con la etiqueta "Revisar razonamiento".`}
           title="Función de fallback" 
           goal="solve_with_fallback(): siempre devuelve MathSolution válido. Timeout â†’ chain_of_thought=[TIMEOUT]. Error de API â†’ [ERROR]. Nunca bloquea la evaluación."
         >
-          <PromptBlock label="Prompt 3.6 â€” Fallback">
+          <PromptBlock label="Prompt 3.6 — Fallback">
 {`Implementa \`solve_with_fallback(problem: MathProblem, model_name: str) -> tuple[MathSolution, bool]\` que:
 
 1. Intenta \`solve_math_problem()\` + \`parse_math_solution()\`
@@ -719,7 +719,7 @@ Cuando \`is_model_available=False\`: la UI muestra "Evaluación no disponible (e
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ DE ESCRITORIO (FLET)
+            CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Monitor}
@@ -734,7 +734,7 @@ Cuando \`is_model_available=False\`: la UI muestra "Evaluación no disponible (e
           title="Wireframe de 3 pantallas" 
           goal="Descripción textual de Evaluación, Estadísticas e Historial con componentes Flet para cada elemento, antes de escribir código."
         >
-          <PromptBlock label="Prompt 4.1 â€” Wireframe">
+          <PromptBlock label="Prompt 4.1 — Wireframe">
 {`Define el wireframe de Prisma Matemático con 3 pantallas:
 
 1. Pantalla Evaluación (principal):
@@ -752,13 +752,13 @@ Cuando \`is_model_available=False\`: la UI muestra "Evaluación no disponible (e
 2. Pantalla Estadísticas:
    - Tabla de accuracy por modelo (usando vw_model_accuracy)
    - Desglose por nivel de dificultad
-   - Gráfico de barras si Flet lo soporta [VERIFICAR EN DOCUMENTACIÃ“N DE FLET]
+   - Gráfico de barras si Flet lo soporta [VERIFICAR EN DOCUMENTACI“N DE FLET]
 
 3. Pantalla Historial:
    - Lista de evaluaciones pasadas con filtros por modelo y nivel
 
 Para cada elemento: componente Flet y justificación.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET los componentes disponibles]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET los componentes disponibles]`}
           </PromptBlock>
         </Step>
 
@@ -767,7 +767,7 @@ Para cada elemento: componente Flet y justificación.
           title="Formulario de entrada" 
           goal="TextField multiline, botón Cargar GSM8K, Dropdown de modelo y dificultad, campo de respuesta correcta opcional y botón Evaluar."
         >
-          <PromptBlock label="Prompt 4.2 â€” Formulario">
+          <PromptBlock label="Prompt 4.2 — Formulario">
 {`Implementa el formulario de entrada de Prisma Matemático con Flet.
 
 Escribe código Flet para:
@@ -779,7 +779,7 @@ Escribe código Flet para:
 6. Un \`ft.ElevatedButton\` "Evaluar" que llama a \`on_evaluate_click\` (Capa 5)
 7. Un contador de evaluaciones de la sesión actual en la barra de estado
 
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET el comportamiento exacto de FilePicker y dialogs para la selección de problemas GSM8K]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET el comportamiento exacto de FilePicker y dialogs para la selección de problemas GSM8K]`}
           </PromptBlock>
         </Step>
 
@@ -788,7 +788,7 @@ Escribe código Flet para:
           title="Área de resultados" 
           goal="Badge CORRECTO/INCORRECTO/NO VERIFICABLE con CoT en fuente monospace scrollable, lista de issues en ExpansionTile y tiempo de respuesta."
         >
-          <PromptBlock label="Prompt 4.3 â€” Área de resultados">
+          <PromptBlock label="Prompt 4.3 — Área de resultados">
 {`Implementa el área de resultados de Prisma Matemático con Flet.
 
 Recibe un \`MathSolution\` y una lista de issues.
@@ -800,7 +800,7 @@ Genera código Flet para:
    - NO VERIFICABLE: fondo gris, "Revisión manual requerida"
 
 2. Un área scrollable (\`ft.Column\` con \`scroll=ft.ScrollMode.AUTO\`) con el \`chain_of_thought\` completo en \`ft.Text\` con fuente monospace
-   [VERIFICAR EN DOCUMENTACIÃ“N DE FLET cómo especificar fuente monospace]
+   [VERIFICAR EN DOCUMENTACI“N DE FLET cómo especificar fuente monospace]
 
 3. Si hay issues detectados: \`ft.ExpansionTile\` con "Posibles issues en el razonamiento" y la lista de issues dentro
 
@@ -817,7 +817,7 @@ Los datos se reciben como parámetros, no hardcodeados.`}
           title="Estados vacíos y de error" 
           goal="7 estados: inicio sin problema, evaluando con timer, timeout, respuesta no extractable (badge gris, no error), error de API, GSM8K no encontrado y DB no inicializable."
         >
-          <PromptBlock label="Prompt 4.4 â€” Estados de error">
+          <PromptBlock label="Prompt 4.4 — Estados de error">
 {`Define los estados excepcionales de Prisma Matemático.
 
 Para cada estado, escribe el código Flet:
@@ -836,7 +836,7 @@ Para cada estado, escribe el código Flet:
           title="Navegación entre 3 pantallas" 
           goal="NavigationBar, Estadísticas se actualiza al navegar, Historial permite recargar el problema en Evaluación para reevaluar con otro modelo."
         >
-          <PromptBlock label="Prompt 4.5 â€” Navegación">
+          <PromptBlock label="Prompt 4.5 — Navegación">
 {`Implementa la navegación de Prisma Matemático con Flet.
 
 3 pantallas: Evaluación, Estadísticas, Historial.
@@ -848,12 +848,12 @@ Implementa:
 4. Al cargar un problema de GSM8K desde Historial: vuelve a Evaluación con el mismo problema pre-cargado para reevaluarlo con un modelo diferente
 
 Escribe el esqueleto completo de la app con las 3 pantallas y la navegación.
-[VERIFICAR EN DOCUMENTACIÃ“N DE FLET el sistema de navegación actual]`}
+[VERIFICAR EN DOCUMENTACI“N DE FLET el sistema de navegación actual]`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 5 â€” INTEGRACIÃ“N
+            CAPA 5 — INTEGRACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Link2}
@@ -868,7 +868,7 @@ Escribe el esqueleto completo de la app con las 3 pantallas y la navegación.
           title="Conectar interfaz con lógica" 
           goal="on_evaluate_click(): valida prompt â‰¥10 chars, async con timer visual, llama al pipeline, actualiza UI con badge + issues, persiste en DuckDB y actualiza contador de sesión."
         >
-          <PromptBlock label="Prompt 5.1 â€” Conexión UI â†” lógica">
+          <PromptBlock label="Prompt 5.1 — Conexión UI â†” lógica">
 {`Implementa \`on_evaluate_click(e)\` para Prisma Matemático que:
 
 1. Valida que hay un problema introducido (mínimo 10 caracteres)
@@ -881,7 +881,7 @@ Escribe el esqueleto completo de la app con las 3 pantallas y la navegación.
 8. Actualiza el contador de la barra de estado
 9. Si \`is_model_available=False\`: muestra mensaje de error apropiado
 
-Usa \`asyncio\` con Flet [VERIFICAR EN DOCUMENTACIÃ“N DE FLET].
+Usa \`asyncio\` con Flet [VERIFICAR EN DOCUMENTACI“N DE FLET].
 No bloquees el hilo de UI. No hagas llamadas de red en el hilo principal.`}
           </PromptBlock>
         </Step>
@@ -891,7 +891,7 @@ No bloquees el hilo de UI. No hagas llamadas de red en el hilo principal.`}
           title="Conectar lógica con datos" 
           goal="math_evaluation_pipeline(): solve â†’ detect_issues â†’ store â†’ actualizar EvaluationSession. Sin lógica de UI. Log con métricas pero sin el enunciado del problema."
         >
-          <PromptBlock label="Prompt 5.2 â€” Pipeline completo">
+          <PromptBlock label="Prompt 5.2 — Pipeline completo">
 {`Escribe \`math_evaluation_pipeline(problem: MathProblem, model_name: str, conn: duckdb.DuckDBPyConnection) -> tuple[MathSolution, list[str]]\` que:
 
 1. Llama a \`solve_with_fallback(problem, model_name)\`
@@ -912,7 +912,7 @@ Re-lanza excepciones de DuckDB con contexto adicional.`}
           title="Gestión de errores en cascada" 
           goal="PrismaError enum y PrismaException. Regla general: 'Nunca bloquear la evaluación por un error de persistencia.' Tabla de decisiones para cada punto de fallo."
         >
-          <PromptBlock label="Prompt 5.3 â€” Gestión de errores">
+          <PromptBlock label="Prompt 5.3 — Gestión de errores">
 {`Define el plan de errores en cascada para Prisma Matemático.
 
 Puntos de fallo:
@@ -936,7 +936,7 @@ Genera:
           title="Logging de evaluaciones" 
           goal="math_logger.py con evaluations.log y debug.log. log_evaluation() sin el enunciado (ya en DuckDB), log_session_summary() al cerrar la app."
         >
-          <PromptBlock label="Prompt 5.4 â€” Logging">
+          <PromptBlock label="Prompt 5.4 — Logging">
 {`Escribe \`math_logger.py\` para Prisma Matemático:
 
 1. Dos handlers: \`evaluations.log\` (rotativo 5MB) y \`debug.log\` (rotativo 2MB)
@@ -946,7 +946,7 @@ Genera:
    - Registra el resumen de la sesión al cerrar la app
 4. \`log_error(error_type: str, problem_id: str, message: str)\`: errores
 
-Formato: \`[TIMESTAMP][NIVEL][MÃ“DULO] mensaje\`
+Formato: \`[TIMESTAMP][NIVEL][M“DULO] mensaje\`
 ¿Por qué no guardar el enunciado en el log? Puede ser texto largo (problemas AIME) que haría los logs difíciles de leer. El enunciado completo está en DuckDB.`}
           </PromptBlock>
         </Step>
@@ -956,7 +956,7 @@ Formato: \`[TIMESTAMP][NIVEL][MÃ“DULO] mensaje\`
           title="Configuración centralizada" 
           goal="config.py con PRISMA_ANSWER_TOLERANCE, timeouts por dificultad, PRISMA_GSM8K_PATH y constantes SUPPORTED_DIFFICULTIES y MAX_PROBLEM_LENGTH. .env.example completo."
         >
-          <PromptBlock label="Prompt 5.5 â€” Configuración">
+          <PromptBlock label="Prompt 5.5 — Configuración">
 {`Escribe \`config.py\` para Prisma Matemático:
 
 Variables de entorno:
@@ -979,7 +979,7 @@ Valida todos los valores al inicializar. Crea directorios necesarios.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO
+            CAPA 6 — PRUEBAS Y EMPAQUETADO
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={FlaskConical}
@@ -994,7 +994,7 @@ Valida todos los valores al inicializar. Crea directorios necesarios.`}
           title="Tests unitarios" 
           goal="tests/test_math_logic.py con extract_numeric_answer, compare_answers, detect_math_issues y parse_math_solution. Fixtures con conftest.py, sin llamadas a APIs ni DuckDB."
         >
-          <PromptBlock label="Prompt 6.1 â€” Tests unitarios">
+          <PromptBlock label="Prompt 6.1 — Tests unitarios">
 {`Escribe tests unitarios con Pytest para Prisma Matemático.
 
 Crea \`tests/test_math_logic.py\`:
@@ -1014,7 +1014,7 @@ No llames a APIs. No uses DuckDB en tests unitarios.`}
           title="Test de flujo completo" 
           goal="tests/test_math_integration.py: DuckDB en memoria, mock de solve_math_problem con 3 problemas (CORRECTO, INCORRECTO, NO VERIFICABLE) y verificación de contadores de sesión."
         >
-          <PromptBlock label="Prompt 6.2 â€” Test de integración">
+          <PromptBlock label="Prompt 6.2 — Test de integración">
 {`Escribe \`tests/test_math_integration.py\`:
 
 1. Carga \`sample_math_problems.json\`
@@ -1037,7 +1037,7 @@ Test adicional: mock que da respuesta no extractable â†’ badge NO VERIFICAB
           title="Prueba manual con datos reales" 
           goal="Protocolo con 7 escenarios: GSM8K básico, fracciones en álgebra, sin respuesta conocida (badge gris), probabilidad imposible (issue), desconexión de red, multi-modelo y persistencia."
         >
-          <PromptBlock label="Prompt 6.3 â€” Protocolo manual">
+          <PromptBlock label="Prompt 6.3 — Protocolo manual">
 {`Genera el protocolo de prueba manual de Prisma Matemático.
 
 Escenarios:
@@ -1058,7 +1058,7 @@ Señales de que está listo para empaquetar: [GENERA LA LISTA].`}
           title="Empaquetado con PyInstaller" 
           goal="Comando PyInstaller, inclusión de sample_math_problems.json y gsm8k_problems.json, consideración de sympy en el bundle e instrucciones para .env externo."
         >
-          <PromptBlock label="Prompt 6.4 â€” PyInstaller">
+          <PromptBlock label="Prompt 6.4 — PyInstaller">
 {`Instrucciones de empaquetado para Prisma Matemático.
 
 Dependencias: flet, duckdb, pydantic, httpx, python-dotenv
@@ -1066,9 +1066,9 @@ Archivos de datos: \`sample_math_problems.json\`, \`data_math/raw/gsm8k_problems
 El \`.env\` NO se incluye.
 
 Genera:
-1. Comando de empaquetado (PyInstaller o flet build según documentación oficial) [VERIFICAR EN DOCUMENTACIÃ“N DE FLET Y PYINSTALLER el método recomendado]
+1. Comando de empaquetado (PyInstaller o flet build según documentación oficial) [VERIFICAR EN DOCUMENTACI“N DE FLET Y PYINSTALLER el método recomendado]
 2. Cómo incluir los archivos JSON de problemas en el ejecutable
-3. Problema conocido: sympy puede ser difícil de empaquetar con PyInstaller [VERIFICAR EN DOCUMENTACIÃ“N DE SYMPY y PyInstaller si hay issues conocidos]
+3. Problema conocido: sympy puede ser difícil de empaquetar con PyInstaller [VERIFICAR EN DOCUMENTACI“N DE SYMPY y PyInstaller si hay issues conocidos]
 4. Alternativa: si no usas sympy, documenta por qué \`extract_numeric_answer\` no lo necesita para la v1
 5. Instrucciones para configurar la API key sin modificar el ejecutable`}
           </PromptBlock>
@@ -1079,7 +1079,7 @@ Genera:
           title="Prueba del ejecutable en máquina limpia" 
           goal="Checklist en VM sin Python ni sympy instalados, persistencia DuckDB en Windows y actualización de problemas GSM8K sin reinstalar."
         >
-          <PromptBlock label="Prompt 6.5 â€” Prueba en máquina limpia">
+          <PromptBlock label="Prompt 6.5 — Prueba en máquina limpia">
 {`Protocolo de prueba del ejecutable de Prisma Matemático en entorno limpio.
 
 1. Entorno: VM Windows o macOS sin Python ni sympy instalados
@@ -1090,13 +1090,13 @@ Genera:
    - El modelo responde y aparece el badge de resultado
    - Las estadísticas se actualizan correctamente
    - El historial persiste tras cerrar y reabrir
-4. Errores comunes de Flet/DuckDB en Windows y soluciones [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]
+4. Errores comunes de Flet/DuckDB en Windows y soluciones [VERIFICAR EN DOCUMENTACI“N OFICIAL]
 5. Cómo el usuario actualiza los archivos de problemas GSM8K sin reinstalar la app (\`.env\`)`}
           </PromptBlock>
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N
+            FASE 7 — ITERACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={RefreshCw}
@@ -1111,7 +1111,7 @@ Genera:
           title="Planificar v2" 
           goal="Backlog estructurado: Arena 3 modelos en paralelo, problemas AIME (alta dificultad), gráfico de evolución de accuracy por sesión y reporte comparativo PDF."
         >
-          <PromptBlock label="Prompt 7.A â€” Planificar v2">
+          <PromptBlock label="Prompt 7.A — Planificar v2">
 {`Prisma Matemático v1 está funcionando. Planifica la v2.
 
 Ideas para v2:
@@ -1135,10 +1135,10 @@ Genera el Backlog v2 en formato tabla:
           title="Publicar en Foro de Proyectos" 
           goal="Ficha completa de lanzamiento para Horizon: título, área temática, capturas requeridas, feedback buscado y preguntas de debate para la comunidad."
         >
-          <PromptBlock label="Prompt 7.B â€” Publicar en Foro">
+          <PromptBlock label="Prompt 7.B — Publicar en Foro">
 {`Genera la ficha de publicación de Prisma Matemático para el Foro Horizon.
 
-1. Título: "Prisma Matemático v1 â€” [SUBTÍTULO]"
+1. Título: "Prisma Matemático v1 — [SUBTÍTULO]"
 2. Área: Matemáticas & Procesos Complejos
 3. Descripción (máx 150 palabras)
 4. Capturas: badge CORRECTO con CoT, pantalla de estadísticas, historial
@@ -1148,7 +1148,7 @@ Genera el Backlog v2 en formato tabla:
           </PromptBlock>
         </Step>
 
-        {/* â”€â”€â”€ Resultado esperado â”€â”€â”€ */}
+        {/* —€—€—€ Resultado esperado —€—€—€ */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(59,111,212,0.05)", borderColor: "rgba(59,111,212,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1156,7 +1156,7 @@ Genera el Backlog v2 en formato tabla:
             <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: C.accent }}>Resultado esperado</span>
           </div>
           <p className="text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.65)" }}>
-            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1â€“6 + Fase 7), tendrás un <strong>ejecutable de Prisma Matemático</strong> que evalúa el razonamiento matemático de cualquier LLM disponible por API, con verificación automática de respuestas numéricas, detección de posibles issues en el razonamiento, historial completo de evaluaciones almacenado con estadísticas de accuracy por modelo y nivel de dificultad.
+            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1–6 + Fase 7), tendrás un <strong>ejecutable de Prisma Matemático</strong> que evalúa el razonamiento matemático de cualquier LLM disponible por API, con verificación automática de respuestas numéricas, detección de posibles issues en el razonamiento, historial completo de evaluaciones almacenado con estadísticas de accuracy por modelo y nivel de dificultad.
           </p>
           <div className="flex flex-wrap gap-3 justify-start mt-6">
             <Link to="/comunidad/aplicaciones"
@@ -1172,7 +1172,7 @@ Genera el Backlog v2 en formato tabla:
           </div>
         </div>
 
-        {/* â”€â”€â”€ Version extensions â”€â”€â”€ */}
+        {/* —€—€—€ Version extensions —€—€—€ */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

@@ -12,7 +12,7 @@ import { BarChart3 } from "lucide-react";
 import { HardHat } from "lucide-react";
 import { ShieldAlert } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -53,9 +53,9 @@ const RESEARCH_LINES = [
     title: "Transformación de requisitos a diagramas técnicos",
     color: "cyan",
     summary:
-      "Un PRD (Product Requirements Document) llega al equipo de arquitectura y alguien tiene que transformarlo en diagramas de componentes, secuencia y contenedores en formato PlantUML o en el modelo C4 â€” un marco de diagramas con cuatro niveles: Contexto, Contenedores, Componentes y Código.",
+      "Un PRD (Product Requirements Document) llega al equipo de arquitectura y alguien tiene que transformarlo en diagramas de componentes, secuencia y contenedores en formato PlantUML o en el modelo C4 — un marco de diagramas con cuatro niveles: Contexto, Contenedores, Componentes y Código.",
     detail:
-      "R2ABench_PRD_to_UML mide cuánto de ese trabajo puede hacerse de forma automática con calidad suficiente. PRD_Interface_Synthesis evalúa la capacidad de sintetizar interfaces de sistema a partir de requisitos funcionales no estructurados. Gemini 2.0 Pro (67% de cobertura) no cuenta con datos registrados para PRD_Interface_Synthesis â€” ver Módulo 4, punto 4.1.",
+      "R2ABench_PRD_to_UML mide cuánto de ese trabajo puede hacerse de forma automática con calidad suficiente. PRD_Interface_Synthesis evalúa la capacidad de sintetizar interfaces de sistema a partir de requisitos funcionales no estructurados. Gemini 2.0 Pro (67% de cobertura) no cuenta con datos registrados para PRD_Interface_Synthesis — ver Módulo 4, punto 4.1.",
     benchmarks: [
       { name: "R2ABench_PRD_to_UML", desc: "Transformación automática de PRD a diagramas UML y C4" },
       { name: "PRD_Interface_Synthesis", desc: "Síntesis de interfaces de sistema desde requisitos no estructurados" },
@@ -86,7 +86,7 @@ const RESEARCH_LINES = [
     summary:
       "Los flujos de optimización CAD/CAE son iterativos: se propone un diseño, se simula, se analiza el resultado, se ajustan parámetros, se vuelve a simular. Un agente autónomo que pueda ejecutar ese bucle sin intervención humana en cada iteración puede explorar el espacio de diseño mucho más rápido.",
     detail:
-      "DUCTILE_Agent_Workflow mide la fiabilidad de agentes en flujos de ingeniería complejos. MDO_Autonomous_Loop evalúa bucles autónomos de optimización multidisciplinar. Conceptual_Systems_Agent mide la capacidad de agentes para razonar sobre sistemas en fase conceptual. La disponibilidad de DUCTILE-Sonnet-Agent como componente integrable debe verificarse â€” ver Módulo 4, punto 4.3.",
+      "DUCTILE_Agent_Workflow mide la fiabilidad de agentes en flujos de ingeniería complejos. MDO_Autonomous_Loop evalúa bucles autónomos de optimización multidisciplinar. Conceptual_Systems_Agent mide la capacidad de agentes para razonar sobre sistemas en fase conceptual. La disponibilidad de DUCTILE-Sonnet-Agent como componente integrable debe verificarse — ver Módulo 4, punto 4.3.",
     benchmarks: [
       { name: "DUCTILE_Agent_Workflow", desc: "Fiabilidad de agentes en flujos de ingeniería complejos" },
       { name: "MDO_Autonomous_Loop", desc: "Bucles autónomos de optimización multidisciplinar" },
@@ -108,7 +108,7 @@ const RESEARCH_LINES = [
       { name: "EngSafety_Simulation_Verify", desc: "Verificación de cumplimiento de restricciones de seguridad en sistemas simulados" },
       { name: "Requirements_Traceability_Audit", desc: "Auditoría de trazabilidad bidireccional requisito-código" },
     ],
-    topModel: { name: "Claude 3.7 Sonnet", score: "93.09", detail: "95.2 EngSafety_Simulation_Verify â€” líder en trazabilidad y verificación de sistemas críticos" },
+    topModel: { name: "Claude 3.7 Sonnet", score: "93.09", detail: "95.2 EngSafety_Simulation_Verify — líder en trazabilidad y verificación de sistemas críticos" },
   },
 ];
 
@@ -117,16 +117,16 @@ const PROJECTS = [
     id: "vitruvio",
     name: "Vitruvio IA",
     tagline: "Veinte distribuciones en una hora; el arquitecto elige cinco",
-    desc: "A partir de los requisitos básicos de un espacio â€” superficie, programa de estancias, orientación del solar, restricciones normativas â€” genera propuestas de distribución que satisfacen primero las restricciones de funcionalidad y circulación. La salida es una especificación estructurada (matriz de adyacencias, dimensiones aproximadas, orientación de huecos) importable en herramientas BIM. No genera renders 3D: genera puntos de partida que el arquitecto filtra y desarrolla.",
+    desc: "A partir de los requisitos básicos de un espacio — superficie, programa de estancias, orientación del solar, restricciones normativas — genera propuestas de distribución que satisfacen primero las restricciones de funcionalidad y circulación. La salida es una especificación estructurada (matriz de adyacencias, dimensiones aproximadas, orientación de huecos) importable en herramientas BIM. No genera renders 3D: genera puntos de partida que el arquitecto filtra y desarrolla.",
     color: "cyan",
     researchLines: ["01", "03", "06"],
     professionalDisclaimer: true,
     stack: [
-      { role: "Razonamiento espacial y generación de distribuciones candidatas", tech: "GPT-4.5 â€” líder diseño ingeniería multidominio, 94.2 DesignQA (90.35/100)" },
-      { role: "Síntesis de requisitos a especificación estructurada (PRD â†’ layout)", tech: "Claude 3.7 Sonnet â€” líder transformación PRDâ†’arquitectura (91.48/100)" },
-      { role: "Verificación de restricciones (adyacencia, orientación, normativa)", tech: "Claude 3.7 Sonnet â€” líder trazabilidad y verificación (93.09/100, 95.2 EngSafety)" },
-      { role: "Exportación de plano esquemático", tech: "svgwrite â€” SVG de la distribución con estancias etiquetadas y dimensionadas" },
-      { role: "Almacenamiento", tech: "DuckDB â€” histórico de distribuciones generadas por proyecto" },
+      { role: "Razonamiento espacial y generación de distribuciones candidatas", tech: "GPT-4.5 — líder diseño ingeniería multidominio, 94.2 DesignQA (90.35/100)" },
+      { role: "Síntesis de requisitos a especificación estructurada (PRD â†’ layout)", tech: "Claude 3.7 Sonnet — líder transformación PRDâ†’arquitectura (91.48/100)" },
+      { role: "Verificación de restricciones (adyacencia, orientación, normativa)", tech: "Claude 3.7 Sonnet — líder trazabilidad y verificación (93.09/100, 95.2 EngSafety)" },
+      { role: "Exportación de plano esquemático", tech: "svgwrite — SVG de la distribución con estancias etiquetadas y dimensionadas" },
+      { role: "Almacenamiento", tech: "DuckDB — histórico de distribuciones generadas por proyecto" },
     ],
     whyModels: [
       { model: "GPT-4.5", role: "Razonamiento espacial multidisciplinar", score: "90.35", area: "Diseño de Ingeniería Multidominio" },
@@ -134,9 +134,9 @@ const PROJECTS = [
       { model: "Claude 3.7 Sonnet", role: "Verificación de restricciones y trazabilidad", score: "93.09", area: "Trazabilidad y Seguridad en Ingeniería" },
     ],
     flow: [
-      "Entrada: requisitos en lenguaje natural â€” superficie total y edificable, programa de necesidades con superficies mínimas por estancia, restricciones de orientación solar, restricciones normativas (retranqueos, ocupación máxima), restricciones de adyacencia obligatorias y prohibidas",
+      "Entrada: requisitos en lenguaje natural — superficie total y edificable, programa de necesidades con superficies mínimas por estancia, restricciones de orientación solar, restricciones normativas (retranqueos, ocupación máxima), restricciones de adyacencia obligatorias y prohibidas",
       "Normalización a especificación estructurada (Claude 3.7 Sonnet): lista de estancias con superficies mínimas y máximas, grafo de adyacencias obligatorias y prohibidas, restricciones de orientación por estancia, restricciones normativas cuantificadas",
-      "Generación de N distribuciones candidatas (GPT-4.5): N distribuciones (default: 5) que satisfacen las restricciones â€” cada distribución como matriz de posición de estancias en cuadrícula paramétrica, con justificación de cada decisión de adyacencia y orientación",
+      "Generación de N distribuciones candidatas (GPT-4.5): N distribuciones (default: 5) que satisfacen las restricciones — cada distribución como matriz de posición de estancias en cuadrícula paramétrica, con justificación de cada decisión de adyacencia y orientación",
       "Verificación de restricciones (Claude 3.7 Sonnet): ¿todas las estancias requeridas están presentes con superficie >= mínima? ¿se satisfacen las restricciones de adyacencia? ¿se respetan las restricciones normativas? Etiquetado: VÁLIDA | INVÁLIDA (con razón) | PARCIAL",
       "Ranking de distribuciones válidas: score de eficiencia de circulaciones (ratio superficie útil / pasillos) + score de orientación solar (porcentaje de estancias principales con orientación deseada)",
       "Salida A: JSON de cada distribución válida (matriz + métricas) · Salida B: SVG del plano esquemático · Salida C: justificación textual con trade-offs · Salida D: comparativa tabular",
@@ -169,7 +169,7 @@ Usa svgwrite, duckdb y la librería estándar. Sin frameworks de renderizado 3D.
     promptLLM: `Eres el asistente de síntesis de requisitos de Vitruvio IA en el Laboratorio
 de Ingeniería & Arquitectura de Horizon.
 
-TAREA 1 â€” Síntesis de requisitos:
+TAREA 1 — Síntesis de requisitos:
 Se te proporciona una descripción en lenguaje natural de los requisitos de un proyecto
 de distribución espacial. Extrae la especificación estructurada.
 
@@ -185,7 +185,7 @@ Para las restricciones normativas:
   en el enunciado.
 - Marca toda referencia normativa con "[VERIFICAR NORMATIVA VIGENTE - MUNICIPIO]".
 
-TAREA 2 â€” Verificación de distribución:
+TAREA 2 — Verificación de distribución:
 Se te proporciona una distribución propuesta y la especificación de requisitos.
 Verifica cada restricción explícitamente. Para cada violación, describe con precisión
 qué restricción se incumple y en qué estancia.
@@ -202,27 +202,27 @@ y verify_layout según la tarea que se active.`,
     id: "gaia",
     name: "Gaia Eficiencia",
     tagline: "Saber qué mejora tiene más impacto antes de encargar el certificado",
-    desc: "Toma los datos básicos de un edificio â€” materiales de fachada y cubierta, porcentajes de huecos por orientación, tipo de vidrio, localización y datos climáticos â€” y estima su demanda energética de calefacción y refrigeración. A partir de esa estimación, propone mejoras ordenadas por su relación coste-beneficio: qué cambio tiene mayor impacto en la demanda con menor coste de ejecución. Todas las estimaciones son aproximadas; el cálculo oficial requiere software certificado y firma técnica.",
+    desc: "Toma los datos básicos de un edificio — materiales de fachada y cubierta, porcentajes de huecos por orientación, tipo de vidrio, localización y datos climáticos — y estima su demanda energética de calefacción y refrigeración. A partir de esa estimación, propone mejoras ordenadas por su relación coste-beneficio: qué cambio tiene mayor impacto en la demanda con menor coste de ejecución. Todas las estimaciones son aproximadas; el cálculo oficial requiere software certificado y firma técnica.",
     color: "emerald",
     researchLines: ["01", "06"],
     professionalDisclaimer: true,
     stack: [
-      { role: "Estimación de demanda energética y análisis de envolvente térmica", tech: "GPT-4.5 â€” líder diseño ingeniería y razonamiento físico aplicado (90.35/100, 94.2 DesignQA)" },
-      { role: "Generación y justificación de propuestas de mejora", tech: "Claude 3.7 Sonnet â€” líder trazabilidad y razonamiento arquitectónico (93.09/100)" },
+      { role: "Estimación de demanda energética y análisis de envolvente térmica", tech: "GPT-4.5 — líder diseño ingeniería y razonamiento físico aplicado (90.35/100, 94.2 DesignQA)" },
+      { role: "Generación y justificación de propuestas de mejora", tech: "Claude 3.7 Sonnet — líder trazabilidad y razonamiento arquitectónico (93.09/100)" },
       { role: "Datos climáticos de referencia", tech: "PVGIS (radiación solar) + AEMET/Meteonorm (temperatura exterior por zona) [VERIFICAR FUENTE APLICABLE]" },
-      { role: "Motor de cálculo energético simplificado", tech: "Método simplificado basado en ISO 13790 [VERIFICAR NORMATIVA VIGENTE â€” no sustituto de software certificado]" },
-      { role: "Almacenamiento", tech: "DuckDB â€” histórico de análisis por edificio + comparativa de escenarios" },
+      { role: "Motor de cálculo energético simplificado", tech: "Método simplificado basado en ISO 13790 [VERIFICAR NORMATIVA VIGENTE — no sustituto de software certificado]" },
+      { role: "Almacenamiento", tech: "DuckDB — histórico de análisis por edificio + comparativa de escenarios" },
     ],
     whyModels: [
       { model: "GPT-4.5", role: "Razonamiento físico y estimación energética", score: "90.35", area: "Diseño de Ingeniería Multidominio (94.2 DesignQA)" },
       { model: "Claude 3.7 Sonnet", role: "Trazabilidad de propuestas y auditoría de datos", score: "93.09", area: "Trazabilidad y Seguridad en Ingeniería" },
     ],
     flow: [
-      "Entrada: datos del edificio â€” localización y zona climática, superficie habitable y volumen interior, materiales de fachada (composición, transmitancia U en W/m²K si conocida), porcentaje de huecos por orientación N/S/E/O y tipo de vidrio, tipo de cubierta y espesor de aislamiento, sistema de calefacción/refrigeración actual o previsto (opcional)",
+      "Entrada: datos del edificio — localización y zona climática, superficie habitable y volumen interior, materiales de fachada (composición, transmitancia U en W/m²K si conocida), porcentaje de huecos por orientación N/S/E/O y tipo de vidrio, tipo de cubierta y espesor de aislamiento, sistema de calefacción/refrigeración actual o previsto (opcional)",
       "Obtención de datos climáticos: temperatura media mensual exterior, radiación solar horizontal por orientación, días grado de calefacción y refrigeración para la zona",
       "Estimación de demanda energética (GPT-4.5): cálculo de transmitancia efectiva de la envolvente, estimación de demanda de calefacción (kWh/m²·año) y refrigeración, comparativa con valores de referencia CTE [VERIFICAR NORMATIVA VIGENTE]",
       "Análisis de sensibilidad por componente (GPT-4.5): ¿cuánto reduce la demanda mejorar el aislamiento de fachada X cm? ¿cuánto reduce cambiar a doble bajo emisivo? ¿cuánto afecta la orientación de los huecos principales?",
-      "Generación de propuestas de mejora ordenadas (Claude 3.7 Sonnet): para cada mejora â€” descripción técnica + estimación de reducción de demanda + coste orientativo de ejecución [ESTIMACIÃ“N APROXIMADA], ratio coste/beneficio energético, justificación respaldada en los datos de entrada",
+      "Generación de propuestas de mejora ordenadas (Claude 3.7 Sonnet): para cada mejora — descripción técnica + estimación de reducción de demanda + coste orientativo de ejecución [ESTIMACI“N APROXIMADA], ratio coste/beneficio energético, justificación respaldada en los datos de entrada",
       "Salida A: informe de demanda energética estimada por orientación · Salida B: ranking de mejoras por ratio coste/beneficio · Salida C: comparativa edificio actual vs. escenario mejorado · Salida D: distribución de pérdidas por componente",
     ],
     promptIDE: `Crea un módulo Python llamado gaia_eficiencia.py con las siguientes funciones:
@@ -257,17 +257,17 @@ de Ingeniería & Arquitectura de Horizon.
 Se te proporciona la descripción estructurada de un edificio (envolvente térmica,
 superficies, orientaciones, tipos de material) y los datos climáticos de su zona.
 
-Tarea 1 â€” Estimación de demanda:
+Tarea 1 — Estimación de demanda:
 Estima la demanda de calefacción y refrigeración usando el método simplificado
 basado en transmitancias y grados-día. Muestra el razonamiento paso a paso.
 
 Para cada componente de envolvente:
 1. Si la transmitancia U no está especificada, estímala según el material descrito
-   y márcala como "[U ESTIMADA â€” verificar con ficha técnica del material]".
+   y márcala como "[U ESTIMADA — verificar con ficha técnica del material]".
 2. Calcula las pérdidas o ganancias energéticas por orientación y período.
 3. Suma las contribuciones para obtener la demanda total.
 
-Tarea 2 â€” Análisis de sensibilidad:
+Tarea 2 — Análisis de sensibilidad:
 Para cada componente de la envolvente, estima cuánto cambiaría la demanda si:
 - La transmitancia mejora en un 30% (mejor aislamiento).
 - El porcentaje de huecos aumenta o disminuye un 10%.
@@ -292,11 +292,11 @@ y sensitivity_analysis.`,
     researchLines: ["05", "06"],
     professionalDisclaimer: true,
     stack: [
-      { role: "Orquestador de bucles de simulación de escenarios", tech: "DUCTILE-Sonnet-Agent â€” líder en optimización y flujos de agentes de ingeniería (92.58/100)" },
-      { role: "Trazabilidad y justificación de escenarios simulados", tech: "Claude 3.7 Sonnet â€” líder trazabilidad y verificación en ingeniería (93.09/100)" },
+      { role: "Orquestador de bucles de simulación de escenarios", tech: "DUCTILE-Sonnet-Agent — líder en optimización y flujos de agentes de ingeniería (92.58/100)" },
+      { role: "Trazabilidad y justificación de escenarios simulados", tech: "Claude 3.7 Sonnet — líder trazabilidad y verificación en ingeniería (93.09/100)" },
       { role: "Motor de cálculo de presupuesto", tech: "Generador de mediciones basado en BEDEC / CYPE / Generador de Precios [VERIFICAR BASE DE PRECIOS APLICABLE]" },
       { role: "Motor de planificación de plazos", tech: "Diagrama de Gantt paramétrico con dependencias entre fases (pandas + datetime)" },
-      { role: "Almacenamiento", tech: "DuckDB â€” historial de escenarios simulados por proyecto" },
+      { role: "Almacenamiento", tech: "DuckDB — historial de escenarios simulados por proyecto" },
     ],
     whyModels: [
       { model: "DUCTILE-Sonnet-Agent", role: "Orquestación de simulación de escenarios", score: "92.58", area: "Agentes Autónomos de Optimización (93.8 DUCTILE_Agent_Workflow)" },
@@ -304,7 +304,7 @@ y sensitivity_analysis.`,
     ],
     flow: [
       "Entradas: A) Presupuesto base (CSV/Excel: partidas, mediciones, precios unitarios) · B) Diagrama de fases de obra (Gantt simplificado: fases, duraciones, dependencias) · C) Consulta de escenario en lenguaje natural: «¿qué pasa si cambiamos el revestimiento de fachada de piedra a composite?»",
-      "Análisis del escenario (DUCTILE-Sonnet-Agent): identificación de las partidas del presupuesto afectadas, identificación de las fases del Gantt afectadas, estimación del impacto en coste por partida modificada [ESTIMACIÃ“N ORIENTATIVA], estimación del impacto en plazo por efecto cascada en fases dependientes",
+      "Análisis del escenario (DUCTILE-Sonnet-Agent): identificación de las partidas del presupuesto afectadas, identificación de las fases del Gantt afectadas, estimación del impacto en coste por partida modificada [ESTIMACI“N ORIENTATIVA], estimación del impacto en plazo por efecto cascada en fases dependientes",
       "Cálculo del escenario modificado: nuevo total de presupuesto, nueva fecha de finalización con dependencias propagadas, delta de coste (â‚¬ más/menos que el presupuesto base), delta de plazo (días de adelanto o retraso)",
       "Verificación de trazabilidad (Claude 3.7 Sonnet): ¿cada modificación del escenario está respaldada por una partida del presupuesto base? ¿hay suposiciones no documentadas? ¿el impacto en plazo respeta las dependencias entre fases?",
       "Análisis de sensibilidad global: ¿qué partidas tienen mayor peso relativo en el presupuesto total? ¿qué fases tienen mayor impacto en el plazo si se retrasan? ¿dónde está el margen de seguridad económico actual?",
@@ -356,7 +356,7 @@ Restricciones críticas:
 - Solo modifica partidas que aparezcan explícitamente en el presupuesto base.
   Si el escenario implica una partida que no existe, señálalo y no la añadas.
 - Marca todos los precios unitarios estimados como:
-  "[PRECIO ORIENTATIVO â€” verificar con base de precios actualizada y presupuesto firmado]".
+  "[PRECIO ORIENTATIVO — verificar con base de precios actualizada y presupuesto firmado]".
 - No afirmes plazo ni coste como compromisos: son estimaciones de escenario.
 - Si el escenario es ambiguo, describe la ambigüedad y solicita aclaración
   antes de simular.
@@ -381,7 +381,7 @@ const MARKET_APPS = [
   },
   {
     name: "GitHub Copilot for Infrastructure",
-    desc: "Uso de Copilot en entornos de infraestructura como código (Terraform, Kubernetes, diagramas C4 generados desde PRDs) â€” caso de uso real documentado por equipos de arquitectura de software.",
+    desc: "Uso de Copilot en entornos de infraestructura como código (Terraform, Kubernetes, diagramas C4 generados desde PRDs) — caso de uso real documentado por equipos de arquitectura de software.",
     tag: "Arquitectura de software",
     url: "https://github.com/features/copilot",
   },
@@ -424,7 +424,7 @@ const VERIFICATION_POINTS = [
     items: [
       "DUCTILE-Sonnet-Agent lidera los flujos de agentes de optimización de ingeniería con 92.58/100 (Fuente: ENGDESIGN Leaderboard, latest_rankings_engineering.md).",
       "La disponibilidad de esta arquitectura específica como componente integrable mediante API estándar, su documentación técnica y el proveedor responsable deben verificarse antes de basar en ella una decisión de stack técnico.",
-      "Atlas Constructor depende de este modelo para la orquestación de bucles de simulación â€” verificar disponibilidad como primera acción antes de iniciar el prototipo.",
+      "Atlas Constructor depende de este modelo para la orquestación de bucles de simulación — verificar disponibilidad como primera acción antes de iniciar el prototipo.",
     ],
   },
   {
@@ -447,7 +447,7 @@ const VERIFICATION_POINTS = [
   },
 ];
 
-// â”€â”€â”€ Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Styles —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const STYLES = {
   cyan: {
@@ -479,7 +479,7 @@ const STYLES = {
   },
 };
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ResearchLineCard({ line }) {
   const [open, setOpen] = useState(false);
@@ -576,7 +576,7 @@ function PromptBlock({ label, content }) {
           onClick={copy}
           className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10"
         >
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -612,7 +612,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -689,8 +689,8 @@ function ProjectCard({ project }) {
 
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -729,7 +729,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function IngenieriaLab() {
   return (
@@ -775,7 +775,7 @@ export default function IngenieriaLab() {
                 <span className="text-violet-400">Arquitectura</span>
               </h1>
               <p className="text-white/50 text-lg sm:text-xl mt-3 max-w-2xl leading-relaxed">
-                IA para distribución espacial, estimación energética de edificios y simulación de escenarios de coste y plazo en proyectos de obra. Un segundo par de ojos muy rápido â€” no el par definitivo.
+                IA para distribución espacial, estimación energética de edificios y simulación de escenarios de coste y plazo en proyectos de obra. Un segundo par de ojos muy rápido — no el par definitivo.
               </p>
 
               {/* Aviso de responsabilidad */}
@@ -806,7 +806,7 @@ export default function IngenieriaLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -816,7 +816,7 @@ export default function IngenieriaLab() {
               <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 1</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Qué se investiga aquí</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                En ingeniería y arquitectura las decisiones están encadenadas: la orientación de un edificio afecta su demanda energética, que afecta el espesor del aislamiento, que afecta el coste, que afecta el plazo. La hipótesis del laboratorio es que la IA bien diseñada puede simular ese encadenamiento con mucha más velocidad de la que permite una hoja de cálculo â€” no para reemplazar el criterio del profesional, sino para que llegue a la reunión con escenarios ya explorados.
+                En ingeniería y arquitectura las decisiones están encadenadas: la orientación de un edificio afecta su demanda energética, que afecta el espesor del aislamiento, que afecta el coste, que afecta el plazo. La hipótesis del laboratorio es que la IA bien diseñada puede simular ese encadenamiento con mucha más velocidad de la que permite una hoja de cálculo — no para reemplazar el criterio del profesional, sino para que llegue a la reunión con escenarios ya explorados.
               </p>
             </div>
           </div>
@@ -835,7 +835,7 @@ export default function IngenieriaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -856,7 +856,7 @@ export default function IngenieriaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -900,7 +900,7 @@ export default function IngenieriaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -921,7 +921,7 @@ export default function IngenieriaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · ENGDESIGN & ARCHBENCH Leaderboard · 2026-08-29</p>

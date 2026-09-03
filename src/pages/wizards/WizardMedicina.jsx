@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { ShieldCheck } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Medicina & IA Clínica) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Medicina & IA Clínica) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -119,7 +119,7 @@ const STORAGE_ENGINES = [
   "PostgreSQL / TimescaleDB con Esquemas JSONB de Historia Clínica",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -145,7 +145,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "M1.1" || primaryId === "M1.3" || secondaryIds.includes("SEC-MED-01") || secondaryIds.includes("SEC-MED-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -171,31 +171,31 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Configuración del entorno, endpoints clínicos y claves de API",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 y validadores de integridad clínica",
-    data.primaryTask === "M1.1" ? "â”‚   â”œâ”€â”€ claim_extractor.py        # Segmentador de afirmaciones clínicas atómicas (BR-MED-01)" : null,
-    data.primaryTask === "M1.1" || hasSEC05 ? "â”‚   â”œâ”€â”€ pubmed_verifier.py        # Conector NCBI E-Utilities y validador bibliográfico" : null,
-    data.primaryTask === "M1.2" || hasSEC03 ? "â”‚   â”œâ”€â”€ fhir_builder.py           # Constructor y validador de recursos HL7 FHIR R4 (BR-MED-02)" : null,
-    hasSEC02 ? "â”‚   â”œâ”€â”€ terminology.py            # Mapeo a códigos CIE-10, SNOMED-CT, RxNorm y LOINC" : null,
-    data.primaryTask === "M1.3" ? "â”‚   â”œâ”€â”€ adherence_engine.py       # Planificador de tomas y registro de eventos de adherencia" : null,
-    hasSEC01 || hasSEC07 ? "â”‚   â”œâ”€â”€ safety_guardrail.py       # Guardrail Do-No-Harm y detector de contraindicaciones (BR-MED-05)" : null,
-    data.primaryTask === "M1.5" ? "â”‚   â”œâ”€â”€ clinical_calculator.py    # Motor determinista de fórmulas médicas (GFR, MELD, CHADS2)" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB columnar para auditoría inmutable de afirmaciones" : "Capa de persistencia clínica"),
-    hasSEC06 ? "â”‚   â”œâ”€â”€ alerts_dispatcher.py      # Gestor de alertas sanitarias y derivación urgente (SEC-MED-06)" : null,
-    hasSEC08 ? "â”‚   â”œâ”€â”€ clinical_reporting.py     # Generador de informes clínicos auditables (PDF / JSON-LD)" : null,
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Tarjetas de afirmaciones, badges de verificación y visores FHIR",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard clínico y panel de operador sanitario",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas Pydantic y serialización",
-    "â”‚   â”œâ”€â”€ test_safety_guardrail.py  # Banco de pruebas de no-maleficencia y casos de jailbreak médico",
-    data.primaryTask === "M1.2" ? "â”‚   â””â”€â”€ test_fhir_conformity.py   # Validación de conformidad contra perfiles HL7 FHIR R4" : null,
-    "â”œâ”€â”€ data/                         # Datasets de prueba, ontologías y caché local",
-    "â”œâ”€â”€ requirements.txt              # fhir.resources, pydantic, duckdb, requests, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación clínica",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Configuración del entorno, endpoints clínicos y claves de API",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 y validadores de integridad clínica",
+    data.primaryTask === "M1.1" ? "—‚   —œ—€—€ claim_extractor.py        # Segmentador de afirmaciones clínicas atómicas (BR-MED-01)" : null,
+    data.primaryTask === "M1.1" || hasSEC05 ? "—‚   —œ—€—€ pubmed_verifier.py        # Conector NCBI E-Utilities y validador bibliográfico" : null,
+    data.primaryTask === "M1.2" || hasSEC03 ? "—‚   —œ—€—€ fhir_builder.py           # Constructor y validador de recursos HL7 FHIR R4 (BR-MED-02)" : null,
+    hasSEC02 ? "—‚   —œ—€—€ terminology.py            # Mapeo a códigos CIE-10, SNOMED-CT, RxNorm y LOINC" : null,
+    data.primaryTask === "M1.3" ? "—‚   —œ—€—€ adherence_engine.py       # Planificador de tomas y registro de eventos de adherencia" : null,
+    hasSEC01 || hasSEC07 ? "—‚   —œ—€—€ safety_guardrail.py       # Guardrail Do-No-Harm y detector de contraindicaciones (BR-MED-05)" : null,
+    data.primaryTask === "M1.5" ? "—‚   —œ—€—€ clinical_calculator.py    # Motor determinista de fórmulas médicas (GFR, MELD, CHADS2)" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB columnar para auditoría inmutable de afirmaciones" : "Capa de persistencia clínica"),
+    hasSEC06 ? "—‚   —œ—€—€ alerts_dispatcher.py      # Gestor de alertas sanitarias y derivación urgente (SEC-MED-06)" : null,
+    hasSEC08 ? "—‚   —œ—€—€ clinical_reporting.py     # Generador de informes clínicos auditables (PDF / JSON-LD)" : null,
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Tarjetas de afirmaciones, badges de verificación y visores FHIR",
+    "—‚       —”—€—€ main_view.py          # Dashboard clínico y panel de operador sanitario",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Pruebas de esquemas Pydantic y serialización",
+    "—‚   —œ—€—€ test_safety_guardrail.py  # Banco de pruebas de no-maleficencia y casos de jailbreak médico",
+    data.primaryTask === "M1.2" ? "—‚   —”—€—€ test_fhir_conformity.py   # Validación de conformidad contra perfiles HL7 FHIR R4" : null,
+    "—œ—€—€ data/                         # Datasets de prueba, ontologías y caché local",
+    "—œ—€—€ requirements.txt              # fhir.resources, pydantic, duckdb, requests, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación clínica",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -228,7 +228,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software Médico: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -303,15 +303,15 @@ function generateReport(data) {
     "> - Todo resultado, resumen o informe emitido por el sistema debe ser **revisado y validado por un facultativo cualificado** antes de cualquier toma de decisión asistencial.",
     hasSEC01 || hasSEC07 ? "> - Los módulos de IA integran filtros Do-No-Harm que bloquean activamente cualquier intento de recomendación clínica no autorizada." : null,
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Medicina & IA Clínica.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Medicina & IA Clínica.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon MedAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon MedAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -489,7 +489,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -601,7 +601,7 @@ export default function WizardMedicina() {
             <div className="w-12 h-12 bg-teal-500/10 border border-teal-500/20 rounded-xl flex items-center justify-center shrink-0 text-teal-600 font-display text-xl">ðŸ©º</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Medicina & IA Clínica
+                Diseñador de Proyectos — Medicina & IA Clínica
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación médica paso a paso con rigor técnico, trazabilidad bibliográfica y guardrails Do-No-Harm.
@@ -610,7 +610,7 @@ export default function WizardMedicina() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -618,18 +618,18 @@ export default function WizardMedicina() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación clínica.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica clínica.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Mente Médica, Nexo FHIR, Higía Monitor, CardioCheckâ€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Mente Médica, Nexo FHIR, Higía Monitor, CardioCheck–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias o servicio hospitalario.">Diseñador / Servicio Clínico</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Servicio de Medicina Interna, Unidad de Innovaciónâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Servicio de Medicina Interna, Unidad de Innovación–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función clínica principal. Esto determinará los guardrails y métricas requeridas.">Tarea principal de la aplicación</FieldLabel>
@@ -645,7 +645,7 @@ export default function WizardMedicina() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades clínicas y de seguridad</strong> para robustecer el sistema.</p>
 
                 <div className="bg-teal-500/[0.04] border border-teal-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -664,7 +664,7 @@ export default function WizardMedicina() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ámbito Clínico & Documental</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito Clínico & Documental</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura las especialidades objetivo y las fuentes de datos clínicos que procesará el sistema.</p>
 
                 <div className="space-y-6">
@@ -687,12 +687,12 @@ export default function WizardMedicina() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Métricas de Evaluación Clínica</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Métricas de Evaluación Clínica</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona los indicadores cuantitativos y de seguridad que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-teal-50 border border-teal-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-teal-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} clínica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} clínica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -729,7 +729,7 @@ export default function WizardMedicina() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Seguridad Clínica y Guardrails Do-No-Harm</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Seguridad Clínica y Guardrails Do-No-Harm</h2>
 
                 {hasValidation ? (
                   <>
@@ -781,12 +781,12 @@ export default function WizardMedicina() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico Sanitario</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico Sanitario</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías especializadas para tu aplicación clínica.</p>
 
                 {data.secondaryTasks.includes("SEC-MED-04") && (
                   <div className="bg-teal-50 border border-teal-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-teal-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-MED-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-MED-04.
                   </div>
                 )}
 
@@ -809,7 +809,7 @@ export default function WizardMedicina() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -856,7 +856,7 @@ export default function WizardMedicina() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -872,7 +872,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-teal-600 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-teal-600 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

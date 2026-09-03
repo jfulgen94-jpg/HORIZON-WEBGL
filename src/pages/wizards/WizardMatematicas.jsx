@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Calculator } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Matemáticas & Procesos Complejos) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Matemáticas & Procesos Complejos) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Almacenamiento Local en Ficheros JSON-LD y Markdown con Bloques LaTeX",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -144,7 +144,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "M4.1" || primaryId === "M4.4" || primaryId === "M4.6" || secondaryIds.includes("SEC-MATH-01") || secondaryIds.includes("SEC-MATH-06") || secondaryIds.includes("SEC-MATH-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -170,30 +170,30 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Parámetros numéricos, tolerancias épsilon y timeouts",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para pasos, demostraciones y tensores" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de Verificación de Premisas (BR-MATH-05)" : ""),
-    data.primaryTask === "M4.1" || hasSEC06 ? "â”‚   â”œâ”€â”€ proof_segmenter.py        # Segmentador atómico de cadenas de razonamiento (BR-MATH-01)" : null,
-    data.primaryTask === "M4.1" || hasSEC01 ? "â”‚   â”œâ”€â”€ symbolic_verifier.py      # Motor de equivalencia algebraica con SymPy en sandbox aislado" : null,
-    data.primaryTask === "M4.2" ? "â”‚   â”œâ”€â”€ optimization_solver.py    # Solucionador MILP / Simplex con SciPy y PuLP (BR-MATH-02)" : null,
-    data.primaryTask === "M4.3" || hasSEC03 ? "â”‚   â”œâ”€â”€ stochastic_engine.py      # Simulador Monte Carlo paralelizado con Numba JIT (BR-MATH-03)" : null,
-    data.primaryTask === "M4.5" ? "â”‚   â”œâ”€â”€ multiagent_coordinator.py # Coordinador de descomposición y sincronización MAFBench" : null,
-    data.primaryTask === "M4.6" ? "â”‚   â”œâ”€â”€ python_sandbox.py         # Intérprete Python seguro con NumPy/SciPy para tool-use determinista" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-MATH-04) con registro inmutable de veredictos" : "Capa de persistencia matemática"),
-    hasSEC08 ? "â”‚   â”œâ”€â”€ graph_visualizer.py       # Renderizador de grafos y árboles de derivación con NetworkX" : null,
-    "â”‚   â”œâ”€â”€ latex_reporter.py         # Generador de informes en LaTeX y Markdown con fórmulas KaTeX",
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visor KaTeX, tarjetas de pasos anotados y paneles de convergencia",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de cálculo y panel interactivo",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Validación de modelos y serialización de tensores",
-    data.primaryTask === "M4.1" ? "â”‚   â”œâ”€â”€ test_symbolic_equiv.py    # Batería de identidades algebraicas y simplificaciones SymPy" : null,
-    data.primaryTask === "M4.2" ? "â”‚   â””â”€â”€ test_optimization.py      # Casos de prueba de optimización lineal y convergencia" : null,
-    "â”œâ”€â”€ data/                         # Datasets de prueba, problemas de olimpiada y caché",
-    "â”œâ”€â”€ requirements.txt              # sympy, numpy, scipy, pulp, duckdb, pydantic, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación matemática",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Parámetros numéricos, tolerancias épsilon y timeouts",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para pasos, demostraciones y tensores" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Verificación de Premisas (BR-MATH-05)" : ""),
+    data.primaryTask === "M4.1" || hasSEC06 ? "—‚   —œ—€—€ proof_segmenter.py        # Segmentador atómico de cadenas de razonamiento (BR-MATH-01)" : null,
+    data.primaryTask === "M4.1" || hasSEC01 ? "—‚   —œ—€—€ symbolic_verifier.py      # Motor de equivalencia algebraica con SymPy en sandbox aislado" : null,
+    data.primaryTask === "M4.2" ? "—‚   —œ—€—€ optimization_solver.py    # Solucionador MILP / Simplex con SciPy y PuLP (BR-MATH-02)" : null,
+    data.primaryTask === "M4.3" || hasSEC03 ? "—‚   —œ—€—€ stochastic_engine.py      # Simulador Monte Carlo paralelizado con Numba JIT (BR-MATH-03)" : null,
+    data.primaryTask === "M4.5" ? "—‚   —œ—€—€ multiagent_coordinator.py # Coordinador de descomposición y sincronización MAFBench" : null,
+    data.primaryTask === "M4.6" ? "—‚   —œ—€—€ python_sandbox.py         # Intérprete Python seguro con NumPy/SciPy para tool-use determinista" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-MATH-04) con registro inmutable de veredictos" : "Capa de persistencia matemática"),
+    hasSEC08 ? "—‚   —œ—€—€ graph_visualizer.py       # Renderizador de grafos y árboles de derivación con NetworkX" : null,
+    "—‚   —œ—€—€ latex_reporter.py         # Generador de informes en LaTeX y Markdown con fórmulas KaTeX",
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Visor KaTeX, tarjetas de pasos anotados y paneles de convergencia",
+    "—‚       —”—€—€ main_view.py          # Dashboard de cálculo y panel interactivo",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Validación de modelos y serialización de tensores",
+    data.primaryTask === "M4.1" ? "—‚   —œ—€—€ test_symbolic_equiv.py    # Batería de identidades algebraicas y simplificaciones SymPy" : null,
+    data.primaryTask === "M4.2" ? "—‚   —”—€—€ test_optimization.py      # Casos de prueba de optimización lineal y convergencia" : null,
+    "—œ—€—€ data/                         # Datasets de prueba, problemas de olimpiada y caché",
+    "—œ—€—€ requirements.txt              # sympy, numpy, scipy, pulp, duckdb, pydantic, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación matemática",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -226,7 +226,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software Matemático: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -292,22 +292,22 @@ function generateReport(data) {
     "",
     "### 7. Cláusula de Cumplimiento Científico y Descargo de Responsabilidad",
     "",
-    "> **AVISO CIENTÍFICO Y METODOLÃ“GICO OBLIGATORIO**",
+    "> **AVISO CIENTÍFICO Y METODOL“GICO OBLIGATORIO**",
     ">",
     "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de investigación, cálculo computacional y verificación formal**.",
     ">",
     "> - Todo resultado analítico, optimización o demostración matemática debe ser **interpretado considerando las tolerancias numéricas y los límites de precisión** del motor computacional empleado.",
     "> - Las salidas generadas por modelos de lenguaje son auditadas por motores deterministas (SymPy / SciPy) antes de su certificación final.",
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Matemáticas & Procesos Complejos.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Matemáticas & Procesos Complejos.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon MathAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon MathAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -485,7 +485,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -597,7 +597,7 @@ export default function WizardMatematicas() {
             <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex items-center justify-center shrink-0 text-indigo-600 font-display text-xl">âˆ‘</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Matemáticas & Optimización
+                Diseñador de Proyectos — Matemáticas & Optimización
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación matemática paso a paso con rigor formal, verificación simbólica y optimización combinatoria.
@@ -606,7 +606,7 @@ export default function WizardMatematicas() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -614,18 +614,18 @@ export default function WizardMatematicas() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación matemática.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica matemática.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Prisma Matemático, Simplex Helios, Predictor Riesgo, GraphFlowâ€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Prisma Matemático, Simplex Helios, Predictor Riesgo, GraphFlow–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias o departamento de I+D / Matemáticas.">Diseñador / Equipo de Investigación</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Investigador Cuantitativo, Grupo de Optimizaciónâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Investigador Cuantitativo, Grupo de Optimización–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función matemática principal. Esto determinará los motores computacionales y guardrails requeridos.">Tarea principal de la aplicación</FieldLabel>
@@ -641,7 +641,7 @@ export default function WizardMatematicas() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades computacionales y de verificación</strong> para robustecer el sistema.</p>
 
                 <div className="bg-indigo-500/[0.04] border border-indigo-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -660,7 +660,7 @@ export default function WizardMatematicas() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Dominio Matemático & Motores de Cálculo</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Dominio Matemático & Motores de Cálculo</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura las áreas teóricas y los motores de álgebra computacional que utilizará el sistema.</p>
 
                 <div className="space-y-6">
@@ -683,12 +683,12 @@ export default function WizardMatematicas() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas Matemáticas</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas Matemáticas</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de rigor formal, convergencia y optimalidad que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-indigo-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} matemática{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} matemática{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -725,7 +725,7 @@ export default function WizardMatematicas() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Rigor Formal y Guardrails Antialucinación</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Rigor Formal y Guardrails Antialucinación</h2>
 
                 {hasValidation ? (
                   <>
@@ -777,12 +777,12 @@ export default function WizardMatematicas() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación matemática.</p>
 
                 {data.secondaryTasks.includes("SEC-MATH-04") && (
                   <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-indigo-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-MATH-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-MATH-04.
                   </div>
                 )}
 
@@ -805,7 +805,7 @@ export default function WizardMatematicas() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -852,7 +852,7 @@ export default function WizardMatematicas() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -868,7 +868,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-indigo-600 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-indigo-600 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

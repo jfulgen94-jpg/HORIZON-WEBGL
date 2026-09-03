@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { HardHat } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Ingeniería & Arquitectura) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Ingeniería & Arquitectura) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -80,7 +80,7 @@ const COMPUTATION_ENGINES = [
 ];
 
 const ENGINEERING_METRICS = [
-  { id: "circulation_eff", label: "Eficiencia de Circulación Espacial (Ratio Ãštil/Pasillos)", cat: "Diseño Espacial", desc: "Porcentaje de superficie útil respecto al área total construida del proyecto." },
+  { id: "circulation_eff", label: "Eficiencia de Circulación Espacial (Ratio štil/Pasillos)", cat: "Diseño Espacial", desc: "Porcentaje de superficie útil respecto al área total construida del proyecto." },
   { id: "orientation_solar_score", label: "Índice de Captación y Orientación Solar", cat: "Diseño Espacial", desc: "Grado de concordancia entre la orientación de estancias principales y la radiación solar óptima." },
   { id: "thermal_transmittance_u", label: "Transmitancia Térmica Global U (W/m²K)", cat: "Eficiencia Energética", desc: "Aislamiento térmico medio ponderado de la envolvente del edificio según CTE DB-HE." },
   { id: "energy_demand_kwh", label: "Demanda Energética Anual Estimada (kWh/m²·año)", cat: "Eficiencia Energética", desc: "Consumo previsto para calefacción, refrigeración y ACS del inmueble." },
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Almacenamiento Estructurado de Proyectos en Ficheros JSON-LD y Markdown",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -143,7 +143,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "I1.1" || primaryId === "I1.2" || primaryId === "I1.5" || secondaryIds.includes("SEC-ENG-01") || secondaryIds.includes("SEC-ENG-06") || secondaryIds.includes("SEC-ENG-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -169,31 +169,31 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Parámetros del proyecto, tolerancias geométricas y rutas",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para estancias, envolventes y diagramas" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de Aislamiento de Firma (BR-ENG-05)" : ""),
-    data.primaryTask === "I1.1" ? "â”‚   â”œâ”€â”€ spatial_layout.py         # Motor de distribución en cuadrícula paramétrica (BR-ENG-01)" : null,
-    data.primaryTask === "I1.1" || hasSEC02 ? "â”‚   â”œâ”€â”€ svg_renderer.py           # Renderizador vectorial de planos y diagramas con svgwrite" : null,
-    data.primaryTask === "I1.2" || hasSEC08 ? "â”‚   â”œâ”€â”€ thermal_engine.py         # Simulador de transmitancia U y cálculo higrotérmico (BR-ENG-02)" : null,
-    data.primaryTask === "I1.3" ? "â”‚   â”œâ”€â”€ construction_monitor.py   # Motor de seguimiento PERT/CPM y varianza de costes" : null,
-    data.primaryTask === "I1.4" ? "â”‚   â”œâ”€â”€ prd_to_c4.py              # Sintetizador de requisitos funcionales a PlantUML / C4 (BR-ENG-03)" : null,
-    data.primaryTask === "I1.5" ? "â”‚   â”œâ”€â”€ mdo_optimizer.py          # Optimizador multidisciplinar con modelos sustitutos" : null,
-    data.primaryTask === "I1.6" ? "â”‚   â”œâ”€â”€ adr_generator.py          # Generador de Architecture Decision Records y trade-offs" : null,
-    hasSEC01 ? "â”‚   â”œâ”€â”€ normative_checker.py      # Validador de cumplimiento de CTE y normativas técnicas" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-ENG-04) con trazabilidad inmutable" : "Capa de persistencia técnica"),
-    "â”‚   â”œâ”€â”€ technical_reporting.py    # Generador de memorias técnicas y memorias de cálculo (PDF / Markdown)",
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visores de planos SVG, tablas de transmitancias y tarjetas de estancias",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de ingeniería y panel de proyecto",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas y validaciones geométricas",
-    data.primaryTask === "I1.1" ? "â”‚   â”œâ”€â”€ test_spatial_layout.py    # Casos de prueba de adyacencias y retranqueos" : null,
-    data.primaryTask === "I1.2" ? "â”‚   â””â”€â”€ test_thermal_calc.py      # Validación de fórmulas de transmitancia térmica" : null,
-    "â”œâ”€â”€ data/                         # Ficheros SVG, series climáticas EPW y caché de proyecto",
-    "â”œâ”€â”€ requirements.txt              # svgwrite, numpy, scipy, duckdb, pydantic, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación de ingeniería",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Parámetros del proyecto, tolerancias geométricas y rutas",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para estancias, envolventes y diagramas" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Aislamiento de Firma (BR-ENG-05)" : ""),
+    data.primaryTask === "I1.1" ? "—‚   —œ—€—€ spatial_layout.py         # Motor de distribución en cuadrícula paramétrica (BR-ENG-01)" : null,
+    data.primaryTask === "I1.1" || hasSEC02 ? "—‚   —œ—€—€ svg_renderer.py           # Renderizador vectorial de planos y diagramas con svgwrite" : null,
+    data.primaryTask === "I1.2" || hasSEC08 ? "—‚   —œ—€—€ thermal_engine.py         # Simulador de transmitancia U y cálculo higrotérmico (BR-ENG-02)" : null,
+    data.primaryTask === "I1.3" ? "—‚   —œ—€—€ construction_monitor.py   # Motor de seguimiento PERT/CPM y varianza de costes" : null,
+    data.primaryTask === "I1.4" ? "—‚   —œ—€—€ prd_to_c4.py              # Sintetizador de requisitos funcionales a PlantUML / C4 (BR-ENG-03)" : null,
+    data.primaryTask === "I1.5" ? "—‚   —œ—€—€ mdo_optimizer.py          # Optimizador multidisciplinar con modelos sustitutos" : null,
+    data.primaryTask === "I1.6" ? "—‚   —œ—€—€ adr_generator.py          # Generador de Architecture Decision Records y trade-offs" : null,
+    hasSEC01 ? "—‚   —œ—€—€ normative_checker.py      # Validador de cumplimiento de CTE y normativas técnicas" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-ENG-04) con trazabilidad inmutable" : "Capa de persistencia técnica"),
+    "—‚   —œ—€—€ technical_reporting.py    # Generador de memorias técnicas y memorias de cálculo (PDF / Markdown)",
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Visores de planos SVG, tablas de transmitancias y tarjetas de estancias",
+    "—‚       —”—€—€ main_view.py          # Dashboard de ingeniería y panel de proyecto",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Pruebas de esquemas y validaciones geométricas",
+    data.primaryTask === "I1.1" ? "—‚   —œ—€—€ test_spatial_layout.py    # Casos de prueba de adyacencias y retranqueos" : null,
+    data.primaryTask === "I1.2" ? "—‚   —”—€—€ test_thermal_calc.py      # Validación de fórmulas de transmitancia térmica" : null,
+    "—œ—€—€ data/                         # Ficheros SVG, series climáticas EPW y caché de proyecto",
+    "—œ—€—€ requirements.txt              # svgwrite, numpy, scipy, duckdb, pydantic, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación de ingeniería",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -226,7 +226,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software de Ingeniería / Arquitectura: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -300,15 +300,15 @@ function generateReport(data) {
     "> - Toda distribución espacial, dimensionamiento de envolvente térmica o estimación de costes debe ser **verificada y aprobada por el responsable facultativo del proyecto** antes de su ejecución material.",
     "> - Las herramientas de IA generan variantes exploratorias bajo el principio de supervisión humana (Human-in-the-Loop).",
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Ingeniería & Arquitectura.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Ingeniería & Arquitectura.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon EngAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon EngAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -486,7 +486,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -598,7 +598,7 @@ export default function WizardIngenieria() {
             <div className="w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 rounded-xl flex items-center justify-center shrink-0 text-cyan-600 font-display text-xl">ðŸ“</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Ingeniería & Arquitectura
+                Diseñador de Proyectos — Ingeniería & Arquitectura
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación técnica paso a paso con optimización espacial, simulación física y trazabilidad de requisitos.
@@ -607,7 +607,7 @@ export default function WizardIngenieria() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -615,18 +615,18 @@ export default function WizardIngenieria() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación técnica.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica de ingeniería.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Vitruvio IA, Gaia Eficiencia, Atlas Constructor, PRD to C4â€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Vitruvio IA, Gaia Eficiencia, Atlas Constructor, PRD to C4–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias o estudio de arquitectura / ingeniería.">Diseñador / Estudio Técnico</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Estudio de Arquitectura, Departamento de Proyectosâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Estudio de Arquitectura, Departamento de Proyectos–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función principal. Esto determinará los motores computacionales y normativas técnicas requeridas.">Tarea principal de la aplicación</FieldLabel>
@@ -642,7 +642,7 @@ export default function WizardIngenieria() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades técnicas y de exportación</strong> para robustecer el sistema.</p>
 
                 <div className="bg-cyan-500/[0.04] border border-cyan-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -661,7 +661,7 @@ export default function WizardIngenieria() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Especialidades & Motores de Cálculo</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Especialidades & Motores de Cálculo</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura las ramas de la ingeniería y los motores de cálculo vectorial y térmico que empleará el sistema.</p>
 
                 <div className="space-y-6">
@@ -684,12 +684,12 @@ export default function WizardIngenieria() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas de Ingeniería</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas de Ingeniería</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de eficiencia espacial, transmitancia térmica y planificación que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-cyan-50 border border-cyan-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-cyan-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} técnica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} técnica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -726,7 +726,7 @@ export default function WizardIngenieria() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Verificación Técnica y Guardrails de Seguridad</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Verificación Técnica y Guardrails de Seguridad</h2>
 
                 {hasValidation ? (
                   <>
@@ -778,12 +778,12 @@ export default function WizardIngenieria() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación de ingeniería.</p>
 
                 {data.secondaryTasks.includes("SEC-ENG-04") && (
                   <div className="bg-cyan-50 border border-cyan-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-cyan-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-ENG-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-ENG-04.
                   </div>
                 )}
 
@@ -806,7 +806,7 @@ export default function WizardIngenieria() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -853,7 +853,7 @@ export default function WizardIngenieria() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -869,7 +869,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-cyan-600 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-cyan-600 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

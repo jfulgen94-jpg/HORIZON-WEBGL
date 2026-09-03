@@ -12,7 +12,7 @@ import { BarChart3 } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Info } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -23,11 +23,11 @@ const RESEARCH_LINES = [
     summary:
       "La Teoría de la Mente (ToM) es la capacidad cognitiva de inferir qué cree, quiere o siente otra persona, distinguiendo esos estados mentales de los propios. Es un prerequisito para cualquier aplicación que requiera negociación, mediación o comunicación estratégica: si el modelo no puede razonar sobre lo que sabe la contraparte, no puede simular una negociación realista ni anticipar el impacto de un argumento.",
     detail:
-      "ToMBench evalúa 8 tareas que cubren 31 habilidades cognitivas relacionadas con la cognición social. BigToM mide escenarios de falsas creencias de primer y segundo orden: razonar sobre lo que otra persona cree, incluso cuando esa creencia es falsa. CogToM (marco ATOMS) y ToMATO añaden la dimensión conversacional. Ningún modelo evaluado alcanza el 100% de cobertura: los tres líderes (Claude 3.7 Sonnet, DeepSeek-R1 y GPT-4.5) carecen de datos en MMToM_QA_Multimodal_Video_Text â€” ver Módulo 4, punto 4.1.",
+      "ToMBench evalúa 8 tareas que cubren 31 habilidades cognitivas relacionadas con la cognición social. BigToM mide escenarios de falsas creencias de primer y segundo orden: razonar sobre lo que otra persona cree, incluso cuando esa creencia es falsa. CogToM (marco ATOMS) y ToMATO añaden la dimensión conversacional. Ningún modelo evaluado alcanza el 100% de cobertura: los tres líderes (Claude 3.7 Sonnet, DeepSeek-R1 y GPT-4.5) carecen de datos en MMToM_QA_Multimodal_Video_Text — ver Módulo 4, punto 4.1.",
     benchmarks: [
       { name: "ToMBench_Social_Cognition_8Tasks", desc: "8 tareas, 31 habilidades cognitivas de cognición social" },
       { name: "BigToM_False_Belief_Reasoning", desc: "Falsas creencias de primer y segundo orden" },
-      { name: "MMToM_QA_Multimodal_Video_Text", desc: "ToM multimodal en vídeo + texto â€” sin datos en ningún modelo evaluado" },
+      { name: "MMToM_QA_Multimodal_Video_Text", desc: "ToM multimodal en vídeo + texto — sin datos en ningún modelo evaluado" },
     ],
     topModel: {
       name: "Claude 3.7 Sonnet",
@@ -44,11 +44,11 @@ const RESEARCH_LINES = [
     summary:
       "CogToM y ToMATO miden la dimensión conversacional de la ToM: mantener el seguimiento del estado epistémico de la contraparte a lo largo de un diálogo extendido. No basta con inferir una creencia en un momento puntual; hay que rastrear cómo cambia esa creencia turno a turno, qué nueva información ha revelado el interlocutor y qué sigue ocultando.",
     detail:
-      "CogToM (marco ATOMS) evalúa el seguimiento de estados mentales en diálogos con asimetrías de información. ToMATO_Asymmetric_Dialogue_ToM mide la ToM en situaciones donde las dos partes tienen distinto acceso a la información â€” exactamente el escenario de una negociación real. MOMENTS_Narrative_Video_ToM incorpora contexto narrativo. Claude 3.7 Sonnet (67% cobertura) carece de datos en MOMENTS_Narrative_Video_ToM â€” ver Módulo 4.",
+      "CogToM (marco ATOMS) evalúa el seguimiento de estados mentales en diálogos con asimetrías de información. ToMATO_Asymmetric_Dialogue_ToM mide la ToM en situaciones donde las dos partes tienen distinto acceso a la información — exactamente el escenario de una negociación real. MOMENTS_Narrative_Video_ToM incorpora contexto narrativo. Claude 3.7 Sonnet (67% cobertura) carece de datos en MOMENTS_Narrative_Video_ToM — ver Módulo 4.",
     benchmarks: [
       { name: "CogToM_ATOMS_Framework", desc: "Seguimiento de estados mentales en diálogos con asimetrías de información" },
       { name: "ToMATO_Asymmetric_Dialogue_ToM", desc: "ToM en negociación: distintas partes, distinto acceso a la información" },
-      { name: "MOMENTS_Narrative_Video_ToM", desc: "ToM en contexto narrativo â€” datos parciales en modelos evaluados" },
+      { name: "MOMENTS_Narrative_Video_ToM", desc: "ToM en contexto narrativo — datos parciales en modelos evaluados" },
     ],
     topModel: {
       name: "Claude 3.7 Sonnet",
@@ -63,12 +63,12 @@ const RESEARCH_LINES = [
     title: "Inteligencia emocional y reconocimiento afectivo implícito",
     color: "rose",
     summary:
-      "El reconocimiento emocional implícito â€” detectar que alguien está frustrado en un mensaje que no dice 'estoy frustrado', sino que usa un tono que lo sugiere â€” es una de las capacidades más difíciles de evaluar en modelos de lenguaje. La distinción importa: un modelo no siente empatía en sentido psicológico, pero puede producir respuestas que estadísticamente se parecen a las que un humano empático generaría.",
+      "El reconocimiento emocional implícito — detectar que alguien está frustrado en un mensaje que no dice 'estoy frustrado', sino que usa un tono que lo sugiere — es una de las capacidades más difíciles de evaluar en modelos de lenguaje. La distinción importa: un modelo no siente empatía en sentido psicológico, pero puede producir respuestas que estadísticamente se parecen a las que un humano empático generaría.",
     detail:
-      "EmotionQueen evalúa 10.000 enunciados frente a expertos humanos. EmpathyBench incluye las escalas psicológicas RMET (Reading the Mind in the Eyes Test), EQ e IRI. Implicit_Emotion_Recognition mide la detección de emociones no declaradas explícitamente en el texto. Claude 3.7 Sonnet lidera con 95.52/100 compuesto. GPT-4.5 (67% cobertura) no cuenta con datos en Implicit_Emotion_Recognition â€” ver Módulo 4.",
+      "EmotionQueen evalúa 10.000 enunciados frente a expertos humanos. EmpathyBench incluye las escalas psicológicas RMET (Reading the Mind in the Eyes Test), EQ e IRI. Implicit_Emotion_Recognition mide la detección de emociones no declaradas explícitamente en el texto. Claude 3.7 Sonnet lidera con 95.52/100 compuesto. GPT-4.5 (67% cobertura) no cuenta con datos en Implicit_Emotion_Recognition — ver Módulo 4.",
     benchmarks: [
       { name: "Implicit_Emotion_Recognition", desc: "Detección de emociones no declaradas explícitamente en el texto" },
-      { name: "EmpathyBench_RMET_EQ_IRI", desc: "Escalas psicológicas RMET, EQ e IRI â€” reconocimiento desde expresión" },
+      { name: "EmpathyBench_RMET_EQ_IRI", desc: "Escalas psicológicas RMET, EQ e IRI — reconocimiento desde expresión" },
       { name: "EmotionQueen_10k_Empathy_Bench", desc: "10.000 enunciados evaluados frente a expertos humanos" },
     ],
     topModel: {
@@ -85,16 +85,16 @@ const RESEARCH_LINES = [
     summary:
       "El pensamiento divergente es la capacidad de generar múltiples soluciones genuinamente distintas para un mismo problema. El benchmark DAT (Divergent Association Task) mide la distancia semántica entre conceptos generados libremente como proxy de novedad e imprevisibilidad. La trampa fácil de los sistemas de ideación: producir variaciones del mismo enfoque con vocabulario distinto, en lugar de saltos semánticos reales.",
     detail:
-      "DAT mide la distancia coseno entre conceptos generados libremente â€” cuanto mayor, más alejado del pensamiento obvio. CreativityPrism evalúa la tríada calidad-novedad-diversidad simultáneamente. Divergent_Thinking_Creativity_Bench mide el pensamiento divergente en contextos aplicados. Claude 3.7 Sonnet lidera con 96.64/100 y 98.2 en DAT â€” la puntuación más alta de cualquier modelo en cualquier benchmark de este laboratorio. GPT-4.5 (67%) carece de datos en CreativityPrism.",
+      "DAT mide la distancia coseno entre conceptos generados libremente — cuanto mayor, más alejado del pensamiento obvio. CreativityPrism evalúa la tríada calidad-novedad-diversidad simultáneamente. Divergent_Thinking_Creativity_Bench mide el pensamiento divergente en contextos aplicados. Claude 3.7 Sonnet lidera con 96.64/100 y 98.2 en DAT — la puntuación más alta de cualquier modelo en cualquier benchmark de este laboratorio. GPT-4.5 (67%) carece de datos en CreativityPrism.",
     benchmarks: [
-      { name: "DAT_Divergent_Association_Task", desc: "Distancia semántica entre conceptos â€” proxy de novedad real" },
+      { name: "DAT_Divergent_Association_Task", desc: "Distancia semántica entre conceptos — proxy de novedad real" },
       { name: "CreativityPrism_Quality_Novelty_Diversity", desc: "Tríada calidad-novedad-diversidad evaluada simultáneamente" },
       { name: "Divergent_Thinking_Creativity_Bench", desc: "Pensamiento divergente en contextos aplicados" },
     ],
     topModel: {
       name: "Claude 3.7 Sonnet",
       score: "96.64",
-      detail: "98.2 DAT â€” la puntuación más alta de cualquier modelo en cualquier benchmark del laboratorio",
+      detail: "98.2 DAT — la puntuación más alta de cualquier modelo en cualquier benchmark del laboratorio",
     },
   },
   {
@@ -103,17 +103,17 @@ const RESEARCH_LINES = [
     title: "Pensamiento creativo convergente e insight de conexiones remotas",
     color: "violet",
     summary:
-      "El pensamiento convergente de tipo insight busca la conexión no obvia que resuelve un problema con restricciones: dado un trío de palabras, encontrar la que las conecta a todas (RAT: Remote Associates Test). NeoGauge/NeoCoder aplica Denial Prompting â€” restricciones negativas que obligan a superar la fijación funcional. La fascinación por lo evidente mata el insight.",
+      "El pensamiento convergente de tipo insight busca la conexión no obvia que resuelve un problema con restricciones: dado un trío de palabras, encontrar la que las conecta a todas (RAT: Remote Associates Test). NeoGauge/NeoCoder aplica Denial Prompting — restricciones negativas que obligan a superar la fijación funcional. La fascinación por lo evidente mata el insight.",
     detail:
       "RAT_Remote_Associates_Insight mide la capacidad de encontrar la conexión no obvia bajo restricciones semánticas. NeoGauge_NeoCoder_Denial_Prompting evalúa la robustez del pensamiento convergente ante restricciones negativas que fuerzan el abandono del camino predecible. DeepSeek-R1 lidera con 93.43/100 y 94.8 en RAT. Claude 3.7 Sonnet (67%) carece de datos en RAT.",
     benchmarks: [
-      { name: "RAT_Remote_Associates_Insight", desc: "Remote Associates Test â€” conexión no obvia entre tríos de conceptos" },
+      { name: "RAT_Remote_Associates_Insight", desc: "Remote Associates Test — conexión no obvia entre tríos de conceptos" },
       { name: "NeoGauge_NeoCoder_Denial_Prompting", desc: "Restricciones negativas que fuerzan el abandono de la fijación funcional" },
     ],
     topModel: {
       name: "DeepSeek-R1",
       score: "93.43",
-      detail: "94.8 RAT_Remote_Associates_Insight â€” líder en resolución de insight y conexiones remotas",
+      detail: "94.8 RAT_Remote_Associates_Insight — líder en resolución de insight y conexiones remotas",
     },
     warning: true,
   },
@@ -143,27 +143,27 @@ const PROJECTS = [
   {
     id: "anima-ai",
     name: "Ánima AI",
-    tagline: "Escuchar antes de responder â€” el núcleo técnico del acompañamiento",
-    desc: "No es un chatbot de propósito general que responde con eficiencia informativa. Ánima AI detecta señales emocionales implícitas en el texto â€” un mensaje que dice 'no pasa nada, ya lo resolveré' pero cuya estructura lingüística sugiere agotamiento â€” y ajusta el tono de su respuesta para acompañar a la persona, sin fingir ser un terapeuta ni sustituir apoyo psicológico real. La respuesta generada no etiqueta la emoción detectada: la acompaña ajustando el tono, la longitud y el modo (validar vs. acompañar vs. orientar) al estado emocional estimado. En situaciones de alta carga emocional, escala al Anima-Empathetic-Agent especializado.",
+    tagline: "Escuchar antes de responder — el núcleo técnico del acompañamiento",
+    desc: "No es un chatbot de propósito general que responde con eficiencia informativa. Ánima AI detecta señales emocionales implícitas en el texto — un mensaje que dice 'no pasa nada, ya lo resolveré' pero cuya estructura lingüística sugiere agotamiento — y ajusta el tono de su respuesta para acompañar a la persona, sin fingir ser un terapeuta ni sustituir apoyo psicológico real. La respuesta generada no etiqueta la emoción detectada: la acompaña ajustando el tono, la longitud y el modo (validar vs. acompañar vs. orientar) al estado emocional estimado. En situaciones de alta carga emocional, escala al Anima-Empathetic-Agent especializado.",
     color: "rose",
     researchLines: ["03", "06"],
     stack: [
-      { role: "Detección de emoción implícita y generación de respuesta empática", tech: "Claude 3.7 Sonnet â€” líder inteligencia emocional (95.52/100, 94.5 Implicit_Emotion_Recognition)" },
-      { role: "Agente de escalada para alta carga emocional (CRITICAL)", tech: "Anima-Empathetic-Agent â€” líder soporte conversacional (98.53/100, 99.1 Crisis_Deescalation_Safety_Bench)" },
-      { role: "Clasificador heurístico de señal emocional", tech: "Análisis de indicadores lingüísticos â€” hedges, diminutivos, longitud de frase, puntuación â€” antes de llamar al LLM" },
+      { role: "Detección de emoción implícita y generación de respuesta empática", tech: "Claude 3.7 Sonnet — líder inteligencia emocional (95.52/100, 94.5 Implicit_Emotion_Recognition)" },
+      { role: "Agente de escalada para alta carga emocional (CRITICAL)", tech: "Anima-Empathetic-Agent — líder soporte conversacional (98.53/100, 99.1 Crisis_Deescalation_Safety_Bench)" },
+      { role: "Clasificador heurístico de señal emocional", tech: "Análisis de indicadores lingüísticos — hedges, diminutivos, longitud de frase, puntuación — antes de llamar al LLM" },
       { role: "Gestor de turnos y estado emocional del diálogo", tech: "Estado conversacional que rastrea la evolución del tono emocional a lo largo del diálogo (N turnos configurable)" },
-      { role: "Log de sesiones y estado emocional estimado por turno", tech: "DuckDB â€” historial de sesiones + log de emotional_load, mode_used y safety_flag por turno" },
+      { role: "Log de sesiones y estado emocional estimado por turno", tech: "DuckDB — historial de sesiones + log de emotional_load, mode_used y safety_flag por turno" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "Motor principal â€” detección y respuesta empática", score: "95.52", area: "Inteligencia Emocional y Empatía (94.5 Implicit_Emotion_Recognition · 96.2 EmpathyBench_RMET_EQ_IRI)" },
-      { model: "Anima-Empathetic-Agent", role: "Escalada â€” situaciones de alta carga emocional", score: "98.53", area: "Soporte Conversacional Empático No Clínico (99.1 Crisis_Deescalation_Safety_Bench)" },
+      { model: "Claude 3.7 Sonnet", role: "Motor principal — detección y respuesta empática", score: "95.52", area: "Inteligencia Emocional y Empatía (94.5 Implicit_Emotion_Recognition · 96.2 EmpathyBench_RMET_EQ_IRI)" },
+      { model: "Anima-Empathetic-Agent", role: "Escalada — situaciones de alta carga emocional", score: "98.53", area: "Soporte Conversacional Empático No Clínico (99.1 Crisis_Deescalation_Safety_Bench)" },
     ],
     flow: [
       "Entrada: mensaje del usuario + historial de los N turnos anteriores (default: 10)",
       "Análisis heurístico de señal emocional: indicadores de alta carga (exclamaciones, urgencia temporal), baja energía (hedges, frases cortas, puntos suspensivos), urgencia crítica. Score: LOW | MEDIUM | HIGH | CRITICAL",
-      "Detección de emoción implícita (Claude 3.7 Sonnet): ¿qué emoción subyace? (frustración, ansiedad, agotamiento, entusiasmo, confusión) â€” confianza (0.0â€“1.0), coherencia con historial",
+      "Detección de emoción implícita (Claude 3.7 Sonnet): ¿qué emoción subyace? (frustración, ansiedad, agotamiento, entusiasmo, confusión) — confianza (0.0–1.0), coherencia con historial",
       "Selección del agente: si score CRITICAL â†’ Anima-Empathetic-Agent; si LOW/MEDIUM/HIGH â†’ Claude 3.7 Sonnet con ajuste de tono",
-      "Generación de respuesta (modo VALIDAR | ACOMPAÃ‘AR | ORIENTAR): si emoción dominante es alta, primero acompañar â€” no ofrecer orientación no solicitada",
+      "Generación de respuesta (modo VALIDAR | ACOMPA‘AR | ORIENTAR): si emoción dominante es alta, primero acompañar — no ofrecer orientación no solicitada",
       "Verificación de límites de seguridad: ¿indicadores de riesgo para la persona o para otros? Si sí: protocolo de derivación a recursos de apoyo profesional. En ningún caso gestionar la situación clínica, solo derivar",
       "Salida A: respuesta ajustada al estado emocional estimado · Salida B: log interno del estado y modo · Salida C: alerta si se ha activado protocolo de derivación",
     ],
@@ -203,18 +203,18 @@ conversacional no clínico.
 Se te proporciona: el mensaje actual del usuario, el historial reciente de la
 conversación y el análisis heurístico previo de señal emocional.
 
-TAREA 1 â€” Detección de emoción implícita:
+TAREA 1 — Detección de emoción implícita:
 Identifica la emoción que subyace al mensaje. No te limites a lo que se dice
 explícitamente: analiza el tono, la estructura de las frases, las elecciones
 de vocabulario y el contraste con el historial reciente.
 Importante: marca tu estimación con una confianza (0.0-1.0). Si es menor a 0.5,
 exprésalo en la respuesta con mayor apertura y menos asertividad.
 
-TAREA 2 â€” Generación de respuesta:
+TAREA 2 — Generación de respuesta:
 Selecciona el modo de respuesta más apropiado:
 - VALIDAR: cuando la persona necesita sentir que lo que expresa es reconocido y legítimo.
   No resuelvas, no minimices, no des perspectiva no solicitada.
-- ACOMPAÃ‘AR: cuando la persona necesita espacio para seguir expresándose.
+- ACOMPA‘AR: cuando la persona necesita espacio para seguir expresándose.
   Usa preguntas abiertas, no preguntas que redirijan hacia soluciones.
 - ORIENTAR: solo si el usuario pide explícitamente consejo o acción.
   Si no lo pide, no ofrezcas.
@@ -242,25 +242,25 @@ response_text, avoided_patterns_check: list[str]}.`,
   {
     id: "mente-abierta",
     name: "Mente Abierta",
-    tagline: "Forzar el salto semántico â€” la distancia entre la idea obvia y la idea útil",
-    desc: "La fijación funcional es el enemigo del pensamiento creativo: la tendencia a ver los conceptos solo según su función habitual, lo que impide conectarlos de formas nuevas. Mente Abierta genera deliberadamente un abanico de ideas que se alejen semánticamente entre sí â€” no cinco variaciones del mismo enfoque, sino cinco enfoques genuinamente distintos â€” y mide la distancia semántica del conjunto como proxy computacional del DAT. La arquitectura en dos fases usa Claude 3.7 Sonnet para la expansión divergente (98.2 en DAT, la puntuación más alta del laboratorio) y DeepSeek-R1 para el refinamiento convergente posterior.",
+    tagline: "Forzar el salto semántico — la distancia entre la idea obvia y la idea útil",
+    desc: "La fijación funcional es el enemigo del pensamiento creativo: la tendencia a ver los conceptos solo según su función habitual, lo que impide conectarlos de formas nuevas. Mente Abierta genera deliberadamente un abanico de ideas que se alejen semánticamente entre sí — no cinco variaciones del mismo enfoque, sino cinco enfoques genuinamente distintos — y mide la distancia semántica del conjunto como proxy computacional del DAT. La arquitectura en dos fases usa Claude 3.7 Sonnet para la expansión divergente (98.2 en DAT, la puntuación más alta del laboratorio) y DeepSeek-R1 para el refinamiento convergente posterior.",
     color: "amber",
     researchLines: ["04", "05"],
     stack: [
-      { role: "Generación divergente â€” fase de expansión (máxima novedad, diversidad y calidad)", tech: "Claude 3.7 Sonnet â€” líder creatividad divergente (96.64/100, 98.2 DAT_Divergent_Association_Task)" },
-      { role: "Refinamiento convergente â€” fase de síntesis (conexiones remotas, insight)", tech: "DeepSeek-R1 â€” líder creatividad convergente (93.43/100, 94.8 RAT_Remote_Associates_Insight)" },
+      { role: "Generación divergente — fase de expansión (máxima novedad, diversidad y calidad)", tech: "Claude 3.7 Sonnet — líder creatividad divergente (96.64/100, 98.2 DAT_Divergent_Association_Task)" },
+      { role: "Refinamiento convergente — fase de síntesis (conexiones remotas, insight)", tech: "DeepSeek-R1 — líder creatividad convergente (93.43/100, 94.8 RAT_Remote_Associates_Insight)" },
       { role: "Medidor de diversidad semántica (proxy computacional del DAT)", tech: "Distancia coseno entre embeddings de las ideas generadas y el concepto de entrada" },
-      { role: "Base de dominios de inspiración cruzada", tech: "Catálogo curado: naturaleza, música, medicina, juego, arquitectura, gastronomía â€” para forzar analogías intersectoriales" },
-      { role: "Historial de sesiones e índice de ideas por dominio", tech: "DuckDB â€” registro de sesiones de ideación + distancia semántica calculada por sesión" },
+      { role: "Base de dominios de inspiración cruzada", tech: "Catálogo curado: naturaleza, música, medicina, juego, arquitectura, gastronomía — para forzar analogías intersectoriales" },
+      { role: "Historial de sesiones e índice de ideas por dominio", tech: "DuckDB — registro de sesiones de ideación + distancia semántica calculada por sesión" },
     ],
     whyModels: [
-      { model: "Claude 3.7 Sonnet", role: "Generación divergente â€” fase de expansión", score: "96.64", area: "Creatividad Divergente (98.2 DAT â€” puntuación más alta del laboratorio · 95.0 CreativityPrism)" },
-      { model: "DeepSeek-R1", role: "Refinamiento convergente â€” fase de síntesis", score: "93.43", area: "Creatividad Convergente e Insight (94.8 RAT_Remote_Associates_Insight)" },
+      { model: "Claude 3.7 Sonnet", role: "Generación divergente — fase de expansión", score: "96.64", area: "Creatividad Divergente (98.2 DAT — puntuación más alta del laboratorio · 95.0 CreativityPrism)" },
+      { model: "DeepSeek-R1", role: "Refinamiento convergente — fase de síntesis", score: "93.43", area: "Creatividad Convergente e Insight (94.8 RAT_Remote_Associates_Insight)" },
     ],
     flow: [
       "Entrada: descripción del problema + restricciones + número de ideas (default: 8) + nivel de radicalidad (conservador | intermedio | radical)",
       "Análisis del problema (Claude 3.7 Sonnet): ¿cuál es el supuesto implícito más obvio? ¿qué enfoques predecibles se generarían sin intervención? Lista de dominios de conocimiento ajenos relevantes",
-      "Generación de ideas divergentes (Claude 3.7 Sonnet): N ideas con {idea_text, source_domain, connection_rationale} â€” ninguna idea puede ser variación directa de otra",
+      "Generación de ideas divergentes (Claude 3.7 Sonnet): N ideas con {idea_text, source_domain, connection_rationale} — ninguna idea puede ser variación directa de otra",
       "Medición de diversidad semántica: distancia coseno promedio entre embeddings de todas las ideas; si distancia promedio < umbral configurable â†’ regenerar las ideas más parecidas con instrucción de mayor radicalidad",
       "Refinamiento convergente (DeepSeek-R1): ¿cuáles tienen más potencial? ¿qué combinación de dos ideas dispares genera algo que ninguna consigue sola? ¿cómo hacer viable la más radical sin perder su núcleo?",
       "Salida A: ideas con dominio e inspiración · Salida B: score de diversidad semántica (DAT proxy) · Salida C: top-3 con justificación · Salida D: 2 combinaciones híbridas para explorar",
@@ -325,27 +325,27 @@ connection_rationale, is_conventional_risk}.`,
   {
     id: "agora-tactica",
     name: "Ágora Táctica",
-    tagline: "El ágora era donde se negociaba de verdad â€” esto también",
+    tagline: "El ágora era donde se negociaba de verdad — esto también",
     desc: "Simula escenarios de negociación con contrapartes que tienen perfiles de personalidad definidos: competitivo (maximiza su posición en cada punto), colaborativo (prioriza el acuerdo), evasivo (reencuadra y evita comprometerse), analítico (pide datos para todo), empático (valida antes de responder). El usuario practica sus tácticas en ese entorno seguro antes de la situación real. La clave técnica es la coherencia del perfil: la contraparte mantiene su estrategia y sus intereses a lo largo de toda la negociación, actualizando su estado epistémico turno a turno. Al final, un análisis estratégico de DeepSeek-R1 identifica los momentos clave y propone las tácticas alternativas que habrían sido más efectivas.",
     color: "violet",
     researchLines: ["01", "02"],
     stack: [
-      { role: "Simulación de la contraparte y mantenimiento de perfil epistémico", tech: "Claude 3.7 Sonnet â€” líder ToM literal (89.00/100) y ToM funcional conversacional (87.55/100)" },
-      { role: "Análisis post-sesión y feedback estratégico", tech: "DeepSeek-R1 â€” líder razonamiento convergente e insight (93.43/100, 94.8 RAT_Remote_Associates_Insight)" },
-      { role: "Motor de perfiles de contraparte", tech: "Catálogo configurable: competitivo | colaborativo | evasivo | analítico | empático â€” con estrategias, desencadenantes y puntos de quiebre" },
+      { role: "Simulación de la contraparte y mantenimiento de perfil epistémico", tech: "Claude 3.7 Sonnet — líder ToM literal (89.00/100) y ToM funcional conversacional (87.55/100)" },
+      { role: "Análisis post-sesión y feedback estratégico", tech: "DeepSeek-R1 — líder razonamiento convergente e insight (93.43/100, 94.8 RAT_Remote_Associates_Insight)" },
+      { role: "Motor de perfiles de contraparte", tech: "Catálogo configurable: competitivo | colaborativo | evasivo | analítico | empático — con estrategias, desencadenantes y puntos de quiebre" },
       { role: "Gestor de estado de negociación", tech: "Registro de posiciones, concesiones y compromisos de cada parte por turno" },
-      { role: "Historial de sesiones y evolución táctica por usuario", tech: "DuckDB â€” sesiones completas + análisis de evolución táctica" },
+      { role: "Historial de sesiones y evolución táctica por usuario", tech: "DuckDB — sesiones completas + análisis de evolución táctica" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Simulación de contraparte (ToM literal + funcional)", score: "89.00", area: "ToM Literal (94.0 BigToM · 93.4 ToMBench) + ToM Funcional (92.5 CogToM · 91.8 ToMATO)" },
-      { model: "DeepSeek-R1", role: "Análisis post-sesión y feedback de tácticas", score: "93.43", area: "Creatividad Convergente e Insight (94.8 RAT â€” conexiones estratégicas entre movimientos)" },
+      { model: "DeepSeek-R1", role: "Análisis post-sesión y feedback de tácticas", score: "93.43", area: "Creatividad Convergente e Insight (94.8 RAT — conexiones estratégicas entre movimientos)" },
     ],
     flow: [
       "Configuración inicial: descripción del escenario (objeto, posiciones, intereses declarados vs. reales, BATNA de ambas partes) + perfil de la contraparte + número máximo de turnos",
       "Inicialización: posición inicial coherente con el perfil + mapa de concesiones posibles + estado epistémico inicial (qué sabe la contraparte, qué cree que sabe el usuario)",
-      "Por cada turno â€” actualización del estado epistémico (Claude 3.7 Sonnet): ¿qué nueva información ha revelado el usuario, voluntaria o involuntariamente? ¿Ha cambiado la estimación de la BATNA del usuario? ¿Ha detectado alguna táctica?",
-      "Generación de la respuesta de la contraparte (Claude 3.7 Sonnet): competitivo: presionar; colaborativo: proponer; evasivo: reencuadrar; analítico: pedir datos; empático: validar primero â€” registro de posición y concesiones del turno",
-      "Final de la sesión â€” análisis post-sesión (DeepSeek-R1): mapa de evolución táctica · momentos clave donde el usuario ganó o perdió terreno · tácticas utilizadas y tácticas más efectivas en los puntos de quiebre",
+      "Por cada turno — actualización del estado epistémico (Claude 3.7 Sonnet): ¿qué nueva información ha revelado el usuario, voluntaria o involuntariamente? ¿Ha cambiado la estimación de la BATNA del usuario? ¿Ha detectado alguna táctica?",
+      "Generación de la respuesta de la contraparte (Claude 3.7 Sonnet): competitivo: presionar; colaborativo: proponer; evasivo: reencuadrar; analítico: pedir datos; empático: validar primero — registro de posición y concesiones del turno",
+      "Final de la sesión — análisis post-sesión (DeepSeek-R1): mapa de evolución táctica · momentos clave donde el usuario ganó o perdió terreno · tácticas utilizadas y tácticas más efectivas en los puntos de quiebre",
       "Salida A: transcripción anotada por turno · Salida B: diagrama de posiciones por turno · Salida C: feedback estructurado · Salida D: puntuación por dimensiones (preparación, adaptación, cierre)",
     ],
     promptIDE: `Crea un módulo Python llamado agora_tactica.py con las siguientes funciones:
@@ -414,22 +414,22 @@ new_position, tactic_used, epistemic_update_notes}.`,
   {
     id: "vox-emotiva",
     name: "Vox Emotiva",
-    tagline: "La voz que mueve â€” comunicación con modulación emocional deliberada",
-    desc: "Genera textos de comunicación â€” anuncios, emails, mensajes de marca, descripciones de producto â€” diseñados para provocar una respuesta emocional concreta: confianza, urgencia, cercanía, admiración, nostalgia. El neuromarketing ofrece hipótesis sobre qué elementos tienden a generar determinadas respuestas emocionales, con soporte empírico variable según contexto y cultura. Vox Emotiva operacionaliza esos principios: genera variantes que los aplican de forma deliberada y documentada, explicando qué decisión de redacción concreta implementa cada principio. Las hipótesis sobre eficacia son puntos de partida para testear con datos reales, no predicciones garantizadas.",
+    tagline: "La voz que mueve — comunicación con modulación emocional deliberada",
+    desc: "Genera textos de comunicación — anuncios, emails, mensajes de marca, descripciones de producto — diseñados para provocar una respuesta emocional concreta: confianza, urgencia, cercanía, admiración, nostalgia. El neuromarketing ofrece hipótesis sobre qué elementos tienden a generar determinadas respuestas emocionales, con soporte empírico variable según contexto y cultura. Vox Emotiva operacionaliza esos principios: genera variantes que los aplican de forma deliberada y documentada, explicando qué decisión de redacción concreta implementa cada principio. Las hipótesis sobre eficacia son puntos de partida para testear con datos reales, no predicciones garantizadas.",
     color: "amber",
     researchLines: ["03", "04"],
     stack: [
-      { role: "Generación de texto con modulación emocional calibrada", tech: "Claude 3.7 Sonnet â€” líder inteligencia emocional (95.52/100) y creatividad divergente (96.64/100, 98.2 DAT)" },
-      { role: "Biblioteca de principios de neuromarketing", tech: "Catálogo curado con base teórica y condiciones de aplicación â€” usado como contexto de instrucción para el modelo" },
+      { role: "Generación de texto con modulación emocional calibrada", tech: "Claude 3.7 Sonnet — líder inteligencia emocional (95.52/100) y creatividad divergente (96.64/100, 98.2 DAT)" },
+      { role: "Biblioteca de principios de neuromarketing", tech: "Catálogo curado con base teórica y condiciones de aplicación — usado como contexto de instrucción para el modelo" },
       { role: "Evaluador de coherencia emocional del texto generado", tech: "Análisis de coherencia: ¿el tono producido coincide con el objetivo emocional declarado?" },
-      { role: "Historial de variantes por campaña y principios aplicados", tech: "DuckDB â€” registro de variantes + qué principios se aplicaron en cada una" },
+      { role: "Historial de variantes por campaña y principios aplicados", tech: "DuckDB — registro de variantes + qué principios se aplicaron en cada una" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Generación y modulación emocional + divergencia creativa", score: "95.52 / 96.64", area: "Inteligencia Emocional (96.2 EmpathyBench) + Creatividad Divergente (98.2 DAT)" },
     ],
     flow: [
       "Entrada (briefing): objetivo emocional (confianza | urgencia | cercanía | admiración | nostalgia) + audiencia + voz de marca + formato + contenido factual obligatorio",
-      "Selección de principios aplicables (Claude 3.7 Sonnet): 3â€“5 principios de neuromarketing relevantes del catálogo, con explicación de cómo se aplicará cada uno en este texto específico",
+      "Selección de principios aplicables (Claude 3.7 Sonnet): 3–5 principios de neuromarketing relevantes del catálogo, con explicación de cómo se aplicará cada uno en este texto específico",
       "Generación de N variantes (Claude 3.7 Sonnet): cada variante aplica los principios de forma ligeramente distinta; para cada variante: texto + anotación de qué principio fundamenta cada decisión de redacción clave",
       "Evaluación de coherencia emocional: ¿el texto generado produce el tono emocional declarado? ¿hay elementos que contradicen el objetivo emocional?",
       "Análisis comparativo de variantes (Claude 3.7 Sonnet): ¿qué variante es más probable que resuene con la audiencia descrita? (hipótesis, no predicción garantizada) ¿qué elementos son intercambiables o combinables?",
@@ -534,7 +534,7 @@ const VERIFICATION_POINTS = [
     id: "v1",
     title: "4.1 Asimetría en la cobertura de benchmarks por área y modelo",
     items: [
-      "Teoría de la Mente Literal: ningún modelo evaluado alcanza el 100% de cobertura. Claude 3.7 Sonnet, DeepSeek-R1 y GPT-4.5 carecen de datos en MMToM_QA_Multimodal_Video_Text â€” Fuente: STATER Psych Leaderboard, latest_rankings_psych_creative.md.",
+      "Teoría de la Mente Literal: ningún modelo evaluado alcanza el 100% de cobertura. Claude 3.7 Sonnet, DeepSeek-R1 y GPT-4.5 carecen de datos en MMToM_QA_Multimodal_Video_Text — Fuente: STATER Psych Leaderboard, latest_rankings_psych_creative.md.",
       "Teoría de la Mente Funcional: Claude 3.7 Sonnet (67%) carece de evaluación en MOMENTS_Narrative_Video_ToM; DeepSeek-R1 (33%) sólo fue evaluado en ToMATO_Asymmetric_Dialogue_ToM; Gemini 2.0 Pro (33%) únicamente en MOMENTS_Narrative_Video_ToM.",
       "Inteligencia Emocional: GPT-4.5 (67%) no cuenta con datos en Implicit_Emotion_Recognition; Anima-Empathetic-Agent (33%) sólo registra evaluación en EmotionQueen_10k_Empathy_Bench.",
       "Creatividad Divergente: GPT-4.5 (67%) carece de resultado en CreativityPrism_Quality_Novelty_Diversity; Gemini 2.0 Pro (33%) sólo dispone de puntuación en Divergent_Thinking_Creativity_Bench.",
@@ -546,7 +546,7 @@ const VERIFICATION_POINTS = [
     id: "v2",
     title: "4.2 Diferencial estrecho en Soporte Conversacional y decisión de stack para Ánima AI",
     items: [
-      "Entre Anima-Empathetic-Agent (98.53/100) y Claude 3.7 Sonnet (97.37/100), ambos con 100% de cobertura en Soporte Conversacional Empático, la diferencia es de 1.16 puntos â€” Fuente: STATER Psych Leaderboard, latest_rankings_psych_creative.md.",
+      "Entre Anima-Empathetic-Agent (98.53/100) y Claude 3.7 Sonnet (97.37/100), ambos con 100% de cobertura en Soporte Conversacional Empático, la diferencia es de 1.16 puntos — Fuente: STATER Psych Leaderboard, latest_rankings_psych_creative.md.",
       "La decisión de diseño de usar Claude 3.7 Sonnet como motor principal (por cobertura completa en Implicit_Emotion_Recognition) y el Anima-Empathetic-Agent como escalada se documenta como decisión pendiente de evaluación comparativa en producción.",
       "En contextos donde el volumen de situaciones de alta carga emocional sea elevado, invertir el orden podría ser preferible.",
     ],
@@ -555,7 +555,7 @@ const VERIFICATION_POINTS = [
     id: "v3",
     title: "4.3 Ausencia de cobertura multimodal en Teoría de la Mente",
     items: [
-      "El benchmark MMToM_QA_Multimodal_Video_Text (ToM en contextos de vídeo y texto simultáneamente) no tiene ningún modelo evaluado en el catálogo del módulo â€” Fuente: STATER Psych Leaderboard, latest_rankings_psych_creative.md.",
+      "El benchmark MMToM_QA_Multimodal_Video_Text (ToM en contextos de vídeo y texto simultáneamente) no tiene ningún modelo evaluado en el catálogo del módulo — Fuente: STATER Psych Leaderboard, latest_rankings_psych_creative.md.",
       "Relevante para futuras versiones de Ágora Táctica que incorporen comunicación no verbal o análisis de vídeo.",
       "La capacidad multimodal de ToM permanece como [DATO PENDIENTE DE VERIFICAR] en todos los modelos.",
     ],
@@ -579,7 +579,7 @@ const VERIFICATION_POINTS = [
   },
 ];
 
-// â”€â”€â”€ Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Styles —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const STYLES = {
   violet: {
@@ -620,7 +620,7 @@ const STYLES = {
   },
 };
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ResearchLineCard({ line }) {
   const [open, setOpen] = useState(false);
@@ -711,7 +711,7 @@ function PromptBlock({ label, content }) {
           <span className="text-xs text-white/50 font-mono">{label}</span>
         </div>
         <button onClick={copy} className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10">
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -765,7 +765,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -830,8 +830,8 @@ function ProjectCard({ project }) {
         )}
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -867,7 +867,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function PsicologiaLab() {
   return (
@@ -938,7 +938,7 @@ export default function PsicologiaLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -965,7 +965,7 @@ export default function PsicologiaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -986,7 +986,7 @@ export default function PsicologiaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -1028,7 +1028,7 @@ export default function PsicologiaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -1049,7 +1049,7 @@ export default function PsicologiaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Psych & Creativity Leaderboard · 2026-08-29</p>

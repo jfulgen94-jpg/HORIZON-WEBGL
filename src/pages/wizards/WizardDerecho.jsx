@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Scale } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Derecho & LegalTech) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Derecho & LegalTech) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Base de Datos de Vectores para Búsqueda Semántica de Jurisprudencia",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -143,7 +143,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "D1.1" || primaryId === "D1.3" || primaryId === "D1.5" || secondaryIds.includes("SEC-LAW-01") || secondaryIds.includes("SEC-LAW-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -169,37 +169,37 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Parámetros del proyecto, claves de API y rutas de almacenamiento seguro",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para contratos, cláusulas y dictámenes" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de No-Asesoramiento (BR-LAW-05)" : ""),
-    data.primaryTask === "D1.1" || hasSEC06 ? "â”‚   â”œâ”€â”€ contract_parser.py        # Parser de contratos (PDF, DOCX, TXT) con segmentación atómica (BR-LAW-01)" : null,
-    data.primaryTask === "D1.1" ? "â”‚   â”œâ”€â”€ clause_auditor.py         # Clasificador CUAD (41 tipos) y detector de riesgos contractuales" : null,
-    hasSEC03 ? "â”‚   â”œâ”€â”€ liability_extractor.py    # Extractor especializado de topes de indemnización y responsabilidades" : null,
-    data.primaryTask === "D1.2" ? "â”‚   â”œâ”€â”€ jurisprudence_trends.py   # Analizador de sentencias y clustering de evolución doctrinal (BR-LAW-02)" : null,
-    data.primaryTask === "D1.3" ? "â”‚   â”œâ”€â”€ compliance_mapper.py      # Motor de mapeo regulatorio (AI Act, RGPD, DORA) y gap analysis" : null,
-    data.primaryTask === "D1.4" ? "â”‚   â”œâ”€â”€ legal_rag_engine.py       # Asistente semántico con recuperación de legislación y jurisprudencia" : null,
-    hasSEC01 ? "â”‚   â”œâ”€â”€ anti_hallucination.py     # Verificador estricto de anclaje textual y citas legislativas" : null,
-    hasSEC08 ? "â”‚   â”œâ”€â”€ boe_connector.py          # Conector para verificación de textos consolidados del BOE / EUR-Lex" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-LAW-04) con registro inmutable de auditorías" : "Capa de persistencia jurídica"),
-    "â”‚   â”œâ”€â”€ legal_reporting.py        # Generador de informes de auditoría legal con semáforos de riesgo (PDF / Markdown)",
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visores de contratos anotados, badges de riesgo y tablas de cláusulas",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de auditoría y panel del jurista",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Validación de modelos de datos jurídicos",
-    data.primaryTask === "D1.1" ? "â”‚   â”œâ”€â”€ test_clause_auditor.py    # Casos de prueba de detección de cláusulas abusivas" : null,
-    hasSEC01 ? "â”‚   â””â”€â”€ test_anti_hallucination.py# Banco de pruebas de no-alucinación y anclaje de citas" : null,
-    "â”œâ”€â”€ data/                         # Contratos de prueba anonimizados, corpus normativo y caché",
-    "â”œâ”€â”€ requirements.txt              # PyMuPDF, python-docx, duckdb, pydantic, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación LegalTech",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Parámetros del proyecto, claves de API y rutas de almacenamiento seguro",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para contratos, cláusulas y dictámenes" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de No-Asesoramiento (BR-LAW-05)" : ""),
+    data.primaryTask === "D1.1" || hasSEC06 ? "—‚   —œ—€—€ contract_parser.py        # Parser de contratos (PDF, DOCX, TXT) con segmentación atómica (BR-LAW-01)" : null,
+    data.primaryTask === "D1.1" ? "—‚   —œ—€—€ clause_auditor.py         # Clasificador CUAD (41 tipos) y detector de riesgos contractuales" : null,
+    hasSEC03 ? "—‚   —œ—€—€ liability_extractor.py    # Extractor especializado de topes de indemnización y responsabilidades" : null,
+    data.primaryTask === "D1.2" ? "—‚   —œ—€—€ jurisprudence_trends.py   # Analizador de sentencias y clustering de evolución doctrinal (BR-LAW-02)" : null,
+    data.primaryTask === "D1.3" ? "—‚   —œ—€—€ compliance_mapper.py      # Motor de mapeo regulatorio (AI Act, RGPD, DORA) y gap analysis" : null,
+    data.primaryTask === "D1.4" ? "—‚   —œ—€—€ legal_rag_engine.py       # Asistente semántico con recuperación de legislación y jurisprudencia" : null,
+    hasSEC01 ? "—‚   —œ—€—€ anti_hallucination.py     # Verificador estricto de anclaje textual y citas legislativas" : null,
+    hasSEC08 ? "—‚   —œ—€—€ boe_connector.py          # Conector para verificación de textos consolidados del BOE / EUR-Lex" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-LAW-04) con registro inmutable de auditorías" : "Capa de persistencia jurídica"),
+    "—‚   —œ—€—€ legal_reporting.py        # Generador de informes de auditoría legal con semáforos de riesgo (PDF / Markdown)",
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Visores de contratos anotados, badges de riesgo y tablas de cláusulas",
+    "—‚       —”—€—€ main_view.py          # Dashboard de auditoría y panel del jurista",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Validación de modelos de datos jurídicos",
+    data.primaryTask === "D1.1" ? "—‚   —œ—€—€ test_clause_auditor.py    # Casos de prueba de detección de cláusulas abusivas" : null,
+    hasSEC01 ? "—‚   —”—€—€ test_anti_hallucination.py# Banco de pruebas de no-alucinación y anclaje de citas" : null,
+    "—œ—€—€ data/                         # Contratos de prueba anonimizados, corpus normativo y caché",
+    "—œ—€—€ requirements.txt              # PyMuPDF, python-docx, duckdb, pydantic, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación LegalTech",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
     data.primaryTask === "D1.1" ? "- **BR-LAW-01 (Lex Guardián):** Segmentador contractual activado; clasificación según taxonomía CUAD; verificación de anclaje literal obligatoria." : null,
     data.primaryTask === "D1.2" ? "- **BR-LAW-02 (Sententia Nova):** Analizador jurisprudencial activado; extracción de ratio decidendi y clustering de doctrina." : null,
-    data.primaryTask === "D1.3" ? "- **BR-LAW-03 (RegAudit / AI Act):** Matriz de cumplimiento regulatorio activada; marcado obligatorio de [VERIFICAR REDACCIÃ“N OFICIAL]." : null,
+    data.primaryTask === "D1.3" ? "- **BR-LAW-03 (RegAudit / AI Act):** Matriz de cumplimiento regulatorio activada; marcado obligatorio de [VERIFICAR REDACCI“N OFICIAL]." : null,
     hasSEC04 ? "- **BR-LAW-04 (Persistencia Analítica):** Almacén columnar preconfigurado en DuckDB + Parquet para expedientes y auditorías inmutables." : null,
     hasSEC07 ? "- **BR-LAW-05 (Guardrail Deontológico):** Prohibición severa de emitir dictámenes vinculantes sin supervisión de abogado colegiado." : null,
   ].filter(Boolean).join("\n");
@@ -226,7 +226,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software LegalTech: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -292,7 +292,7 @@ function generateReport(data) {
     "",
     "### 7. Cláusula de Deontología Profesional y Descargo de Responsabilidad Legal",
     "",
-    "> **AVISO LEGAL Y DEONTOLÃ“GICO OBLIGATORIO**",
+    "> **AVISO LEGAL Y DEONTOL“GICO OBLIGATORIO**",
     ">",
     "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de herramienta de apoyo analítico, organizativo y de primera revisión documental**.",
     ">",
@@ -300,15 +300,15 @@ function generateReport(data) {
     "> - Todo análisis de riesgos contractuales, mapeo regulatorio o resumen jurisprudencial debe ser **revisado, validado y firmado por un abogado o profesional del derecho debidamente colegiado** antes de cualquier toma de decisión con trascendencia jurídica.",
     "> - El sistema aplica un **principio estricto de no-alucinación**: ninguna afirmación sobre cláusulas es válida sin cita textual literal del contrato analizado.",
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Derecho & LegalTech.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Derecho & LegalTech.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon LegalAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon LegalAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -486,7 +486,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -595,10 +595,10 @@ export default function WizardDerecho() {
             <ArrowLeft size={13} /> Laboratorio de Derecho
           </Link>
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-violet-500/10 border border-violet-500/20 rounded-xl flex items-center justify-center shrink-0 text-violet-600 font-display text-xl">âš–</div>
+            <div className="w-12 h-12 bg-violet-500/10 border border-violet-500/20 rounded-xl flex items-center justify-center shrink-0 text-violet-600 font-display text-xl">→–</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Derecho & LegalTech
+                Diseñador de Proyectos — Derecho & LegalTech
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación jurídica paso a paso con rigor analítico, anclaje textual literal y control deontológico.
@@ -607,7 +607,7 @@ export default function WizardDerecho() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -615,18 +615,18 @@ export default function WizardDerecho() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación jurídica.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica LegalTech.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Lex Guardián, Sententia Nova, RegAudit, Iuris RAGâ€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Lex Guardián, Sententia Nova, RegAudit, Iuris RAG–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias, despacho de abogados o asesoría jurídica.">Diseñador / Despacho Jurídico</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Asesoría Jurídica, Despacho de Abogadosâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Asesoría Jurídica, Despacho de Abogados–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función jurídica principal. Esto determinará las reglas de análisis y verificación de citas requeridas.">Tarea principal de la aplicación</FieldLabel>
@@ -642,7 +642,7 @@ export default function WizardDerecho() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades jurídicas y de trazabilidad</strong> para robustecer el sistema.</p>
 
                 <div className="bg-violet-500/[0.04] border border-violet-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -661,7 +661,7 @@ export default function WizardDerecho() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ámbito Jurídico & Motores</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito Jurídico & Motores</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura las ramas del derecho aplicables y los motores de procesamiento documental.</p>
 
                 <div className="space-y-6">
@@ -684,12 +684,12 @@ export default function WizardDerecho() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas Jurídicas</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas Jurídicas</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de precisión contractual, fidelidad y detección de riesgos que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-violet-50 border border-violet-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-violet-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} jurídica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} jurídica{data.selectedMetrics.length !== 1 ? "s" : ""} preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -726,7 +726,7 @@ export default function WizardDerecho() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Rigor Jurídico y Guardrails Deontológicos</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Rigor Jurídico y Guardrails Deontológicos</h2>
 
                 {hasValidation ? (
                   <>
@@ -778,12 +778,12 @@ export default function WizardDerecho() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y librerías que darán soporte a tu aplicación LegalTech.</p>
 
                 {data.secondaryTasks.includes("SEC-LAW-04") && (
                   <div className="bg-violet-50 border border-violet-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-violet-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-LAW-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-LAW-04.
                   </div>
                 )}
 
@@ -806,7 +806,7 @@ export default function WizardDerecho() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -853,7 +853,7 @@ export default function WizardDerecho() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -869,7 +869,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-violet-600 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-violet-600 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

@@ -19,30 +19,30 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
-  { capa: "Fase 0", subcapa: "Investigación", herramienta: "SEC EDGAR · Yahoo Finance · Alpha Vantage [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL] · Papers de sentimiento financiero", motivo: "Validar legalidad, cobertura, cuotas y formatos de datos fundamentales y textuales antes de programar." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Plantilla de especificación funcional y técnica", motivo: "Acotar el alcance estricto del proyecto, delimitando las fronteras entre investigación y trading." },
+  { capa: "Fase 0", subcapa: "Investigación", herramienta: "SEC EDGAR · Yahoo Finance · Alpha Vantage [VERIFICAR EN DOCUMENTACI“N OFICIAL] · Papers de sentimiento financiero", motivo: "Validar legalidad, cobertura, cuotas y formatos de datos fundamentales y textuales antes de programar." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Plantilla de especificación funcional y técnica", motivo: "Acotar el alcance estricto del proyecto, delimitando las fronteras entre investigación y trading." },
   { capa: "2", subcapa: "2.1", herramienta: "httpx (async) · requests", motivo: "Descarga de fundamentales, series temporales de precios y noticias autorizadas con trazabilidad de metadatos." },
-  { capa: "2", subcapa: "2.2â€“2.3", herramienta: "Pydantic v2", motivo: "Modelos Company, PriceOHLCV, FinancialFundamental, Signal, SentimentResult, SimulatedTrade, Report con validadores estrictos." },
+  { capa: "2", subcapa: "2.2–2.3", herramienta: "Pydantic v2", motivo: "Modelos Company, PriceOHLCV, FinancialFundamental, Signal, SentimentResult, SimulatedTrade, Report con validadores estrictos." },
   { capa: "2", subcapa: "2.4", herramienta: "DuckDB + PyArrow (Parquet) + SQLite", motivo: "DuckDB OLAP para consultas analíticas; Parquet para series históricas comprimidas; SQLite para configuraciones y estrategias locales." },
   { capa: "2", subcapa: "2.5", herramienta: "JSON / CSV sintético etiquetado como DEMO", motivo: "Dataset completamente reproducible sin APIs ni datos sensibles para pruebas locales." },
-  { capa: "3", subcapa: "3.1", herramienta: "Ollama / Llama.cpp (local) · OpenAI / Anthropic / Groq [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL]", motivo: "Clasificación de sentimiento financiero y extracción de entidades; modo local con fallback a API configurado por el usuario." },
+  { capa: "3", subcapa: "3.1", herramienta: "Ollama / Llama.cpp (local) · OpenAI / Anthropic / Groq [VERIFICAR EN DOCUMENTACI“N OFICIAL]", motivo: "Clasificación de sentimiento financiero y extracción de entidades; modo local con fallback a API configurado por el usuario." },
   { capa: "3", subcapa: "3.2", herramienta: "Pandas · NumPy", motivo: "Cálculo determinista de indicadores (SMA, EMA, RSI, MACD, Volatilidad) y normalización de fundamentales." },
-  { capa: "3", subcapa: "3.3â€“3.4", herramienta: "httpx con tenacity · variables de entorno", motivo: "Llamadas desacopladas a APIs financieras y LLMs con retry exponential backoff y zero hardcoding de credenciales." },
-  { capa: "3", subcapa: "3.5â€“3.6", herramienta: "Pydantic validators · caché local Parquet", motivo: "Guardrails antialucinación: la IA no puede inventar cifras ni fuentes; modo offline inmediato sin pérdida de funcionalidad." },
-  { capa: "4", subcapa: "4.1â€“4.5", herramienta: "Flet (Python con Flutter UI) · Matplotlib / Plotly", motivo: "Interfaz de escritorio completa con selectores, gráficos de precios, tablas de fundamentales y backstage de estrategias." },
-  { capa: "5", subcapa: "5.1â€“5.7", herramienta: "python-dotenv · logging estándar", motivo: "Integración modular con trazabilidad en archivo, rotación de logs y centralización segura de credenciales." },
-  { capa: "6", subcapa: "6.1â€“6.5", herramienta: "Pytest + pytest-asyncio", motivo: "Suite automatizada de pruebas unitarias, de integración y de validación de simulación de estrategias." },
-  { capa: "6", subcapa: "6.6â€“6.7", herramienta: "PyInstaller", motivo: "Ejecutable único distribuible que corra sin Python instalado; dataset DEMO incluido, .env excluido del binario." },
+  { capa: "3", subcapa: "3.3–3.4", herramienta: "httpx con tenacity · variables de entorno", motivo: "Llamadas desacopladas a APIs financieras y LLMs con retry exponential backoff y zero hardcoding de credenciales." },
+  { capa: "3", subcapa: "3.5–3.6", herramienta: "Pydantic validators · caché local Parquet", motivo: "Guardrails antialucinación: la IA no puede inventar cifras ni fuentes; modo offline inmediato sin pérdida de funcionalidad." },
+  { capa: "4", subcapa: "4.1–4.5", herramienta: "Flet (Python con Flutter UI) · Matplotlib / Plotly", motivo: "Interfaz de escritorio completa con selectores, gráficos de precios, tablas de fundamentales y backstage de estrategias." },
+  { capa: "5", subcapa: "5.1–5.7", herramienta: "python-dotenv · logging estándar", motivo: "Integración modular con trazabilidad en archivo, rotación de logs y centralización segura de credenciales." },
+  { capa: "6", subcapa: "6.1–6.5", herramienta: "Pytest + pytest-asyncio", motivo: "Suite automatizada de pruebas unitarias, de integración y de validación de simulación de estrategias." },
+  { capa: "6", subcapa: "6.6–6.7", herramienta: "PyInstaller", motivo: "Ejecutable único distribuible que corra sin Python instalado; dataset DEMO incluido, .env excluido del binario." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon · Markdown exporter", motivo: "Publicar informes de investigación en la comunidad y definir el roadmap de extensiones futuras." },
 ];
 
-// â”€â”€â”€ Phases overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Phases overview —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const PHASES = [
   { id: "0", label: "Fase 0",  name: "Investigación",         summary: "Fuentes autorizadas de fundamentales y precios, licencias, cuotas y viabilidad del backstage de estrategias e indicadores reproducibles." },
   { id: "1", label: "Capa 1", name: "Definición",             summary: "Perfil del analista/investigador, problema de fragmentación y opacidad, inputs/outputs con clasificación epistemológica y límites: sin trading automático ni asesoría." },
-  { id: "2", label: "Capa 2", name: "Datos",                  summary: "11 modelos Pydantic v2 (Company, PriceOHLCV, FinancialFundamental, SentimentResult, Strategy, Signal, SimulatedTrade, Reportâ€¦), DuckDB + Parquet + SQLite y dataset DEMO sintético." },
+  { id: "2", label: "Capa 2", name: "Datos",                  summary: "11 modelos Pydantic v2 (Company, PriceOHLCV, FinancialFundamental, SentimentResult, Strategy, Signal, SimulatedTrade, Report–¦), DuckDB + Parquet + SQLite y dataset DEMO sintético." },
   { id: "3", label: "Capa 3", name: "Lógica / IA",            summary: "Motor de sentimiento (local vs. API), cálculo determinista de indicadores con Pandas, guardrails antialucinación y fallback a caché local con marca temporal." },
   { id: "4", label: "Capa 4", name: "Interfaz (Flet)",        summary: "5 pestañas: Resumen & Fundamentales, Gráficos de Precios & Indicadores, Sentimiento Textual, Backstage de Estrategias y Generador de Informes auditables." },
   { id: "5", label: "Capa 5", name: "Integración",            summary: "7 módulos de integración: controller, data_pipeline, api_bridge, text_processor, simulator, report_generator, config+logger." },
@@ -50,12 +50,12 @@ const PHASES = [
   { id: "7", label: "Fase 7", name: "Iteración",              summary: "Backlog v2 (conectores profesionales, backtesting multiactivo, alertas avanzadas) y publicación en el Foro de Proyectos." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · Multiactivo",
     area: "Carteras & Rebalanceo",
-    title: "Kairós Portfolio â€” Simulador de carteras multiactivo",
+    title: "Kairós Portfolio — Simulador de carteras multiactivo",
     desc: "Extiende Kairós Sentimiento para gestionar simultáneamente múltiples activos en una cartera, con simulación de rebalanceo periódico, correlaciones entre activos y curva de capital consolidada de la cartera completa.",
     badgeBg: "rgba(59,111,212,0.10)", badgeColor: C.accent,
     changes: [
@@ -70,7 +70,7 @@ const VERSIONS = [
   {
     tag: "v3 · Mapas de calor",
     area: "Visualización avanzada",
-    title: "Kairós Heat â€” Correlaciones sentimiento Ã— rendimiento",
+    title: "Kairós Heat — Correlaciones sentimiento — rendimiento",
     desc: "Añade mapas de calor interactivos que muestran la correlación estadística entre el sentimiento textual acumulado y el rendimiento posterior del activo en ventanas de 5, 10 y 20 días, para estudiar la capacidad predictiva del sentimiento.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: C.emerald,
     changes: [
@@ -85,7 +85,7 @@ const VERSIONS = [
   {
     tag: "v4 · Alertas de divergencia",
     area: "Señales de investigación",
-    title: "Kairós Alert â€” Divergencias entre fundamentales y cotización",
+    title: "Kairós Alert — Divergencias entre fundamentales y cotización",
     desc: "Sistema de alertas que detecta automáticamente situaciones en que el sentimiento textual y/o los fundamentales reportados divergen significativamente de la cotización del mercado, generando una notificación de investigación (no una recomendación de inversión).",
     badgeBg: "rgba(217,119,6,0.10)", badgeColor: C.amber,
     changes: [
@@ -99,7 +99,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Financial disclaimer banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Financial disclaimer banner —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 function FinancialDisclaimerBanner() {
   return (
     <div className="mb-8 rounded-xl border overflow-hidden"
@@ -108,7 +108,7 @@ function FinancialDisclaimerBanner() {
         style={{ background: "rgba(217,119,6,0.08)" }}>
         <AlertTriangle size={15} style={{ color: C.amber }} className="shrink-0" />
         <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: C.amber }}>
-          Aviso legal financiero â€” Lectura obligatoria
+          Aviso legal financiero — Lectura obligatoria
         </span>
       </div>
       <div className="px-5 py-4" style={{ background: "rgba(217,119,6,0.03)" }}>
@@ -135,7 +135,7 @@ function FinancialDisclaimerBanner() {
   );
 }
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaFinanzas() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -234,7 +234,7 @@ export default function RutaFinanzas() {
         </div>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 0 â€” INVESTIGACIÃ“N PREVIA
+            FASE 0 — INVESTIGACI“N PREVIA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Search}
@@ -249,7 +249,7 @@ export default function RutaFinanzas() {
           title="Identificar fuentes de datos financieros"
           goal="Mapa de proveedores de fundamentales (SEC EDGAR, etc.), series históricas OHLCV y fuentes textuales legales para sentimiento, con cobertura geográfica, tipo de acceso y precauciones de copyright y rate limits para cada uno."
         >
-          <PromptBlock label="Prompt 0.A â€” Fuentes de datos financieros">
+          <PromptBlock label="Prompt 0.A — Fuentes de datos financieros">
 {`Actúa como ingeniero de datos financieros y especialista en arquitectura de software cuantitativo.
 Estoy diseñando la aplicación de investigación financiera Kairós Sentimiento.
 
@@ -257,14 +257,14 @@ Necesito que investigues y estructures:
 1. ¿Qué fuentes de datos públicas o APIs oficiales permiten obtener datos fundamentales de empresas
    (estados financieros, ratios de balance, cuentas de resultados)?
    Indica nombre del proveedor, cobertura geográfica y tipo de acceso (gratuito, registro, freemium).
-   [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL de cada proveedor]
+   [VERIFICAR EN DOCUMENTACI“N OFICIAL de cada proveedor]
 2. ¿Qué fuentes permiten descargar series históricas de precios diarios (OHLCV) de forma reproducible?
 3. ¿Qué fuentes textuales legales y autorizadas existen para análisis de sentimiento financiero
    (comunicados oficiales, transcripciones públicas de earnings calls, feeds RSS autorizados)?
 4. ¿Qué precauciones legales de copyright, rate limits y términos de servicio aplican a cada tipo de dato?
 
 No inventes endpoints, límites de peticiones ni precios de suscripción. Marca cualquier dato no confirmado
-como [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL].`}
+como [VERIFICAR EN DOCUMENTACI“N OFICIAL].`}
           </PromptBlock>
         </Step>
 
@@ -273,7 +273,7 @@ como [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL].`}
           title="Viabilidad del backstage de estrategias e indicadores"
           goal="Lista de 5 indicadores técnicos y 5 ratios fundamentales con fórmula determinista; cómo formular señales simuladas manteniendo la separación estricta entre dato observado / cálculo propio / señal hipotética / inferencia IA; advertencia legal y metodológica sobre los límites del backtesting."
         >
-          <PromptBlock label="Prompt 0.B â€” Viabilidad del backstage">
+          <PromptBlock label="Prompt 0.B — Viabilidad del backstage">
 {`Basándote en el objetivo de Kairós Sentimiento (construir un backstage de estrategias de investigación
 sin ejecución automática ni promesas de rentabilidad), necesito definir:
 1. Una lista de 5 indicadores técnicos estándar y 5 ratios fundamentales clave cuya formulación
@@ -291,7 +291,7 @@ Estructura la respuesta de forma técnica, limpia y pedagógica.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 1 â€” DEFINICIÃ“N DEL PROBLEMA
+            CAPA 1 — DEFINICI“N DEL PROBLEMA
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Layers}
@@ -306,7 +306,7 @@ Estructura la respuesta de forma técnica, limpia y pedagógica.`}
           title="¿Quién usa Kairós Sentimiento?"
           goal="Ficha de usuario con perfil profesional, flujo de trabajo actual disperso en múltiples webs y hojas de cálculo, frustraciones (pérdida de trazabilidad, cálculos no reproducibles, mezcla de datos y opiniones) y nivel técnico en finanzas y herramientas analíticas."
         >
-          <PromptBlock label="Prompt 1.1 â€” Perfil del analista/investigador">
+          <PromptBlock label="Prompt 1.1 — Perfil del analista/investigador">
 {`Necesito definir el perfil de usuario detallado de Kairós Sentimiento antes de escribir código.
 
 La aplicación es un entorno de escritorio para investigación financiera, descarga de datos, análisis de
@@ -331,12 +331,12 @@ Sin lenguaje publicitario ni promesas de enriquecimiento. Tono profesional y ana
           title="¿Qué problema concreto resuelve?"
           goal="Una sola frase en formato [PERFIL] no puede [TAREA FINANCIERA] porque [OBSTÁCULO], lo que provoca [CONSECUENCIA]. 3 opciones, elegir la más precisa justificando en términos de trazabilidad y rigor analítico."
         >
-          <PromptBlock label="Prompt 1.2 â€” Frase del problema">
+          <PromptBlock label="Prompt 1.2 — Frase del problema">
 {`Basándome en el perfil de usuario de Kairós Sentimiento ([PEGA EL PERFIL DE USUARIO DEFINIDO EN 1.1]),
 necesito formular UNA SOLA FRASE rigurosa que defina el problema específico que resuelve la aplicación.
 
 La frase debe seguir este formato exacto:
-"[PERFIL DE USUARIO] no puede [TAREA FINANCIERA CONCRETA] porque [OBSTÁCULO TÃ‰CNICO/METODOLÃ“GICO REAL],
+"[PERFIL DE USUARIO] no puede [TAREA FINANCIERA CONCRETA] porque [OBSTÁCULO TÃ‰CNICO/METODOL“GICO REAL],
  lo que provoca [CONSECUENCIA NEGATIVA MEDIBLE EN SU ANÁLISIS]."
 
 Genera 3 opciones adaptadas a Kairós Sentimiento y selecciona la más precisa, justificando la elección
@@ -349,7 +349,7 @@ en 2 líneas en términos de trazabilidad y rigor analítico.`}
           title="¿Qué datos entran?"
           goal="Tabla exhaustiva: ticker/mercado, rango de fechas, estados financieros, textos de noticias, parámetros de estrategias, archivos CSV/Parquet importados. Para cada campo: tipo, obligatorio/opcional, rango válido, origen y valor por defecto."
         >
-          <PromptBlock label="Prompt 1.3 â€” Inventario de inputs">
+          <PromptBlock label="Prompt 1.3 — Inventario de inputs">
 {`Para Kairós Sentimiento, necesito un inventario formal de todos los datos de entrada que la app puede
 recibir (introducidos por el usuario o descargados automáticamente).
 
@@ -376,7 +376,7 @@ Genera una tabla exhaustiva con:
           title="¿Qué datos salen?"
           goal="Todos los outputs con clasificación epistemológica obligatoria: [DATO OBSERVADO] (precios, cifras contables), [DATO CALCULADO] (indicadores), [INFERENCIA IA] (sentimiento), [ESCENARIO HIPOTÃ‰TICO] (señales simuladas). Ninguna salida puede confundirse con recomendación de inversión."
         >
-          <PromptBlock label="Prompt 1.4 â€” Outputs con clasificación epistemológica">
+          <PromptBlock label="Prompt 1.4 — Outputs con clasificación epistemológica">
 {`Continuando con la especificación de Kairós Sentimiento, define todos los outputs (salidas) que la app
 debe generar a partir de los datos procesados:
 
@@ -398,13 +398,13 @@ Asegura que ninguna salida pueda confundirse con una recomendación directa de i
         <Step 
           num="1.5" 
           title="Criterios de éxito"
-          goal="6â€“8 criterios verificables: descarga sin huecos no identificados, validación Pydantic de esquemas, cálculo determinista de indicadores, separación visual dato real / señal hipotética, persistencia DuckDB + Parquet, modo offline ante fallos de API."
+          goal="6–8 criterios verificables: descarga sin huecos no identificados, validación Pydantic de esquemas, cálculo determinista de indicadores, separación visual dato real / señal hipotética, persistencia DuckDB + Parquet, modo offline ante fallos de API."
         >
-          <PromptBlock label="Prompt 1.5 â€” Criterios de éxito">
+          <PromptBlock label="Prompt 1.5 — Criterios de éxito">
 {`Define una lista de 6 a 8 criterios de éxito medibles y verificables para Kairós Sentimiento v1.
 
 Cada criterio debe redactarse en el formato:
-"La aplicación funciona correctamente cuando [CONDICIÃ“N VERIFICABLE Y CUANTIFICABLE]."
+"La aplicación funciona correctamente cuando [CONDICI“N VERIFICABLE Y CUANTIFICABLE]."
 
 Incluye criterios que cubran:
 - Descarga y normalización correcta de series temporales sin huecos no identificados.
@@ -423,7 +423,7 @@ Evita términos ambiguos como 'rápido' o 'fácil'. Todo criterio debe ser teste
           title="Límites explícitos de la v1"
           goal="Declaración formal de exclusión de: ejecución automática de órdenes, custodia de fondos, asesoramiento personalizado, promesas de rentabilidad y APIs propietarias de coste prohibitivo. Bloque de aviso legal para la pantalla de inicio y la documentación."
         >
-          <PromptBlock label="Prompt 1.6 â€” Límites y aviso legal">
+          <PromptBlock label="Prompt 1.6 — Límites y aviso legal">
 {`Para Kairós Sentimiento v1, redacta una declaración formal de límites y alcance excluido.
 
 Para cada una de las siguientes características, justifica por qué queda FUERA de la versión 1:
@@ -439,7 +439,7 @@ inicio de la aplicación.`}
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 2 â€” DATOS (KAIRÃ“S SENTIMIENTO)
+            CAPA 2 — DATOS (KAIR“S SENTIMIENTO)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Database}
@@ -454,11 +454,11 @@ inicio de la aplicación.`}
           title="Fuentes de datos y conectores" 
           goal="data_fetcher.py con conectores independientes para precios, fundamentales y noticias: headers, rate limits, timeouts, clave desde variable de entorno. Traza de metadatos por descarga: URL/fuente, timestamp UTC, parámetros y hash del contenido."
         >
-          <PromptBlock label="Prompt 2.1 â€” data_fetcher.py">
+          <PromptBlock label="Prompt 2.1 — data_fetcher.py">
 {`Diseña el módulo de adquisición de datos para Kairós Sentimiento (\`data_fetcher.py\`).
 
 Opciones de fuentes:
-- Precios históricos: APIs financieras verificadas o bibliotecas de mercado [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL].
+- Precios históricos: APIs financieras verificadas o bibliotecas de mercado [VERIFICAR EN DOCUMENTACI“N OFICIAL].
 - Fundamentales: endpoints oficiales (ej. SEC EDGAR para empresas de EE.UU. o proveedores con capa gratuita documentada).
 - Noticias y textos: feeds RSS financieros autorizados y archivos de texto locales aportados por el usuario.
 - Carga manual: importador de archivos CSV y Parquet con series personalizadas.
@@ -476,7 +476,7 @@ Escribe el código Python con \`httpx\` (asíncrono) y \`pathlib\` que:
           title="Esquemas de datos con Pydantic v2" 
           goal="schemas.py con 11 modelos: Company, Asset, PriceOHLCV (validadores highâ‰¥low, fechas no futuras), FinancialFundamental, AccountingPeriod, NewsDocument, SentimentResult (-1.0 a 1.0), Strategy, Signal, SimulatedTrade y Report. Tickers en mayúsculas normalizados."
         >
-          <PromptBlock label="Prompt 2.2 â€” schemas.py (11 modelos)">
+          <PromptBlock label="Prompt 2.2 — schemas.py (11 modelos)">
 {`Escribe el módulo \`schemas.py\` de Kairós Sentimiento utilizando Pydantic v2 (\`pydantic.BaseModel\`, \`Field\`, \`field_validator\`).
 
 Define con tipado estricto y docstrings los siguientes modelos:
@@ -504,7 +504,7 @@ Incluye validadores que comprueben:
           title="Validación, limpieza y normalización" 
           goal="normalizer.py: normalize_price_history() (orden cronológico, nulos, continuidad temporal, festivos), normalize_fundamentals() (monedas, unidades, precisión numérica) y log_validation_issues(). InsufficientDataError si el lote no es suficiente para análisis."
         >
-          <PromptBlock label="Prompt 2.3 â€” normalizer.py">
+          <PromptBlock label="Prompt 2.3 — normalizer.py">
 {`Escribe el módulo \`normalizer.py\` para Kairós Sentimiento.
 
 Implementa funciones de limpieza y normalización:
@@ -526,7 +526,7 @@ Incluye manejo riguroso de excepciones; si un lote no contiene suficientes datos
           title="Almacenamiento local DuckDB + Parquet + SQLite" 
           goal="storage.py: init_storage(), save_price_series() idempotente en Parquet + vista DuckDB, save_fundamentals() sin duplicados de ejercicios fiscales, query_asset_overview() uniendo precios y fundamentales, save_strategy_definition() en SQLite. Transacciones atómicas."
         >
-          <PromptBlock label="Prompt 2.4 â€” storage.py (triple almacenamiento)">
+          <PromptBlock label="Prompt 2.4 — storage.py (triple almacenamiento)">
 {`Escribe el módulo \`storage.py\` de Kairós Sentimiento implementando la estrategia de almacenamiento local:
 
 Arquitectura de persistencia:
@@ -550,7 +550,7 @@ Añade manejo de conexiones seguras y transacciones atómicas.`}
           title="Dataset mínimo de ejemplo (DEMO)" 
           goal="generate_demo_dataset.py: 2 empresas ficticias (DEMO_TECH, DEMO_ENERGY), 250 días OHLCV, 8 trimestres de fundamentales, 10 noticias por empresa con sentimiento variado. Todos los registros marcados is_demo=True y '[DEMO DATA - NO REAL]'. Validados con Pydantic, guardados en data/demo/."
         >
-          <PromptBlock label="Prompt 2.5 â€” Dataset DEMO sintético">
+          <PromptBlock label="Prompt 2.5 — Dataset DEMO sintético">
 {`Escribe un script \`generate_demo_dataset.py\` que construya un dataset sintético completo para Kairós Sentimiento.
 
 El dataset debe contener:
@@ -565,7 +565,7 @@ El script debe validar los datos generados contra los modelos Pydantic de \`sche
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA (KAIRÃ“S SENTIMIENTO)
+            CAPA 3 — L“GICA / IA (KAIR“S SENTIMIENTO)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Cpu}
@@ -580,7 +580,7 @@ El script debe validar los datos generados contra los modelos Pydantic de \`sche
           title="Selección del motor de sentimiento" 
           goal="Comparativa: modelo local (FinBERT o Llama-3-8B con Ollama) vs. API externa (OpenAI/Anthropic/Groq). Evaluar: privacidad de datos, latencia y coste por 1.000 artículos, facilidad de empaquetado en .exe. Configuración por defecto: local con fallback a API opcional configurada por el usuario."
         >
-          <PromptBlock label="Prompt 3.1 â€” Selección del motor de sentimiento">
+          <PromptBlock label="Prompt 3.1 — Selección del motor de sentimiento">
 {`Actúa como arquitecto de soluciones de IA aplicada a finanzas.
 Para Kairós Sentimiento, necesito seleccionar el motor para dos tareas de procesamiento de lenguaje:
 - Tarea A: Clasificación de sentimiento financiero en 3 clases (Positivo, Neutro, Negativo) con extracción de puntuación (-1.0 a +1.0) y nivel de confianza.
@@ -588,7 +588,7 @@ Para Kairós Sentimiento, necesito seleccionar el motor para dos tareas de proce
 
 Genera una comparativa técnica entre:
 1. Modelo local de lenguaje pequeño / especializado (ej. FinBERT o Llama-3-8B local vía Ollama).
-2. API externa de inferencia rápida y bajo coste (ej. OpenAI / Anthropic / Groq) [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL].
+2. API externa de inferencia rápida y bajo coste (ej. OpenAI / Anthropic / Groq) [VERIFICAR EN DOCUMENTACI“N OFICIAL].
 
 Evalúa según:
 - Privacidad y soberanía de datos (análisis sin enviar información a terceros).
@@ -604,7 +604,7 @@ Proporciona la configuración recomendada por defecto (modo local con fallback a
           title="Funciones analíticas e indicadores" 
           goal="analytics.py: calculate_technical_indicators() (SMA 20/50/200, EMA 12/26, RSI 14 con gestión de divisiones por cero, MACD, Volatilidad histórica anualizada), calculate_fundamental_ratios() (Margen Neto, ROE, ROA, Endeudamiento, PER, P/B) y aggregate_sentiment_score() ponderado por confianza y recencia."
         >
-          <PromptBlock label="Prompt 3.2 â€” analytics.py (indicadores deterministas)">
+          <PromptBlock label="Prompt 3.2 — analytics.py (indicadores deterministas)">
 {`Escribe el módulo \`analytics.py\` para Kairós Sentimiento con funciones matemáticas puras utilizando Pandas y NumPy.
 
 Implementa:
@@ -630,7 +630,7 @@ Todas las funciones deben ser deterministas, incluir pruebas de división por ce
           title="Clientes de APIs y gestión de claves" 
           goal="api_client.py: clientes separados para APIs financieras y LLM, credenciales solo desde variables de entorno, retry con exponential backoff (tenacity o nativo async), rate limiting estricto, timeout 20s, log de cada llamada con claves enmascaradas."
         >
-          <PromptBlock label="Prompt 3.3 â€” api_client.py">
+          <PromptBlock label="Prompt 3.3 — api_client.py">
 {`Escribe el módulo \`api_client.py\` de Kairós Sentimiento.
 
 Requisitos técnicos:
@@ -641,7 +641,7 @@ Requisitos técnicos:
 5. Implementar timeout estricto de 20 segundos por solicitud.
 6. Registrar en log cada llamada realizada (ocultando siempre tokens y cabeceras de autorización).
 
-Incluye marcado [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL] para los endpoints utilizados.`}
+Incluye marcado [VERIFICAR EN DOCUMENTACI“N OFICIAL] para los endpoints utilizados.`}
           </PromptBlock>
         </Step>
 
@@ -650,7 +650,7 @@ Incluye marcado [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL] para los endpoints util
           title="Parseo y trazabilidad de inferencias" 
           goal="sentiment_parser.py: prompt de sistema con JSON estricto (sentiment, score, confidence, key_factors, quote_evidence); parse_sentiment_response() que valida rangos, genera SentimentResult con doc_id, timestamp y model_used; SentimentParsingError con texto recibido si falla."
         >
-          <PromptBlock label="Prompt 3.4 â€” sentiment_parser.py">
+          <PromptBlock label="Prompt 3.4 — sentiment_parser.py">
 {`Escribe el módulo \`sentiment_parser.py\` para Kairós Sentimiento.
 
 Implementa:
@@ -669,7 +669,7 @@ Implementa:
           title="Guardrails antialucinación" 
           goal="guardrails.py: verify_analysis_integrity() comprueba que cifras en key_factors/quote_evidence existan literalmente en el documento original, que la etiqueta sea coherente con el signo del score y que cambios porcentuales no contradigan precios reales. Devuelve (True,[]) o (False,[motivos]). Si False â†’ is_verified=False + aviso visible."
         >
-          <PromptBlock label="Prompt 3.5 â€” guardrails.py (antialucinación)">
+          <PromptBlock label="Prompt 3.5 — guardrails.py (antialucinación)">
 {`Escribe el módulo \`guardrails.py\` para Kairós Sentimiento.
 
 Implementa la función de verificación:
@@ -690,7 +690,7 @@ Si devuelve False, el resultado se marcará en la base de datos con la bandera \
           title="Fallback y modo offline" 
           goal="fallback_manager.py: get_analysis_with_fallback() intenta API â†’ si falla carga DuckDB/Parquet local con aviso 'Datos en caché local actualizados a fecha [TIMESTAMP]' â†’ sentimiento pendiente en modo offline marcado explícitamente. Devuelve AnalysisPayload con estado ONLINE_FRESH / LOCAL_CACHE / DEMO_DATA."
         >
-          <PromptBlock label="Prompt 3.6 â€” fallback_manager.py">
+          <PromptBlock label="Prompt 3.6 — fallback_manager.py">
 {`Escribe el módulo \`fallback_manager.py\` para Kairós Sentimiento.
 
 Implementa la función de resolución con respaldo:
@@ -707,7 +707,7 @@ Flujo de ejecución:
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ DE ESCRITORIO (FLET)
+            CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Monitor}
@@ -722,7 +722,7 @@ Flujo de ejecución:
           title="Panel principal y wireframe" 
           goal="ui_main.py: selector de activo/mercado/rango temporal, badge de estado del sistema (Conectado / Caché Local / DEMO), timestamp de última sincronización y 5 pestañas de navegación (ft.Tabs). Descripción de widgets con nombres de controles y disposición responsiva."
         >
-          <PromptBlock label="Prompt 4.1 â€” ui_main.py (panel principal)">
+          <PromptBlock label="Prompt 4.1 — ui_main.py (panel principal)">
 {`Actúa como diseñador de interfaces de software financiero y desarrollador experto en Flet (Python).
 Diseña la arquitectura visual y wireframe del panel principal de Kairós Sentimiento (\`ui_main.py\`).
 
@@ -748,7 +748,7 @@ Escribe la descripción estructurada de widgets Flet (\`ft.Tabs\`, \`ft.Navigati
           title="Zona de descargas y gestión de datos" 
           goal="ui_downloads.py: botones de descarga asíncronos (Fundamentales, Precios, Importar CSV/Parquet con ft.FilePicker), barra de progreso, diálogo de confirmación y panel de errores claros por cuota o formato inválido. Sin congelar la UI en ningún momento."
         >
-          <PromptBlock label="Prompt 4.2 â€” ui_downloads.py">
+          <PromptBlock label="Prompt 4.2 — ui_downloads.py">
 {`Escribe el componente Flet \`ui_downloads.py\` para Kairós Sentimiento.
 
 Funcionalidades de la interfaz:
@@ -767,7 +767,7 @@ El código debe ejecutar las operaciones en hilos secundarios asíncronos para n
           title="Zona de análisis visual y métricas" 
           goal="ui_analysis.py: DataTable de fundamentales con código de color por variación interanual, gráfico OHLCV + SMA 50/200 + RSI, panel de sentimiento con velocímetro (-1 a +1) + distribución de noticias + lista de artículos con etiqueta. Metadatos de trazabilidad al pie de cada panel."
         >
-          <PromptBlock label="Prompt 4.3 â€” ui_analysis.py">
+          <PromptBlock label="Prompt 4.3 — ui_analysis.py">
 {`Escribe el componente Flet \`ui_analysis.py\` para Kairós Sentimiento.
 
 Incluye los siguientes paneles:
@@ -783,7 +783,7 @@ Incluye los siguientes paneles:
           title="Backstage de estrategias cuantitativas" 
           goal="ui_strategies.py: panel de definición (nombre, constructor de reglas técnicas y de sentimiento, periodo de simulación), botón 'Ejecutar Simulación en Backstage', tabla de SimulatedTrade con fecha/precio/resultado, curva de capital hipotética y banner legal fijo no descartable."
         >
-          <PromptBlock label="Prompt 4.4 â€” ui_strategies.py (backstage)">
+          <PromptBlock label="Prompt 4.4 — ui_strategies.py (backstage)">
 {`Escribe el componente Flet \`ui_strategies.py\` para el Backstage de Estrategias de Kairós Sentimiento.
 
 Elementos de la pantalla:
@@ -806,7 +806,7 @@ Elementos de la pantalla:
           title="Generador de informes auditables" 
           goal="ui_reports.py + report_generator.py: informe Markdown/HTML con cabecera, resumen ejecutivo, análisis fundamental/técnico/de sentimiento, estrategia simulada, tabla de trazabilidad (API/archivo, timestamps, versiones de modelos) y descargo legal. Previsualización + botones de guardado .md/.html."
         >
-          <PromptBlock label="Prompt 4.5 â€” ui_reports.py + report_generator.py">
+          <PromptBlock label="Prompt 4.5 — ui_reports.py + report_generator.py">
 {`Escribe el componente Flet \`ui_reports.py\` y el motor de generación de reportes \`report_generator.py\` para Kairós Sentimiento.
 
 El generador debe producir un informe estructurado en formato Markdown (con opción de exportación a HTML):
@@ -824,7 +824,7 @@ Incluye en la interfaz un botón para previsualizar el informe y botones de guar
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 5 â€” INTEGRACIÃ“N
+            CAPA 5 — INTEGRACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={Link2}
@@ -839,7 +839,7 @@ Incluye en la interfaz un botón para previsualizar el informe y botones de guar
           title="Conectar interfaz con el motor analítico" 
           goal="controller.py AppController: on_asset_selected() carga DuckDB + calcula indicadores en background y actualiza la vista activa; on_run_sentiment_analysis() indexa noticias, aplica guardrails y refresca el panel de sentimiento. Estado centralizado propagado a todas las pestañas."
         >
-          <PromptBlock label="Prompt 5.1 â€” controller.py">
+          <PromptBlock label="Prompt 5.1 — controller.py">
 {`Escribe el módulo de orquestación \`controller.py\` que conecte la interfaz Flet (\`ui_main.py\`, \`ui_analysis.py\`) con la lógica analítica de Kairós Sentimiento.
 
 Implementa la clase \`AppController\`:
@@ -860,7 +860,7 @@ Implementa la clase \`AppController\`:
           title="Conectar lógica con la triple base de datos" 
           goal="data_pipeline.py: sync_and_load_asset_data() verifica rango en DuckDB/Parquet, descarga el diferencial si falta, valida y normaliza, persiste y retorna DataFrames listos para presentación."
         >
-          <PromptBlock label="Prompt 5.2 â€” data_pipeline.py">
+          <PromptBlock label="Prompt 5.2 — data_pipeline.py">
 {`Escribe el módulo de integración de datos \`data_pipeline.py\` para Kairós Sentimiento.
 
 Implementa la función integral:
@@ -880,7 +880,7 @@ Comportamiento:
           title="Conectar APIs con validadores y control de cuotas" 
           goal="api_bridge.py: safe_fetch_financials() comprueba contador local de peticiones en SQLite, hace la llamada HTTP, valida con Pydantic correspondiente; si la validación falla registra el payload erróneo en el log y activa el fallback sin interrumpir la app."
         >
-          <PromptBlock label="Prompt 5.3 â€” api_bridge.py">
+          <PromptBlock label="Prompt 5.3 — api_bridge.py">
 {`Escribe el módulo \`api_bridge.py\` para Kairós Sentimiento.
 
 Implementa el wrapper seguro de consulta:
@@ -899,7 +899,7 @@ Requisitos:
           title="Conectar motor de sentimiento con el repositorio de textos" 
           goal="text_processor.py: index_financial_news() normaliza y guarda noticias en DuckDB/Parquet indexadas por ticker y fecha; process_unclassified_news() recupera noticias sin análisis, procesa en lotes asíncronos con sentiment_parser + guardrails y guarda resultados."
         >
-          <PromptBlock label="Prompt 5.4 â€” text_processor.py">
+          <PromptBlock label="Prompt 5.4 — text_processor.py">
 {`Escribe el módulo \`text_processor.py\` de Kairós Sentimiento.
 
 Implementa:
@@ -917,7 +917,7 @@ Implementa:
           title="Conectar backstage con el motor de simulación" 
           goal="simulator.py: run_strategy_simulation() itera cronológicamente, evalúa condiciones técnicas + sentimiento disponible hasta la fecha exacta (sin look-ahead bias), genera Signal, modela SimulatedTrade con precios reales del día siguiente y calcula métricas consolidadas (drawdown, tasa de acierto, factor de beneficio)."
         >
-          <PromptBlock label="Prompt 5.5 â€” simulator.py">
+          <PromptBlock label="Prompt 5.5 — simulator.py">
 {`Escribe el módulo \`simulator.py\` de Kairós Sentimiento.
 
 Implementa la función de simulación:
@@ -938,12 +938,12 @@ Algoritmo:
           title="Integrar generación de informes con auditoría" 
           goal="Conexión entre report_generator.py y el almacén de trazas: cada informe incluye hash de auditoría, timestamps de cada fuente consultada y versión del modelo de sentimiento usado. Guardado en SQLite para consulta posterior de qué datos respaldaban qué informe."
         >
-          <PromptBlock label="Prompt 5.6 â€” Auditoría de informes">
+          <PromptBlock label="Prompt 5.6 — Auditoría de informes">
 {`Actúa como Ingeniero de Software Cuantitativo y Especialista en Auditoría Financiera.
 
 Integra la auditoría inmutable en \`report_generator.py\` para Kairós Sentimiento:
 
-1. GENERACIÃ“N DE HASH Y TRAZABILIDAD:
+1. GENERACI“N DE HASH Y TRAZABILIDAD:
    - Para cada informe generado, calcula un hash SHA-256 a partir de los datos observados, parámetros de indicadores y respuestas del LLM.
    - Genera una tabla en la cabecera del informe con: \`Report ID\`, \`Audit Hash\`, \`Data Sources (APIs & Files)\`, \`Download Timestamps (UTC)\` y \`Model Version\`.
 
@@ -958,7 +958,7 @@ Integra la auditoría inmutable en \`report_generator.py\` para Kairós Sentimie
           title="Configuración centralizada y logging" 
           goal="config.py con clase Settings (Pydantic Settings): KAIROS_DATA_DIR, LOG_LEVEL, FINANCIAL_API_KEY, LLM_API_KEY, LLM_PROVIDER. logger.py con RotatingFileHandler (5MB, 3 copias), formato con timestamp/level/nombre y función de enmascaramiento automático de tokens antes de escribir en log."
         >
-          <PromptBlock label="Prompt 5.7 â€” config.py + logger.py">
+          <PromptBlock label="Prompt 5.7 — config.py + logger.py">
 {`Escribe los módulos de infraestructura \`config.py\` y \`logger.py\` para Kairós Sentimiento.
 
 Requisitos de \`config.py\`:
@@ -967,7 +967,7 @@ Requisitos de \`config.py\`:
    - \`KAIROS_LOG_LEVEL\` (por defecto: \`INFO\`).
    - \`FINANCIAL_API_KEY\` (opcional).
    - \`LLM_API_KEY\` (opcional).
-   - \`LLM_PROVIDER\` (local / openai / anthropic) [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL].
+   - \`LLM_PROVIDER\` (local / openai / anthropic) [VERIFICAR EN DOCUMENTACI“N OFICIAL].
 2. Creación automática con \`pathlib\` de todas las carpetas necesarias (\`data/parquet/\`, \`logs/\`, \`exports/\`).
 3. Generación de un archivo \`.env.example\` auto-documentado.
 
@@ -979,7 +979,7 @@ Requisitos de \`logger.py\`:
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO
+            CAPA 6 — PRUEBAS Y EMPAQUETADO
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={FlaskConical}
@@ -994,7 +994,7 @@ Requisitos de \`logger.py\`:
           title="Tests unitarios de modelos e indicadores" 
           goal="test_analytics.py + test_schemas.py: Pydantic rechaza precios negativos y high < low; SMA calculada contra vector con resultado conocido; RSI en series extremas (100/0/plana); score de sentimiento fuera de [-1,1] lanza error. Fixtures en conftest.py con datos sintéticos deterministas."
         >
-          <PromptBlock label="Prompt 6.1 â€” Tests de esquemas e indicadores">
+          <PromptBlock label="Prompt 6.1 — Tests de esquemas e indicadores">
 {`Escribe la suite de pruebas unitarias \`tests/test_analytics.py\` y \`tests/test_schemas.py\` para Kairós Sentimiento con \`pytest\`.
 
 Tests a implementar:
@@ -1012,7 +1012,7 @@ Utiliza fixtures de \`pytest\` en \`conftest.py\` con datos sintéticos determin
           title="Tests de calidad de datos y detección de duplicados" 
           goal="test_data_pipeline.py: inserción de precios duplicados es idempotente en DuckDB; normalizador detecta huecos anormales en días laborables; guardrails devuelve False con motivo exacto cuando el LLM inventa una cifra no presente en el documento original."
         >
-          <PromptBlock label="Prompt 6.2 â€” Tests de calidad de datos">
+          <PromptBlock label="Prompt 6.2 — Tests de calidad de datos">
 {`Escribe la suite \`tests/test_data_pipeline.py\` para Kairós Sentimiento.
 
 Tests a implementar:
@@ -1027,7 +1027,7 @@ Tests a implementar:
           title="Tests de sentimiento y manejo de respuestas ambiguas" 
           goal="test_sentiment.py: JSON limpio, JSON con etiquetas markdown residuales, timeout de red activa el modo offline sin interrumpir el flujo, documento sin contenido de texto lanza excepción controlada."
         >
-          <PromptBlock label="Prompt 6.3 â€” Tests de sentimiento">
+          <PromptBlock label="Prompt 6.3 — Tests de sentimiento">
 {`Escribe la suite \`tests/test_sentiment.py\` para Kairós Sentimiento.
 
 Tests a implementar:
@@ -1043,7 +1043,7 @@ Tests a implementar:
           title="Tests de simulación de estrategias e informes" 
           goal="test_simulator.py + test_reports.py: señales del día T solo usan datos hasta T (no look-ahead bias); modificar reglas de estrategia genera nueva versión en SQLite; informe contiene todos los bloques requeridos con hash de auditoría."
         >
-          <PromptBlock label="Prompt 6.4 â€” Tests de simulación e informes">
+          <PromptBlock label="Prompt 6.4 — Tests de simulación e informes">
 {`Escribe la suite \`tests/test_simulator.py\` y \`tests/test_reports.py\` para Kairós Sentimiento.
 
 Tests a implementar:
@@ -1058,7 +1058,7 @@ Tests a implementar:
           title="Test de flujo completo (End-to-End)" 
           goal="test_full_workflow.py: DuckDB + SQLite en memoria, dataset DEMO, normalización + almacenamiento + indicadores + sentimiento con mock determinista del LLM + simulación cruce de medias con filtro de sentimiento + informe Markdown con métricas esperadas."
         >
-          <PromptBlock label="Prompt 6.5 â€” Test E2E completo">
+          <PromptBlock label="Prompt 6.5 — Test E2E completo">
 {`Escribe el test de integración E2E \`tests/test_full_workflow.py\` para Kairós Sentimiento.
 
 El test debe:
@@ -1077,7 +1077,7 @@ El test debe:
           title="Empaquetado con PyInstaller" 
           goal="kairos_sentimiento.spec: rutas de datos (templates, data/demo/), hiddenimports, exclusiones. Comando pyinstaller --clean. Problemas conocidos con DLLs de DuckDB y assets de Flet al empaquetar. El .env con claves reales NUNCA se incrusta en el binario."
         >
-          <PromptBlock label="Prompt 6.6 â€” Empaquetado .exe">
+          <PromptBlock label="Prompt 6.6 — Empaquetado .exe">
 {`Prepara el proceso de empaquetado de Kairós Sentimiento con PyInstaller.
 
 Requisitos del empaquetado:
@@ -1092,7 +1092,7 @@ Escribe:
 2. El comando exacto de compilación:
    \`pyinstaller --clean kairos_sentimiento.spec\`
 3. Instrucciones detalladas para resolver problemas comunes con las DLLs de DuckDB y los assets de Flet al empaquetar.
-   [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL DE FLET Y PYINSTALLER]`}
+   [VERIFICAR EN DOCUMENTACI“N OFICIAL DE FLET Y PYINSTALLER]`}
           </PromptBlock>
         </Step>
 
@@ -1101,7 +1101,7 @@ Escribe:
           title="Protocolo de prueba en máquina limpia" 
           goal="Checklist en máquina sin Python: arranque < 5s sin ventana de consola, carpetas locales creadas, dataset DEMO cargable sin internet, gráficos correctos, backstage sin errores, exportación de informe Markdown/HTML, modo offline ante pérdida de red, log en ruta esperada sin exponer claves."
         >
-          <PromptBlock label="Prompt 6.7 â€” Verificación en máquina limpia">
+          <PromptBlock label="Prompt 6.7 — Verificación en máquina limpia">
 {`Genera un protocolo de control de calidad (Checklist en Markdown) para probar el ejecutable de Kairós Sentimiento en una máquina limpia (o máquina virtual recién formateada sin Python).
 
 Puntos de verificación obligatorios:
@@ -1121,7 +1121,7 @@ Puntos de verificación obligatorios:
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N
+            FASE 7 — ITERACI“N
         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader
           icon={RefreshCw}
@@ -1134,13 +1134,13 @@ Puntos de verificación obligatorios:
         <Step 
           num="7.A" 
           title="Roadmap de evolución (v2)" 
-          goal="Tabla del backlog v2 con columnas: capa afectada, complejidad técnica, impacto analítico y prioridad. Evaluar: conectores a fuentes profesionales, simulador multiactivo con rebalanceo, mapas de calor correlación sentimiento Ã— rendimiento, alertas de divergencia fundamentales/cotización y publicación de informes en la red Horizon. Reiterar exclusiones permanentes."
+          goal="Tabla del backlog v2 con columnas: capa afectada, complejidad técnica, impacto analítico y prioridad. Evaluar: conectores a fuentes profesionales, simulador multiactivo con rebalanceo, mapas de calor correlación sentimiento — rendimiento, alertas de divergencia fundamentales/cotización y publicación de informes en la red Horizon. Reiterar exclusiones permanentes."
         >
-          <PromptBlock label="Prompt 7.A â€” Backlog v2">
+          <PromptBlock label="Prompt 7.A — Backlog v2">
 {`Kairós Sentimiento v1 está completado y verificado. Ahora planificamos las mejoras para la versión 2.
 
 Posibles extensiones a evaluar:
-- Conectores a bases de datos financieras profesionales e institucionales [VERIFICAR EN DOCUMENTACIÃ“N OFICIAL].
+- Conectores a bases de datos financieras profesionales e institucionales [VERIFICAR EN DOCUMENTACI“N OFICIAL].
 - Simulador de carteras multiactivo con rebalanceo periódico.
 - Visualizaciones avanzadas (mapas de calor de correlación entre sentimiento y rendimiento).
 - Alertas de divergencia entre fundamentales y cotización de mercado.
@@ -1159,13 +1159,13 @@ Reitera explícitamente qué funciones continúan fuera de alcance (ejecución d
         <Step 
           num="7.B" 
           title="Publicar en Foro de Proyectos Horizon" 
-          goal="Ficha técnica con: título 'Kairós Sentimiento v1 â€” Plataforma de Investigación Financiera, Datos y Backstage de Estrategias', stack (Python, Flet, Pydantic v2, DuckDB, Parquet, SQLite, Pandas, LLM/NLP), diferenciadores (separación epistemológica estricta, trazabilidad auditable, modo offline), descargo legal formal y pregunta sobre metodologías para mitigar el ruido en el sentimiento financiero."
+          goal="Ficha técnica con: título 'Kairós Sentimiento v1 — Plataforma de Investigación Financiera, Datos y Backstage de Estrategias', stack (Python, Flet, Pydantic v2, DuckDB, Parquet, SQLite, Pandas, LLM/NLP), diferenciadores (separación epistemológica estricta, trazabilidad auditable, modo offline), descargo legal formal y pregunta sobre metodologías para mitigar el ruido en el sentimiento financiero."
         >
-          <PromptBlock label="Prompt 7.B â€” Publicación en el Foro">
+          <PromptBlock label="Prompt 7.B — Publicación en el Foro">
 {`Prepara la ficha técnica de presentación de Kairós Sentimiento para su publicación en el Foro de Proyectos de Horizon.
 
 Estructura de la ficha:
-1. **Título del Proyecto**: \`Kairós Sentimiento v1 â€” Plataforma de Investigación Financiera, Datos y Backstage de Estrategias\`.
+1. **Título del Proyecto**: \`Kairós Sentimiento v1 — Plataforma de Investigación Financiera, Datos y Backstage de Estrategias\`.
 2. **Área**: Finanzas Cuantitativas & Análisis de Mercado.
 3. **Propósito**: dotar al analista e investigador de un entorno unificado, trazable y reproducible que conecta fundamentales, series de precios y sentimiento textual con un backstage de simulación de hipótesis.
 4. **Stack Tecnológico**: Python, Flet, Pydantic v2, DuckDB, Parquet, SQLite, Pandas, LLM/NLP.
@@ -1175,7 +1175,7 @@ Estructura de la ficha:
           </PromptBlock>
         </Step>
 
-        {/* â”€â”€â”€ Resultado esperado â”€â”€â”€ */}
+        {/* —€—€—€ Resultado esperado —€—€—€ */}
         <div className="mt-12 rounded-2xl p-6 border"
           style={{ background: "rgba(5,150,105,0.04)", borderColor: "rgba(5,150,105,0.18)" }}>
           <div className="flex items-center gap-2 mb-3">
@@ -1183,7 +1183,7 @@ Estructura de la ficha:
             <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: C.emerald }}>Resultado esperado</span>
           </div>
           <p className="text-[14px] leading-relaxed" style={{ color: "rgba(17,17,17,0.65)" }}>
-            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1â€“6 + Fase 7), tendrás un <strong>ejecutable de Kairós Sentimiento</strong>: descarga y almacena series de precios y fundamentales de forma idempotente, analiza el sentimiento de fuentes textuales con guardrails antialucinación, permite diseñar y simular estrategias cuantitativas en un backstage dedicado sin ejecutar órdenes, y exporta informes analíticos reproducibles y auditables con trazabilidad completa de fuentes, timestamps y versiones de modelos.
+            Al completar los 30+ prompts de esta ruta (Fase 0 + Capas 1–6 + Fase 7), tendrás un <strong>ejecutable de Kairós Sentimiento</strong>: descarga y almacena series de precios y fundamentales de forma idempotente, analiza el sentimiento de fuentes textuales con guardrails antialucinación, permite diseñar y simular estrategias cuantitativas en un backstage dedicado sin ejecutar órdenes, y exporta informes analíticos reproducibles y auditables con trazabilidad completa de fuentes, timestamps y versiones de modelos.
           </p>
           <div className="flex flex-wrap gap-3 justify-start mt-6">
             <Link to="/comunidad/aplicaciones"
@@ -1199,7 +1199,7 @@ Estructura de la ficha:
           </div>
         </div>
 
-        {/* â”€â”€â”€ Version extensions â”€â”€â”€ */}
+        {/* —€—€—€ Version extensions —€—€—€ */}
         <VersionExtensions versions={VERSIONS} />
 
       </div>

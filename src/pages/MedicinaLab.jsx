@@ -12,7 +12,7 @@ import { BarChart3 } from "lucide-react";
 import { Heart } from "lucide-react";
 import { ShieldCheck } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -23,9 +23,9 @@ const RESEARCH_LINES = [
     summary:
       "Superar el examen de especialidad médica estadounidense (USMLE) no garantiza que las respuestas en producción sean seguras. El razonamiento médico real requiere manejar incertidumbre, contradicción entre fuentes y casos atípicos. La diferencia entre «saber medicina» y «razonar correctamente cuando el caso es ambiguo» es la que este área mide.",
     detail:
-      "MedQA_USMLE y MedMCQA miden conocimiento médico clínico estructurado. HealthBench_Pro y ClinEval_Diagnosis miden el razonamiento ante casos ambiguos en producción. El segundo componente de esta área es la no-maleficencia (Do-No-Harm): el principio ético que obliga al sistema a rechazar activamente recomendaciones peligrosas â€” dosis letales, contraindicaciones ignoradas, sesgos demográficos en el diagnóstico. DoNoHarm_Bench, MedHELM_Safety_Bias y HealthBench_RedTeaming miden esta capacidad de rechazo.",
+      "MedQA_USMLE y MedMCQA miden conocimiento médico clínico estructurado. HealthBench_Pro y ClinEval_Diagnosis miden el razonamiento ante casos ambiguos en producción. El segundo componente de esta área es la no-maleficencia (Do-No-Harm): el principio ético que obliga al sistema a rechazar activamente recomendaciones peligrosas — dosis letales, contraindicaciones ignoradas, sesgos demográficos en el diagnóstico. DoNoHarm_Bench, MedHELM_Safety_Bias y HealthBench_RedTeaming miden esta capacidad de rechazo.",
     benchmarks: [
-      { name: "MedQA_USMLE", desc: "Conocimiento médico clínico â€” estándar USMLE de especialidad" },
+      { name: "MedQA_USMLE", desc: "Conocimiento médico clínico — estándar USMLE de especialidad" },
       { name: "MedMCQA", desc: "Preguntas de opción múltiple de medicina clínica estructurada" },
       { name: "HealthBench_Pro", desc: "Razonamiento ante casos ambiguos y complejos en producción" },
       { name: "ClinEval_Diagnosis", desc: "Evaluación de razonamiento diagnóstico en casos atípicos" },
@@ -33,7 +33,7 @@ const RESEARCH_LINES = [
     topModel: {
       name: "DeepSeek-R1",
       score: "91.6",
-      detail: "92.4 MedQA_USMLE · 90.7 MedMCQA â€” líder en QA médica y evidencia biomédica",
+      detail: "92.4 MedQA_USMLE · 90.7 MedMCQA — líder en QA médica y evidencia biomédica",
     },
   },
   {
@@ -44,7 +44,7 @@ const RESEARCH_LINES = [
     summary:
       "Do-No-Harm es el primer principio de la ética médica: la obligación de no causar daño. Aplicado a modelos de IA significa que el sistema debe rechazar activamente recomendaciones peligrosas y detectar sesgos demográficos que afectan el diagnóstico.",
     detail:
-      "DoNoHarm_Bench mide la capacidad del modelo de rechazar recomendaciones con riesgo directo para el paciente. MedHELM_Safety_Bias evalúa sesgos demográficos implícitos que afectan la calidad del diagnóstico. HealthBench_RedTeaming mide la robustez del modelo ante intentos de extraer contenido médico peligroso mediante técnicas de jailbreak. Claude 3.5 Sonnet lidera con 95.3/100 compuesto, registrando 96.4 en DoNoHarm_Bench â€” la puntuación más alta de cualquier modelo en cualquier área médica evaluada.",
+      "DoNoHarm_Bench mide la capacidad del modelo de rechazar recomendaciones con riesgo directo para el paciente. MedHELM_Safety_Bias evalúa sesgos demográficos implícitos que afectan la calidad del diagnóstico. HealthBench_RedTeaming mide la robustez del modelo ante intentos de extraer contenido médico peligroso mediante técnicas de jailbreak. Claude 3.5 Sonnet lidera con 95.3/100 compuesto, registrando 96.4 en DoNoHarm_Bench — la puntuación más alta de cualquier modelo en cualquier área médica evaluada.",
     benchmarks: [
       { name: "DoNoHarm_Bench", desc: "Rechazo de recomendaciones con riesgo directo para el paciente" },
       { name: "MedHELM_Safety_Bias", desc: "Detección de sesgos demográficos en diagnóstico" },
@@ -62,7 +62,7 @@ const RESEARCH_LINES = [
     title: "Interoperabilidad de datos de salud y estructuración de EHR",
     color: "cyan",
     summary:
-      "Las historias clínicas electrónicas (EHR: Electronic Health Records) son el repositorio central de un paciente, pero cada sistema hospitalario las almacena de forma diferente. Convertir notas médicas en texto libre al estándar HL7 FHIR es un problema de NLP especializado â€” el punto de unión entre el caos de los datos clínicos reales y las aplicaciones de IA que necesitan datos limpios.",
+      "Las historias clínicas electrónicas (EHR: Electronic Health Records) son el repositorio central de un paciente, pero cada sistema hospitalario las almacena de forma diferente. Convertir notas médicas en texto libre al estándar HL7 FHIR es un problema de NLP especializado — el punto de unión entre el caos de los datos clínicos reales y las aplicaciones de IA que necesitan datos limpios.",
     detail:
       "BLURB_Suite (Biomedical Language Understanding and Reasoning Benchmark) mide NLP biomédico en tareas como extracción de entidades clínicas, normalización de nombres de fármacos y relación entre entidades. FlowerTune_Medical_NLP evalúa el ajuste de modelos a vocabulario clínico especializado. EHR_Summarization mide la capacidad de resumir historiales completos manteniendo la fidelidad clínica. Claude 3.5 Sonnet lidera con 90.2/100 compuesto.",
     benchmarks: [
@@ -82,7 +82,7 @@ const RESEARCH_LINES = [
     title: "Diagnóstico clínico y toma de decisiones en triage",
     color: "teal",
     summary:
-      "El diagnóstico diferencial â€” generar y ordenar una lista de posibles causas para los síntomas de un paciente â€” es una de las tareas más complejas de la práctica médica. Requiere integrar información parcial, manejar síntomas comunes a múltiples patologías y priorizar correctamente según el riesgo para el paciente.",
+      "El diagnóstico diferencial — generar y ordenar una lista de posibles causas para los síntomas de un paciente — es una de las tareas más complejas de la práctica médica. Requiere integrar información parcial, manejar síntomas comunes a múltiples patologías y priorizar correctamente según el riesgo para el paciente.",
     detail:
       "HealthBench_Pro evalúa el razonamiento clínico ante casos complejos con múltiples diagnósticos posibles. ClinEval_Diagnosis mide específicamente la calidad del diagnóstico diferencial y la toma de decisiones en triage. AMIE (Articulate Medical Intelligence Explorer) de Google DeepMind fue evaluado en estudios controlados frente a médicos de atención primaria. Lidera con 92.7/100 compuesto, registrando 93.5 en ClinEval_Diagnosis.",
     benchmarks: [
@@ -92,7 +92,7 @@ const RESEARCH_LINES = [
     topModel: {
       name: "AMIE (Google ClinEval)",
       score: "92.7",
-      detail: "92.1 HealthBench_Pro · 93.5 ClinEval_Diagnosis â€” evaluado frente a médicos de atención primaria",
+      detail: "92.1 HealthBench_Pro · 93.5 ClinEval_Diagnosis — evaluado frente a médicos de atención primaria",
     },
     warning: true,
   },
@@ -104,7 +104,7 @@ const RESEARCH_LINES = [
     summary:
       "La fisiopatología conecta el mecanismo de enfermedad con la presentación clínica. MedCalc integra fórmulas médicas complejas (GFR, CHADS2-VASc, MELD, Framingham) con el contexto del paciente. Esta área mide si el modelo puede combinar razonamiento biológico y cálculo especializado sin errores de precisión.",
     detail:
-      "MedCalc_Bench evalúa el cálculo médico especializado con fórmulas clínicas validadas. MedHELM_MultiStep_Reasoning mide el razonamiento fisiopatológico en cadenas de múltiples pasos. Pathology_Reasoning evalúa la integración de hallazgos patológicos en el razonamiento diagnóstico. DeepSeek-R1 lidera con 94.0/100 compuesto, aunque el diferencial con o1-preview (93.9/100) es de solo 0.1 puntos â€” ver Módulo 4, punto 4.2.",
+      "MedCalc_Bench evalúa el cálculo médico especializado con fórmulas clínicas validadas. MedHELM_MultiStep_Reasoning mide el razonamiento fisiopatológico en cadenas de múltiples pasos. Pathology_Reasoning evalúa la integración de hallazgos patológicos en el razonamiento diagnóstico. DeepSeek-R1 lidera con 94.0/100 compuesto, aunque el diferencial con o1-preview (93.9/100) es de solo 0.1 puntos — ver Módulo 4, punto 4.2.",
     benchmarks: [
       { name: "MedCalc_Bench", desc: "Cálculo médico especializado: GFR, CHADS2-VASc, MELD, Framingham" },
       { name: "MedHELM_MultiStep_Reasoning", desc: "Razonamiento fisiopatológico en cadenas de múltiples pasos" },
@@ -113,7 +113,7 @@ const RESEARCH_LINES = [
     topModel: {
       name: "DeepSeek-R1",
       score: "94.0",
-      detail: "Diferencial de 0.1 puntos con o1-preview (93.9) â€” ver punto 4.2",
+      detail: "Diferencial de 0.1 puntos con o1-preview (93.9) — ver punto 4.2",
     },
     warning: true,
   },
@@ -123,7 +123,7 @@ const RESEARCH_LINES = [
     title: "Seguimiento y adherencia de pacientes",
     color: "cyan",
     summary:
-      "La adherencia al tratamiento â€” que el paciente tome la medicación pautada, acuda a las revisiones y siga las indicaciones â€” es uno de los determinantes de salud más subestimados. Esta área investiga si los modelos pueden actuar como capa de soporte conversacional para el seguimiento continuo del paciente entre consultas: no como sustituto del médico, sino como sistema de alerta temprana.",
+      "La adherencia al tratamiento — que el paciente tome la medicación pautada, acuda a las revisiones y siga las indicaciones — es uno de los determinantes de salud más subestimados. Esta área investiga si los modelos pueden actuar como capa de soporte conversacional para el seguimiento continuo del paciente entre consultas: no como sustituto del médico, sino como sistema de alerta temprana.",
     detail:
       "Esta línea combina capacidades de NLP clínico (interpretación de síntomas reportados en lenguaje natural), razonamiento conversacional (mantenimiento del contexto del tratamiento del paciente) y filtrado de seguridad (garantía de que el sistema no genera recomendaciones clínicas activas). Las tres líneas se retroalimentan: un monitor de adherencia que no puede interpretar correctamente las instrucciones del historial del paciente genera alertas incorrectas. La extracción de EHR que no pasa por un filtro de no-maleficencia propaga datos erróneos a decisiones clínicas reales.",
     benchmarks: [
@@ -134,7 +134,7 @@ const RESEARCH_LINES = [
     topModel: {
       name: "Claude 3.5 Sonnet",
       score: "95.3",
-      detail: "Líder en seguridad conversacional clínica â€” componente crítico del guardrail de adherencia",
+      detail: "Líder en seguridad conversacional clínica — componente crítico del guardrail de adherencia",
     },
   },
 ];
@@ -143,15 +143,15 @@ const PROJECTS = [
   {
     id: "mente-medica",
     name: "Mente Médica",
-    tagline: "El sistema de control de calidad del laboratorio â€” auditar antes de que salga",
+    tagline: "El sistema de control de calidad del laboratorio — auditar antes de que salga",
     desc: "No es un chatbot médico más: es la capa de verificación que decide si una respuesta generada por cualquier modelo médico es lo suficientemente fiable como para salir hacia el exterior. Actúa como evaluador clínico: recibe una respuesta generada, la contrasta contra fuentes verificadas (guías clínicas, bases de datos de fármacos, PubMed) y devuelve un informe estructurado donde cada afirmación se etiqueta como VERIFICADA, NO VERIFICADA o CONTRADICTORIA CON FUENTE. La arquitectura en dos etapas usa DeepSeek-R1 para la evaluación de precisión clínica y Claude 3.5 Sonnet para el filtro de seguridad.",
     color: "teal",
     researchLines: ["01", "02"],
     stack: [
-      { role: "Evaluación de precisión clínica por afirmación (etapa 1)", tech: "DeepSeek-R1 â€” líder QA médica y evidencia biomédica (91.6/100, 92.4 MedQA_USMLE)" },
-      { role: "Filtro de seguridad y no-maleficencia (etapa 2)", tech: "Claude 3.5 Sonnet â€” líder no-maleficencia (95.3/100, 96.4 DoNoHarm_Bench)" },
+      { role: "Evaluación de precisión clínica por afirmación (etapa 1)", tech: "DeepSeek-R1 — líder QA médica y evidencia biomédica (91.6/100, 92.4 MedQA_USMLE)" },
+      { role: "Filtro de seguridad y no-maleficencia (etapa 2)", tech: "Claude 3.5 Sonnet — líder no-maleficencia (95.3/100, 96.4 DoNoHarm_Bench)" },
       { role: "Base de conocimiento clínico verificada", tech: "PubMed API · bases de datos de interacciones farmacológicas · guías clínicas estructuradas" },
-      { role: "Log de auditoría con trazabilidad completa por afirmación", tech: "DuckDB â€” registro de verificaciones con campo status, confidence y supporting_sources por afirmación" },
+      { role: "Log de auditoría con trazabilidad completa por afirmación", tech: "DuckDB — registro de verificaciones con campo status, confidence y supporting_sources por afirmación" },
     ],
     whyModels: [
       { model: "DeepSeek-R1", role: "Evaluación de precisión clínica (etapa 1)", score: "91.6", area: "QA Médica y Evidencia Biomédica (92.4 MedQA_USMLE · 90.7 MedMCQA)" },
@@ -159,10 +159,10 @@ const PROJECTS = [
     ],
     flow: [
       "Entrada: texto generado por cualquier modelo médico (resumen de historial, diagnóstico diferencial de apoyo, protocolo de dosificación)",
-      "Segmentación en afirmaciones clínicas atómicas (Claude 3.5 Sonnet): cada afirmación con campo claim_type â€” diagnostic | pharmacological | procedural | statistical | other",
-      "Por cada afirmación â€” búsqueda en PubMed API / base de fármacos / guías clínicas; evaluación de soporte bibliográfico (DeepSeek-R1); etiquetado: VERIFIED | UNVERIFIED | CONTRADICTED",
+      "Segmentación en afirmaciones clínicas atómicas (Claude 3.5 Sonnet): cada afirmación con campo claim_type — diagnostic | pharmacological | procedural | statistical | other",
+      "Por cada afirmación — búsqueda en PubMed API / base de fármacos / guías clínicas; evaluación de soporte bibliográfico (DeepSeek-R1); etiquetado: VERIFIED | UNVERIFIED | CONTRADICTED",
       "Filtro de seguridad y no-maleficencia (Claude 3.5 Sonnet): ¿alguna afirmación implica riesgo directo para el paciente? ¿hay sesgos demográficos implícitos?",
-      "Generación del informe de auditoría: puntuación de fiabilidad global [0â€“100], listado de afirmaciones por categoría, recomendaciones de corrección donde proceda",
+      "Generación del informe de auditoría: puntuación de fiabilidad global [0–100], listado de afirmaciones por categoría, recomendaciones de corrección donde proceda",
       "Salida: informe estructurado JSON + resumen en lenguaje natural para el operador sanitario",
     ],
     promptIDE: `Crea un módulo Python llamado mente_medica.py con las siguientes clases y funciones:
@@ -220,11 +220,11 @@ clínicas propias. En caso de duda, clasifica como UNVERIFIED.`,
     color: "emerald",
     researchLines: ["03"],
     stack: [
-      { role: "Extracción de entidades clínicas y NLP biomédico", tech: "Claude 3.5 Sonnet â€” líder NLP de EHR (90.2/100, 90.2 BLURB_Suite, 92.3 EHR_Summarization)" },
+      { role: "Extracción de entidades clínicas y NLP biomédico", tech: "Claude 3.5 Sonnet — líder NLP de EHR (90.2/100, 90.2 BLURB_Suite, 92.3 EHR_Summarization)" },
       { role: "Normalización terminológica a códigos estándar", tech: "APIs de terminología clínica: RxNorm (fármacos) · CIE-10 / SNOMED-CT (diagnósticos) · LOINC (laboratorio)" },
       { role: "Constructor de recursos FHIR R4", tech: "HL7 FHIR R4: Patient, Condition, MedicationRequest, Observation, DiagnosticReport" },
-      { role: "Validador de conformidad FHIR", tech: "fhir.resources â€” validación de perfil R4 antes de persistir cada recurso" },
-      { role: "Almacenamiento de desarrollo", tech: "HAPI FHIR â€” servidor FHIR local para el entorno de laboratorio" },
+      { role: "Validador de conformidad FHIR", tech: "fhir.resources — validación de perfil R4 antes de persistir cada recurso" },
+      { role: "Almacenamiento de desarrollo", tech: "HAPI FHIR — servidor FHIR local para el entorno de laboratorio" },
     ],
     whyModels: [
       { model: "Claude 3.5 Sonnet", role: "Extracción de entidades clínicas de texto no estructurado", score: "90.2", area: "NLP de EHR (90.2 BLURB_Suite · 88.4 FlowerTune_Medical_NLP · 92.3 EHR_Summarization)" },
@@ -235,7 +235,7 @@ clínicas propias. En caso de duda, clasifica como UNVERIFIED.`,
       "Extracción de entidades clínicas (Claude 3.5 Sonnet): medicamentos + dosis + frecuencia + vía; diagnósticos + fecha inicio/fin; resultados de laboratorio + valor + unidades + fecha; signos vitales + procedimientos",
       "Normalización terminológica: medicamentos â†’ RxNorm CUI; diagnósticos â†’ CIE-10 / SNOMED-CT; laboratorio â†’ LOINC. Marcado 'UNRESOLVED' para entidades sin código encontrado",
       "Construcción de recursos FHIR R4: Patient, Condition, MedicationRequest, Observation, DiagnosticReport a partir de entidades normalizadas",
-      "Validación de conformidad FHIR (perfiles R4) â€” verificación de que cada recurso cumple el perfil antes de persistirlo",
+      "Validación de conformidad FHIR (perfiles R4) — verificación de que cada recurso cumple el perfil antes de persistirlo",
       "Salida: bundle FHIR R4 en JSON + log de entidades no resueltas para revisión manual",
     ],
     promptIDE: `Crea un módulo Python llamado nexo_fhir.py con las siguientes clases y funciones:
@@ -290,16 +290,16 @@ Formato de respuesta (JSON estricto):
   {
     id: "higia-ia",
     name: "Higía IA",
-    tagline: "El tiempo entre consultas â€” donde el tratamiento funciona o se abandona",
+    tagline: "El tiempo entre consultas — donde el tratamiento funciona o se abandona",
     desc: "Higía (Hygieia), la diosa griega de la salud preventiva, representaba el cuidado continuo que evita que la enfermedad llegue a necesitar curación. Higía IA es el proyecto orientado al tiempo entre consultas: registra si el paciente toma su medicación según el plan pautado, recuerda citas, detecta patrones de abandono y agrega tendencias para el profesional sanitario. No diagnostica, no prescribe, no sustituye al médico. Es un sistema de alerta temprana y soporte conversacional con un guardrail de seguridad estricto: si el sistema detecta que su respuesta implica una recomendación clínica activa, la bloquea automáticamente y escala al profesional sanitario.",
     color: "cyan",
     researchLines: ["04", "06"],
     stack: [
-      { role: "Comprensión de síntomas reportados y triage de alertas", tech: "AMIE/ClinEval (Google DeepMind) â€” líder diagnóstico clínico (92.7/100, 93.5 ClinEval_Diagnosis)" },
-      { role: "Extracción de pauta de tratamiento desde FHIR (integración con Nexo FHIR)", tech: "Claude 3.5 Sonnet â€” líder NLP de EHR (90.2/100, 92.3 EHR_Summarization)" },
-      { role: "Filtro de seguridad conversacional (no-maleficencia)", tech: "Claude 3.5 Sonnet â€” líder seguridad clínica (95.3/100, 96.4 DoNoHarm_Bench)" },
-      { role: "Canal conversacional de recordatorios y registro de tomas", tech: "WhatsApp Business API / Telegram Bot / SMS â€” configurable por institución" },
-      { role: "Serie temporal de adherencia + alertas + dashboard clínico", tech: "DuckDB â€” eventos por paciente con timestamp, event_type, status; panel de resumen para la consulta" },
+      { role: "Comprensión de síntomas reportados y triage de alertas", tech: "AMIE/ClinEval (Google DeepMind) — líder diagnóstico clínico (92.7/100, 93.5 ClinEval_Diagnosis)" },
+      { role: "Extracción de pauta de tratamiento desde FHIR (integración con Nexo FHIR)", tech: "Claude 3.5 Sonnet — líder NLP de EHR (90.2/100, 92.3 EHR_Summarization)" },
+      { role: "Filtro de seguridad conversacional (no-maleficencia)", tech: "Claude 3.5 Sonnet — líder seguridad clínica (95.3/100, 96.4 DoNoHarm_Bench)" },
+      { role: "Canal conversacional de recordatorios y registro de tomas", tech: "WhatsApp Business API / Telegram Bot / SMS — configurable por institución" },
+      { role: "Serie temporal de adherencia + alertas + dashboard clínico", tech: "DuckDB — eventos por paciente con timestamp, event_type, status; panel de resumen para la consulta" },
     ],
     whyModels: [
       { model: "AMIE (Google ClinEval)", role: "Triage de alertas por síntomas reportados", score: "92.7", area: "Diagnóstico Clínico (92.1 HealthBench_Pro · 93.5 ClinEval_Diagnosis)" },
@@ -406,18 +406,18 @@ const VERIFICATION_POINTS = [
     id: "v1",
     title: "4.1 Asimetría en la cobertura de benchmarks por modelo",
     items: [
-      "Preguntas y Respuestas Médicas: DeepSeek-R1 dispone de 2 benchmarks evaluados (MedQA_USMLE, MedMCQA), mientras que Claude 3.5 Sonnet y GPT-4o cuentan con 3 (incluyendo PubMedQA) â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md. Falta verificar si existen resultados de DeepSeek-R1 para PubMedQA.",
-      "Diagnóstico Clínico: AMIE registra 2 evaluaciones (HealthBench_Pro, ClinEval_Diagnosis), mientras que Claude 3.5 Sonnet y GPT-4o disponen de 3 (sumando MedHELM_Diagnostic) â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
-      "Seguridad del Paciente: Med-PaLM 2 cuenta con 2 evaluaciones (DoNoHarm_Bench, MedHELM_Safety_Bias), sin dato para HealthBench_RedTeaming â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
-      "NLP de Historias Clínicas: Med-PaLM 2 cuenta únicamente con 1 evaluación (EHR_Summarization), sin datos para BLURB_Suite ni FlowerTune_Medical_NLP â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
-      "Razonamiento Fisiopatológico: o1-preview registra 2 evaluaciones (MedCalc_Bench, MedHELM_MultiStep_Reasoning), sin puntuación para Pathology_Reasoning â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
+      "Preguntas y Respuestas Médicas: DeepSeek-R1 dispone de 2 benchmarks evaluados (MedQA_USMLE, MedMCQA), mientras que Claude 3.5 Sonnet y GPT-4o cuentan con 3 (incluyendo PubMedQA) — Fuente: MedAI Leaderboard, latest_rankings_medical.md. Falta verificar si existen resultados de DeepSeek-R1 para PubMedQA.",
+      "Diagnóstico Clínico: AMIE registra 2 evaluaciones (HealthBench_Pro, ClinEval_Diagnosis), mientras que Claude 3.5 Sonnet y GPT-4o disponen de 3 (sumando MedHELM_Diagnostic) — Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
+      "Seguridad del Paciente: Med-PaLM 2 cuenta con 2 evaluaciones (DoNoHarm_Bench, MedHELM_Safety_Bias), sin dato para HealthBench_RedTeaming — Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
+      "NLP de Historias Clínicas: Med-PaLM 2 cuenta únicamente con 1 evaluación (EHR_Summarization), sin datos para BLURB_Suite ni FlowerTune_Medical_NLP — Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
+      "Razonamiento Fisiopatológico: o1-preview registra 2 evaluaciones (MedCalc_Bench, MedHELM_MultiStep_Reasoning), sin puntuación para Pathology_Reasoning — Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
     ],
   },
   {
     id: "v2",
     title: "4.2 Diferencial de 0.1 puntos en Razonamiento Fisiopatológico",
     items: [
-      "Entre el Top 1 (DeepSeek-R1 con 94.0/100) y el Top 2 (o1-preview con 93.9/100) la diferencia es de 0.1 puntos en el área de Razonamiento Fisiopatológico y Cálculo Médico Complejo â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
+      "Entre el Top 1 (DeepSeek-R1 con 94.0/100) y el Top 2 (o1-preview con 93.9/100) la diferencia es de 0.1 puntos en el área de Razonamiento Fisiopatológico y Cálculo Médico Complejo — Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
       "Dado que o1-preview fue evaluado sobre 2 benchmarks y DeepSeek-R1 sobre 3, se requiere confirmar si la puntuación compuesta normaliza correctamente este desbalance de cobertura antes de recomendar públicamente uno sobre otro para tareas de cálculo médico crítico.",
     ],
   },
@@ -425,9 +425,9 @@ const VERIFICATION_POINTS = [
     id: "v3",
     title: "4.3 Disponibilidad real de AMIE para integración en producción",
     items: [
-      "AMIE (Google ClinEval) aparece como líder en Diagnóstico Clínico con 92.7/100 â€” Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
+      "AMIE (Google ClinEval) aparece como líder en Diagnóstico Clínico con 92.7/100 — Fuente: MedAI Leaderboard, latest_rankings_medical.md.",
       "Su disponibilidad como API de producción accesible para integración en sistemas de terceros debe verificarse en la web oficial de Google Health AI [VERIFICAR EN: health.google].",
-      "Higía IA depende de AMIE para el componente de triage de alertas â€” verificar disponibilidad antes de iniciar el prototipo.",
+      "Higía IA depende de AMIE para el componente de triage de alertas — verificar disponibilidad antes de iniciar el prototipo.",
     ],
   },
   {
@@ -450,7 +450,7 @@ const VERIFICATION_POINTS = [
   },
 ];
 
-// â”€â”€â”€ Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Styles —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const STYLES = {
   teal: {
@@ -482,7 +482,7 @@ const STYLES = {
   },
 };
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ResearchLineCard({ line }) {
   const [open, setOpen] = useState(false);
@@ -573,7 +573,7 @@ function PromptBlock({ label, content }) {
           <span className="text-xs text-white/50 font-mono">{label}</span>
         </div>
         <button onClick={copy} className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10">
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -619,7 +619,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -684,8 +684,8 @@ function ProjectCard({ project }) {
         )}
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -721,7 +721,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function MedicinaLab() {
   return (
@@ -792,7 +792,7 @@ export default function MedicinaLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -802,7 +802,7 @@ export default function MedicinaLab() {
               <p className="text-xs text-white/25 uppercase tracking-widest mb-1">Módulo 1</p>
               <h2 className="font-display text-2xl sm:text-3xl text-white">Qué se investiga aquí</h2>
               <p className="text-white/40 text-sm mt-1.5 max-w-2xl leading-relaxed">
-                El laboratorio aborda tres familias de problemas técnicos â€” evaluación clínica y control de alucinaciones, interoperabilidad de datos de salud y seguimiento de pacientes â€” que se retroalimentan: sin los datos estructurados del segundo, ni el primero ni el tercero pueden funcionar. Seis líneas que cubren el espectro completo de la IA aplicada a medicina.
+                El laboratorio aborda tres familias de problemas técnicos — evaluación clínica y control de alucinaciones, interoperabilidad de datos de salud y seguimiento de pacientes — que se retroalimentan: sin los datos estructurados del segundo, ni el primero ni el tercero pueden funcionar. Seis líneas que cubren el espectro completo de la IA aplicada a medicina.
               </p>
             </div>
           </div>
@@ -819,7 +819,7 @@ export default function MedicinaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -840,7 +840,7 @@ export default function MedicinaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -882,7 +882,7 @@ export default function MedicinaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -903,7 +903,7 @@ export default function MedicinaLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · MedAI Leaderboard · 2026-08-29</p>

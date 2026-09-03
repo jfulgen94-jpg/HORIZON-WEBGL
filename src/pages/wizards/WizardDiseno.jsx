@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Palette } from "lucide-react";
 
-// â”€â”€â”€ Constantes de datos (Diseño & Creatividad Visual) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Constantes de datos (Diseño & Creatividad Visual) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const PRIMARY_TASKS = [
   {
@@ -117,7 +117,7 @@ const STORAGE_ENGINES = [
   "Almacén de Proyectos Creativos en Formato Markdown con Muestras de Color",
 ];
 
-// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Helpers —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function getAutoMetrics(primaryId, secondaryIds) {
   const auto = new Set();
@@ -144,7 +144,7 @@ function needsValidationStep(primaryId, secondaryIds) {
   return primaryId === "DS1.1" || primaryId === "DS1.2" || primaryId === "DS1.5" || secondaryIds.includes("SEC-DS-01") || secondaryIds.includes("SEC-DS-06") || secondaryIds.includes("SEC-DS-07");
 }
 
-// â”€â”€â”€ Generador del informe â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Generador del informe —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function generateReport(data) {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
@@ -170,30 +170,30 @@ function generateReport(data) {
 
   const treeLines = [
     appSlug + "/",
-    "â”œâ”€â”€ src/",
-    "â”‚   â”œâ”€â”€ __init__.py",
-    "â”‚   â”œâ”€â”€ config.py                 # Configuración de diseño, perfiles de color y claves API (Google Fonts)",
-    "â”‚   â”œâ”€â”€ schemas.py                # Modelos Pydantic v2 para paletas, tokens W3C y especificaciones de marca" + (hasSEC07 ? "\nâ”‚   â”‚                             # â†’ incluye middleware Guardrails de Asistencia Creativa (BR-DS-05)" : ""),
-    data.primaryTask === "DS1.1" ? "â”‚   â”œâ”€â”€ brand_generator.py        # Generador de direcciones creativas y conceptos de identidad (BR-DS-01)" : null,
-    hasSEC01 || data.primaryTask === "DS1.5" ? "â”‚   â”œâ”€â”€ wcag_contrast.py          # Calculador algorítmico de contraste WCAG 2.1 AA/AAA" : null,
-    hasSEC02 || data.primaryTask === "DS1.1" ? "â”‚   â”œâ”€â”€ font_validator.py         # Conector con Google Fonts API y validador de pares tipográficos" : null,
-    data.primaryTask === "DS1.2" || hasSEC08 ? "â”‚   â”œâ”€â”€ ui_auditor.py             # Auditor heurístico de interfaces y detector de bounding boxes (BR-DS-02)" : null,
-    data.primaryTask === "DS1.3" || hasSEC05 ? "â”‚   â”œâ”€â”€ design_tokens.py          # Generador de tokens W3C, CSS Variables y Tailwind Config (BR-DS-03)" : null,
-    data.primaryTask === "DS1.4" ? "â”‚   â”œâ”€â”€ svg_generator.py          # Constructor de gráficos y logotipos vectoriales limpios con svgwrite" : null,
-    hasSEC06 ? "â”‚   â”œâ”€â”€ cultural_checker.py       # Analizador de connotaciones y semiótica cultural del color" : null,
-    "â”‚   â”œâ”€â”€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de variantes" : "Capa de persistencia de diseño"),
-    "â”‚   â”œâ”€â”€ brand_reporting.py        # Generador de manuales de identidad y guías de estilo (Markdown / PDF)",
-    "â”‚   â””â”€â”€ ui/",
-    "â”‚       â”œâ”€â”€ __init__.py",
-    "â”‚       â”œâ”€â”€ components.py         # Visores de paletas de color, muestras tipográficas y renderizadores SVG",
-    "â”‚       â””â”€â”€ main_view.py          # Dashboard de diseño y panel del director de arte",
-    "â”œâ”€â”€ tests/",
-    "â”‚   â”œâ”€â”€ test_schemas.py           # Pruebas de esquemas de tokens de diseño",
-    hasSEC01 ? "â”‚   â”œâ”€â”€ test_wcag_contrast.py     # Batería de cálculo de contrastes y luminancia relativa" : null,
-    data.primaryTask === "DS1.4" ? "â”‚   â””â”€â”€ test_svg_output.py        # Validación sintáctica de SVG generados" : null,
-    "â”œâ”€â”€ data/                         # Ficheros de tokens JSON, assets SVG y caché de tipografías",
-    "â”œâ”€â”€ requirements.txt              # svgwrite, pydantic, duckdb, requests, pytest",
-    "â””â”€â”€ main.py                       # Punto de entrada de la aplicación de diseño",
+    "—œ—€—€ src/",
+    "—‚   —œ—€—€ __init__.py",
+    "—‚   —œ—€—€ config.py                 # Configuración de diseño, perfiles de color y claves API (Google Fonts)",
+    "—‚   —œ—€—€ schemas.py                # Modelos Pydantic v2 para paletas, tokens W3C y especificaciones de marca" + (hasSEC07 ? "\n—‚   —‚                             # â†’ incluye middleware Guardrails de Asistencia Creativa (BR-DS-05)" : ""),
+    data.primaryTask === "DS1.1" ? "—‚   —œ—€—€ brand_generator.py        # Generador de direcciones creativas y conceptos de identidad (BR-DS-01)" : null,
+    hasSEC01 || data.primaryTask === "DS1.5" ? "—‚   —œ—€—€ wcag_contrast.py          # Calculador algorítmico de contraste WCAG 2.1 AA/AAA" : null,
+    hasSEC02 || data.primaryTask === "DS1.1" ? "—‚   —œ—€—€ font_validator.py         # Conector con Google Fonts API y validador de pares tipográficos" : null,
+    data.primaryTask === "DS1.2" || hasSEC08 ? "—‚   —œ—€—€ ui_auditor.py             # Auditor heurístico de interfaces y detector de bounding boxes (BR-DS-02)" : null,
+    data.primaryTask === "DS1.3" || hasSEC05 ? "—‚   —œ—€—€ design_tokens.py          # Generador de tokens W3C, CSS Variables y Tailwind Config (BR-DS-03)" : null,
+    data.primaryTask === "DS1.4" ? "—‚   —œ—€—€ svg_generator.py          # Constructor de gráficos y logotipos vectoriales limpios con svgwrite" : null,
+    hasSEC06 ? "—‚   —œ—€—€ cultural_checker.py       # Analizador de connotaciones y semiótica cultural del color" : null,
+    "—‚   —œ—€—€ storage.py                # " + (hasSEC04 ? "DuckDB + Parquet (BR-DS-04) con registro inmutable de variantes" : "Capa de persistencia de diseño"),
+    "—‚   —œ—€—€ brand_reporting.py        # Generador de manuales de identidad y guías de estilo (Markdown / PDF)",
+    "—‚   —”—€—€ ui/",
+    "—‚       —œ—€—€ __init__.py",
+    "—‚       —œ—€—€ components.py         # Visores de paletas de color, muestras tipográficas y renderizadores SVG",
+    "—‚       —”—€—€ main_view.py          # Dashboard de diseño y panel del director de arte",
+    "—œ—€—€ tests/",
+    "—‚   —œ—€—€ test_schemas.py           # Pruebas de esquemas de tokens de diseño",
+    hasSEC01 ? "—‚   —œ—€—€ test_wcag_contrast.py     # Batería de cálculo de contrastes y luminancia relativa" : null,
+    data.primaryTask === "DS1.4" ? "—‚   —”—€—€ test_svg_output.py        # Validación sintáctica de SVG generados" : null,
+    "—œ—€—€ data/                         # Ficheros de tokens JSON, assets SVG y caché de tipografías",
+    "—œ—€—€ requirements.txt              # svgwrite, pydantic, duckdb, requests, pytest",
+    "—”—€—€ main.py                       # Punto de entrada de la aplicación de diseño",
   ].filter(Boolean).join("\n");
 
   const branchingLines = [
@@ -226,7 +226,7 @@ function generateReport(data) {
   ].filter(Boolean).join("\n");
 
   return [
-    "# INFORME EJECUTIVO DE ESPECIFICACIÃ“N TÃ‰CNICA",
+    "# INFORME EJECUTIVO DE ESPECIFICACI“N TÃ‰CNICA",
     "## Proyecto de Software de Diseño & Creatividad Visual: " + data.appName,
     "",
     "**Fecha de Generación:** " + now,
@@ -292,7 +292,7 @@ function generateReport(data) {
     "",
     "### 7. Cláusula de Autoría Creativa y Descargo de Responsabilidad",
     "",
-    "> **AVISO PROFESIONAL Y METODOLÃ“GICO OBLIGATORIO**",
+    "> **AVISO PROFESIONAL Y METODOL“GICO OBLIGATORIO**",
     ">",
     "> Esta especificación técnica y cualquier software desarrollado a partir de ella tiene carácter **exclusivamente de herramienta de apoyo a la ideación, auditoría de accesibilidad y generación de tokens de diseño**.",
     ">",
@@ -300,15 +300,15 @@ function generateReport(data) {
     "> - Todo sistema de identidad, paleta o diseño de interfaz debe ser **revisado y aprobado por el director de arte o responsable de diseño** antes de su lanzamiento en producción.",
     "> - La accesibilidad WCAG se garantiza mediante validación algorítmica determinista de ratios de contraste.",
     ">",
-    "> Diseñado en **Horizon â€” Centro Interactivo de IA Aplicada.** Laboratorio de Diseño & Creatividad Visual.",
+    "> Diseñado en **Horizon — Centro Interactivo de IA Aplicada.** Laboratorio de Diseño & Creatividad Visual.",
     "",
     "---",
     "",
-    "_Fin del Informe Ejecutivo de Especificación Técnica â€” Generado automáticamente por Horizon DesignAppWizard v1.0_",
+    "_Fin del Informe Ejecutivo de Especificación Técnica — Generado automáticamente por Horizon DesignAppWizard v1.0_",
   ].filter(l => l !== null).join("\n");
 }
 
-// â”€â”€â”€ Componentes auxiliares â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componentes auxiliares —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ProgressBar({ step, total }) {
   return (
@@ -486,7 +486,7 @@ function SelectGroup({ options, value, onChange }) {
   );
 }
 
-// â”€â”€â”€ Componente principal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Componente principal —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const TOTAL_STEPS = 6;
 
@@ -598,7 +598,7 @@ export default function WizardDiseno() {
             <div className="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center shrink-0 text-amber-600 font-display text-xl">ðŸŽ¨</div>
             <div>
               <h1 className="font-display text-[28px] sm:text-[36px] text-dark tracking-[-0.02em] leading-tight">
-                Diseñador de Proyectos â€” Diseño & Creatividad Visual
+                Diseñador de Proyectos — Diseño & Creatividad Visual
               </h1>
               <p className="text-dark/50 text-sm mt-1">
                 Define tu aplicación de diseño paso a paso con accesibilidad WCAG 2.1, tipografía modular y tokens W3C.
@@ -607,7 +607,7 @@ export default function WizardDiseno() {
           </div>
         </div>
 
-        {/* â”€â”€ PASOS 1-6 â”€â”€ */}
+        {/* —€—€ PASOS 1-6 —€—€ */}
         {step <= TOTAL_STEPS && (
           <>
             <ProgressBar step={step} total={TOTAL_STEPS} />
@@ -615,18 +615,18 @@ export default function WizardDiseno() {
             {/* PASO 1 */}
             {step === 1 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 â€” Tarea Principal</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 1 — Tarea Principal</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona el núcleo funcional que definirá la arquitectura de tu aplicación de diseño.</p>
 
                 <div className="space-y-5">
                   <div>
                     <FieldLabel hint="Será el título de tu especificación técnica de diseño.">Nombre del proyecto</FieldLabel>
-                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Génesis Visual, Crítica UI, Design System Studio, SVG Canvasâ€¦" />
+                    <InputText value={data.appName} onChange={set("appName")} placeholder="Ej: Génesis Visual, Crítica UI, Design System Studio, SVG Canvas–¦" />
                     {errors.appName && <p className="text-red-500 text-xs mt-1.5">{errors.appName}</p>}
                   </div>
                   <div>
                     <FieldLabel hint="Tu nombre, alias, estudio de diseño o agencia creativa.">Diseñador / Estudio Creativo</FieldLabel>
-                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Estudio Creativo, Director de Arteâ€¦" />
+                    <InputText value={data.authorName} onChange={set("authorName")} placeholder="Ej: Equipo Horizon, Estudio Creativo, Director de Arte–¦" />
                   </div>
                   <div>
                     <FieldLabel hint="Elige la función de diseño principal. Esto determinará los motores y reglas de accesibilidad requeridas.">Tarea principal de la aplicación</FieldLabel>
@@ -642,7 +642,7 @@ export default function WizardDiseno() {
             {/* PASO 2 */}
             {step === 2 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 â€” Módulos Complementarios</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 2 — Módulos Complementarios</h2>
                 <p className="text-dark/45 text-sm mb-6">Añade hasta <strong>4 capacidades creativas y de accesibilidad</strong> para robustecer el sistema.</p>
 
                 <div className="bg-amber-500/[0.04] border border-amber-500/15 rounded-xl px-4 py-3 mb-5 text-[13px] text-dark/60">
@@ -661,7 +661,7 @@ export default function WizardDiseno() {
             {/* PASO 3 */}
             {step === 3 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 â€” Ámbito de Diseño & Motores</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 3 — Ámbito de Diseño & Motores</h2>
                 <p className="text-dark/45 text-sm mb-6">Configura las especialidades creativas aplicables y las librerías de renderizado visual.</p>
 
                 <div className="space-y-6">
@@ -684,12 +684,12 @@ export default function WizardDiseno() {
             {/* PASO 4 */}
             {step === 4 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 â€” Catálogo de Métricas de Diseño</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 4 — Catálogo de Métricas de Diseño</h2>
                 <p className="text-dark/45 text-sm mb-6">Selecciona las métricas de accesibilidad, coherencia visual y conversión que evaluará el sistema.</p>
 
                 {data.selectedMetrics.length > 0 && (
                   <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-amber-800">
-                    âœ“ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} de diseño preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
+                    ““ {data.selectedMetrics.length} métrica{data.selectedMetrics.length !== 1 ? "s" : ""} de diseño preseleccionada{data.selectedMetrics.length !== 1 ? "s" : ""} automáticamente según tu tarea principal.
                   </div>
                 )}
 
@@ -726,7 +726,7 @@ export default function WizardDiseno() {
             {/* PASO 5 */}
             {step === 5 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 â€” Accesibilidad WCAG y Guardrails Creativos</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 5 — Accesibilidad WCAG y Guardrails Creativos</h2>
 
                 {hasValidation ? (
                   <>
@@ -778,12 +778,12 @@ export default function WizardDiseno() {
             {/* PASO 6 */}
             {step === 6 && (
               <StepCard>
-                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 â€” Stack Tecnológico & Persistencia</h2>
+                <h2 className="font-display text-[22px] text-dark mb-1">Paso 6 — Stack Tecnológico & Persistencia</h2>
                 <p className="text-dark/45 text-sm mb-6">Elige la infraestructura y formatos de exportación para tu aplicación de diseño.</p>
 
                 {data.secondaryTasks.includes("SEC-DS-04") && (
                   <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-5 text-[12.5px] text-amber-800">
-                    âœ“ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-DS-04.
+                    ““ Persistencia analítica preconfigurada en <strong>DuckDB + Parquet</strong> por el módulo SEC-DS-04.
                   </div>
                 )}
 
@@ -806,7 +806,7 @@ export default function WizardDiseno() {
           </>
         )}
 
-        {/* â”€â”€ PANTALLA FINAL: INFORME â”€â”€ */}
+        {/* —€—€ PANTALLA FINAL: INFORME —€—€ */}
         {step === 7 && (
           <div>
             <div className="bg-white border border-dark/10 rounded-2xl p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.05)] mb-6">
@@ -853,7 +853,7 @@ export default function WizardDiseno() {
   );
 }
 
-// â”€â”€â”€ Renderizador de Markdown ligero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Renderizador de Markdown ligero —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ReportRenderer({ markdown }) {
   const lines = markdown.split("\n");
@@ -869,7 +869,7 @@ function ReportRenderer({ markdown }) {
         if (line.startsWith("- **") || line.startsWith("- ")) {
           return (
             <div key={i} className="flex items-start gap-2 pl-2">
-              <span className="text-amber-500 mt-1.5 shrink-0">â€¢</span>
+              <span className="text-amber-500 mt-1.5 shrink-0">–¢</span>
               <span dangerouslySetInnerHTML={{ __html: formatInline(line.slice(2)) }} />
             </div>
           );

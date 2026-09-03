@@ -15,7 +15,7 @@ import { ShieldCheck } from "lucide-react";
 import { Search } from "lucide-react";
 import { Layers } from "lucide-react";
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Data —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 const RESEARCH_LINES = [
   {
@@ -85,14 +85,14 @@ const PROJECTS = [
     id: "balance",
     name: "Balance Inteligente",
     tagline: "El primer revisor que llega antes que el contable",
-    desc: "Motor de cuadre y conciliación automatizada. Cruza movimientos bancarios contra el Libro Mayor, detecta discrepancias â€”pagos duplicados, importes con decimales incorrectos, asientos huérfanosâ€” y propone la corrección más probable para cada uno. No registra asientos definitivos: solo propone.",
+    desc: "Motor de cuadre y conciliación automatizada. Cruza movimientos bancarios contra el Libro Mayor, detecta discrepancias —pagos duplicados, importes con decimales incorrectos, asientos huérfanos— y propone la corrección más probable para cada uno. No registra asientos definitivos: solo propone.",
     color: "blue",
     researchLines: ["01"],
     stack: [
-      { role: "Modelo de conciliación y asientos", tech: "Claude 3.7 Sonnet â€” líder automatización contable (94.41/100)" },
-      { role: "Modelo de detección de anomalías", tech: "DeepSeek-R1 â€” líder detección de fraude transaccional (95.55/100)" },
+      { role: "Modelo de conciliación y asientos", tech: "Claude 3.7 Sonnet — líder automatización contable (94.41/100)" },
+      { role: "Modelo de detección de anomalías", tech: "DeepSeek-R1 — líder detección de fraude transaccional (95.55/100)" },
       { role: "Fuentes de datos", tech: "Extractos bancarios MT940 / CAMT.053 / CSV · Libro Mayor ERP" },
-      { role: "Almacenamiento", tech: "DuckDB â€” historial conciliaciones + log propuestas aceptadas/rechazadas" },
+      { role: "Almacenamiento", tech: "DuckDB — historial conciliaciones + log propuestas aceptadas/rechazadas" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Propuesta de conciliación y corrección", score: "94.41", area: "Automatización Contable" },
@@ -143,7 +143,7 @@ Tu tarea:
 Restricciones críticas:
 - No registres ni confirmes ningún asiento. Solo propones.
 - Si el importe involucrado supera 10.000 EUR, añade siempre la nota
-  "REQUIERE VALIDACIÃ“N DE RESPONSABLE CONTABLE" con independencia de la confianza.
+  "REQUIERE VALIDACI“N DE RESPONSABLE CONTABLE" con independencia de la confianza.
 - No hagas afirmaciones sobre la normativa fiscal aplicable sin marcarlas como
   "[VERIFICAR NORMATIVA VIGENTE]".
 
@@ -167,11 +167,11 @@ Responde en JSON:
     color: "emerald",
     researchLines: ["02"],
     stack: [
-      { role: "OCR inteligente y estructuración documental", tech: "Claude 3.7 Sonnet â€” líder OCR contable (96.43/100)" },
-      { role: "Verificación de cumplimiento fiscal", tech: "Claude 3.7 Sonnet â€” líder trazabilidad y cumplimiento (95.75/100)" },
+      { role: "OCR inteligente y estructuración documental", tech: "Claude 3.7 Sonnet — líder OCR contable (96.43/100)" },
+      { role: "Verificación de cumplimiento fiscal", tech: "Claude 3.7 Sonnet — líder trazabilidad y cumplimiento (95.75/100)" },
       { role: "Motor OCR base", tech: "Tesseract / Azure Document Intelligence (preprocesamiento)" },
       { role: "Fuente de reglas fiscales", tech: "Tabla de tipos de IVA por tipo de gasto y país [VERIFICAR NORMATIVA VIGENTE]" },
-      { role: "Almacenamiento", tech: "DuckDB â€” historial facturas procesadas + índice por proveedor y período" },
+      { role: "Almacenamiento", tech: "DuckDB — historial facturas procesadas + índice por proveedor y período" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Extracción multimodal y validación fiscal", score: "96.43", area: "OCR Contable y Estructuración" },
@@ -213,17 +213,17 @@ de Contabilidad & ERP de Horizon.
 Se te proporciona el texto extraído de un documento de factura (puede contener
 errores de OCR, formatos irregulares de fecha o importes con separadores distintos).
 
-Tarea 1 â€” Extracción:
+Tarea 1 — Extracción:
 Extrae todos los campos fiscalmente relevantes del documento. Si un campo no aparece
 claramente en el texto, ponlo como null y marca confidence en 0.5 o menos.
 No inventes datos que no estén en el documento.
 
-Tarea 2 â€” Validación aritmética:
+Tarea 2 — Validación aritmética:
 Verifica que: sum(line_item.subtotal) = tax_base, y que
 tax_base * (1 + vat_rate/100) - withholding_amount = total.
 Si hay discrepancia de más de 0.02 EUR, márcalo como error.
 
-Tarea 3 â€” Advertencias fiscales:
+Tarea 3 — Advertencias fiscales:
 Identifica posibles problemas fiscales (tipo de IVA inusual para el tipo de gasto,
 fecha fuera del período habitual, NIF con formato inválido). Márcalos siempre como
 "advertencia" y añade: "[VERIFICAR NORMATIVA VIGENTE]" junto a cualquier criterio
@@ -236,15 +236,15 @@ más un campo "fiscal_warnings": list[str].`,
     id: "atlas",
     name: "Atlas Activos",
     tagline: "Auditor continuo de la cartera de activos fijos",
-    desc: "Mantiene un registro vivo de cada activo fijo de la empresa â€” maquinaria, vehículos, equipos, licencias software capitalizadas â€”, verifica su calendario de amortización y detecta inconsistencias: activos amortizados dos veces, vidas útiles incorrectas o activos que deberían haberse dado de baja pero siguen generando asientos.",
+    desc: "Mantiene un registro vivo de cada activo fijo de la empresa — maquinaria, vehículos, equipos, licencias software capitalizadas —, verifica su calendario de amortización y detecta inconsistencias: activos amortizados dos veces, vidas útiles incorrectas o activos que deberían haberse dado de baja pero siguen generando asientos.",
     color: "purple",
     researchLines: ["03"],
     stack: [
-      { role: "Extracción de datos de activos", tech: "Claude 3.7 Sonnet â€” líder extracción documental (96.43/100)" },
-      { role: "Auditoría de trazabilidad", tech: "Claude 3.7 Sonnet â€” líder trazabilidad contable (95.75/100)" },
-      { role: "Detección de duplicidades en asientos", tech: "DeepSeek-R1 â€” líder detección de anomalías (95.55/100)" },
+      { role: "Extracción de datos de activos", tech: "Claude 3.7 Sonnet — líder extracción documental (96.43/100)" },
+      { role: "Auditoría de trazabilidad", tech: "Claude 3.7 Sonnet — líder trazabilidad contable (95.75/100)" },
+      { role: "Detección de duplicidades en asientos", tech: "DeepSeek-R1 — líder detección de anomalías (95.55/100)" },
       { role: "Motor de cálculo de amortización", tech: "Tablas configurables: lineal / degresivo / unidades producidas [VERIFICAR NORMATIVA VIGENTE]" },
-      { role: "Almacenamiento", tech: "DuckDB â€” registro maestro de activos + serie temporal de asientos por activo" },
+      { role: "Almacenamiento", tech: "DuckDB — registro maestro de activos + serie temporal de asientos por activo" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Extracción y trazabilidad de activos", score: "96.43 / 95.75", area: "OCR Contable + Trazabilidad" },
@@ -322,11 +322,11 @@ Responde en JSON:
     color: "rose",
     researchLines: ["04"],
     stack: [
-      { role: "Extracción de justificantes de gasto", tech: "Claude 3.7 Sonnet â€” líder OCR contable (96.43/100) · 97.2 en Expense_Receipt_Structuring" },
-      { role: "Detección de anomalías y fraude", tech: "DeepSeek-R1 â€” líder detección de fraude (95.55/100)" },
-      { role: "Motor de perfilado estadístico", tech: "pandas + scipy â€” percentiles y desviaciones típicas por empleado/departamento" },
+      { role: "Extracción de justificantes de gasto", tech: "Claude 3.7 Sonnet — líder OCR contable (96.43/100) · 97.2 en Expense_Receipt_Structuring" },
+      { role: "Detección de anomalías y fraude", tech: "DeepSeek-R1 — líder detección de fraude (95.55/100)" },
+      { role: "Motor de perfilado estadístico", tech: "pandas + scipy — percentiles y desviaciones típicas por empleado/departamento" },
       { role: "Política de gastos", tech: "Reglas configurables: límites por categoría, días laborables, proveedores autorizados" },
-      { role: "Almacenamiento", tech: "DuckDB â€” historial de gastos por empleado + log de alertas y resoluciones" },
+      { role: "Almacenamiento", tech: "DuckDB — historial de gastos por empleado + log de alertas y resoluciones" },
     ],
     whyModels: [
       { model: "Claude 3.7 Sonnet", role: "Extracción estructurada de justificantes", score: "96.43", area: "OCR Contable y Estructuración" },
@@ -336,7 +336,7 @@ Responde en JSON:
       "Entrada: nota de gasto (ticket de imagen, factura PDF, formulario de reembolso)",
       "Extracción estructurada (Claude 3.7 Sonnet): fecha/hora, importe, proveedor, categoría, empleado, departamento",
       "Validación contra política de gastos: límites por categoría, proveedores en lista negra, días no laborables",
-      "Detección de duplicados (DeepSeek-R1): comparación con histórico â€” mismo proveedor + importe + fecha cercana de este u otro empleado",
+      "Detección de duplicados (DeepSeek-R1): comparación con histórico — mismo proveedor + importe + fecha cercana de este u otro empleado",
       "Análisis de patrón estadístico (DeepSeek-R1): percentil 95+ del historial, frecuencia inusual reciente, cambio significativo de patrón",
       "Clasificación de riesgo: VERDE (aprobación automática sugerida) · AMARILLO (revisión por responsable) · ROJO (auditoría interna)",
       "Salida A: clasificación de riesgo por gasto · Salida B: cola de revisión priorizada · Salida C: informe semanal por departamento",
@@ -472,7 +472,7 @@ const VERIFICATION_POINTS = [
   },
 ];
 
-// â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Sub-components —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 function ResearchLineCard({ line }) {
   const [open, setOpen] = useState(false);
@@ -565,7 +565,7 @@ function PromptBlock({ label, content }) {
           <span className="text-xs text-white/50 font-mono">{label}</span>
         </div>
         <button onClick={copy} className="text-xs text-white/30 hover:text-white/70 transition-colors px-2 py-0.5 rounded hover:bg-white/10">
-          {copied ? "âœ“ Copiado" : "Copiar"}
+          {copied ? "““ Copiado" : "Copiar"}
         </button>
       </div>
       <pre className="text-xs text-white/70 p-4 overflow-x-auto leading-relaxed whitespace-pre-wrap font-mono bg-black/20">
@@ -608,7 +608,7 @@ function ProjectCard({ project }) {
             const line = RESEARCH_LINES.find((l) => l.number === n);
             return (
               <span key={n} className={`text-xs border px-2 py-0.5 rounded-full ${c.badge}`}>
-                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}â€¦
+                {n} · {line?.title.split(" ").slice(0, 3).join(" ")}–¦
               </span>
             );
           })}
@@ -677,8 +677,8 @@ function ProjectCard({ project }) {
 
         {tab === "prompts" && (
           <div className="space-y-4">
-            <PromptBlock label="prompt_ide.txt â€” Para Cursor / VS Code + Copilot" content={project.promptIDE} />
-            <PromptBlock label="prompt_llm.txt â€” Para el modelo LLM asistente" content={project.promptLLM} />
+            <PromptBlock label="prompt_ide.txt — Para Cursor / VS Code + Copilot" content={project.promptIDE} />
+            <PromptBlock label="prompt_llm.txt — Para el modelo LLM asistente" content={project.promptLLM} />
           </div>
         )}
       </div>
@@ -714,7 +714,7 @@ function VerificationItem({ point }) {
   );
 }
 
-// â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Page —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 
 export default function ContabilidadLab() {
   return (
@@ -786,7 +786,7 @@ export default function ContabilidadLab() {
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-20">
 
-        {/* â”€â”€ Módulo 1 â”€â”€ */}
+        {/* —€—€ Módulo 1 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -819,7 +819,7 @@ export default function ContabilidadLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 2 â”€â”€ */}
+        {/* —€—€ Módulo 2 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -840,7 +840,7 @@ export default function ContabilidadLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 3 â”€â”€ */}
+        {/* —€—€ Módulo 3 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -884,7 +884,7 @@ export default function ContabilidadLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Módulo 4 â”€â”€ */}
+        {/* —€—€ Módulo 4 —€—€ */}
         <section>
           <div className="flex items-start gap-4 mb-8">
             <div className="w-8 h-8 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -904,7 +904,7 @@ export default function ContabilidadLab() {
           </div>
         </section>
 
-        {/* â”€â”€ Footer CTA â”€â”€ */}
+        {/* —€—€ Footer CTA —€—€ */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-xs text-white/25 mb-1">Cuaderno de trabajo · STATER Accounting & ERP · 2026-08-29</p>

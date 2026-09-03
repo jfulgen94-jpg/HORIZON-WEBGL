@@ -18,10 +18,10 @@ import {
   HumanValidationWarning, VersionExtensions,
 } from "./shared.jsx";
 
-// â”€â”€â”€ Tools table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Tools table —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const TOOLS_TABLE = [
   { capa: "Fase 0", subcapa: "Investigación", herramienta: "Laboratorio Derecho · LegalBench · CUAD · MMLU-Law", motivo: "Verificar qué modelos tienen mejor performance en razonamiento legal verificado." },
-  { capa: "1", subcapa: "1.1â€“1.6", herramienta: "Documento de definición", motivo: "Definir el tipo de análisis legal y las advertencias de responsabilidad de la v1." },
+  { capa: "1", subcapa: "1.1–1.6", herramienta: "Documento de definición", motivo: "Definir el tipo de análisis legal y las advertencias de responsabilidad de la v1." },
   { capa: "2", subcapa: "2.1", herramienta: "data_legal/raw/ · texto manual", motivo: "Dataset CUAD de contratos reales + entrada libre del usuario." },
   { capa: "2", subcapa: "2.2", herramienta: "Pydantic v2", motivo: "Esquemas para documentos legales y resultados de análisis." },
   { capa: "2", subcapa: "2.3", herramienta: "Pydantic validators · re", motivo: "Verificar que las citas textuales existen en el documento original." },
@@ -34,21 +34,21 @@ const TOOLS_TABLE = [
   { capa: "3", subcapa: "3.5", herramienta: "Python str.find() o regex", motivo: "Verificar que cada cita existe literalmente en el documento original." },
   { capa: "3", subcapa: "3.6", herramienta: "try/except", motivo: "Mostrar documento sin análisis y advertencia si el LLM no responde." },
   { capa: "4", subcapa: "4.1", herramienta: "Papel / Excalidraw", motivo: "Definir pantallas antes de codificar." },
-  { capa: "4", subcapa: "4.2â€“4.5", herramienta: "Flet", motivo: "Texto largo con scroll, citas resaltadas y badges de riesgo." },
-  { capa: "5", subcapa: "5.1â€“5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conexión entre capas." },
-  { capa: "6", subcapa: "6.1â€“6.2", herramienta: "Pytest", motivo: "Tests de verificación de citas y parseo de análisis." },
+  { capa: "4", subcapa: "4.2–4.5", herramienta: "Flet", motivo: "Texto largo con scroll, citas resaltadas y badges de riesgo." },
+  { capa: "5", subcapa: "5.1–5.5", herramienta: "Flet · DuckDB · python-dotenv", motivo: "Conexión entre capas." },
+  { capa: "6", subcapa: "6.1–6.2", herramienta: "Pytest", motivo: "Tests de verificación de citas y parseo de análisis." },
   { capa: "6", subcapa: "6.3", herramienta: "Contratos reales anonimizados", motivo: "Validación con casos de uso reales." },
   { capa: "6", subcapa: "6.4", herramienta: "PyInstaller", motivo: "Ejecutable distribuible." },
   { capa: "6", subcapa: "6.5", herramienta: "VM sin Python", motivo: "Prueba en entorno limpio." },
   { capa: "Fase 7", subcapa: "Iteración", herramienta: "Foro Horizon", motivo: "Publicar comparativas de modelos en razonamiento legal." },
 ];
 
-// â”€â”€â”€ Version extensions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Version extensions —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 const VERSIONS = [
   {
     tag: "v2 · RGPD",
     area: "Cumplimiento normativo",
-    title: "Norma Aurea â€” Auditor RGPD de documentos",
+    title: "Norma Aurea — Auditor RGPD de documentos",
     desc: "Misma arquitectura de Lex Analyst enfocada exclusivamente en detectar incumplimientos del Reglamento General de Protección de Datos en políticas de privacidad, términos de servicio y formularios de consentimiento.",
     badgeBg: "rgba(59,111,212,0.10)", badgeColor: C.accent,
     changes: [
@@ -63,7 +63,7 @@ const VERSIONS = [
   {
     tag: "v2 · Contratos",
     area: "Revisión contractual",
-    title: "Sententia â€” Comparador de versiones de contrato",
+    title: "Sententia — Comparador de versiones de contrato",
     desc: "Recibe dos versiones del mismo contrato (original y modificada) y genera un análisis diferencial: qué cláusulas cambiaron, qué riesgos nuevos introducen los cambios y qué protecciones se eliminaron.",
     badgeBg: "rgba(5,150,105,0.10)", badgeColor: C.emerald,
     changes: [
@@ -78,7 +78,7 @@ const VERSIONS = [
   {
     tag: "v2 · Laboral",
     area: "Derecho laboral",
-    title: "Clavis Laboral â€” Análisis de contratos de trabajo",
+    title: "Clavis Laboral — Análisis de contratos de trabajo",
     desc: "Lex Analyst especializado en derecho laboral español: detecta cláusulas que se desvían del Estatuto de los Trabajadores, condiciones de jornada inusuales, penalizaciones desproporcionadas y omisiones de derechos básicos.",
     badgeBg: "rgba(217,119,6,0.10)", badgeColor: C.amber,
     changes: [
@@ -92,7 +92,7 @@ const VERSIONS = [
   },
 ];
 
-// â”€â”€â”€ Legal disclaimer banner (permanent, non-dismissible) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Legal disclaimer banner (permanent, non-dismissible) —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 function LegalBanner() {
   return (
     <div className="mb-8 flex items-start gap-3 px-5 py-4 rounded-xl border"
@@ -105,7 +105,7 @@ function LegalBanner() {
   );
 }
 
-// â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// —€—€—€ Main component —€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€—€
 export default function RutaDerecho() {
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -150,12 +150,12 @@ export default function RutaDerecho() {
           <h2 className="font-display text-lg mb-4" style={{ color: C.dark }}>Mapa de la ruta</h2>
           <div className="flex flex-col gap-2">
             {[
-              { label: "Fase 0", desc: "Investigación â€” LegalBench, CUAD, MMLU-Law", color: "#7C3AED" },
-              { label: "Capa 1", desc: "Definición â€” incluye advertencias de responsabilidad", color: C.accent },
-              { label: "Capa 2", desc: "Datos â€” CUAD, Pydantic, verificación de citas", color: C.emerald },
-              { label: "Capa 3", desc: "IA â€” análisis legal con citas + control antialucinación", color: C.amber },
-              { label: "Capa 4", desc: "Interfaz Flet â€” texto largo, badges de riesgo, disclaimer fijo", color: "#0891B2" },
-              { label: "Capa 5", desc: "Integración â€” pipeline + log de privacidad (RGPD)", color: C.red },
+              { label: "Fase 0", desc: "Investigación — LegalBench, CUAD, MMLU-Law", color: "#7C3AED" },
+              { label: "Capa 1", desc: "Definición — incluye advertencias de responsabilidad", color: C.accent },
+              { label: "Capa 2", desc: "Datos — CUAD, Pydantic, verificación de citas", color: C.emerald },
+              { label: "Capa 3", desc: "IA — análisis legal con citas + control antialucinación", color: C.amber },
+              { label: "Capa 4", desc: "Interfaz Flet — texto largo, badges de riesgo, disclaimer fijo", color: "#0891B2" },
+              { label: "Capa 5", desc: "Integración — pipeline + log de privacidad (RGPD)", color: C.red },
               { label: "Capa 6", desc: "Pruebas y empaquetado", color: C.emerald },
               { label: "Fase 7", desc: "Iteración y publicación en Foro", color: "rgba(17,17,17,0.4)" },
             ].map((row, i) => (
@@ -208,14 +208,14 @@ export default function RutaDerecho() {
 
         <Step num="0.A" title="Benchmarks de razonamiento legal"
           goal="Identificar qué benchmarks evalúan clasificación de cláusulas, QA legal y extracción de información en contratos.">
-          <PromptBlock label="Prompt 0.A â€” Benchmarks legales clave">
+          <PromptBlock label="Prompt 0.A — Benchmarks legales clave">
 {`Actúa como Investigador Principal y Especialista en Evaluación de Inteligencia Artificial en el Dominio Jurídico (LegalTech).
 
 Tengo como objetivo seleccionar el modelo fundacional más fiable para "Lex Analyst", una herramienta de auditoría de contratos y detección de riesgos legales.
 
 Analiza los benchmarks de dominio legal (LegalBench, CUAD - Contract Understanding Atticus Dataset, MMLU-Law, LexGLUE) y responde de forma rigurosa a los siguientes puntos:
 
-1. METODOLOGÍA DE EVALUACIÃ“N:
+1. METODOLOGÍA DE EVALUACI“N:
    - ¿Qué tareas específicas miden LegalBench y CUAD en relación a:
      a) Clasificación y tipificación de cláusulas contractuales (ej. indemnización, no competencia, confidencialidad).
      b) Extracción exacta de citas y entidades normativas sin parafraseo.
@@ -224,7 +224,7 @@ Analiza los benchmarks de dominio legal (LegalBench, CUAD - Contract Understandi
 2. RANKING COMPARATIVO DE MODELOS:
    - Basándote en datos empíricos de LegalBench y CUAD, ¿qué modelos actuales (Claude 3.5 Sonnet / 3.7, GPT-4o, DeepSeek-R1, Gemini 1.5/2.0 Pro) obtienen la mayor fidelidad en extracción textual y la menor tasa de citas falsas (hallucinated citations)?
 
-3. GESTIÃ“N DE VENTANA DE CONTEXTO:
+3. GESTI“N DE VENTANA DE CONTEXTO:
    - Los contratos mercantiles pueden superar los 30.000 tokens. ¿Qué trade-off existe entre modelos con contexto ultra-largo (1M tokens) y modelos con ventanas de 128k en la atención a cláusulas críticas ocultas al final del texto (Lost in the Middle problem)?
 
 REGLAS ESTRICTAS:
@@ -237,9 +237,9 @@ REGLAS ESTRICTAS:
           goal="Definir disclaimers estándar de la industria y qué advertencias mínimas son razonables para un uso de investigación.">
           <div className="mt-3 p-4 rounded-lg text-sm"
             style={{ background: "rgba(220,38,38,0.05)", borderLeft: "3px solid " + C.red, color: "rgba(17,17,17,0.65)" }}>
-            <strong style={{ color: C.red }}>Antes del código:</strong> Este paso define el tono de toda la app. Las advertencias legales no son opcionales â€” forman parte del producto.
+            <strong style={{ color: C.red }}>Antes del código:</strong> Este paso define el tono de toda la app. Las advertencias legales no son opcionales — forman parte del producto.
           </div>
-          <PromptBlock label="Prompt 0.B â€” Marco de responsabilidad">
+          <PromptBlock label="Prompt 0.B — Marco de responsabilidad">
 {`Actúa como Asesor Senior en Compliance Tecnológico y Marco Regulatorio de IA (EU AI Act y Servicios Jurídicos).
 
 Antes de iniciar la codificación de "Lex Analyst", necesito definir la política de responsabilidad, descargos legales y privacidad de la aplicación:
@@ -265,12 +265,12 @@ Entrega la Declaración Formal de Descargo que debe permanecer visible en todas 
           desc="Seis preguntas que definen el problema, el usuario y los límites de responsabilidad de la v1." />
 
         <Step num="1.1" title="¿Quién usa esta app?" goal="El usuario puede no ser abogado. Eso cambia el tono de las advertencias y los tipos de análisis prioritarios.">
-          <PromptBlock label="Prompt 1.1 â€” Perfil de usuario">
+          <PromptBlock label="Prompt 1.1 — Perfil de usuario">
 {`Actúa como Diseñador de Producto y Analista Funcional en LegalTech.
 
 Define la ficha formal de perfil de usuario (User Persona) para "Lex Analyst":
 
-1. IDENTIFICACIÃ“N Y ROL OPERATIVO:
+1. IDENTIFICACI“N Y ROL OPERATIVO:
    - Perfil principal: Responsable de Compras / Director de Operaciones en PYME o Startup que revisa contratos mercantiles (NDAs, contratos de prestación de servicios, SaaS, arrendamientos) antes de trasladarlos a la asesoría jurídica externa.
    - Perfil secundario: Abogado junior o estudiante de derecho que realiza una primera lectura de contraste para detectar cláusulas no estándar.
 
@@ -289,26 +289,26 @@ Define la ficha formal de perfil de usuario (User Persona) para "Lex Analyst":
             style={{ background: "rgba(59,111,212,0.05)", borderLeft: "3px solid " + C.accent, color: "rgba(17,17,17,0.65)" }}>
             Esta distinción (reemplazar vs. primera pasada) determina el diseño de todas las advertencias y el nivel de detalle de los análisis.
           </div>
-          <PromptBlock label="Prompt 1.2 â€” Definición del problema">
+          <PromptBlock label="Prompt 1.2 — Definición del problema">
 {`Actúa como Especialista en Propuesta de Valor y Estrategia LegalTech.
 
 Redacta la declaración formal del problema que resuelve "Lex Analyst":
 
 1. ESTRUCTURA FORMAL DE LA FRASE MAESTRA:
-   "[ROL DE GESTIÃ“N] invierte [HORAS CRÍTICAS] en la lectura de contratos mercantiles sin contar con el criterio de un especialista para cada borrador, lo que provoca [RIESGO DE ACEPTAR CLÁUSULAS ABUSIVAS, COSTES LEGALES PREVENTIVOS ELEVADOS Y DEMORAS EN EL CIERRE DE ACUERDOS]."
+   "[ROL DE GESTI“N] invierte [HORAS CRÍTICAS] en la lectura de contratos mercantiles sin contar con el criterio de un especialista para cada borrador, lo que provoca [RIESGO DE ACEPTAR CLÁUSULAS ABUSIVAS, COSTES LEGALES PREVENTIVOS ELEVADOS Y DEMORAS EN EL CIERRE DE ACUERDOS]."
 
-2. GENERACIÃ“N DE 3 VARIANTES DE ENFOQUE:
+2. GENERACI“N DE 3 VARIANTES DE ENFOQUE:
    - Variante 1 (Ahorro de Tiempo y Coste): Enfoque en la eficiencia de la primera pasada previa al abogado.
    - Variante 2 (Control de Riesgo Contractual): Enfoque en la detección temprana de cláusulas lesivas.
    - Variante 3 (Formación y Capacitación): Enfoque en la comprensión de jerga jurídica compleja.
 
-3. DECLARACIÃ“N DE LÍMITES ENTRE REEMPLAZO Y COMPLEMENTO:
+3. DECLARACI“N DE LÍMITES ENTRE REEMPLAZO Y COMPLEMENTO:
    - Define el lema rector de la app para su hero visual: "Lex Analyst no reemplaza al abogado; le proporciona a cualquier profesional una primera lectura rigurosa para negociar con conocimiento de causa".`}
           </PromptBlock>
         </Step>
 
         <Step num="1.3" title="¿Qué datos entran?" goal="Texto pegado por el usuario, cláusulas CUAD de práctica, tipo de análisis y jurisdicción.">
-          <PromptBlock label="Prompt 1.3 â€” Datos de entrada">
+          <PromptBlock label="Prompt 1.3 — Datos de entrada">
 {`Actúa como Ingeniero de Datos y Diseñador de Entradas en Sistemas Legales.
 
 Define la especificación exhaustiva de todas las entradas (Inputs) admitidas por "Lex Analyst":
@@ -317,7 +317,7 @@ Define la especificación exhaustiva de todas las entradas (Inputs) admitidas po
    - Entrada Manual / Portapapeles: Área de texto multilínea para pegar fragmentos, cláusulas o contratos íntegros (hasta 50.000 caracteres / ~12.000 tokens en v1).
    - Biblioteca CUAD de Práctica: Selector desplegable con 10 cláusulas contractuales reales de dominio público (NDAs, limitación de responsabilidad, resolución de disputas, terminación).
 
-2. PARÁMETROS DE CONFIGURACIÃ“N DEL ANÁLISIS:
+2. PARÁMETROS DE CONFIGURACI“N DEL ANÁLISIS:
    - Tipo de Análisis (Selector exclusivo):
      * [Detección de Riesgos Contractuales Generales]
      * [Auditoría de Cumplimiento RGPD en Políticas / Cláusulas de Datos]
@@ -326,7 +326,7 @@ Define la especificación exhaustiva de todas las entradas (Inputs) admitidas po
    - Jurisdicción de Referencia: España (Derecho Civil / Mercantil), Unión Europea (Normativa Comunitaria), o Internacional (Common Law).
    - Modelo LLM: Selector de proveedor y modelo (Claude 3.5 Sonnet por defecto).
 
-3. GESTIÃ“N DE DOCUMENTOS EXTENSOS:
+3. GESTI“N DE DOCUMENTOS EXTENSOS:
    - Contador visual reactivo de tokens estimados.
    - Si el texto supera el límite operativo, activa un diálogo de advertencia ofreciendo truncar al inicio/fin o procesar por secciones.`}
           </PromptBlock>
@@ -337,7 +337,7 @@ Define la especificación exhaustiva de todas las entradas (Inputs) admitidas po
             style={{ background: "rgba(17,17,17,0.04)", borderLeft: "3px solid rgba(17,17,17,0.15)", color: "rgba(17,17,17,0.65)" }}>
             <strong>Advertencia obligatoria en cada output:</strong> "Este análisis es orientativo. No constituye asesoramiento legal. Consulta a un profesional del derecho antes de tomar decisiones."
           </div>
-          <PromptBlock label="Prompt 1.4 â€” Outputs">
+          <PromptBlock label="Prompt 1.4 — Outputs">
 {`Actúa como Diseñador de Salidas de Información y Auditoría Legal.
 
 Define las especificaciones de salida (Outputs) producidas por "Lex Analyst":
@@ -359,16 +359,16 @@ Define las especificaciones de salida (Outputs) producidas por "Lex Analyst":
         </Step>
 
         <Step num="1.5" title="Criterios de éxito" goal="7-9 criterios verificables, incluyendo: 100% de citas verificadas en el texto, advertencia visible en todas las pantallas.">
-          <PromptBlock label="Prompt 1.5 â€” Criterios de éxito">
+          <PromptBlock label="Prompt 1.5 — Criterios de éxito">
 {`Actúa como QA Lead y Auditor de Software Especializado en LegalTech.
 
 Define los Criterios de Aceptación Cuantitativos (DoD - Definition of Done) para certificar que Lex Analyst v1 está listo para entrega:
 
 Formula entre 7 y 9 criterios verificables en menos de 10 minutos bajo la estructura:
-"La aplicación se considera correcta y lista para producción cuando [CONDICIÃ“N VERIFICABLE Y MEDIBLE]."
+"La aplicación se considera correcta y lista para producción cuando [CONDICI“N VERIFICABLE Y MEDIBLE]."
 
 Incluye obligatoriamente:
-1. VERIFICACIÃ“N DETERMINISTA DE CITAS: "El 100% de las citas textuales generadas por el LLM son verificadas automáticamente contra el texto de entrada mediante búsqueda de subcadena; si una cita no existe, se marca inmediatamente con badge de advertencia."
+1. VERIFICACI“N DETERMINISTA DE CITAS: "El 100% de las citas textuales generadas por el LLM son verificadas automáticamente contra el texto de entrada mediante búsqueda de subcadena; si una cita no existe, se marca inmediatamente con badge de advertencia."
 2. ADVERTENCIA PERMANENTE: "El banner legal de advertencia permanece visible en la pantalla principal y en cada informe exportado sin posibilidad de ser desactivado."
 3. TOLERANCIA A DOCUMENTOS LARGOS: "La app procesa documentos de hasta 15.000 palabras sin bloquear el hilo de la interfaz de usuario ni agotar la memoria."
 4. ROBUSTEZ EN MODO DESCONECTADO: "Si la API no responde o se desconecta la red, la app no sufre crashes y muestra el texto original con aviso de contingencia."
@@ -377,7 +377,7 @@ Incluye obligatoriamente:
         </Step>
 
         <Step num="1.6" title="Límites explícitos de la v1" goal="Qué idiomas, jurisdicciones y tipos de análisis NO cubre la v1, y la advertencia legal formal de la app.">
-          <PromptBlock label="Prompt 1.6 â€” Límites v1 + advertencia legal formal">
+          <PromptBlock label="Prompt 1.6 — Límites v1 + advertencia legal formal">
 {`Actúa como Asesor Jurídico y Product Owner.
 
 Redacta la Declaración Formal de Límites y el Aviso Legal Integral para "Lex Analyst v1":
@@ -394,7 +394,7 @@ Redacta la Declaración Formal de Límites y el Aviso Legal Integral para "Lex A
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 2 â€” DATOS (LEX ANALYST)
+            CAPA 2 — DATOS (LEX ANALYST)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Layers} 
@@ -409,12 +409,12 @@ Redacta la Declaración Formal de Límites y el Aviso Legal Integral para "Lex A
           title="Fuente de datos" 
           goal="Implementar carga desde CUAD local y creación de documentos desde texto pegado por el usuario."
         >
-          <PromptBlock label="Prompt 2.1 â€” load_cuad_clauses() + create_manual_document()">
+          <PromptBlock label="Prompt 2.1 — load_cuad_clauses() + create_manual_document()">
 {`Actúa como Ingeniero de Datos en Python especializado en procesamiento de textos legales.
 
 Crea el módulo \`document_loader.py\` para la ingesta y preparación de documentos contractuales en "Lex Analyst":
 
-1. ESPECIFICACIÃ“N DE FUNCIONES:
+1. ESPECIFICACI“N DE FUNCIONES:
    - \`load_cuad_clauses(file_path: Path, limit: int = 20) -> list[LegalDocument]\`:
      * Carga el archivo local \`data_legal/raw/cuad_clauses.json\` conteniendo cláusulas anotadas del benchmark CUAD.
      * Soporta formato JSON array y JSONL.
@@ -434,7 +434,7 @@ Crea el módulo \`document_loader.py\` para la ingesta y preparación de documen
         <Step 
           num="2.2" 
           title="Esquema de datos con Pydantic" 
-          goal="LegalDocument · RiskFlag · LegalAnalysis â€” incluyendo quote_verified y legal_disclaimer."
+          goal="LegalDocument · RiskFlag · LegalAnalysis — incluyendo quote_verified y legal_disclaimer."
         >
           <div className="mt-3 grid sm:grid-cols-3 gap-3">
             {[
@@ -453,12 +453,12 @@ Crea el módulo \`document_loader.py\` para la ingesta y preparación de documen
               </div>
             ))}
           </div>
-          <PromptBlock label="Prompt 2.2 â€” Esquema Pydantic">
+          <PromptBlock label="Prompt 2.2 — Esquema Pydantic">
 {`Actúa como Arquitecto de Software Python y Especialista en Modelado de Dominio LegalTech.
 
 Crea el archivo \`schemas.py\` utilizando Pydantic v2 con validación estricta para "Lex Analyst":
 
-1. ESPECIFICACIÃ“N DE MODELOS DE DOMINIO:
+1. ESPECIFICACI“N DE MODELOS DE DOMINIO:
 \`\`\`python
 from pydantic import BaseModel, Field
 from typing import Literal, Optional
@@ -511,18 +511,18 @@ class LegalAnalysis(BaseModel):
           >
             <strong style={{ color: C.red }}>Regla de oro:</strong> Si &gt;50% de las citas no se verifican en el documento, el análisis muestra advertencia global de fiabilidad.
           </div>
-          <PromptBlock label="Prompt 2.3 â€” verify_quote() + verify_all_quotes()">
+          <PromptBlock label="Prompt 2.3 — verify_quote() + verify_all_quotes()">
 {`Actúa como Ingeniero de Algoritmos y Auditoría Textual en Python.
 
 Crea el módulo \`quote_verifier.py\` con el motor determinista de verificación de citas para erradicar alucinaciones en "Lex Analyst":
 
-1. FUNCIÃ“N \`verify_quote(quote: str, document_text: str, fuzzy_threshold: float = 0.85) -> bool\`:
+1. FUNCI“N \`verify_quote(quote: str, document_text: str, fuzzy_threshold: float = 0.85) -> bool\`:
    - Fase 1 (Búsqueda Exacta): \`quote.strip() in document_text\`. Si coincide, retorna \`True\`.
-   - Fase 2 (Búsqueda Normalizada): Elimina saltos de línea redundantes, homologa comillas tipográficas (« », â€œ â€, ' ') con comillas rectas (' "), y compara sin distinción de mayúsculas/minúsculas.
+   - Fase 2 (Búsqueda Normalizada): Elimina saltos de línea redundantes, homologa comillas tipográficas (« », “ –, ' ') con comillas rectas (' "), y compara sin distinción de mayúsculas/minúsculas.
    - Fase 3 (Búsqueda por Subcadena Tolerante): Si la cita es extensa (> 10 palabras), verifica si al menos el 85% de las secuencias de n-gramas coinciden de forma contigua en el documento.
    - Retorna \`False\` si no se verifica la presencia real de la cita.
 
-2. FUNCIÃ“N \`verify_all_quotes(risk_flags: list[RiskFlag], document_text: str) -> tuple[list[RiskFlag], int, bool]\`:
+2. FUNCI“N \`verify_all_quotes(risk_flags: list[RiskFlag], document_text: str) -> tuple[list[RiskFlag], int, bool]\`:
    - Itera sobre todos los hallazgos y actualiza el campo booleano \`quote_verified\`.
    - Contabiliza las citas fallidas (\`unverified_count\`).
    - Activa \`has_critical_unverified_warning = True\` si más del 50% de las citas no pudieron verificarse en el texto fuente.`}
@@ -539,7 +539,7 @@ Crea el módulo \`quote_verifier.py\` con el motor determinista de verificación
           >
             <strong style={{ color: C.amber }}>Decisión de diseño:</strong> store_document_text=False por defecto. Los documentos legales del usuario pueden ser confidenciales.
           </div>
-          <PromptBlock label="Prompt 2.4 â€” Persistencia DuckDB con privacidad">
+          <PromptBlock label="Prompt 2.4 — Persistencia DuckDB con privacidad">
 {`Actúa como Especialista en Bases de Datos y Privacidad en Sistemas de Información.
 
 Crea el módulo \`storage.py\` para gestionar la persistencia local de análisis legales en DuckDB (\`~/.lex_analyst/data/legal_history.duckdb\`):
@@ -576,12 +576,12 @@ Crea el módulo \`storage.py\` para gestionar la persistencia local de análisis
               </div>
             ))}
           </div>
-          <PromptBlock label="Prompt 2.5 â€” sample_legal_clauses.json">
+          <PromptBlock label="Prompt 2.5 — sample_legal_clauses.json">
 {`Actúa como Abogado Mercantil y Curador de Datasets de Formación LegalTech.
 
 Crea el archivo \`sample_legal_clauses.json\` con 10 cláusulas reales de contratos mercantiles de dominio público para pruebas y calibración:
 
-1. COMPOSICIÃ“N DEL CATÁLOGO (10 Casos):
+1. COMPOSICI“N DEL CATÁLOGO (10 Casos):
    - **3 Cláusulas de Confidencialidad (NDA):**
      * Cláusula 1: Redacción estándar y bilateral a 2 años.
      * Cláusula 2: Plazo perpetuo e inusualmente lesivo para información comercial no técnica.
@@ -603,7 +603,7 @@ Crea el archivo \`sample_legal_clauses.json\` con 10 cláusulas reales de contra
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 3 â€” LÃ“GICA / IA (LEX ANALYST)
+            CAPA 3 — L“GICA / IA (LEX ANALYST)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Cpu} 
@@ -616,7 +616,7 @@ Crea el archivo \`sample_legal_clauses.json\` con 10 cláusulas reales de contra
         <Step 
           num="3.1" 
           title="Selección del modelo LLM" 
-          goal="Elegir entre el líder en LegalBench y el líder en CUAD â€” pueden no ser el mismo."
+          goal="Elegir entre el líder en LegalBench y el líder en CUAD — pueden no ser el mismo."
         >
           <div 
             className="mt-3 p-4 rounded-lg text-sm"
@@ -624,7 +624,7 @@ Crea el archivo \`sample_legal_clauses.json\` con 10 cláusulas reales de contra
           >
             Considerar especialmente: <strong>límite de contexto</strong> (los contratos pueden tener 50.000+ tokens) y disponibilidad de API.
           </div>
-          <PromptBlock label="Prompt 3.1 â€” Selección del modelo">
+          <PromptBlock label="Prompt 3.1 — Selección del modelo">
 {`Actúa como Investigador de IA especializado en Benchmarks Jurídicos (LegalBench, CUAD, MMLU-Law).
 
 Para "Lex Analyst", analiza y fundamenta la selección técnica del modelo de lenguaje para la auditoría de contratos:
@@ -638,7 +638,7 @@ Para "Lex Analyst", analiza y fundamenta la selección técnica del modelo de le
    - Evalúa la ventana de contexto necesaria: ¿Permite procesar contratos mercantiles de 20 a 40 páginas (~15.000 a 30.000 tokens) en una sola llamada sin degradación de atención (*Needle in a Haystack*)?
    - Define los parámetros óptimos: \`temperature = 0.1\` (rigor analítico y mínima variabilidad) y \`max_tokens = 2000\`.
 
-3. ELECCIÃ“N FINAL JUSTIFICADA:
+3. ELECCI“N FINAL JUSTIFICADA:
    - Redacta la memoria de elección en 4 líneas justificando el modelo principal y una alternativa recomendada.`}
           </PromptBlock>
         </Step>
@@ -667,7 +667,7 @@ Para "Lex Analyst", analiza y fundamenta la selección técnica del modelo de le
               </ul>
             </div>
           </div>
-          <PromptBlock label="Prompt 3.2 â€” Prompt maestro de análisis legal">
+          <PromptBlock label="Prompt 3.2 — Prompt maestro de análisis legal">
 {`Actúa como Diseñador de Prompts Jurídicos de Alta Precisión.
 
 Diseña el prompt central estructurado para el motor de análisis contractual de "Lex Analyst":
@@ -676,7 +676,7 @@ Diseña el prompt central estructurado para el motor de análisis contractual de
    - Rol: "Eres un asistente técnico de triaje contractual diseñado para identificar cláusulas de riesgo en documentos legales para una primera pasada de revisión antes de la consulta con el abogado."
    - Reglas Absolutas:
      a) Cita Textual Obligatoria: Cada hallazgo debe incluir el fragmento literal exacto entrecomillado del documento (\`verbatim_quote\`).
-     b) Prohibición de Citas Falsas: Si detectas un riesgo por omisión o falta de cláusula, debes escribir estrictamente: \`"Sin cita directa disponible â€” Riesgo por omisión"\`. Queda terminantemente prohibido inventar o parafrasear texto que no exista en el documento.
+     b) Prohibición de Citas Falsas: Si detectas un riesgo por omisión o falta de cláusula, debes escribir estrictamente: \`"Sin cita directa disponible — Riesgo por omisión"\`. Queda terminantemente prohibido inventar o parafrasear texto que no exista en el documento.
      c) Clasificación Estricta: Cada riesgo debe catalogarse exclusivamente como: \`ALTO\`, \`MEDIO\`, \`BAJO\` o \`INFORMATIVO\`.
      d) Lenguaje no vinculante: Las notas de recomendación deben formularse siempre bajo la estructura: *"Un abogado revisaría si..."* o *"Se aconseja contrastar con el asesor legal si..."*.
 
@@ -691,12 +691,12 @@ Diseña el prompt central estructurado para el motor de análisis contractual de
           title="Llamada al modelo con gestión de contexto largo" 
           goal="analyze_legal_text() con truncado controlado, temperatura 0.1 y timeout de 60s para documentos largos."
         >
-          <PromptBlock label="Prompt 3.3 â€” analyze_legal_text()">
+          <PromptBlock label="Prompt 3.3 — analyze_legal_text()">
 {`Actúa como Ingeniero de Integración de LLMs en Python.
 
 Escribe el módulo \`legal_analyzer.py\` con la función asíncrona \`analyze_legal_text(...)\`:
 
-1. ESPECIFICACIÃ“N DE LA FUNCIÃ“N:
+1. ESPECIFICACI“N DE LA FUNCI“N:
 \`\`\`python
 async def analyze_legal_text(
     document: LegalDocument,
@@ -706,7 +706,7 @@ async def analyze_legal_text(
 ) -> tuple[str, float]:
 \`\`\`
 
-2. GESTIÃ“N DE DOCUMENTOS LARGOS:
+2. GESTI“N DE DOCUMENTOS LARGOS:
    - Estima el número de tokens (ratio 1 token â‰ˆ 4 caracteres para español/inglés).
    - Si el documento excede el límite configurado (\`MAX_ALLOWED_TOKENS\`), trunca respetando el límite superior y marca \`document.is_truncated = True\`.
    - Timeout configurado en 60.0 segundos con 2 reintentos ante caídas temporales de red.
@@ -721,7 +721,7 @@ async def analyze_legal_text(
           title="Parseo del análisis legal" 
           goal="parse_legal_analysis() con validación Pydantic, cálculo de global_risk_level y disclaimer añadido al resultado."
         >
-          <PromptBlock label="Prompt 3.4 â€” parse_legal_analysis()">
+          <PromptBlock label="Prompt 3.4 — parse_legal_analysis()">
 {`Actúa como Ingeniero de Software especializado en Structured Outputs y Validación Pydantic.
 
 Implementa la función \`parse_legal_analysis(raw_response: str, document: LegalDocument, model_name: str, analysis_type: str) -> LegalAnalysis\` en \`parser.py\`:
@@ -738,7 +738,7 @@ Implementa la función \`parse_legal_analysis(raw_response: str, document: Legal
      * Si solo hay \`BAJO\` -> Global = \`BAJO\`.
      * En cualquier otro caso -> \`INFORMATIVO\`.
 
-3. INYECCIÃ“N INMUTABLE DEL DESCARGO LEGAL:
+3. INYECCI“N INMUTABLE DEL DESCARGO LEGAL:
    - Inyecta la advertencia legal formal obligatoria de la aplicación en el campo \`legal_disclaimer\` antes de retornar el objeto.`}
           </PromptBlock>
         </Step>
@@ -754,7 +754,7 @@ Implementa la función \`parse_legal_analysis(raw_response: str, document: Legal
           >
             <strong style={{ color: C.red }}>Regla crítica:</strong> No usar un segundo LLM para validar el primero. La verificación es siempre determinista: la cita existe o no existe en el texto.
           </div>
-          <PromptBlock label="Prompt 3.5 â€” validate_legal_analysis()">
+          <PromptBlock label="Prompt 3.5 — validate_legal_analysis()">
 {`Actúa como Especialista en Guardrails Antialucinación y Calidad de Datos Legales.
 
 Implementa la función \`validate_legal_analysis(analysis: LegalAnalysis, document: LegalDocument) -> tuple[LegalAnalysis, list[str]]\` en \`guardrails.py\`:
@@ -780,12 +780,12 @@ Implementa la función \`validate_legal_analysis(analysis: LegalAnalysis, docume
           title="Función de fallback" 
           goal="analyze_with_fallback(): si el LLM falla, banner 'Consulta a un profesional legal' y análisis vacío bien señalizado."
         >
-          <PromptBlock label="Prompt 3.6 â€” analyze_with_fallback()">
+          <PromptBlock label="Prompt 3.6 — analyze_with_fallback()">
 {`Actúa como Arquitecto de Resiliencia de Software en Entornos Críticos.
 
 Implementa en \`fallback.py\` la función orquestadora con contingencia \`analyze_with_fallback(document: LegalDocument, analysis_type: str, model_name: str) -> tuple[LegalAnalysis, bool]\`:
 
-1. GESTIÃ“N DE CONTINGENCIA ANTE CAÍDAS:
+1. GESTI“N DE CONTINGENCIA ANTE CAÍDAS:
    - Ejecuta la secuencia: \`analyze_legal_text()\` -> \`parse_legal_analysis()\` -> \`validate_legal_analysis()\`.
    - Si la llamada falla por timeout, caída de API externa o error de red:
      * Genera un objeto \`LegalAnalysis\` de emergencia con \`risk_flags = []\` y \`global_risk_level = "INFORMATIVO"\`.
@@ -800,14 +800,14 @@ Implementa en \`fallback.py\` la función orquestadora con contingencia \`analyz
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 4 â€” INTERFAZ DE ESCRITORIO (FLET)
+            CAPA 4 — INTERFAZ DE ESCRITORIO (FLET)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Monitor} 
           label="Capa 4" 
           color="#0891B2" 
           title="Interfaz de escritorio (Flet)"
-          desc="Tres pantallas: Análisis, Historial y Configuración â€” con la advertencia legal fija en todas ellas." 
+          desc="Tres pantallas: Análisis, Historial y Configuración — con la advertencia legal fija en todas ellas." 
         />
 
         <Step 
@@ -834,7 +834,7 @@ Implementa en \`fallback.py\` la función orquestadora con contingencia \`analyz
               </div>
             ))}
           </div>
-          <PromptBlock label="Prompt 4.1 â€” Wireframe Flet">
+          <PromptBlock label="Prompt 4.1 — Wireframe Flet">
 {`Actúa como Diseñador de Interfaces Senior y Arquitecto UI en Flet (Python).
 
 Diseña la arquitectura visual y distribución de componentes para "Lex Analyst":
@@ -851,7 +851,7 @@ Diseña la arquitectura visual y distribución de componentes para "Lex Analyst"
    - Tabla cronológica de contratos analizados con fecha, tipo, modelo, nivel de riesgo y conteo de hallazgos.
    - Modo consulta de solo lectura al hacer clic en un registro anterior.
 
-3. PANTALLA 3: CONFIGURACIÃ“N Y PRIVACIDAD (Compliance):
+3. PANTALLA 3: CONFIGURACI“N Y PRIVACIDAD (Compliance):
    - Switch reactivo para store_document_text con advertencia expresa de secreto empresarial.
    - Campo para API Key con máscara de contraseña y selector de directorio para base de datos DuckDB local.`}
           </PromptBlock>
@@ -866,7 +866,7 @@ Diseña la arquitectura visual y distribución de componentes para "Lex Analyst"
             style={{ background: "rgba(220,38,38,0.05)", borderLeft: "3px solid " + C.red, color: "rgba(17,17,17,0.65)" }}>
             <strong style={{ color: C.red }}>Diseño obligatorio:</strong> El banner legal NO puede cerrarse. Es siempre visible en la pantalla principal.
           </div>
-          <PromptBlock label="Prompt 4.2 â€” Formulario de entrada Flet">
+          <PromptBlock label="Prompt 4.2 — Formulario de entrada Flet">
 {`Actúa como Desarrollador Frontend en Python con Flet.
 
 Crea el componente ContractInputForm en ui_form.py para "Lex Analyst":
@@ -919,16 +919,16 @@ legal_notice = ft.Container(
                 style={{ background: b.bg, color: b.color }}>{b.label}</span>
             ))}
           </div>
-          <PromptBlock label="Prompt 4.3 â€” Área de resultados Flet">
+          <PromptBlock label="Prompt 4.3 — Área de resultados Flet">
 {`Actúa como Diseñador de Componentes Flet especializado en visualización de auditoría documental.
 
 Implementa ContractResultsView en ui_results.py que recibe un LegalAnalysis y construye el cuadro de mando:
 
 1. BADGE DE RIESGO GLOBAL:
    - Tarjeta destacada superior con fondo dinámico:
-     * ALTO: Rojo (#DC2626) con texto: "NIVEL DE RIESGO GLOBAL: ALTO â€” Requiere revisión prioritaria".
-     * MEDIO: Ámbar (#D97706) con texto: "NIVEL DE RIESGO GLOBAL: MEDIO â€” Cláusulas no estándar".
-     * BAJO: Verde (#059669) con texto: "NIVEL DE RIESGO GLOBAL: BAJO â€” Condiciones habituales".
+     * ALTO: Rojo (#DC2626) con texto: "NIVEL DE RIESGO GLOBAL: ALTO — Requiere revisión prioritaria".
+     * MEDIO: Ámbar (#D97706) con texto: "NIVEL DE RIESGO GLOBAL: MEDIO — Cláusulas no estándar".
+     * BAJO: Verde (#059669) con texto: "NIVEL DE RIESGO GLOBAL: BAJO — Condiciones habituales".
      * INFORMATIVO: Azul grisáceo (#0891B2).
 
 2. ACORDEONES EXPANDIBLES DE HALLAZGOS (ft.ExpansionTile):
@@ -936,11 +936,11 @@ Implementa ContractResultsView en ui_results.py que recibe un LegalAnalysis y co
      * Título: Nombre del hallazgo + badge de severidad individual.
      * Cita Textual Literal: Presentada en un contenedor con tipografía monoespaciada y comillas tipográficas.
      * Badge de Verificación Antialucinación:
-       - Si quote_verified == True: Badge verde "âœ“ Cita verificada en el contrato original".
-       - Si quote_verified == False: Badge ámbar/rojo con icono "âš ️ Cita no verificada literalmente en el texto original".
+       - Si quote_verified == True: Badge verde "““ Cita verificada en el contrato original".
+       - Si quote_verified == False: Badge ámbar/rojo con icono "→ ️ Cita no verificada literalmente en el texto original".
      * Explicación de impacto y nota de recomendación legal formulada en cursiva ("Aspecto sugerido para consulta con el abogado: ...").
 
-3. RESUMEN EJECUTIVO Y EXPORTACIÃ“N:
+3. RESUMEN EJECUTIVO Y EXPORTACI“N:
    - Contenedor con el Resumen Ejecutivo, notas de limitación y botón ft.ElevatedButton "Exportar Informe Markdown (.md)".`}
           </PromptBlock>
         </Step>
@@ -957,7 +957,7 @@ Implementa ContractResultsView en ui_results.py que recibe un LegalAnalysis y co
               "Texto supera límite del modelo",
               "LLM no disponible + banner 'Consulta a un profesional'",
               "Análisis parcial (algunos hallazgos no extraídos)",
-              "0 hallazgos â€” badge verde con nota de limitación",
+              "0 hallazgos — badge verde con nota de limitación",
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-2 text-xs p-2.5 rounded-lg"
                 style={{ background: "rgba(17,17,17,0.04)", color: "rgba(17,17,17,0.6)" }}>
@@ -967,7 +967,7 @@ Implementa ContractResultsView en ui_results.py que recibe un LegalAnalysis y co
               </div>
             ))}
           </div>
-          <PromptBlock label="Prompt 4.4 â€” Estados de error Flet">
+          <PromptBlock label="Prompt 4.4 — Estados de error Flet">
 {`Actúa como Especialista en UX y Manejo de Estados en Flet.
 
 Implementa en ui_states.py los 6 estados del ciclo de vida para "Lex Analyst":
@@ -995,15 +995,15 @@ Implementa en ui_states.py los 6 estados del ciclo de vida para "Lex Analyst":
         <Step 
           num="4.5" 
           title="Navegación básica" 
-          goal="NavigationBar con 3 pantallas â€” la advertencia legal es visible en todas ellas."
+          goal="NavigationBar con 3 pantallas — la advertencia legal es visible en todas ellas."
         >
-          <PromptBlock label="Prompt 4.5 â€” Navegación Flet">
+          <PromptBlock label="Prompt 4.5 — Navegación Flet">
 {`Actúa como Arquitecto de Aplicaciones de Escritorio en Flet.
 
 Crea el archivo principal main.py con el controlador de navegación y ciclo de vida de "Lex Analyst":
 
 1. ARQUITECTURA DE LA VENTANA Y DISPATCHER:
-   - Configuración de la ventana: Título "Lex Analyst â€” Auditoría Contractual & Detección de Riesgos", dimensiones iniciales 1100x850, soporte para tema claro con paleta corporativa neutra y acentos índigo.
+   - Configuración de la ventana: Título "Lex Analyst — Auditoría Contractual & Detección de Riesgos", dimensiones iniciales 1100x850, soporte para tema claro con paleta corporativa neutra y acentos índigo.
    - Barra de Navegación Inferior (ft.NavigationBar):
      * Destino 0: "Análisis" (ft.icons.DOCUMENT_SCANNER_ROUNDED).
      * Destino 1: "Historial" (ft.icons.HISTORY_ROUNDED).
@@ -1018,14 +1018,14 @@ Crea el archivo principal main.py con el controlador de navegación y ciclo de v
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 5 â€” INTEGRACIÃ“N (LEX ANALYST)
+            CAPA 5 — INTEGRACI“N (LEX ANALYST)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={Link2} 
           label="Capa 5" 
           color={C.red} 
           title="Integración"
-          desc="Pipeline robusto con gestión de errores conservadora â€” en el dominio legal, siempre se preserva la advertencia de revisión profesional." 
+          desc="Pipeline robusto con gestión de errores conservadora — en el dominio legal, siempre se preserva la advertencia de revisión profesional." 
         />
 
         <Step 
@@ -1033,16 +1033,16 @@ Crea el archivo principal main.py con el controlador de navegación y ciclo de v
           title="Conectar interfaz con lógica" 
           goal="on_analyze_click() con validación mínima de 100 chars, diálogo de truncado y guardado según store_document_text."
         >
-          <PromptBlock label="Prompt 5.1 â€” on_analyze_click()">
+          <PromptBlock label="Prompt 5.1 — on_analyze_click()">
 {`Actúa como Ingeniero de Integración Asíncrona en Python y Flet.
 
 Escribe en controller.py el handler asíncrono para el evento de análisis on_analyze_click(e):
 
-1. VALIDACIÃ“N PREVIA Y GUARDRAILS DE ENTRADA:
+1. VALIDACI“N PREVIA Y GUARDRAILS DE ENTRADA:
    - Comprueba que el texto introducido cuente con al menos 100 caracteres significativos. En caso contrario, muestra un ft.SnackBar informativo: "Por favor, introduce al menos una cláusula completa (mínimo 100 caracteres)".
    - Si la longitud excede MAX_TEXT_LENGTH, presenta el diálogo de advertencia de truncado antes de lanzar la corutina.
 
-2. ORQUESTACIÃ“N NO BLOQUEANTE:
+2. ORQUESTACI“N NO BLOQUEANTE:
    - Cambia la UI al estado de carga activa (deshabilita el botón "Analizar" y muestra el indicador de progreso circular).
    - Crea el objeto de dominio LegalDocument mediante create_manual_document(...).
    - Ejecuta asíncronamente en segundo plano el pipeline orquestador (legal_analysis_pipeline) para mantener la interfaz 100% responsiva.
@@ -1059,12 +1059,12 @@ Escribe en controller.py el handler asíncrono para el evento de análisis on_an
           title="Conectar lógica con datos" 
           goal="legal_analysis_pipeline() sin lógica de UI, con log de metadatos (sin el texto del documento)."
         >
-          <PromptBlock label="Prompt 5.2 â€” legal_analysis_pipeline()">
+          <PromptBlock label="Prompt 5.2 — legal_analysis_pipeline()">
 {`Actúa como Ingeniero de Pipeline y Orquestación de Backend en Python.
 
 Crea en pipeline.py la función pura de orquestación legal_analysis_pipeline(...):
 
-1. FIRMA DE LA FUNCIÃ“N PURA:
+1. FIRMA DE LA FUNCI“N PURA:
 \`\`\`python
 async def legal_analysis_pipeline(
     document: LegalDocument,
@@ -1095,7 +1095,7 @@ async def legal_analysis_pipeline(
             style={{ background: "rgba(220,38,38,0.05)", borderLeft: "3px solid " + C.red, color: "rgba(17,17,17,0.65)" }}>
             <strong style={{ color: C.red }}>Principio de diseño:</strong> En caso de duda o error, nunca suprimir las notas de limitación. Siempre mostrar "Consulta a un profesional del derecho".
           </div>
-          <PromptBlock label="Prompt 5.3 â€” LegalError + tabla de decisiones">
+          <PromptBlock label="Prompt 5.3 — LegalError + tabla de decisiones">
 {`Actúa como Arquitecto de Tolerancia a Fallos en Sistemas Legales Críticos.
 
 Crea el módulo exceptions.py con la jerarquía de excepciones y la matriz de contingencia en cascada para "Lex Analyst":
@@ -1137,7 +1137,7 @@ class LegalException(Exception):
             style={{ background: "rgba(217,119,6,0.05)", borderLeft: "3px solid " + C.amber, color: "rgba(17,17,17,0.65)" }}>
             <strong style={{ color: C.amber }}>¿Por qué dos logs?</strong> Los análisis legales pueden implicar datos personales. El log de seguridad permite auditar qué datos se procesaron.
           </div>
-          <PromptBlock label="Prompt 5.4 â€” legal_logger.py (dos handlers)">
+          <PromptBlock label="Prompt 5.4 — legal_logger.py (dos handlers)">
 {`Actúa como Ingeniero de Seguridad y Cumplimiento Normativo (RGPD) en Python.
 
 Crea el módulo legal_logger.py con doble sistema de registro desacoplado para "Lex Analyst":
@@ -1145,7 +1145,7 @@ Crea el módulo legal_logger.py con doble sistema de registro desacoplado para "
 1. POLÍTICA ESTRICTA ZERO-PII / SECRETO CONTRACTUAL:
    - Queda terminantemente prohibido registrar el texto íntegro de las cláusulas, nombres propios de intervinientes o datos bancarios en los archivos de log.
 
-2. ESPECIFICACIÃ“N DE LOS DOS CANALES DE LOG:
+2. ESPECIFICACI“N DE LOS DOS CANALES DE LOG:
    - Canal 1 (analyses.log con RotatingFileHandler 5MB, 3 backups):
      * Registra métricas operacionales: timestamp, document_id (UUID), analysis_type, model_name, global_risk_level, num_findings, unverified_quotes_count, latency_seconds.
    
@@ -1162,12 +1162,12 @@ Crea el módulo legal_logger.py con doble sistema de registro desacoplado para "
           title="Configuración centralizada" 
           goal="config.py con LEGAL_DISCLAIMER como constante, AVAILABLE_ANALYSIS_TYPES y LEX_STORE_DOCUMENT_TEXT=false por defecto."
         >
-          <PromptBlock label="Prompt 5.5 â€” config.py + .env.example">
+          <PromptBlock label="Prompt 5.5 — config.py + .env.example">
 {`Actúa como Ingeniero de Configuración y Seguridad de Software en Python.
 
 Crea el archivo config.py utilizando pydantic-settings y la plantilla .env.example para "Lex Analyst":
 
-1. ESPECIFICACIÃ“N DEL MÃ“DULO config.py:
+1. ESPECIFICACI“N DEL M“DULO config.py:
 \`\`\`python
 from pydantic_settings import BaseSettings
 from pathlib import Path
@@ -1210,7 +1210,7 @@ settings = LexConfig()
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            CAPA 6 â€” PRUEBAS Y EMPAQUETADO (LEX ANALYST)
+            CAPA 6 — PRUEBAS Y EMPAQUETADO (LEX ANALYST)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={FlaskConical} 
@@ -1223,9 +1223,9 @@ settings = LexConfig()
         <Step 
           num="6.1" 
           title="Tests unitarios" 
-          goal="Tests de verify_quote(), validate_legal_analysis() y parse_legal_analysis() â€” incluyendo el caso de >50% citas no verificadas."
+          goal="Tests de verify_quote(), validate_legal_analysis() y parse_legal_analysis() — incluyendo el caso de >50% citas no verificadas."
         >
-          <PromptBlock label="Prompt 6.1 â€” tests/test_legal_logic.py">
+          <PromptBlock label="Prompt 6.1 — tests/test_legal_logic.py">
 {`Actúa como QA Lead y Especialista en Testing Automatizado de Software LegalTech en Python.
 
 Crea la suite de pruebas unitarias en \`tests/test_legal_logic.py\` y sus fixtures en \`tests/conftest.py\`:
@@ -1239,7 +1239,7 @@ Crea la suite de pruebas unitarias en \`tests/test_legal_logic.py\` y sus fixtur
 2. CASOS DE PRUEBA EN \`test_legal_logic.py\`:
    - \`test_verify_quote_exact_and_fuzzy()\`:
      * Valida coincidencia exacta (True).
-     * Valida normalización de comillas tipográficas (« » / â€œ â€) contra comillas estándar (' / ") (True).
+     * Valida normalización de comillas tipográficas (« » / “ –) contra comillas estándar (' / ") (True).
      * Valida cita ausente o inventada por el modelo (False).
    - \`test_validate_legal_analysis_integrity()\`:
      * Verifica que cuando el 100% de citas existen, \`issues\` está vacío y ninguna advertencia crítica se activa.
@@ -1255,14 +1255,14 @@ Crea la suite de pruebas unitarias en \`tests/test_legal_logic.py\` y sus fixtur
         <Step 
           num="6.2" 
           title="Test de flujo completo" 
-          goal="Test de integración con 2 citas verificables + 1 cita inventada â€” el sistema debe detectar la inventada."
+          goal="Test de integración con 2 citas verificables + 1 cita inventada — el sistema debe detectar la inventada."
         >
-          <PromptBlock label="Prompt 6.2 â€” tests/test_legal_integration.py">
+          <PromptBlock label="Prompt 6.2 — tests/test_legal_integration.py">
 {`Actúa como Ingeniero de Integración y Testing E2E en Python.
 
 Crea el test de integración en \`tests/test_legal_integration.py\` que valida el flujo completo del pipeline sin consumir créditos de API:
 
-1. CONFIGURACIÃ“N DEL ENTORNO DE PRUEBA:
+1. CONFIGURACI“N DEL ENTORNO DE PRUEBA:
    - Carga una cláusula real desde \`sample_legal_clauses.json\`.
    - Inicializa una base de datos DuckDB volátil en memoria (\`conn = duckdb.connect(':memory:')\`) con \`store_document_text = False\`.
 
@@ -1287,7 +1287,7 @@ Crea el test de integración en \`tests/test_legal_integration.py\` que valida e
           title="Prueba manual con datos reales" 
           goal="Protocolo de 7 escenarios con contratos reales anonimizados, incluyendo texto en inglés y prueba sin internet."
         >
-          <PromptBlock label="Prompt 6.3 â€” Protocolo de prueba manual">
+          <PromptBlock label="Prompt 6.3 — Protocolo de prueba manual">
 {`Actúa como Auditor de Calidad Funcional y Usabilidad (UAT) en Entornos Legales.
 
 Redacta el protocolo de validación manual exhaustivo para certificar "Lex Analyst v1":
@@ -1312,24 +1312,24 @@ Redacta el protocolo de validación manual exhaustivo para certificar "Lex Analy
             style={{ background: "rgba(217,119,6,0.05)", borderLeft: "3px solid " + C.amber, color: "rgba(17,17,17,0.65)" }}>
             <strong style={{ color: C.amber }}>Advertencia de privacidad para el usuario:</strong> "Los textos que introduces se envían al proveedor de IA. No introduzcas documentos con datos personales de terceros sin su consentimiento."
           </div>
-          <PromptBlock label="Prompt 6.4 â€” Empaquetado">
+          <PromptBlock label="Prompt 6.4 — Empaquetado">
 {`Actúa como Ingeniero de Distribución y Empaquetado de Software de Escritorio en Python.
 
 Genera las especificaciones de compilación y empaquetado para generar el ejecutable autónomo \`LexAnalyst.exe\`:
 
-1. ARCHIVO DE CONFIGURACIÃ“N \`lex_analyst.spec\`:
+1. ARCHIVO DE CONFIGURACI“N \`lex_analyst.spec\`:
    - Configura PyInstaller con:
      * \`entry_point = "main.py"\`
      * \`datas = [('data_legal/raw/cuad_clauses.json', 'data_legal/raw'), ('assets', 'assets')]\`
      * Exclusión estricta: Bloquear la inclusión de archivos \`.env\`, \`*.duckdb\` o logs locales en el empaquetado para prevenir fugas de credenciales.
      * Modo ventana (\`console=False\` en Windows).
 
-2. GUÍA DE INSTALACIÃ“N Y DESPLIEGUE EN 3 PASOS:
+2. GUÍA DE INSTALACI“N Y DESPLIEGUE EN 3 PASOS:
    - Paso 1: Descomprimir el paquete \`LexAnalyst_v1.0_Win64.zip\`.
    - Paso 2: Crear el archivo \`.env\` junto al ejecutable introduciendo \`LEX_LLM_API_KEY=tu_clave_aqui\`.
    - Paso 3: Ejecutar \`LexAnalyst.exe\` con doble clic directo sin necesidad de instalar Python ni dependencias.
 
-3. ADVERTENCIA DE PRIVACIDAD EN EL README DE DISTRIBUCIÃ“N:
+3. ADVERTENCIA DE PRIVACIDAD EN EL README DE DISTRIBUCI“N:
    - Incluye la advertencia obligatoria de transferencia de datos a proveedores de IA de terceros para contratos con información personal o confidencial.`}
           </PromptBlock>
         </Step>
@@ -1337,14 +1337,14 @@ Genera las especificaciones de compilación y empaquetado para generar el ejecut
         <Step 
           num="6.5" 
           title="Prueba del ejecutable en máquina limpia" 
-          goal="Verificación en VM sin Python â€” la advertencia legal debe aparecer prominente en la primera pantalla."
+          goal="Verificación en VM sin Python — la advertencia legal debe aparecer prominente en la primera pantalla."
         >
-          <PromptBlock label="Prompt 6.5 â€” Protocolo máquina limpia">
+          <PromptBlock label="Prompt 6.5 — Protocolo máquina limpia">
 {`Actúa como Ingeniero de QA y Certificación de Entornos Limpios.
 
 Diseña el protocolo de verificación del binario \`LexAnalyst.exe\` en una máquina virtual Windows 11 recién instalada (sin Python, Git ni compiladores de C++):
 
-1. CHECKLIST DE CONECTIVIDAD Y EJECUCIÃ“N LIMPIA:
+1. CHECKLIST DE CONECTIVIDAD Y EJECUCI“N LIMPIA:
    - Verificación de arranque en frío en menos de 3.5 segundos.
    - Confirmación visual de que la advertencia legal de responsabilidad se renderiza de forma clara y nítida en el tercio superior.
    - Apertura de la biblioteca CUAD de prueba: verificar que las 10 cláusulas precargadas se visualizan y rellenan el área de texto con un clic.
@@ -1354,7 +1354,7 @@ Diseña el protocolo de verificación del binario \`LexAnalyst.exe\` en una máq
         </Step>
 
         {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FASE 7 â€” ITERACIÃ“N Y PUBLICACIÃ“N (LEX ANALYST)
+            FASE 7 — ITERACI“N Y PUBLICACI“N (LEX ANALYST)
             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <PhaseHeader 
           icon={RefreshCw} 
@@ -1367,13 +1367,13 @@ Diseña el protocolo de verificación del binario \`LexAnalyst.exe\` en una máq
         <Step 
           num="7.A" 
           title="Planificar v2" 
-          goal="Backlog con columna 'Riesgo legal adicional' â€” análisis batch, soporte PDF, comparativa de modelos...">
-          <PromptBlock label="Prompt 7.A â€” Planificación v2 (tabla con riesgo legal)">
+          goal="Backlog con columna 'Riesgo legal adicional' — análisis batch, soporte PDF, comparativa de modelos...">
+          <PromptBlock label="Prompt 7.A — Planificación v2 (tabla con riesgo legal)">
 {`Actúa como Product Owner y Estratega en LegalTech.
 
 Elabora el backlog técnico y funcional estructurado para la versión 2.0 de "Lex Analyst":
 
-1. MATRIZ DE MEJORAS CON EVALUACIÃ“N DE RIESGO JURÍDICO ADICIONAL:
+1. MATRIZ DE MEJORAS CON EVALUACI“N DE RIESGO JURÍDICO ADICIONAL:
    | ID | Funcionalidad Propuesta | Capa Afectada | Complejidad | Riesgo Legal Adicional | Medida de Mitigación Requerida |
    |:---|:------------------------|:--------------|:------------|:-----------------------|:-------------------------------|
    | F1 | Ingesta nativa de archivos PDF/Word (pdfminer / python-docx) | Capa 2 (Datos) | Media | Riesgo de pérdida de texto por mal OCR en PDFs escaneados | Advertencia expresa: "Documentos escaneados pueden omitir cláusulas por calidad de imagen" |
@@ -1381,7 +1381,7 @@ Elabora el backlog técnico y funcional estructurado para la versión 2.0 de "Le
    | F3 | Benchmarking Multi-LLM en paralelo (Claude vs GPT vs DeepSeek) | Capa 3 (Lógica) | Media | Dictámenes divergentes entre modelos que confunden al usuario | Matriz comparativa destacando coincidencias unánimes y discrepancias |
    | F4 | Módulo Especializado de Auditoría RGPD con cita de Artículos | Capas 2, 3 y 4 | Media | Falsa apariencia de certificación oficial ante la AEPD | Disclaimer reforzado: "No sustituye la auditoría obligatoria de un DPO colegiado" |
 
-2. PRIORIZACIÃ“N Y CRITERIO DE EXPANSIÃ“N:
+2. PRIORIZACI“N Y CRITERIO DE EXPANSI“N:
    - Define las 2 funcionalidades prioritarias para el sprint de la v2.0 justificando el balance entre valor práctico y seguridad jurídica.`}
           </PromptBlock>
         </Step>
@@ -1391,13 +1391,13 @@ Elabora el backlog técnico y funcional estructurado para la versión 2.0 de "Le
           title="Publicar en Foro de Proyectos" 
           goal="Ficha de publicación con el disclaimer legal completo visible en la propia ficha del foro."
         >
-          <PromptBlock label="Prompt 7.B â€” Ficha para el Foro (con disclaimer)">
+          <PromptBlock label="Prompt 7.B — Ficha para el Foro (con disclaimer)">
 {`Actúa como Desarrollador LegalTech y Divulgador en la Comunidad Horizon.
 
 Redacta la ficha de presentación de "Lex Analyst" para publicar en el Foro de la Comunidad Horizon (/comunidad/aplicaciones):
 
-1. ESTRUCTURA DE LA PUBLICACIÃ“N:
-   - **Título:** \`[PROYECTO] Lex Analyst v1.0 â€” Escáner Contractual Asistido por IA con Verificación Determinista de Citas\`
+1. ESTRUCTURA DE LA PUBLICACI“N:
+   - **Título:** \`[PROYECTO] Lex Analyst v1.0 — Escáner Contractual Asistido por IA con Verificación Determinista de Citas\`
    - **Etiquetas:** \`#LegalTech\` \`#Flet\` \`#Python\` \`#Pydantic\` \`#LegalBench\` \`#ZeroPII\`
    - **Resumen del Proyecto (150 palabras):** Aplicación de escritorio diseñada para PYMEs y profesionales que necesitan una primera lectura rigurosa de contratos mercantiles antes de trasladarlos al abogado.
    - **Innovación Técnica Destacada:** Motor determinista de verificación de citas contra el texto fuente para erradicar cláusulas alucinadas o inventadas.
@@ -1406,7 +1406,7 @@ Redacta la ficha de presentación de "Lex Analyst" para publicar en el Foro de l
           </PromptBlock>
         </Step>
 
-        {/* â”€â”€â”€ Result box â”€â”€â”€ */}
+        {/* —€—€—€ Result box —€—€—€ */}
         <div className="mt-12 rounded-2xl p-8 text-center"
           style={{ background: "white", border: "1px solid rgba(59,111,212,0.2)" }}>
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4"
@@ -1420,7 +1420,7 @@ Redacta la ficha de presentación de "Lex Analyst" para publicar en el Foro de l
           </p>
           <p className="text-sm mb-6 max-w-[480px] mx-auto"
             style={{ color: "rgba(17,17,17,0.40)" }}>
-            No reemplaza al abogado â€” le da a cualquier persona una primera pasada rigurosa antes de la revisión profesional.
+            No reemplaza al abogado — le da a cualquier persona una primera pasada rigurosa antes de la revisión profesional.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link to="/comunidad/aplicaciones"
@@ -1436,7 +1436,7 @@ Redacta la ficha de presentación de "Lex Analyst" para publicar en el Foro de l
           </div>
         </div>
 
-        {/* â”€â”€â”€ Version extensions â”€â”€â”€ */}
+        {/* —€—€—€ Version extensions —€—€—€ */}
         <VersionExtensions versions={VERSIONS} />
 
         <div className="h-16" />
