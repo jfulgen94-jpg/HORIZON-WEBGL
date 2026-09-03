@@ -47,6 +47,7 @@ const PreTutorial = lazy(() => import("./pages/PreTutorial"));
 const ExecutiveSummaryPage = lazy(() => import("./pages/ExecutiveSummaryPage"));
 const BibliotecaPrompts = lazy(() => import("./pages/BibliotecaPrompts"));
 const Manifiesto = lazy(() => import("./pages/Manifiesto"));
+const MarketingPlan = lazy(() => import("./pages/MarketingPlan"));
 
 function Loading() {
   return (
@@ -77,6 +78,7 @@ export default function App() {
             <Route path="comunidad/profesionales" element={<ForoProfesionales />} />
             <Route path="comunidad/debate" element={<ForoDebate />} />
             <Route path="foro" element={<ForoDebate />} />
+            <Route path="marketing/:slug" element={<MarketingPlan />} />
 
             <Route path="lab/finanzas" element={<FinanzasLab />} />
             <Route path="lab/medicina" element={<MedicinaLab />} />

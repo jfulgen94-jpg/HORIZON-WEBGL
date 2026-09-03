@@ -284,10 +284,14 @@ export default function PreTutorial() {
           </div>
         </section>
 
-        <div className="border-t border-white/[0.08] pt-8 mb-8 flex items-center gap-3 text-sm text-[#525A70]">
-          <Megaphone size={16} className="text-[#3B6FD4]" />
-          <span>Plan de Marketing</span>
-          <span className="text-xs text-[#3B6FD4]/50">(proximamente)</span>
+        <div className="border-t border-white/[0.08] pt-8 mb-8">
+          <Link to={`/marketing/${slug}`} className="flex items-center gap-3 text-sm text-[#9BA3B8] hover:text-[#3B6FD4] transition-colors group">
+            <Megaphone size={16} className="text-[#3B6FD4]" />
+            <span className="font-medium">{data.marketingPlanLabel}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
