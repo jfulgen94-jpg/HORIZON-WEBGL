@@ -58,6 +58,7 @@ NO ASUMAS conocimiento previo. Explica términos técnicos la primera vez que lo
   };
 
   const SECTIONS = [
+    { id: "manifiesto", label: "0. Nuestro Manifiesto" },
     { id: "parte-1", label: "1. El Proceso Perfecto" },
     { id: "parte-2", label: "2. Razonamiento Aplicado" },
     { id: "parte-3", label: "3. Moral Operativa" },
@@ -153,6 +154,65 @@ NO ASUMAS conocimiento previo. Explica términos técnicos la primera vez que lo
 
           {/* Article Main Body */}
           <main className="lg:col-span-9 space-y-16">
+            {/* MANIFIESTO */}
+            <article id="manifiesto" className="bg-gradient-to-br from-[#161C27] via-[#1A2235] to-[#0F1117] border border-[#3B6FD4]/20 rounded-2xl p-8 sm:p-12 shadow-2xl space-y-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#3B6FD4]/10 blur-3xl pointer-events-none" />
+              <div className="inline-block font-mono text-[11px] text-[#3B6FD4] uppercase tracking-widest bg-[#3B6FD4]/15 border border-[#3B6FD4]/30 px-3 py-1 rounded-md">
+                Manifiesto Horizon
+              </div>
+              <h2 className="font-display text-2xl sm:text-3xl text-white">
+                Nuestro Compromiso
+              </h2>
+
+              <div className="space-y-6 text-white/70 text-base sm:text-lg leading-relaxed font-light">
+                <p>
+                  En Horizon creemos en <strong className="text-[#3B6FD4]">acercar el mundo de la programacion a todos los usuarios</strong> del mercado al que nos enfrentamos. No importa si eres contable, medico, abogado o disenador: la tecnologia esta para servirte, no para intimidarte.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                  <div className="p-5 rounded-xl bg-[#0F1117]/80 border border-[#3B6FD4]/15 space-y-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#3B6FD4]/15 flex items-center justify-center">
+                      <span className="text-[#3B6FD4] font-mono font-bold text-lg">1</span>
+                    </div>
+                    <h3 className="font-display text-base text-white font-medium">Rigor Tecnico y Verificabilidad</h3>
+                    <p className="text-sm text-white/50 leading-relaxed">
+                      Cada prompt, cada herramienta, cada aplicacion que construimos esta respaldada por un proceso tecnico riguroso que el usuario puede verificar, entender y corregir.
+                    </p>
+                  </div>
+
+                  <div className="p-5 rounded-xl bg-[#0F1117]/80 border border-[#2BDE73]/15 space-y-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#2BDE73]/15 flex items-center justify-center">
+                      <span className="text-[#2BDE73] font-mono font-bold text-lg">2</span>
+                    </div>
+                    <h3 className="font-display text-base text-white font-medium">Operatividad y Claridad</h3>
+                    <p className="text-sm text-white/50 leading-relaxed">
+                      Las aplicaciones deben ser claras, funcionales y directas. Sin tecnicismos innecesarios, sin pasos que confundan. El usuario sabe que hacer y por que.
+                    </p>
+                  </div>
+
+                  <div className="p-5 rounded-xl bg-[#0F1117]/80 border border-[#E5598C]/15 space-y-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#E5598C]/15 flex items-center justify-center">
+                      <span className="text-[#E5598C] font-mono font-bold text-lg">3</span>
+                    </div>
+                    <h3 className="font-display text-base text-white font-medium">Calidad en el Contenido</h3>
+                    <p className="text-sm text-white/50 leading-relaxed">
+                      No se trata de cantidad, sino de calidad. Cada herramienta que creamos esta pensada para resolver problemas reales con la mejor tecnologia disponible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 p-6 rounded-xl bg-gradient-to-r from-[#3B6FD4]/10 to-[#2BDE73]/10 border border-white/[0.08] space-y-4">
+                <h3 className="font-display text-lg text-white font-medium flex items-center gap-2">
+                  <Cpu size={18} className="text-[#2BDE73]" />
+                  El Potencial de la IA en las Aplicaciones
+                </h3>
+                <p className="text-sm text-white/60 leading-relaxed">
+                  Las estructuras informaticas convertidas en aplicaciones tienen el poder de transformar la manera en que trabajamos. La inteligencia artificial no es magia: es <strong className="text-[#2BDE73]">conciencia tecnica aplicada</strong>. Concienciar a una IA para que haga un trabajo correcto y sin lagunas significa: definir el contexto con precision, establecer limites claros, verificar cada paso y nunca confiar ciegamente en lo que genera. En Horizon, construimos IA que trabaja para ti, no por ti.
+                </p>
+              </div>
+            </article>
+
             {/* PARTE 1 */}
             <article id="parte-1" className="bg-[#161C27] border border-white/[0.08] rounded-2xl p-8 sm:p-12 shadow-2xl space-y-8">
               <div className="inline-block font-mono text-[11px] text-[#3B6FD4] uppercase tracking-widest bg-[#3B6FD4]/10 border border-[#3B6FD4]/20 px-3 py-1 rounded-md">
