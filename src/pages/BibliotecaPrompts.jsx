@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -27,7 +27,9 @@ import {
 import {
   PROMPT_AREAS,
   PROJECT_PHASES,
-  getAllPrompts,
+  TOTAL_PROMPTS,
+  loadAreaPrompts,
+  loadAllPrompts,
   getPromptsByArea,
   searchPrompts
 } from "../data/prompts-data";
@@ -92,8 +94,40 @@ export default function BibliotecaPrompts() {
     return currentArea.categories.find((c) => c.id === selectedCategoryId) || null;
   }, [currentArea, selectedCategoryId]);
 
+  // Estado de carga perezosa de los datos de prompts (S1-08)
+  const [loadingPrompts, setLoadingPrompts] = useState(false);
+  const loadedAreasRef = useRef(new Set());
+  const catalogLoadedRef = useRef(false);
+
+  useEffect(() => {
+    const needArea = currentArea && !loadedAreasRef.current.has(currentArea.id);
+    const needAll =
+      !currentArea && (searchQuery.trim() || selectedPhase) && !catalogLoadedRef.current;
+    if (!needArea && !needAll) return;
+    let cancelled = false;
+    setLoadingPrompts(true);
+    (async () => {
+      try {
+        if (needArea) {
+          await loadAreaPrompts(currentArea.id);
+          if (!cancelled) loadedAreasRef.current.add(currentArea.id);
+        }
+        if (needAll) {
+          await loadAllPrompts();
+          if (!cancelled) catalogLoadedRef.current = true;
+        }
+      } finally {
+        if (!cancelled) setLoadingPrompts(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentArea, searchQuery, selectedPhase]);
+
   // Prompts a mostrar según la vista actual
   const displayedPrompts = useMemo(() => {
+    if (loadingPrompts) return [];
     if (!currentArea) {
       if (!searchQuery.trim() && !selectedPhase) return [];
       return searchPrompts(searchQuery, { phase: selectedPhase });
@@ -121,11 +155,9 @@ export default function BibliotecaPrompts() {
     }
 
     return areaPrompts;
-  }, [currentArea, selectedCategoryId, selectedPhase, searchQuery]);
+  }, [currentArea, selectedCategoryId, selectedPhase, searchQuery, loadingPrompts]);
 
-  const allPromptsTotal = useMemo(() => {
-    return getAllPrompts().length;
-  }, []);
+  const allPromptsTotal = TOTAL_PROMPTS;
 
   return (
     <div className="pt-28 pb-24 px-6 min-h-screen">
@@ -211,7 +243,7 @@ export default function BibliotecaPrompts() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {PROMPT_AREAS.map((area) => {
               const AreaIcon = AREA_ICONS[area.id] || Sparkles;
-              const promptCount = getPromptsByArea(area.id).length;
+              const promptCount = area.promptCount;
               return (
                 <button
                   key={area.id}
@@ -316,7 +348,16 @@ export default function BibliotecaPrompts() {
         {/* Listado de Prompts Reales */}
         {(selectedAreaId || searchQuery.trim() || selectedPhase) && (
           <div className="mt-8 space-y-4">
-            {displayedPrompts.length === 0 ? (
+            {loadingPrompts ? (
+              <div className="p-12 text-center rounded-2xl bg-[#161C27] border border-white/[0.08] space-y-3">
+                <Sparkles size={32} className="mx-auto text-[#3B6FD4] animate-pulse" />
+                <h3 className="text-base text-white font-medium">Cargando prompts…</h3>
+                <p className="text-xs text-white/50 max-w-md mx-auto">
+                  Los prompts de esta área se descargan bajo demanda para mantener ligera la
+                  biblioteca.
+                </p>
+              </div>
+            ) : displayedPrompts.length === 0 ? (
               <div className="p-12 text-center rounded-2xl bg-[#161C27] border border-white/[0.08] space-y-3">
                 <Search size={32} className="mx-auto text-white/30" />
                 <h3 className="text-base text-white font-medium">No se encontraron prompts</h3>

@@ -13,16 +13,14 @@ import {
   LogIn,
   Package,
   Users,
-  TrendingDown,
-  Megaphone,
-  Globe,
-  Server,
   Cpu,
   Coins,
   AlertCircle,
   FileText,
   Clock,
   ShieldCheck,
+  Database,
+  Globe,
 } from "lucide-react";
 
 import {
@@ -42,10 +40,6 @@ import {
 const SECTION_ICONS = {
   Package,
   Users,
-  TrendingDown,
-  Megaphone,
-  Globe,
-  Server,
   Cpu,
   Coins,
 };
@@ -57,11 +51,12 @@ export default function ExecutiveSummaryPage() {
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [researchData, setResearchData] = useState(null);
 
   // Estado de usuario y autenticación
   const [currentUser, setCurrentUser] = useState(() => getCurrentUser());
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authMode, setAuthMode] = useState("login"); // "login" o "register"
+  const [authMode, setAuthMode] = useState("login");
   const [authName, setAuthName] = useState("");
   const [authEmail, setAuthEmail] = useState("");
   const [authPassword, setAuthPassword] = useState("");
@@ -77,6 +72,18 @@ export default function ExecutiveSummaryPage() {
     setFormData((prev) => ({ ...prev, [key]: value }));
   };
 
+  // Manejo específico para checkboxes (array)
+  const handleCheckboxChange = (key, optionValue, checked) => {
+    setFormData((prev) => {
+      const current = prev[key] || [];
+      if (checked) {
+        return { ...prev, [key]: [...current, optionValue] };
+      } else {
+        return { ...prev, [key]: current.filter((v) => v !== optionValue) };
+      }
+    });
+  };
+
   const currentSection = SUMMARY_SECTIONS[activeSectionIndex];
   const CurrentSectionIcon = SECTION_ICONS[currentSection?.iconName] || FileText;
 
@@ -84,8 +91,13 @@ export default function ExecutiveSummaryPage() {
   const isCurrentSectionValid = useMemo(() => {
     if (!currentSection) return false;
     for (const q of currentSection.questions) {
-      if (q.required && !formData[q.id]?.toString().trim()) {
-        return false;
+      if (q.required) {
+        const value = formData[q.id];
+        if (q.type === "checkbox") {
+          if (!value || value.length === 0) return false;
+        } else if (!value?.toString().trim()) {
+          return false;
+        }
       }
     }
     return true;
@@ -102,6 +114,7 @@ export default function ExecutiveSummaryPage() {
 
     setLoading(true);
     setError(null);
+    setResearchData(null);
 
     try {
       const summaryResult = await generateExecutiveSummaryWithFallback(formData);
@@ -111,6 +124,9 @@ export default function ExecutiveSummaryPage() {
       setCurrentUser(updatedUser);
 
       setResult(summaryResult);
+      if (summaryResult.researchData) {
+        setResearchData(summaryResult.researchData);
+      }
     } catch (err) {
       setError(err.message || "Error inesperado al generar el resumen ejecutivo.");
     } finally {
@@ -133,7 +149,7 @@ export default function ExecutiveSummaryPage() {
     const blob = new Blob([result.markdown], { type: "text/markdown;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    const cleanName = (formData.nombre || "resumen-ejecutivo")
+    const cleanName = (formData.nombre_proyecto || "resumen-ejecutivo")
       .toLowerCase()
       .replace(/[^a-z0-9]/g, "-")
       .replace(/-+/g, "-");
@@ -170,6 +186,22 @@ export default function ExecutiveSummaryPage() {
   const handleLogout = () => {
     const anon = logoutUser();
     setCurrentUser(anon);
+  };
+
+  // Componente para renderizar investigación (opcional, colapsable)
+  const ResearchPanel = () => {
+    if (!researchData) return null;
+    return (
+      <details className="mb-6 p-4 rounded-2xl bg-[#0D1117] border border-white/[0.05]">
+        <summary className="flex items-center gap-2 cursor-pointer text-xs font-mono text-[#3B6FD4] select-none">
+          <Database size={14} />
+          <span>Ver datos de investigación (competidores, mercado, tendencias)</span>
+        </summary>
+        <div className="mt-4 p-4 rounded-xl bg-[#161C27] border border-white/[0.05] overflow-x-auto text-xs font-mono text-white/70">
+          <pre className="whitespace-pre-wrap">{JSON.stringify(researchData, null, 2)}</pre>
+        </div>
+      </details>
+    );
   };
 
   return (
@@ -317,22 +349,22 @@ export default function ExecutiveSummaryPage() {
         <div className="mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B6FD4]/10 border border-[#3B6FD4]/20 text-[#3B6FD4] text-xs font-mono mb-3">
             <Sparkles size={12} />
-            <span>Pitch Generator para Inversores y Socios</span>
+            <span>Executive AI v3.0 — Investigación + Redacción</span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl text-white mb-2">
             Resumen Ejecutivo de Marketing y Negocio
           </h1>
           <p className="text-white/60 text-sm max-w-2xl leading-relaxed">
-            Completa las 8 secciones del formulario guiado para compilar un dossier exhaustivo de 12 puntos
-            con tablas de mercado, unit economics, análisis de competencia y plan de acción.
+            Completa los 4 bloques del formulario (15 preguntas) para compilar un dossier exhaustivo de 10 secciones
+            con investigación de mercado real, análisis competitivo, unit economics y roadmap.
           </p>
         </div>
 
         {/* VISTA 1: Formulario Guiado por Secciones */}
         {!result && (
           <div className="space-y-6">
-            {/* Navegador de Pasos (8 Secciones) */}
-            <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 p-2 rounded-2xl bg-[#161C27] border border-white/[0.08]">
+            {/* Navegador de Pasos (4 Bloques) */}
+            <div className="grid grid-cols-4 gap-2 p-2 rounded-2xl bg-[#161C27] border border-white/[0.08]">
               {SUMMARY_SECTIONS.map((sec, idx) => {
                 const Icon = SECTION_ICONS[sec.iconName] || FileText;
                 const isActive = idx === activeSectionIndex;
@@ -351,7 +383,7 @@ export default function ExecutiveSummaryPage() {
                   >
                     <Icon size={16} className="mb-1" />
                     <span className="text-[10px] font-mono leading-tight truncate w-full">
-                      {sec.number}. {sec.title.split(" ")[1] || sec.title}
+                      {sec.number}. {sec.title}
                     </span>
                   </button>
                 );
@@ -367,7 +399,7 @@ export default function ExecutiveSummaryPage() {
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-mono text-[#3B6FD4] font-semibold">
-                      Sección {currentSection.number} de 8
+                      Bloque {currentSection.number} de 4
                     </span>
                     <span className="text-white/20">·</span>
                     <span className="text-xs font-mono text-white/40">
@@ -391,6 +423,7 @@ export default function ExecutiveSummaryPage() {
                     {q.type === "text" && (
                       <input
                         type="text"
+                        maxLength={q.max_length}
                         value={formData[q.id] || ""}
                         onChange={(e) => handleFieldChange(q.id, e.target.value)}
                         placeholder={q.placeholder}
@@ -400,7 +433,8 @@ export default function ExecutiveSummaryPage() {
 
                     {q.type === "textarea" && (
                       <textarea
-                        rows={3}
+                        rows={q.id === "solucion_tecnica" ? 5 : 3}
+                        maxLength={q.max_length}
                         value={formData[q.id] || ""}
                         onChange={(e) => handleFieldChange(q.id, e.target.value)}
                         placeholder={q.placeholder}
@@ -420,6 +454,26 @@ export default function ExecutiveSummaryPage() {
                           </option>
                         ))}
                       </select>
+                    )}
+
+                    {q.type === "checkbox" && (
+                      <div className="flex flex-wrap gap-2">
+                        {q.options.map((opt) => (
+                          <label
+                            key={opt.value}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-white/[0.08] bg-[#0D1117] text-xs text-white/80 hover:border-[#3B6FD4]/50 hover:bg-white/[0.02] cursor-pointer transition-all"
+                          >
+                            <input
+                              type="checkbox"
+                              value={opt.value}
+                              checked={(formData[q.id] || []).includes(opt.value)}
+                              onChange={(e) => handleCheckboxChange(q.id, opt.value, e.target.checked)}
+                              className="w-4 h-4 accent-[#3B6FD4] border-white/[0.2] bg-[#0D1117] focus:ring-[#3B6FD4]"
+                            />
+                            <span>{opt.label}</span>
+                          </label>
+                        ))}
+                      </div>
                     )}
 
                     {q.hint && (
@@ -449,7 +503,7 @@ export default function ExecutiveSummaryPage() {
                     onClick={() => setActiveSectionIndex((prev) => Math.min(SUMMARY_SECTIONS.length - 1, prev + 1))}
                     className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#3B6FD4] hover:bg-[#3B6FD4]/90 text-white text-xs font-medium transition-all"
                   >
-                    <span>Siguiente Sección</span>
+                    <span>Siguiente Bloque</span>
                     <ArrowRight size={13} />
                   </button>
                 ) : (
@@ -462,12 +516,12 @@ export default function ExecutiveSummaryPage() {
                     {loading ? (
                       <>
                         <RefreshCw size={14} className="animate-spin" />
-                        <span>Generando Análisis...</span>
+                        <span>Investigando y Redactando...</span>
                       </>
                     ) : (
                       <>
                         <Sparkles size={14} />
-                        <span>Generar Resumen Ejecutivo</span>
+                        <span>Generar Informe Completo</span>
                       </>
                     )}
                   </button>
@@ -488,6 +542,8 @@ export default function ExecutiveSummaryPage() {
         {/* VISTA 2: Informe Ejecutivo Compilado */}
         {result && (
           <div className="space-y-6">
+            <ResearchPanel />
+
             {/* Metadatos y Barra de Acciones */}
             <div className="flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl bg-[#161C27] border border-white/[0.08]">
               <div className="space-y-1">
@@ -501,7 +557,7 @@ export default function ExecutiveSummaryPage() {
                   </span>
                 </div>
                 <p className="text-xs text-white/50">
-                  Dossier completo de 12 secciones listo para comités de inversión y socios.
+                  Dossier completo de 10 secciones con investigación real, listo para comités de inversión.
                 </p>
               </div>
 

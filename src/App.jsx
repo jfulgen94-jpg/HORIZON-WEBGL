@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./pages/Home";
 import Areas from "./pages/Areas";
@@ -48,6 +49,10 @@ const ExecutiveSummaryPage = lazy(() => import("./pages/ExecutiveSummaryPage"));
 const BibliotecaPrompts = lazy(() => import("./pages/BibliotecaPrompts"));
 const Manifiesto = lazy(() => import("./pages/Manifiesto"));
 const MarketingPlan = lazy(() => import("./pages/MarketingPlan"));
+const Privacidad = lazy(() => import("./pages/Privacidad"));
+const Terminos = lazy(() => import("./pages/Terminos"));
+const Cookies = lazy(() => import("./pages/Cookies"));
+const AvisoLegal = lazy(() => import("./pages/AvisoLegal"));
 
 function Loading() {
   return (
@@ -79,6 +84,10 @@ export default function App() {
             <Route path="comunidad/debate" element={<ForoDebate />} />
             <Route path="foro" element={<ForoDebate />} />
             <Route path="marketing/:slug" element={<MarketingPlan />} />
+            <Route path="privacidad" element={<Privacidad />} />
+            <Route path="terminos" element={<Terminos />} />
+            <Route path="cookies" element={<Cookies />} />
+            <Route path="aviso-legal" element={<AvisoLegal />} />
 
             <Route path="lab/finanzas" element={<FinanzasLab />} />
             <Route path="lab/medicina" element={<MedicinaLab />} />
@@ -113,6 +122,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+        <Analytics />
       </Suspense>
     </BrowserRouter>
   );

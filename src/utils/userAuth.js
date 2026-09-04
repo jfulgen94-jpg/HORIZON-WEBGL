@@ -1,8 +1,10 @@
 /**
  * USER-AUTH.JS — Gestión de Usuario, Autenticación y Perfiles para Informes Ejecutivos
  * 
- * Implementación desacoplada local-first (localStorage) con arquitectura
+ * Implementación desacoplada local-first con arquitectura
  * preparada para conectar a Supabase / PocketBase en producción.
+ * Persistencia sujeta a consentimiento (ver src/utils/consent.js, S1-12):
+ * sin categoría funcional, todo vive en memoria sin escribir al navegador.
  */
 
 import {
@@ -11,6 +13,7 @@ import {
   syncReportsQuota,
   getCurrentUtcDates,
 } from "./rateLimiter";
+import { gatedGet, gatedSet, gatedRemove } from "./consent";
 
 const AUTH_STORAGE_KEY = "horizon_auth_user";
 const REGISTERED_USERS_KEY = "horizon_registered_users";
@@ -44,11 +47,11 @@ function createInitialReportsQuota() {
  */
 export function getAnonymousClient() {
   try {
-    const stored = localStorage.getItem(ANONYMOUS_CLIENT_KEY);
+    const stored = gatedGet(ANONYMOUS_CLIENT_KEY);
     if (stored) {
       const client = JSON.parse(stored);
       client.reports = syncReportsQuota(client.reports);
-      localStorage.setItem(ANONYMOUS_CLIENT_KEY, JSON.stringify(client));
+      gatedSet(ANONYMOUS_CLIENT_KEY, JSON.stringify(client));
       return client;
     }
   } catch (err) {
@@ -65,7 +68,7 @@ export function getAnonymousClient() {
   };
 
   try {
-    localStorage.setItem(ANONYMOUS_CLIENT_KEY, JSON.stringify(newClient));
+    gatedSet(ANONYMOUS_CLIENT_KEY, JSON.stringify(newClient));
   } catch (err) {
     console.warn("[Auth] No se pudo persistir cliente anónimo:", err);
   }
@@ -79,12 +82,12 @@ export function getAnonymousClient() {
  */
 export function getCurrentUser() {
   try {
-    const stored = localStorage.getItem(AUTH_STORAGE_KEY);
+    const stored = gatedGet(AUTH_STORAGE_KEY);
     if (stored) {
       const user = JSON.parse(stored);
       user.reports = syncReportsQuota(user.reports);
       user.isAnonymous = false;
-      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
+      gatedSet(AUTH_STORAGE_KEY, JSON.stringify(user));
       return user;
     }
   } catch (err) {
@@ -113,7 +116,7 @@ export function registerUser(name, email, password = "") {
   let registeredList = [];
 
   try {
-    const stored = localStorage.getItem(REGISTERED_USERS_KEY);
+    const stored = gatedGet(REGISTERED_USERS_KEY);
     if (stored) registeredList = JSON.parse(stored);
   } catch {
     registeredList = [];
@@ -146,8 +149,8 @@ export function registerUser(name, email, password = "") {
   registeredList.push({ ...newUser, passwordHash: password ? hashPassword(password) : "" });
 
   try {
-    localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(registeredList));
-    localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(newUser));
+    gatedSet(REGISTERED_USERS_KEY, JSON.stringify(registeredList));
+    gatedSet(AUTH_STORAGE_KEY, JSON.stringify(newUser));
   } catch (err) {
     console.warn("[Auth] Error al persistir nuevo registro:", err);
   }
@@ -170,7 +173,7 @@ export function loginUser(email, password = "") {
   let registeredList = [];
 
   try {
-    const stored = localStorage.getItem(REGISTERED_USERS_KEY);
+    const stored = gatedGet(REGISTERED_USERS_KEY);
     if (stored) registeredList = JSON.parse(stored);
   } catch {
     registeredList = [];
@@ -194,7 +197,7 @@ export function loginUser(email, password = "") {
   };
 
   try {
-    localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(authSession));
+    gatedSet(AUTH_STORAGE_KEY, JSON.stringify(authSession));
   } catch (err) {
     console.warn("[Auth] Error al guardar sesión:", err);
   }
@@ -207,7 +210,7 @@ export function loginUser(email, password = "") {
  */
 export function logoutUser() {
   try {
-    localStorage.removeItem(AUTH_STORAGE_KEY);
+    gatedRemove(AUTH_STORAGE_KEY);
   } catch (err) {
     console.warn("[Auth] Error al cerrar sesión:", err);
   }
@@ -233,18 +236,18 @@ export function consumeCurrentUserReportQuota() {
 
   try {
     if (user.isAnonymous) {
-      localStorage.setItem(ANONYMOUS_CLIENT_KEY, JSON.stringify(user));
+      gatedSet(ANONYMOUS_CLIENT_KEY, JSON.stringify(user));
     } else {
-      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
+      gatedSet(AUTH_STORAGE_KEY, JSON.stringify(user));
 
       // Actualizar también en la lista de registrados
-      const stored = localStorage.getItem(REGISTERED_USERS_KEY);
+      const stored = gatedGet(REGISTERED_USERS_KEY);
       if (stored) {
         const list = JSON.parse(stored);
         const idx = list.findIndex((u) => u.id === user.id);
         if (idx !== -1) {
           list[idx].reports = updatedReports;
-          localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(list));
+          gatedSet(REGISTERED_USERS_KEY, JSON.stringify(list));
         }
       }
     }

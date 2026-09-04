@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { requestOpenPreferences } from "../utils/consent";
 
 export default function Footer() {
   return (
@@ -75,11 +76,30 @@ export default function Footer() {
               Legal
             </h4>
             <ul className="space-y-2">
-              {["Privacidad", "Términos", "Cookies"].map((item) => (
-                <li key={item}>
-                  <span className="text-[#111111]/40 text-sm">{item}</span>
+              {[
+                { label: "Privacidad", to: "/privacidad" },
+                { label: "Términos", to: "/terminos" },
+                { label: "Cookies", to: "/cookies" },
+                { label: "Aviso Legal", to: "/aviso-legal" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
+                    className="text-[#111111]/60 hover:text-[#3B6FD4] text-sm transition-colors rounded focus-visible:outline-2 focus-visible:outline-[#3B6FD4] focus-visible:outline-offset-2"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={requestOpenPreferences}
+                  className="text-[#111111]/60 hover:text-[#3B6FD4] text-sm transition-colors rounded focus-visible:outline-2 focus-visible:outline-[#3B6FD4] focus-visible:outline-offset-2"
+                >
+                  Preferencias de cookies
+                </button>
+              </li>
             </ul>
           </div>
         </div>

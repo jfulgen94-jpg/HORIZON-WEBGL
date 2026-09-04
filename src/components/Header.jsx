@@ -98,11 +98,19 @@ export default function Header() {
               </Link>
             ))}
             <div className="flex gap-4 pt-4 border-t border-[#111111]/10">
-              <Link to="/acceso" className="font-mono text-[11px] uppercase tracking-widest text-[#111111]/60">
-                Acceso
+              <Link
+                to="/manifiesto"
+                onClick={() => setMenuOpen(false)}
+                className="flex-1 inline-flex items-center justify-center font-mono text-[11px] uppercase tracking-widest text-[#111111]/60"
+              >
+                Manifiesto
               </Link>
-              <Link to="/registro" className="bg-[#3B6FD4] text-white px-4 py-2 rounded-lg font-mono text-[11px] uppercase tracking-wider">
-                Empezar
+              <Link
+                to="/areas"
+                onClick={() => setMenuOpen(false)}
+                className="flex-1 inline-flex items-center justify-center bg-[#3B6FD4] text-white px-4 py-2 rounded-lg font-mono text-[11px] uppercase tracking-wider"
+              >
+                Explorar
               </Link>
             </div>
           </nav>

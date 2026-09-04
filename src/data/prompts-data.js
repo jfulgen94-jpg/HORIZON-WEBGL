@@ -22,6 +22,7 @@ export const PROMPT_AREAS = [
     name: "Finanzas & Mercados",
     color: "#3B6FD4",
     icon: "TrendingUp",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-finanzas.js
     description: "Modelado cuantitativo, backtesting de estrategias, análisis fundamental y control de riesgo de carteras.",
     categories: [
       {
@@ -79,6 +80,7 @@ export const PROMPT_AREAS = [
     name: "Medicina & IA Clínica",
     color: "#0D9488",
     icon: "Activity",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-medicina.js
     description: "Auditoría de evidencia PubMed, interoperabilidad FHIR R4, soporte de triaje y resúmenes clínicos SOAP.",
     categories: [
       {
@@ -136,6 +138,7 @@ export const PROMPT_AREAS = [
     name: "Derecho & Compliance",
     color: "#991B1B",
     icon: "Scale",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-derecho.js
     description: "Auditoría contractual, análisis de jurisprudencia CENDOJ, compliance penal y detección de cláusulas abusivas.",
     categories: [
       {
@@ -193,6 +196,7 @@ export const PROMPT_AREAS = [
     name: "Contabilidad & ERP",
     color: "#10B981",
     icon: "Calculator",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-contabilidad.js
     description: "Conciliación bancaria automatizada, extracción de facturas, costes analíticos y fiscalidad reglada.",
     categories: [
       {
@@ -250,6 +254,7 @@ export const PROMPT_AREAS = [
     name: "Matemáticas & Complejidad",
     color: "#6366F1",
     icon: "Binary",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-matematicas.js
     description: "Simulación Monte Carlo, optimización combinatoria, resolución de EDOs y teoría espectral de grafos.",
     categories: [
       {
@@ -307,6 +312,7 @@ export const PROMPT_AREAS = [
     name: "Ingeniería & Arquitectura",
     color: "#F97316",
     icon: "Cpu",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-ingenieria.js
     description: "Cálculo de estructuras, auditoría de modelos BIM/IFC, valor ganado en obra y simulación energética.",
     categories: [
       {
@@ -364,6 +370,7 @@ export const PROMPT_AREAS = [
     name: "Diseño & UX",
     color: "#EC4899",
     icon: "Palette",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-diseno.js
     description: "Auditorías heurísticas de usabilidad, arquitectura de design tokens, accesibilidad WCAG 2.2 y testing UX.",
     categories: [
       {
@@ -421,6 +428,7 @@ export const PROMPT_AREAS = [
     name: "Psicología & Creatividad",
     color: "#D97706",
     icon: "Brain",
+    promptCount: 55, // 55 prompts reales — mantener en sync con prompts-psicologia.js
     description: "Evaluación psicométrica, formulación cognitivo-conductual, registro de conducta y pensamiento divergente.",
     categories: [
       {
@@ -488,23 +496,56 @@ export function registerAreaPrompts(areaId, categories) {
   area.categories = categories;
 }
 
-import { FINANZAS_CATEGORIES } from "./prompts-finanzas.js";
-import { MEDICINA_CATEGORIES } from "./prompts-medicina.js";
-import { DERECHO_CATEGORIES } from "./prompts-derecho.js";
-import { CONTABILIDAD_CATEGORIES } from "./prompts-contabilidad.js";
-import { MATEMATICAS_CATEGORIES } from "./prompts-matematicas.js";
-import { INGENIERIA_CATEGORIES } from "./prompts-ingenieria.js";
-import { DISENO_CATEGORIES } from "./prompts-diseno.js";
-import { PSICOLOGIA_CATEGORIES } from "./prompts-psicologia.js";
+/**
+ * Carga perezosa de los prompts por área (optimización S1-08).
+ * Cada archivo prompts-<area>.js se convierte en un chunk lazy separado
+ * (import.meta.glob de Vite) que solo se descarga al entrar en su área
+ * o al realizar una búsqueda global. Los metadatos de PROMPT_AREAS quedan
+ * en el bundle de la página mientras los datos pesados (~781 kB) se difieren.
+ */
 
-registerAreaPrompts("finanzas", FINANZAS_CATEGORIES);
-registerAreaPrompts("medicina", MEDICINA_CATEGORIES);
-registerAreaPrompts("derecho", DERECHO_CATEGORIES);
-registerAreaPrompts("contabilidad", CONTABILIDAD_CATEGORIES);
-registerAreaPrompts("matematicas", MATEMATICAS_CATEGORIES);
-registerAreaPrompts("ingenieria", INGENIERIA_CATEGORIES);
-registerAreaPrompts("diseno", DISENO_CATEGORIES);
-registerAreaPrompts("psicologia", PSICOLOGIA_CATEGORIES);
+/** Total de prompts verificados en el catálogo (8 áreas × 55) — mantener en sync */
+export const TOTAL_PROMPTS = 440;
+
+const AREA_PROMPT_MODULES = import.meta.glob("./prompts-*.js");
+const loadedAreas = new Set();
+
+/**
+ * Carga (una única vez) los prompts de un área y los registra en PROMPT_AREAS.
+ * @param {string} areaId
+ * @returns {Promise<void>}
+ */
+export async function loadAreaPrompts(areaId) {
+  if (loadedAreas.has(areaId)) return;
+  const area = PROMPT_AREAS.find((a) => a.id === areaId);
+  if (!area) {
+    console.warn(`[Horizon Prompts] Área no encontrada: ${areaId}`);
+    return;
+  }
+  const modulePath = `./prompts-${areaId}.js`;
+  const importFn = AREA_PROMPT_MODULES[modulePath];
+  if (!importFn) {
+    console.warn(`[Horizon Prompts] Módulo de datos no encontrado: ${modulePath}`);
+    return;
+  }
+  const mod = await importFn();
+  const categoriesKey = `${areaId.toUpperCase()}_CATEGORIES`;
+  const categories = mod[categoriesKey];
+  if (Array.isArray(categories)) {
+    registerAreaPrompts(areaId, categories);
+    loadedAreas.add(areaId);
+  } else {
+    console.warn(`[Horizon Prompts] Export ${categoriesKey} no encontrado en ${modulePath}`);
+  }
+}
+
+/**
+ * Carga todos los prompts del catálogo (búsqueda global y conteos).
+ * @returns {Promise<void>}
+ */
+export async function loadAllPrompts() {
+  await Promise.all(PROMPT_AREAS.map((a) => loadAreaPrompts(a.id)));
+}
 
 /**
  * Las 6 Fases del Proyecto de Horizon (Modo B)
