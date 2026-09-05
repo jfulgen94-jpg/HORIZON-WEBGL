@@ -48,7 +48,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "nombre_proyecto",
         label: "Nombre comercial del proyecto",
-        placeholder: "Ej: Horizon AI",
+        placeholder: "Ej: NEW IA",
         type: "text",
         required: true,
         max_length: 60,
@@ -57,7 +57,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "tagline",
         label: "Una frase que resume qué hace tu producto",
-        placeholder: "Ej: Agente de IA local con hardware propio para profesionales",
+        placeholder: "Ej: Agente local de IA que se comunica con el cliente y desarrolla conversaciones, investigaciones o tareas en programas externos instalados en el software",
         type: "text",
         required: true,
         max_length: 160,
@@ -103,7 +103,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "problema_central",
         label: "¿Qué problema concreto resuelve tu producto? (1-2 frases, sin jerga técnica)",
-        placeholder: "Ej: Los despachos medianos pierden 15h/semana en tareas administrativas repetitivas...",
+        placeholder: "Ej: Resuelve problemas operativos en oficinas y despachos profesionales: cálculo numérico, descarga de bases de datos, consulta sistematizada de documentos...",
         type: "textarea",
         required: true,
         max_length: 500,
@@ -112,7 +112,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "solucion_tecnica",
         label: "Describe tu solución: hardware, software, IA, cómo funciona (3-5 bullets)",
-        placeholder: "Ej: Dispositivo edge con micrófono array · LLM local (Llama 3.3) · App móvil de control · Integración Zapier/Make...",
+        placeholder: "Ej: Hardware con software integrado, altavoz en la misma plataforma y 3 micrófonos de última generación distribuidos por toda el área...",
         type: "textarea",
         required: true,
         max_length: 1000,
@@ -121,7 +121,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "diferencial_unico",
         label: "Tu ventaja defensible (algo que otros no pueden copiar fácilmente)",
-        placeholder: "Ej: Datos propietarios de 50k contratos legales anonimizados · Hardware certificado CE propio · Patente pendiente en procesamiento local...",
+        placeholder: "Ej: IA personalizable hasta el final por el usuario, IA local con autoaprendizaje único, especializada en investigación académica y desarrollo operativo...",
         type: "textarea",
         required: true,
         max_length: 500,
@@ -151,7 +151,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "perfil_cliente_ideal",
         label: "Describe tu cliente ideal (ICP): quién es, qué sector, qué tamaño, qué presupuesto tiene",
-        placeholder: "Ej: Despacho de abogados medianos (5-20 personas) en España, facturación 500K-2M€, presupuesto herramientas 200-500€/mes",
+        placeholder: "Ej: Profesionales, propietarios domésticos e investigadores en España",
         type: "textarea",
         required: true,
         max_length: 1000,
@@ -202,7 +202,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "precio_referencia",
         label: "Rango de precio objetivo (€/mes o €/unidad)",
-        placeholder: "Ej: 49-199 €/mes o 2.000-5.000 €/unidad",
+        placeholder: "Ej: 300 / unidad — modelos 250 / 360 / 600",
         type: "text",
         required: false,
       },
@@ -225,7 +225,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "recursos_equipo",
         label: "Equipo actual y presupuesto marketing mensual",
-        placeholder: "Ej: 2 fundadores (dev + marketing), 500€/mes en ads",
+        placeholder: "Ej: Fundador yo solo",
         type: "textarea",
         required: false,
         max_length: 500,

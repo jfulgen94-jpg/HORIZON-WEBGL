@@ -542,7 +542,8 @@ export default function ExecutiveSummaryPage() {
                 ) : (
                   <button
                     type="button"
-                    disabled={loading || !quota.allowed}
+                    disabled={loading}
+                    title={!quota.allowed ? quota.reason || "Cuota agotada" : "Generar informe completo"}
                     onClick={handleGenerate}
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#3B6FD4] to-indigo-600 hover:opacity-95 text-white text-xs font-semibold shadow-lg shadow-[#3B6FD4]/20 disabled:opacity-50 disabled:pointer-events-none transition-all"
                   >
@@ -561,6 +562,14 @@ export default function ExecutiveSummaryPage() {
                 )}
               </div>
             </div>
+
+            {/* Aviso de cuota agotada */}
+            {!quota.allowed && (
+              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs flex items-center gap-3">
+                <AlertCircle size={16} className="shrink-0" />
+                <div className="leading-relaxed">{quota.reason}</div>
+              </div>
+            )}
 
             {/* Mensaje de Error */}
             {error && (
