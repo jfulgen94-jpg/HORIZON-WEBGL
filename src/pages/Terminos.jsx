@@ -27,6 +27,12 @@ function Card({ id, children }) {
 }
 
 export default function Terminos() {
+  useSEO({
+    title: "Términos de Servicio",
+    description: "Condiciones de uso del sitio: conducta del usuario, propiedad intelectual, moderación y limitaciones.",
+    path: "/terminos",
+  });
+
   return (
     <div className="relative min-h-screen pb-24" data-od-id="terminos-page">
       <section className="pt-32 pb-12 px-6 border-b border-white/[0.06]">

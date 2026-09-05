@@ -16,8 +16,14 @@ import {
   Layers,
   Search,
 } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
 
 export default function Manifiesto() {
+  useSEO({
+    title: "Manifiesto",
+    description: "Define las reglas éticas para usar IA: citar fuentes, decir \"no sé\" y alertar sobre consulta profesional obligatoria.",
+    path: "/manifiesto",
+  });
   const [copiedPrompt, setCopiedPrompt] = useState(null);
 
   const copyToClipboard = (text, key) => {

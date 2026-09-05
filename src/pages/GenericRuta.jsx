@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getLabBySlug } from "../data/labs-data";
+import { useSEO } from "../hooks/useSEO";
 
 const ChevronDown = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>;
 const CopyBtn = ({ text }) => {
@@ -48,6 +49,12 @@ function PromptBlock({ label, content }) {
 export default function GenericRuta() {
   const { slug } = useParams();
   const lab = getLabBySlug(slug);
+
+  useSEO({
+    title: lab ? `Ruta ${lab.name}` : "Ruta",
+    description: lab ? `Construye paso a paso una app en el laboratorio de ${lab.name}. Ruta guiada con prompts y arquitectura.` : "Ruta no encontrada.",
+    path: `/ruta/${slug}`,
+  });
 
   if (!lab) {
     return (

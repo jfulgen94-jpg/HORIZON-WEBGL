@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TOOLS, FAMILY_CRITERIA, ALL_LABS } from "../data/tools-data";
+import { useSEO } from "../hooks/useSEO";
 
 const FAMILIES = ["Todos", "IDEs y Extensiones", "LLMs", "SaaS y Agentes", "Librerías y Datos"];
 const FAMILY_COLORS = {
@@ -70,6 +71,12 @@ function ToolSheet({ tool, onClose }) {
 }
 
 export default function Herramientas() {
+  useSEO({
+    title: "Herramientas",
+    description: "Catálogo de 120+ herramientas de IA organizadas por familias: IDEs, LLMs, SaaS y librerías para cada sector.",
+    path: "/herramientas",
+  });
+
   const [family, setFamily] = useState("Todos");
   const [lab, setLab] = useState("Todos");
   const [query, setQuery] = useState("");

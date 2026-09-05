@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getLabBySlug, LABS } from "../data/labs-data";
+import { useSEO } from "../hooks/useSEO";
 
 const ChevronDown = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>;
 
@@ -37,6 +38,12 @@ export default function GenericLab() {
   const { slug } = useParams();
   const lab = getLabBySlug(slug);
 
+  useSEO({
+    title: lab ? lab.name : "Laboratorio",
+    description: lab ? `Explora benchmarks, herramientas y proyectos del laboratorio de ${lab.name}.` : "Laboratorio no encontrado.",
+    path: `/lab/${slug}`,
+  });
+
   if (!lab) {
     return (
       <div className="pt-32 pb-24 px-6 text-center">
@@ -56,10 +63,12 @@ export default function GenericLab() {
     <div className="min-h-full">
       <div className="border-b border-white/5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4">
+          <nav aria-label="Breadcrumb">
           <Link to="/areas" className="inline-flex items-center gap-1.5 text-sm text-white/30 hover:text-white/70 transition-colors">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             Todos los laboratorios
           </Link>
+          </nav>
         </div>
       </div>
 

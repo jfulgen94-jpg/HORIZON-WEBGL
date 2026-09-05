@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { getLabBySlug } from "../data/labs-data";
 import { ArrowLeft, Megaphone, Rocket, BookOpen } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
 
 const PRE_TUTORIAL_DATA = {
   finanzas: {
@@ -218,6 +219,12 @@ export default function PreTutorial() {
   const lab = getLabBySlug(slug);
   const data = PRE_TUTORIAL_DATA[slug];
 
+  useSEO({
+    title: lab ? `${lab.name}: Pre-Tutorial` : "Pre-Tutorial",
+    description: lab ? `Prepárate para construir en el laboratorio de ${lab.name}. Arquitectura, audiencia y necesidades.` : "Pre-Tutorial no encontrado.",
+    path: `/areas/${slug}`,
+  });
+
   if (!lab || !data) {
     return (
       <div className="pt-28 pb-24 px-6 text-center">
@@ -230,9 +237,11 @@ export default function PreTutorial() {
   return (
     <div className="pt-28 pb-24 px-6">
       <div className="max-w-3xl mx-auto">
+        <nav aria-label="Breadcrumb">
         <Link to="/areas" className="inline-flex items-center gap-2 text-sm text-[#525A70] hover:text-[#3B6FD4] transition-colors mb-8">
           <ArrowLeft size={14} /> Volver a Areas
         </Link>
+        </nav>
 
         <div className="mb-10">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: lab.colorDim }}>

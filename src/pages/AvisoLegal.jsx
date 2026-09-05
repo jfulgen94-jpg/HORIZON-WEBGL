@@ -13,6 +13,12 @@ const SECTIONS = [
 ];
 
 export default function AvisoLegal() {
+  useSEO({
+    title: "Aviso Legal",
+    description: "Identificación del titular, propiedad intelectual, uso permitido y condiciones legales del sitio.",
+    path: "/aviso-legal",
+  });
+
   return (
     <div className="relative min-h-screen pb-24" data-od-id="aviso-legal-page">
       <section className="pt-32 pb-12 px-6 border-b border-white/[0.06]">

@@ -71,6 +71,8 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <span className={clsx("w-5 h-0.5 bg-[#111111] transition-all", menuOpen && "rotate-45 translate-y-2")} />
           <span className={clsx("w-5 h-0.5 bg-[#111111] transition-opacity", menuOpen && "opacity-0")} />
@@ -80,7 +82,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-[#111111]/10 bg-[#F5F1E8] px-6 py-6 animate-slide-down">
+        <div id="mobile-menu" className="md:hidden border-t border-[#111111]/10 bg-[#F5F1E8] px-6 py-6 animate-slide-down">
           <nav className="flex flex-col gap-4">
             {NAV_ITEMS.map((item) => (
               <Link

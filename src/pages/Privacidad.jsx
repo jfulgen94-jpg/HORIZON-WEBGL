@@ -17,6 +17,12 @@ const SECTIONS = [
 ];
 
 export default function Privacidad() {
+  useSEO({
+    title: "Política de Privacidad",
+    description: "Cómo recopilamos, usamos y protegemos tus datos personales. Borrador pendiente de revisión jurídica.",
+    path: "/privacidad",
+  });
+
   return (
     <div className="relative min-h-screen pb-24" data-od-id="privacidad-page">
       <section className="pt-32 pb-12 px-6 border-b border-white/[0.06]">

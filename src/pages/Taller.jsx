@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { IDES } from "../data/ide-data";
 import IDECard from "../components/IDECard";
 import QuickStartGuide from "../components/QuickStartGuide";
+import { useSEO } from "../hooks/useSEO";
 
 const ROUTES = [
   { slug: "finanzas", title: "FinAudit", lab: "Finanzas", color: "#3B6FD4", difficulty: "Avanzado", stack: "Python, DuckDB, FinBERT, Flet", desc: "Motor de análisis fundamental, cálculo de ratios Sharpe/Sortino/MDD y sentimiento financiero.", path: "/lab/finanzas" },
@@ -33,6 +34,12 @@ const Icon = ({ name, size = 20 }) => {
 const ArrowRight = () => <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>;
 
 export default function Taller() {
+  useSEO({
+    title: "El Taller",
+    description: "8 rutas guiadas paso a paso para construir tu primera app con IA. Desde Iniciación hasta Avanzado.",
+    path: "/taller",
+  });
+
   const [filter, setFilter] = useState("Todos");
   const displayed = filter === "Todos" ? ROUTES : ROUTES.filter((r) => r.difficulty === filter);
 

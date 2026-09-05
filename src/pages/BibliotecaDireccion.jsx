@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../hooks/useSEO";
 import {
   ArrowLeft,
   BookOpen,
@@ -136,6 +137,12 @@ function PromptCard({ p, done, onToggle }) {
 }
 
 export default function BibliotecaDireccion() {
+  useSEO({
+    title: "Biblioteca de Dirección",
+    description: "Fichas técnicas y prompt maestro para planificar proyectos de IA. Descarga en Word y trackea tu progreso.",
+    path: "/biblioteca/direccion",
+  });
+
   const [doneIds, setDoneIds] = useState(loadProgress);
   const [maestroOpen, setMaestroOpen] = useState(false);
   const [maestroCopied, setMaestroCopied] = useState(false);

@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { MAP_NODES } from "../data/taller-map-data";
+import { useSEO } from "../hooks/useSEO";
 
 const TallerMap = lazy(() => import("../components/webgl/TallerMap"));
 
@@ -52,6 +53,12 @@ function AccessibleFallback() {
 }
 
 export default function TallerMapPage() {
+  useSEO({
+    title: "Mapa del Taller",
+    description: "Mapa visual interactivo del Taller. Explora nodos de laboratorios y áreas en un lienzo WebGL accesible.",
+    path: "/taller/mapa",
+  });
+
   const [webglFailed, setWebglFailed] = useState(false);
 
   const handleNodeClick = (section) => {

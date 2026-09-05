@@ -13,6 +13,12 @@ const SECTIONS = [
 ];
 
 export default function Cookies() {
+  useSEO({
+    title: "Política de Cookies",
+    description: "Technologías de seguimiento que usamos y cómo gestionar tu consentimiento. Borrador pendiente de revisión.",
+    path: "/cookies",
+  });
+
   return (
     <div className="relative min-h-screen pb-24" data-od-id="cookies-page">
       <section className="pt-32 pb-12 px-6 border-b border-white/[0.06]">

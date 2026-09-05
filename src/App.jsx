@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./pages/Home";
 import Areas from "./pages/Areas";
@@ -122,7 +121,6 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-        <Analytics />
       </Suspense>
     </BrowserRouter>
   );

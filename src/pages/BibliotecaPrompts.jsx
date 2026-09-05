@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../hooks/useSEO";
 import {
   ArrowLeft,
   Copy,
@@ -80,6 +81,12 @@ function CopyBtn({ text }) {
 }
 
 export default function BibliotecaPrompts() {
+  useSEO({
+    title: "Prompts Ejecutivos",
+    description: "440+ prompts técnicos verificados por área profesional. Busca, filtra y copia prompts listos para usar.",
+    path: "/biblioteca/prompts",
+  });
+
   const [selectedAreaId, setSelectedAreaId] = useState(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [selectedPhase, setSelectedPhase] = useState(null);

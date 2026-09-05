@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LABS } from "../data/labs-data";
 import LabCard from "../components/LabCard";
+import { useSEO } from "../hooks/useSEO";
 
 const CATEGORIES = [
   { id: "all", label: "Todos" },
@@ -10,6 +11,12 @@ const CATEGORIES = [
 ];
 
 export default function Areas() {
+  useSEO({
+    title: "Áreas de Especialización",
+    description: "Explora 8 laboratorios de IA: Finanzas, Medicina, Derecho, Contabilidad, Matemáticas, Ingeniería, Diseño y Psicología.",
+    path: "/areas",
+  });
+
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredLabs =

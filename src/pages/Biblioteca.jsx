@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import { GLOSSARY } from "../data/glossary-data";
+import { useSEO } from "../hooks/useSEO";
 
 const TABS = ["FAQ", "Biblioteca", "Prompts", "Glosario", "Guías base", "Recursos"];
 
@@ -54,6 +55,12 @@ function FaqItem({ item }) {
 }
 
 export default function Biblioteca() {
+  useSEO({
+    title: "Biblioteca",
+    description: "FAQ, recursos curados, glosario de términos y guías base para dominar la IA aplicada a tu profesión.",
+    path: "/biblioteca",
+  });
+
   const [activeTab, setActiveTab] = useState("FAQ");
   const [searchQuery, setSearchQuery] = useState("");
 

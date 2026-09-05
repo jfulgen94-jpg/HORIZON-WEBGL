@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import { LABS } from "../data/labs-data";
 import LabCard from "../components/LabCard";
 import HeroCanvas from "../components/webgl/HeroCanvas";
+import { useSEO } from "../hooks/useSEO";
 
 export default function Home() {
+  useSEO({
+    title: "Centro Interactivo de IA Aplicada",
+    description: "Construye y verifica apps con IA de forma responsable. 8 laboratorios sectoriales, 440+ prompts y rutas de aprendizaje.",
+    path: "/",
+  });
+
   return (
     <div data-od-id="home">
       {/* Hero */}

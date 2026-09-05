@@ -1,9 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { getLabBySlug } from "../data/labs-data";
+import { useSEO } from "../hooks/useSEO";
 
 export default function GenericWizard() {
   const { slug } = useParams();
   const lab = getLabBySlug(slug);
+
+  useSEO({
+    title: lab ? `Wizard ${lab.name}` : "Wizard",
+    description: lab ? `Configura el wizard de ${lab.name}. Selecciona opciones y genera tu app personalizada.` : "Wizard no encontrado.",
+    path: `/wizard/${slug}`,
+  });
 
   if (!lab) {
     return (

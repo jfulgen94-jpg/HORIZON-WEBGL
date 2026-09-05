@@ -302,6 +302,16 @@ export default function TallerMap({ onNodeClick, onError, filter = "all" }) {
     }
     window.addEventListener("resize", onResize);
 
+    /* ── prefers-reduced-motion ── */
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let reduceMotion = mq.matches;
+    if (reduceMotion) controls.enableDamping = false;
+    const onMotionChange = (e) => {
+      reduceMotion = e.matches;
+      controls.enableDamping = !reduceMotion;
+    };
+    mq.addEventListener("change", onMotionChange);
+
     /* ── Render loop ── */
     let running = true;
     const clock = new THREE.Clock();
@@ -317,9 +327,10 @@ export default function TallerMap({ onNodeClick, onError, filter = "all" }) {
         g.material.uniforms.viewVector.value.copy(camPos).sub(g.position);
       });
 
-      /* Animate edges */
+      /* Animate edges (congelados con prefers-reduced-motion) */
+      const edgeTime = reduceMotion ? 0 : elapsed;
       edges.forEach((line) => {
-        line.material.uniforms.u_time.value = elapsed;
+        line.material.uniforms.u_time.value = edgeTime;
       });
 
       /* Raycasting */
@@ -364,6 +375,7 @@ export default function TallerMap({ onNodeClick, onError, filter = "all" }) {
     return () => {
       running = false;
       cancelAnimationFrame(frameRef.current);
+      mq.removeEventListener("change", onMotionChange);
       window.removeEventListener("resize", onResize);
       renderer.domElement.removeEventListener("mousemove", onMouseMove);
       renderer.domElement.removeEventListener("click", onClick);

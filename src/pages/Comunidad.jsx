@@ -31,6 +31,12 @@ const FOROS = [
 ];
 
 export default function Comunidad() {
+  useSEO({
+    title: "Comunidad",
+    description: "El lugar donde la IA se construye entre todos. Foros de proyectos, colaboraciones y debate abierto.",
+    path: "/comunidad",
+  });
+
   return (
     <div className="relative min-h-full pt-28 px-6">
       <div className="max-w-7xl mx-auto py-14 sm:py-20">
