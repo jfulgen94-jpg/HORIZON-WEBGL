@@ -45,8 +45,8 @@ const GenericWizard = lazy(() => import("./pages/GenericWizard"));
 const GenericRuta = lazy(() => import("./pages/GenericRuta"));
 const TallerMapPage = lazy(() => import("./pages/TallerMapPage"));
 const PreTutorial = lazy(() => import("./pages/PreTutorial"));
-const ExecutiveSummaryPage = lazy(() => import("./pages/ExecutiveSummaryPage"));
 const BibliotecaPrompts = lazy(() => import("./pages/BibliotecaPrompts"));
+const BibliotecaDireccion = lazy(() => import("./pages/BibliotecaDireccion"));
 const Manifiesto = lazy(() => import("./pages/Manifiesto"));
 const MarketingPlan = lazy(() => import("./pages/MarketingPlan"));
 const Privacidad = lazy(() => import("./pages/Privacidad"));
@@ -75,7 +75,7 @@ export default function App() {
             <Route path="herramientas" element={<Herramientas />} />
             <Route path="biblioteca" element={<Biblioteca />} />
             <Route path="biblioteca/prompts" element={<BibliotecaPrompts />} />
-            <Route path="resumen-ejecutivo" element={<ExecutiveSummaryPage />} />
+            <Route path="biblioteca/direccion" element={<BibliotecaDireccion />} />
             <Route path="taller" element={<Taller />} />
             <Route path="taller/mapa" element={<TallerMapPage />} />
             <Route path="comunidad" element={<Comunidad />} />

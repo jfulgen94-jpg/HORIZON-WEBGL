@@ -69,28 +69,6 @@ export default function Biblioteca() {
         <h1 className="font-display text-4xl sm:text-5xl text-white mb-4">Recursos y Referencia</h1>
         <p className="text-white/50 max-w-2xl mb-8">FAQ, glosario técnico, bibliografía por laboratorio y guías de referencia.</p>
 
-        {/* Banner Generador de Resumen Ejecutivo */}
-        <div className="mb-8 p-5 rounded-2xl bg-gradient-to-r from-[#3B6FD4]/10 via-[#3B6FD4]/05 to-white/[0.02] border border-[#3B6FD4]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-[#3B6FD4]/20 text-[#3B6FD4] font-medium">
-                Herramienta de Negocio
-              </span>
-              <span className="text-[10px] font-mono text-emerald-400">Gratuito con Gemini</span>
-            </div>
-            <h3 className="font-display text-base text-white font-medium">Generador de Resumen Ejecutivo con IA</h3>
-            <p className="text-xs text-white/50 mt-0.5 max-w-xl">
-              Responde a 10 preguntas y genera en segundos un memo estructurado de 500 palabras listo para presentar a inversores o socios.
-            </p>
-          </div>
-          <Link
-            to="/resumen-ejecutivo"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl bg-[#3B6FD4] text-white hover:bg-[#4A7DE0] transition-colors shrink-0 shadow-lg shadow-[#3B6FD4]/20"
-          >
-            Crear Resumen →
-          </Link>
-        </div>
-
         {/* Tabs */}
         <div className="flex gap-0.5 border-b border-white/[0.08] mb-8 overflow-x-auto">
           {TABS.map(tab => (
@@ -144,12 +122,19 @@ export default function Biblioteca() {
                 Explora más de 220 prompts clasificados por Área Profesional, Tipo de App, Fase del Proyecto y Herramienta, con panel interactivo de personalización.
               </p>
             </div>
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 to="/biblioteca/prompts"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#3B6FD4] text-white font-mono text-xs uppercase tracking-wider hover:bg-[#4A7DE0] transition-colors shadow-lg shadow-[#3B6FD4]/20"
               >
                 Abrir Biblioteca de Prompts →
+              </Link>
+              <Link
+                to="/biblioteca/direccion"
+                data-od-id="biblioteca-ir-direccion"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#3B6FD4]/40 bg-[#3B6FD4]/10 text-white font-mono text-xs uppercase tracking-wider hover:bg-[#3B6FD4]/20 transition-colors"
+              >
+                Biblioteca de Dirección →
               </Link>
             </div>
           </div>
@@ -213,10 +198,10 @@ export default function Biblioteca() {
               </p>
               <div className="pt-2">
                 <Link
-                  to="/resumen-ejecutivo"
+                  to="/biblioteca/direccion"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white font-mono text-xs uppercase tracking-wider hover:bg-white/[0.1] transition-colors"
                 >
-                  Generar Resumen Ejecutivo →
+                  Abrir Biblioteca de Dirección →
                 </Link>
               </div>
             </div>

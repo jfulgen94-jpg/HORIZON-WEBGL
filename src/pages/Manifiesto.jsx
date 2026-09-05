@@ -570,10 +570,10 @@ NO ASUMAS conocimiento previo. Explica términos técnicos la primera vez que lo
                     Explorar los 8 Laboratorios
                   </Link>
                   <Link
-                    to="/resumen-ejecutivo"
+                    to="/biblioteca/direccion"
                     className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white font-mono text-xs uppercase tracking-wider hover:bg-white/[0.1] transition-all"
                   >
-                    Crear Resumen Ejecutivo
+                    Biblioteca de Dirección
                   </Link>
                 </div>
               </div>

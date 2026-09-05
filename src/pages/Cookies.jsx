@@ -84,12 +84,8 @@ export default function Cookies() {
                     </tr>
                   </thead>
                   <tbody className="[&>tr]:border-t [&>tr]:border-white/[0.06]">
-                    <tr><td className="p-3 font-mono text-xs">horizon_executive_form_data</td><td className="p-3">Borrador del formulario (20 campos)</td><td className="p-3">Evitar pérdida de trabajo</td><td className="p-3">Sí</td><td className="p-3">Persistente</td></tr>
-                    <tr><td className="p-3 font-mono text-xs">horizon_executive_last_result</td><td className="p-3">Último resumen generado</td><td className="p-3">Consultar el último resultado</td><td className="p-3">No</td><td className="p-3">Persistente</td></tr>
                     <tr><td className="p-3 font-mono text-xs">horizon_taller_progress</td><td className="p-3">Progreso del taller</td><td className="p-3">Mantener tu avance</td><td className="p-3">Sí</td><td className="p-3">Persistente</td></tr>
                     <tr><td className="p-3 font-mono text-xs">horizon_taller_notes</td><td className="p-3">Notas personales del taller</td><td className="p-3">Anotaciones</td><td className="p-3">Sí</td><td className="p-3">Persistente</td></tr>
-                    <tr><td className="p-3 font-mono text-xs">horizon_user_auth</td><td className="p-3">Autenticación simulada (email, nombre)</td><td className="p-3">Mock de inicio de sesión</td><td className="p-3">No</td><td className="p-3">Persistente</td></tr>
-                    <tr><td className="p-3 font-mono text-xs">horizon_rate_limit</td><td className="p-3">Contador de uso del generador</td><td className="p-3">Control de uso (mock)</td><td className="p-3">No</td><td className="p-3">30 días</td></tr>
                   </tbody>
                 </table>
               </div>

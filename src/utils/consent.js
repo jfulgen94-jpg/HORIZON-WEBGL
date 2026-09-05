@@ -17,12 +17,8 @@ export const CONSENT_KEY = "horizon_consent";
 export const CONSENT_VERSION = 1;
 export const OPEN_CONSENT_EVENT = "horizon:open-consent";
 
-// Claves funcionales verificadas en código (todas vía src/utils/userAuth.js).
-export const FUNCTIONAL_KEYS = [
-  "horizon_auth_user",
-  "horizon_registered_users",
-  "horizon_anonymous_client",
-];
+// Claves funcionales verificadas en código.
+export const FUNCTIONAL_KEYS = [];
 
 // Respaldo en memoria para funcionar sin persistir cuando no hay consentimiento.
 const memoryFallback = Object.create(null);
@@ -131,7 +127,7 @@ export function requestOpenPreferences() {
   window.dispatchEvent(new Event(OPEN_CONSENT_EVENT));
 }
 
-/** Lectura con respaldo en memoria (usada por userAuth cuando no hay puerta). */
+/** Lectura con respaldo en memoria (usada cuando no hay puerta de consentimiento). */
 export function gatedGet(key) {
   if (!canUseFunctional()) {
     return Object.prototype.hasOwnProperty.call(memoryFallback, key)
@@ -148,7 +144,7 @@ export function gatedGet(key) {
   }
 }
 
-/** Escritura con respaldo en memoria (usada por userAuth cuando no hay puerta). */
+/** Escritura con respaldo en memoria (usada cuando no hay puerta de consentimiento). */
 export function gatedSet(key, value) {
   if (!canUseFunctional()) {
     memoryFallback[key] = value;
@@ -161,7 +157,7 @@ export function gatedSet(key, value) {
   }
 }
 
-/** Borrado con respaldo en memoria (usado por userAuth cuando no hay puerta). */
+/** Borrado con respaldo en memoria (usado cuando no hay puerta de consentimiento). */
 export function gatedRemove(key) {
   delete memoryFallback[key];
   if (!canUseFunctional()) return;

@@ -56,7 +56,7 @@ export default function Footer() {
               {[
                 { label: "Manifiesto", to: "/manifiesto" },
                 { label: "Biblioteca de Prompts", to: "/biblioteca/prompts" },
-                { label: "Resumen Ejecutivo", to: "/resumen-ejecutivo" },
+                { label: "Biblioteca de Dirección", to: "/biblioteca/direccion" },
                 { label: "Mapa del Taller", to: "/taller/mapa" },
               ].map((item) => (
                 <li key={item.label}>

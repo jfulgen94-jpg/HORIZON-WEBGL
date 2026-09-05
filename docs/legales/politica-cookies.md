@@ -16,12 +16,8 @@ El Sitio utiliza `localStorage` del navegador para almacenar datos localmente en
 
 | Clave | Contenido | Finalidad | Esencial | Caducidad |
 |---|---|---|---|---|
-| `horizon_executive_form_data` | Borrador del formulario de generación (20 campos) | Evitar pérdida de trabajo del usuario | **Sí** (funcional) | Persistente |
-| `horizon_executive_last_result` | Último resumen generado | Permitir consultar el último resultado | No | Persistente |
 | `horizon_taller_progress` | Progreso del taller (pasos completados) | Mantener el avance del usuario | **Sí** (funcional) | Persistente |
 | `horizon_taller_notes` | Notas personales del taller | Anotaciones del usuario | **Sí** (funcional) | Persistente |
-| `horizon_user_auth` | Datos de autenticación simulada (email, nombre) | Mock de inicio de sesión | No | Persistente |
-| `horizon_rate_limit` | Contador de uso del generador | Control de uso (mock) | No | 30 días |
 
 ### 2.2 Cookies
 

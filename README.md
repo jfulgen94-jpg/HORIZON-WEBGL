@@ -1,12 +1,12 @@
 # Horizon – El Taller de la IA
 
-Plataforma española de conocimiento sobre IA: ocho laboratorios, herramientas, benchmarks, contenido educativo, generación de resúmenes ejecutivos por IA y una futura comunidad de proyectos y profesionales.
+Plataforma española de conocimiento sobre IA: ocho laboratorios, herramientas, benchmarks, bibliotecas de prompts y contenido educativo.
 
 ## Stack
 
 - **React 18** + **Vite 6** + **Tailwind**
 - **Three.js** (solo en `/taller/mapa`, carga diferida)
-- Despliegue en **Vercel** (Node.js Serverless Function en `api/ai/generate`)
+- Despliegue en **Vercel** (SPA estático)
 
 ## Scripts
 
@@ -36,18 +36,6 @@ npm install
 ```
 
 > **Importante:** el build de producción **no se ve afectado**. Vercel inyecta `NODE_ENV=production` en su propio build; `npm run build` funciona correctamente con esa variable activa (verificado).
-
-## Variables de entorno (Vercel)
-
-Claves privadas de IA — configurar en **Vercel Dashboard → Settings → Environment Variables** (Production + Preview + Development). **Nunca** con prefijo `VITE_` (no se exponen al navegador).
-
-```
-GEMINI_API_KEY=
-MISTRAL_API_KEY=
-TOGETHER_API_KEY=
-```
-
-Ver `.env.example`.
 
 ## Web Analytics
 
