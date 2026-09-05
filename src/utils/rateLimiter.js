@@ -13,6 +13,10 @@ export const RATE_LIMITS = {
   MONTHLY_MAX: 10,
 };
 
+// Interruptor solo para prueba y desarrollo: cuando es true no se bloquea
+// nunca la generación en el navegador. Revertir a false antes de producción real.
+export const DEV_BYPASS_RATE_LIMIT = true;
+
 /**
  * Obtiene la fecha actual en formato UTC 'YYYY-MM-DD' y 'YYYY-MM'.
  */
@@ -66,6 +70,17 @@ export function syncReportsQuota(reports = {}) {
  */
 export function checkRateLimit(reports = {}) {
   const synced = syncReportsQuota(reports);
+
+  if (DEV_BYPASS_RATE_LIMIT) {
+    return {
+      allowed: true,
+      reason: null,
+      remainingToday: Math.max(0, RATE_LIMITS.DAILY_MAX - synced.usedToday),
+      remainingThisMonth: Math.max(0, RATE_LIMITS.MONTHLY_MAX - synced.usedThisMonth),
+      syncedReports: synced,
+      bypass: true,
+    };
+  }
 
   const remainingToday = Math.max(0, RATE_LIMITS.DAILY_MAX - synced.usedToday);
   const remainingThisMonth = Math.max(0, RATE_LIMITS.MONTHLY_MAX - synced.usedThisMonth);

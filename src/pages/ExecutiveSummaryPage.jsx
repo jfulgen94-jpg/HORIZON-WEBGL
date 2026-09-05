@@ -220,13 +220,19 @@ export default function ExecutiveSummaryPage() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#161C27] border border-white/[0.08] text-xs font-mono">
               <Clock size={12} className="text-[#3B6FD4]" />
-              <span className="text-white/60">Hoy:</span>
-              <span className={quota.remainingToday > 0 ? "text-emerald-400 font-bold" : "text-amber-400 font-bold"}>
-                {quota.remainingToday}/2
-              </span>
-              <span className="text-white/20">|</span>
-              <span className="text-white/60">Mes:</span>
-              <span className="text-white/80 font-bold">{quota.remainingThisMonth}/10</span>
+              {quota.bypass ? (
+                <span className="text-emerald-400 font-bold">Modo DEV · sin límite</span>
+              ) : (
+                <>
+                  <span className="text-white/60">Hoy:</span>
+                  <span className={quota.remainingToday > 0 ? "text-emerald-400 font-bold" : "text-amber-400 font-bold"}>
+                    {quota.remainingToday}/2
+                  </span>
+                  <span className="text-white/20">|</span>
+                  <span className="text-white/60">Mes:</span>
+                  <span className="text-white/80 font-bold">{quota.remainingThisMonth}/10</span>
+                </>
+              )}
             </div>
 
             {currentUser.isAnonymous ? (
