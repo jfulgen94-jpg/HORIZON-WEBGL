@@ -1,10 +1,11 @@
 /**
- * API/AI/GENERATE.JS — Vercel Serverless Function (Node.js) v3.1
- * 
+ * API/AI/GENERATE.JS — Vercel Serverless Function (Node.js) v3.3
+ *
  * Flujo de 2 llamadas a Gemini (FIX A: grounding y schema separados):
- * 1a. INVESTIGACIÓN con grounding (texto) → datos reales de mercado
- * 1b. ESTRUCTURACIÓN sin grounding (JSON Schema) → JSON validado
- * 2. REDACCIÓN (sin Grounding, narrativa) → informe 8 secciones, 1150-1300 palabras
+ * 1a. INVESTIGACIÓN con grounding (texto, bloques literales) → dossier real
+ * 1b. ESTRUCTURACIÓN sin grounding (JSON Schema) → JSON validado (F-2 robusto)
+ * 2. REDACCIÓN (sin Grounding, narrativa) → informe 8 secciones, 1350-1500 palabras
+ * A+B: fallo duro de 1a → 502 RESEARCH_UNAVAILABLE; 1b parcial → redacción marcada.
  * 
  * Cascada:
  * - Investigación (1a+1b): solo Gemini (único con grounding).
@@ -22,10 +23,12 @@ import {
   buildResearchPrompt, 
   buildResearchStructurePrompt,
   buildRedactionPrompt, 
+  buildAuditPrompt,
   RESEARCH_SCHEMA,
   validateResearchData,
   SYSTEM_PROMPT_RESEARCH,
-  SYSTEM_PROMPT_REDACTION 
+  SYSTEM_PROMPT_REDACTION,
+  SYSTEM_PROMPT_AUDITORIA
 } from "../../src/data/executive-summary-config.js";
 
 const MAX_INPUT_CHARS = 5000;
@@ -39,16 +42,25 @@ const PROVIDERS = [
     keyEnv: "GEMINI_API_KEY",
     supportsGrounding: true,
     supportsSchema: true,
-    buildBody: (prompt, options = {}) => ({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { 
-        temperature: options.temperature ?? 0.3, 
+    buildBody: (prompt, options = {}) => {
+      // F-1: nunca enviar responseSchema (ni siquiera null) salvo JSON con schema real.
+      // Gemini 2.5 Flash devuelve 400 si combina grounding con generación controlada.
+      const generationConfig = {
+        temperature: options.temperature ?? 0.3,
         maxOutputTokens: options.maxTokens ?? 8192,
-        responseMimeType: options.responseMimeType ?? "text/plain",
-        responseSchema: options.responseSchema ?? null,
-      },
-      tools: options.grounding ? [{ google_search: {} }] : undefined,
-    }),
+      };
+      if (options.responseSchema) {
+        generationConfig.responseMimeType = options.responseMimeType ?? "application/json";
+        generationConfig.responseSchema = options.responseSchema;
+      } else if (options.responseMimeType) {
+        generationConfig.responseMimeType = options.responseMimeType;
+      }
+      return {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig,
+        tools: options.grounding ? [{ google_search: {} }] : undefined,
+      };
+    },
     extractText: (data) => data?.candidates?.[0]?.content?.parts?.[0]?.text,
     requiresKey: true,
   },
@@ -317,33 +329,52 @@ async function executeResearchCall(userAnswers) {
     throw err;
   }
 
-  // Fase 1b — estructuración a JSON, sin grounding
-  try {
-    const structurePrompt = buildResearchStructurePrompt(researchText);
-    const result = await callProvider(gemini, structurePrompt, {
-      temperature: 0.2,
-      maxTokens: 8192,
-      grounding: false,
-      responseMimeType: "application/json",
-      responseSchema: RESEARCH_SCHEMA,
-    });
-    const researchData = JSON.parse(result.text);
-    const validation = validateResearchData(researchData);
-    if (!validation.valid) {
-      console.warn("[AI Generate] Validación research falló:", validation.errors);
+  // Fase 1b — estructuración a JSON, sin grounding (F-2: parseo robusto + 1 reintento)
+  const parseResearchJson = (text) => {
+    const clean = String(text ?? "")
+      .replace(/```json\s*/gi, "")
+      .replace(/```\s*/g, "")
+      .trim();
+    const m = clean.match(/\{[\s\S]*\}/);
+    if (!m) throw new Error("1b sin objeto JSON en la respuesta");
+    return JSON.parse(m[0]);
+  };
+  const structurePrompt = buildResearchStructurePrompt(researchText);
+  let lastErr = null;
+  for (const temperature of [0.2, 0.1]) {
+    try {
+      const result = await callProvider(gemini, structurePrompt, {
+        temperature,
+        maxTokens: 8192,
+        grounding: false,
+        responseMimeType: "application/json",
+        responseSchema: RESEARCH_SCHEMA,
+      });
+      const researchData = parseResearchJson(result.text);
+      const validation = validateResearchData(researchData);
+      if (!validation.valid) {
+        console.warn("[AI Generate] Validación research falló:", validation.errors);
+      }
+      return { researchData, researchText, provider: gemini.name, partial: false, rawResponse: result.rawResponse };
+    } catch (err) {
+      lastErr = err;
+      console.warn(`[AI Generate] ${gemini.name} (research 1b schema, temp ${temperature}) falló:`, err.message);
     }
-    return { researchData, provider: gemini.name, rawResponse: result.rawResponse };
-  } catch (err) {
-    console.warn(`[AI Generate] ${gemini.name} (research 1b schema) falló:`, err.message);
-    throw err;
   }
+  // 1b parcial: hay texto 1a pero sin JSON válido → redacción marcada (A+B parcial)
+  console.warn("[AI Generate] 1b sin JSON válido tras reintento: se continúa con research parcial");
+  return { researchData: null, researchText, provider: gemini.name, partial: true, rawResponse: null, error: lastErr?.message };
 }
 
 /**
  * Ejecuta la Llamada 2: Redacción narrativa
  */
-async function executeRedactionCall(userAnswers, researchData) {
-  const prompt = buildRedactionPrompt(userAnswers, researchData);
+async function executeRedactionCall(userAnswers, researchData, tipoInforme = "marketing") {
+  const isAuditoria = tipoInforme === "auditoria";
+  const prompt = isAuditoria
+    ? SYSTEM_PROMPT_AUDITORIA + "\n\n" + buildAuditPrompt(userAnswers, researchData, tipoInforme)
+    : buildRedactionPrompt(userAnswers, researchData);
+
   const options = {
     temperature: 0.5,
     maxTokens: 8192,
@@ -403,6 +434,7 @@ export default async function handler(request, response) {
   }
 
   const { prompt, formData } = body;
+  const tipoInforme = formData?.tipo_informe || "marketing";
 
   // Validar entrada utilizable
   if (!prompt && (!formData || typeof formData !== "object" || Object.keys(formData).length === 0)) {
@@ -454,14 +486,27 @@ export default async function handler(request, response) {
     }
   }
 
-  // FLUJO NUEVO v3.0: 2 llamadas con formData
+  // FLUJO NUEVO v3.3: 2 llamadas con formData (A+B)
+  let research;
   try {
     console.log("[AI Generate] Iniciando Llamada 1: Investigación...");
-    const { researchData, provider: researchProvider } = await executeResearchCall(formData);
-    console.log("[AI Generate] Investigación completada por:", researchProvider);
+    research = await executeResearchCall(formData);
+    console.log("[AI Generate] Investigación completada por:", research.provider, research.partial ? "(parcial)" : "");
+  } catch (err) {
+    // A: fallo duro de 1a (sin texto research) → 502 honesto, sin informe genérico
+    console.error("[AI Generate] Research 1a falló de forma dura:", err.message);
+    return response.status(502).json({
+      error: "RESEARCH_UNAVAILABLE",
+      message: "La investigación de mercado no pudo completarse (Google Search). Reintenta en unos minutos.",
+    });
+  }
 
+  try {
+    if (research.partial) {
+      console.log("[AI Generate] Research parcial: redacción con marcas [SIN VERIFICAR FUENTES EXTERNAS]");
+    }
     console.log("[AI Generate] Iniciando Llamada 2: Redacción...");
-    const { markdown, provider: redactionProvider } = await executeRedactionCall(formData, researchData);
+    const { markdown, provider: redactionProvider } = await executeRedactionCall(formData, research.researchData, tipoInforme);
     console.log("[AI Generate] Redacción completada por:", redactionProvider);
 
     const wordCount = markdown.trim().split(/\s+/).length;
@@ -469,10 +514,11 @@ export default async function handler(request, response) {
 
     return response.status(200).json({
       markdown,
-      provider: `${redactionProvider} (research: ${researchProvider})`,
+      provider: `${redactionProvider} (research: ${research.provider}${research.partial ? ", parcial" : ""})`,
       generatedAt,
       wordCount,
-      researchData, // Devolver para transparencia en UI
+      researchData: research.researchData, // null si parcial (UI marca secciones 3-4)
+      researchPartial: !!research.partial,
     });
   } catch (err) {
     console.error("[AI Generate] Flujo v3.0 falló completamente:", err.message);

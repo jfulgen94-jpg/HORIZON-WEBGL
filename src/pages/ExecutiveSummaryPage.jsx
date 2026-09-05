@@ -349,14 +349,47 @@ export default function ExecutiveSummaryPage() {
         <div className="mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B6FD4]/10 border border-[#3B6FD4]/20 text-[#3B6FD4] text-xs font-mono mb-3">
             <Sparkles size={12} />
-            <span>Executive AI v3.0 — Investigación + Redacción</span>
+            <span>Executive AI v3.3 — Investigación + Redacción</span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl text-white mb-2">
-            Resumen Ejecutivo de Marketing y Negocio
+            {formData.tipo_informe === "auditoria"
+              ? "Auditoría Integral de Proyecto"
+              : "Resumen Ejecutivo de Marketing y Negocio"}
           </h1>
           <p className="text-white/60 text-sm max-w-2xl leading-relaxed">
             Completa los 4 bloques del formulario (15 preguntas) para compilar un dossier exhaustivo de 8 secciones
-            (1150-1300 palabras) con investigación de mercado real, análisis competitivo, unit economics y roadmap.
+            con investigación de mercado real, análisis competitivo, unit economics y roadmap.
+          </p>
+
+          {/* Selector de Modo de Informe */}
+          <div className="mt-4 inline-flex items-center gap-1 p-1 rounded-xl bg-[#0D1117] border border-white/[0.08]">
+            <button
+              type="button"
+              onClick={() => handleFieldChange("tipo_informe", "marketing")}
+              className={`px-4 py-2 rounded-lg text-xs font-mono transition-all ${
+                formData.tipo_informe !== "auditoria"
+                  ? "bg-[#3B6FD4] text-white shadow-lg shadow-[#3B6FD4]/20"
+                  : "text-white/50 hover:text-white/80"
+              }`}
+            >
+              Resumen Ejecutivo
+            </button>
+            <button
+              type="button"
+              onClick={() => handleFieldChange("tipo_informe", "auditoria")}
+              className={`px-4 py-2 rounded-lg text-xs font-mono transition-all ${
+                formData.tipo_informe === "auditoria"
+                  ? "bg-[#3B6FD4] text-white shadow-lg shadow-[#3B6FD4]/20"
+                  : "text-white/50 hover:text-white/80"
+              }`}
+            >
+              Auditoría Integral
+            </button>
+          </div>
+          <p className="mt-2 text-[11px] font-mono text-white/40">
+            {formData.tipo_informe === "auditoria"
+              ? "Informe crítico de 8 secciones (1500-1800 palabras) en tono analista frío: riesgos, incoherencias y palancas."
+              : "Informe comercial de 8 secciones (1350-1500 palabras): propuesta de valor, competitivo, unit economics y roadmap."}
           </p>
         </div>
 
@@ -557,7 +590,9 @@ export default function ExecutiveSummaryPage() {
                   </span>
                 </div>
                 <p className="text-xs text-white/50">
-                  Dossier completo de 8 secciones (1150-1300 palabras) con investigación real, listo para comités de inversión.
+                  {formData.tipo_informe === "auditoria"
+                    ? "Informe de auditoría de 8 secciones (1500-1800 palabras) en tono analista frío, con riesgos y prioridades de mejora."
+                    : "Dossier completo de 8 secciones (1350-1500 palabras) con investigación real, listo para comités de inversión."}
                 </p>
               </div>
 
