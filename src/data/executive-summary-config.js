@@ -48,7 +48,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "nombre_proyecto",
         label: "Nombre comercial del proyecto",
-        placeholder: "Ej: NEW IA",
+        placeholder: "Ej: Horizon IA (nombre comercial del proyecto)",
         type: "text",
         required: true,
         max_length: 60,
@@ -57,7 +57,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "tagline",
         label: "Una frase que resume qué hace tu producto",
-        placeholder: "Ej: Agente local de IA que se comunica con el cliente y desarrolla conversaciones, investigaciones o tareas en programas externos instalados en el software",
+        placeholder: "Ej: Asistente local de inteligencia artificial que interactúa con el usuario, elabora investigaciones y ejecuta tareas en aplicaciones externas instaladas en el dispositivo",
         type: "text",
         required: true,
         max_length: 160,
@@ -103,7 +103,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "problema_central",
         label: "¿Qué problema concreto resuelve tu producto? (1-2 frases, sin jerga técnica)",
-        placeholder: "Ej: Resuelve problemas operativos en oficinas y despachos profesionales: cálculo numérico, descarga de bases de datos, consulta sistematizada de documentos...",
+        placeholder: "Ej: Automatiza tareas recurrentes en despachos y oficinas profesionales, tales como cálculo numérico, descarga de bases de datos y consulta sistemática de documentación",
         type: "textarea",
         required: true,
         max_length: 500,
@@ -112,7 +112,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "solucion_tecnica",
         label: "Describe tu solución: hardware, software, IA, cómo funciona (3-5 bullets)",
-        placeholder: "Ej: Hardware con software integrado, altavoz en la misma plataforma y 3 micrófonos de última generación distribuidos por toda el área...",
+        placeholder: "Ej: Dispositivo físico con software integrado que incorpora altavoz en la propia plataforma y tres micrófonos de última generación distribuidos por el entorno",
         type: "textarea",
         required: true,
         max_length: 1000,
@@ -121,7 +121,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "diferencial_unico",
         label: "Tu ventaja defensible (algo que otros no pueden copiar fácilmente)",
-        placeholder: "Ej: IA personalizable hasta el final por el usuario, IA local con autoaprendizaje único, especializada en investigación académica y desarrollo operativo...",
+        placeholder: "Ej: Inteligencia artificial plenamente personalizable por el usuario, de ejecución local con capacidad de autoaprendizaje propia, especializada en investigación académica y desarrollo operativo",
         type: "textarea",
         required: true,
         max_length: 500,
@@ -151,7 +151,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "perfil_cliente_ideal",
         label: "Describe tu cliente ideal (ICP): quién es, qué sector, qué tamaño, qué presupuesto tiene",
-        placeholder: "Ej: Profesionales, propietarios domésticos e investigadores en España",
+        placeholder: "Ej: Profesionales autónomos, pequeños propietarios domésticos e investigadores residentes en España",
         type: "textarea",
         required: true,
         max_length: 1000,
@@ -172,7 +172,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "tam_estimado_usuario",
         label: "Tu estimación del mercado total (TAM) — si no sabes, deja vacío",
-        placeholder: "Ej: 500M €/año en España",
+        placeholder: "Ej: 500 millones de euros anuales en el mercado español",
         type: "text",
         required: false,
       },
@@ -202,7 +202,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "precio_referencia",
         label: "Rango de precio objetivo (€/mes o €/unidad)",
-        placeholder: "Ej: 300 / unidad — modelos 250 / 360 / 600",
+        placeholder: "Ej: 300 euros por unidad, con modelos de 250, 360 y 600 euros",
         type: "text",
         required: false,
       },
@@ -225,7 +225,7 @@ export const SUMMARY_SECTIONS = [
       {
         id: "recursos_equipo",
         label: "Equipo actual y presupuesto marketing mensual",
-        placeholder: "Ej: Fundador yo solo",
+        placeholder: "Ej: Equipo formado únicamente por el fundador; presupuesto de marketing mensual de 1.000 euros",
         type: "textarea",
         required: false,
         max_length: 500,
