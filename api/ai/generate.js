@@ -1,15 +1,16 @@
 /**
- * API/AI/GENERATE.JS — Vercel Serverless Function (Node.js) v3.0
+ * API/AI/GENERATE.JS — Vercel Serverless Function (Node.js) v3.1
  * 
- * Flujo de 2 llamadas a Gemini:
- * 1. INVESTIGACIÓN (Grounding + JSON Schema) → investigación de mercado y competencia
- * 2. REDACCIÓN (sin Grounding, narrativa) → informe ejecutivo completo ~1000 palabras
+ * Flujo de 2 llamadas a Gemini (FIX A: grounding y schema separados):
+ * 1a. INVESTIGACIÓN con grounding (texto) → datos reales de mercado
+ * 1b. ESTRUCTURACIÓN sin grounding (JSON Schema) → JSON validado
+ * 2. REDACCIÓN (sin Grounding, narrativa) → informe 8 secciones, 1150-1300 palabras
  * 
- * Cascada de proveedores para CADA llamada:
- * 1. Gemini 2.5 Flash (con Grounding para Llamada 1)
- * 2. Mistral Small
- * 3. Together AI Llama 3.3 70B
- * 4. Fallback determinista (garantía de servicio)
+ * Cascada:
+ * - Investigación (1a+1b): solo Gemini (único con grounding).
+ *   Si falla → fallback determinista (error y listo, opción B aprobada).
+ * - Redacción: Gemini → Mistral → Together AI.
+ * - Si todo falla → fallback determinista (garantía de servicio)
  * 
  * Variables de entorno privadas (configurar en Vercel Dashboard):
  * - GEMINI_API_KEY
@@ -19,6 +20,7 @@
 
 import { 
   buildResearchPrompt, 
+  buildResearchStructurePrompt,
   buildRedactionPrompt, 
   RESEARCH_SCHEMA,
   validateResearchData,
@@ -138,6 +140,30 @@ function generateDeterministicFallback(formData) {
     otro: "Otro",
   };
 
+  const isLicense = model === "licencia";
+  const isHardwareSaaS = model === "hardware_saas";
+  const isMixed = model === "mixto";
+  const unitEconomicsBlock = isLicense
+    ? `[CÁLCULO SEGÚN MODELO: licencia] — Licencia perpetua + mantenimiento.
+- **LTV estimado:** precio licencia/hardware + (mantenimiento anual 15-20% × 5 años de vida útil). [ESTIMACIÓN SISTEMA]
+- **Margen bruto:** 80-90% en licencia, 70-80% en mantenimiento.
+- **Payback:** primer año (venta one-shot), no aplica churn de suscripción.
+- **Break-even:** 40-70 licencias según ticket medio.
+- **Sensibilidad ±20% precio:** el payback se desplaza 2-4 meses.`
+    : isHardwareSaaS || isMixed
+    ? `[CÁLCULO SEGÚN MODELO: ${model}] — Desglose one-shot + recurrente.
+- **Parte one-shot:** precio hardware/licencia inicial.
+- **Parte recurrente:** suscripción/mantenimiento anual; LTV recurrente = ARPA × margen / churn anual. [ESTIMACIÓN SISTEMA]
+- **Margen bruto:** 60-70% hardware, 80-85% recurrente.
+- **Payback:** 8-14 meses combinados.
+- **Break-even:** 60-100 clientes.`
+    : `[CÁLCULO SEGÚN MODELO: ${model}] — Suscripción recurrente.
+- **CAC estimado:** 800-1.500€ (outbound + content). [ESTIMACIÓN SISTEMA]
+- **LTV estimado:** ARPA × margen bruto / churn anual; objetivo LTV > 3×CAC.
+- **Margen bruto:** 75-85%.
+- **Payback:** 6-10 meses.
+- **Break-even:** 80-120 clientes de pago.`;
+
   return `# INFORME EJECUTIVO — ${name.toUpperCase()}
 **Fecha:** ${today} | **Fase:** ${faseLabels[formData.fase_madurez] || formData.fase_madurez} | **Posicionamiento:** ${formData.posicionamiento}
 
@@ -176,27 +202,16 @@ Estado: ${faseLabels[formData.fase_madurez] || formData.fase_madurez}. [ESTIMACI
 
 ## 5. MODELO DE NEGOCIO Y UNIT ECONOMICS
 **Modelo:** ${modelLabels[model] || model}. **Precio:** ${price}.
-[ESTIMACIÓN SISTEMA] — Benchmarks SaaS B2B medianos.
+${unitEconomicsBlock}
+- **Sensibilidad ±20% precio:** LTV/CAC se mantiene >3x en SaaS; en licencia el payback se desplaza según ticket.
 
-- **CAC estimado:** 800-1.500€ (outbound + content)
-- **LTV estimado:** 4.800-12.000€ (churn 5%/anual, expansión 20%)
-- **Margen bruto:** 75-85% (infraestructura cloud + IA optimizada)
-- **Payback:** 6-10 meses
-- **Break-even:** 80-120 clientes de pago
-- **Sensibilidad ±20% precio:** LTV/CAC se mantiene >3x en rango
-
-## 6. ESTRATEGIA COMERCIAL Y CANALES
+## 6. ESTRATEGIA COMERCIAL Y PLAN 90 DÍAS
 1. **Content/SEO propio** — CAC ~600€, 3-6 meses, 1 marketer
 2. **Outbound directo** — CAC ~1.200€, 1-2 meses, 1 sales
 3. **Partners/integradores** — CAC ~400€, 6-12 meses, 0.5 BD
+**90 días:** mes 1 content+outbound (50 contactos/sem), mes 2 webinar + paid LinkedIn (20% presupuesto), mes 3 casos de éxito y primer partner. **KPIs semanales:** 10 leads, 2 demos, 1 trial.
 
-## 7. PLAN MARKETING 90 DÍAS
-- Mes 1: 60% content (blog técnico, casos uso), 20% outbound (50 contacts/sem), 20% partners (5 calls)
-- Mes 2: Añadir paid ads LinkedIn (20% presupuesto), webinar mensual
-- Mes 3: Casos de éxito públicos, referral program, primer partner firmado
-**KPIs semanales:** 10 leads cualificados, 2 demos, 1 trial activado
-
-## 8. ARQUITECTURA TÉCNICA Y FILOSOFÍA
+## 7. ARQUITECTURA TÉCNICA Y FILOSOFÍA
 | Componente | Decisión | Justificación |
 |---|---|---|
 | Frontend | React 18 + Vite + Tailwind | DX, performance, ecosistema |
@@ -208,19 +223,14 @@ Estado: ${faseLabels[formData.fase_madurez] || formData.fase_madurez}. [ESTIMACI
 
 **Filosofía:** Local-first, privacy-by-design, edge computing. El hardware propio (si aplica) garantiza soberanía total de datos; el software es portable y auditable. Riesgos: latencia modelos grandes en edge (mitigación: cuantización 4-bit), cadena suministro hardware (mitigación: 2 fuentes), regulación IA Act (mitigación: compliance by design).
 
-## 9. ROADMAP 12 MESES
-- **T1 Fundación:** MVP funcional, 10 pilots, estabilizar stack, cerrar seed si aplica
+## 8. ROADMAP 12 MESES + PRÓXIMOS PASOS
+- **T1 Fundación:** MVP funcional, 10 pilots, estabilizar stack. **30/60/90:** especificación v1.0 y 10 entrevistas ICP (30d, responsable fundador) → MVP en 5 betas + landing (60d) → beta pública y deck v2.0 (90d).
 - **T2 Expansión:** Lanzamiento público, 50 clientes, 2 partners, content engine rodando
 - **T3 Consolidación:** Features enterprise (SSO, RBAC, audit log), 200 clientes, equipo +3
 - **T4 Escala:** Internacionalización (Latam/EU), 500 clientes, series A o cash-flow positive
 
-## 10. PRÓXIMOS PASOS 30/60/90
-- **30 días:** Especificación técnica v1.0, prototipo hardware v0.5 (si aplica), 10 entrevistas ICP
-- **60 días:** MVP en manos de 5 beta users, landing + analytics, primer partner LOI
-- **90 días:** Lanzamiento beta pública, métricas CAC/LTV reales, deck inversores v2.0
-
 ---
-*Informe generado por Horizon Executive AI v3.0 (Fallback Determinista) | Categoría: [ESTIMACIÓN SISTEMA] | Fuentes: [FALLBACK]*`;
+*Informe generado por Horizon Executive AI v3.1 (Fallback Determinista) | Categoría: [ESTIMACIÓN SISTEMA] | Fuentes: [FALLBACK] | [CÁLCULO SEGÚN MODELO: ${model}]*`;
 }
 
 /**
@@ -279,37 +289,54 @@ async function callProvider(provider, prompt, options = {}) {
 }
 
 /**
- * Ejecuta la Llamada 1: Investigación con Grounding + Schema
+ * Ejecuta la Llamada 1: Investigación en 2 fases (FIX A)
+ * 1a: grounding SIN schema (text/plain) → texto estructurado real
+ * 1b: schema SIN grounding (application/json) → JSON validado
+ * Solo Gemini. Si falla, lanza error y el handler cae al fallback.
  */
 async function executeResearchCall(userAnswers) {
-  const prompt = buildResearchPrompt(userAnswers);
-  const options = {
-    temperature: 0.3,
-    maxTokens: 8192,
-    grounding: true,
-    responseMimeType: "application/json",
-    responseSchema: RESEARCH_SCHEMA,
-  };
+  const gemini = PROVIDERS.find((p) => p.id === "gemini");
+  const researchPrompt = SYSTEM_PROMPT_RESEARCH + "\n\n" + buildResearchPrompt(userAnswers);
 
-  let lastError = null;
-  for (const provider of PROVIDERS) {
-    if (provider.id !== "gemini") continue; // Solo Gemini soporta grounding+schema nativo
-    try {
-      const result = await callProvider(provider, prompt, options);
-      const researchData = JSON.parse(result.text);
-      // Validar coherencia numérica
-      const validation = validateResearchData(researchData);
-      if (!validation.valid) {
-        console.warn("[AI Generate] Validación research falló:", validation.errors);
-        // No lanzamos error, dejamos pasar con warnings
-      }
-      return { researchData, provider: provider.name, rawResponse: result.rawResponse };
-    } catch (err) {
-      lastError = err;
-      console.warn(`[AI Generate] ${provider.name} (research) falló:`, err.message);
+  // Fase 1a — grounding, texto plano
+  let researchText;
+  try {
+    const result = await callProvider(gemini, researchPrompt, {
+      temperature: 0.3,
+      maxTokens: 8192,
+      grounding: true,
+      responseMimeType: "text/plain",
+      responseSchema: null,
+    });
+    researchText = result.text;
+    if (!researchText || researchText.trim().length < 200) {
+      throw new Error("Gemini (research 1a) devolvió texto vacío o insuficiente");
     }
+  } catch (err) {
+    console.warn(`[AI Generate] ${gemini.name} (research 1a grounding) falló:`, err.message);
+    throw err;
   }
-  throw lastError || new Error("Llamada 1 (investigación) falló en todos los proveedores");
+
+  // Fase 1b — estructuración a JSON, sin grounding
+  try {
+    const structurePrompt = buildResearchStructurePrompt(researchText);
+    const result = await callProvider(gemini, structurePrompt, {
+      temperature: 0.2,
+      maxTokens: 8192,
+      grounding: false,
+      responseMimeType: "application/json",
+      responseSchema: RESEARCH_SCHEMA,
+    });
+    const researchData = JSON.parse(result.text);
+    const validation = validateResearchData(researchData);
+    if (!validation.valid) {
+      console.warn("[AI Generate] Validación research falló:", validation.errors);
+    }
+    return { researchData, provider: gemini.name, rawResponse: result.rawResponse };
+  } catch (err) {
+    console.warn(`[AI Generate] ${gemini.name} (research 1b schema) falló:`, err.message);
+    throw err;
+  }
 }
 
 /**

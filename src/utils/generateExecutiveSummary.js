@@ -1,15 +1,16 @@
 /**
- * GENERATE-EXECUTIVE-SUMMARY.JS — Cliente para API Server-Side Segura v3.0
+ * GENERATE-EXECUTIVE-SUMMARY.JS — Cliente para API Server-Side Segura v3.1
  * 
  * Llama a /api/ai/generate (Vercel Function) que ejecuta:
- * 1. Llamada 1: Investigación (Grounding + JSON Schema) — Gemini 2.5 Flash
- * 2. Llamada 2: Redacción (narrativa, sin Grounding) — Gemini 2.5 Flash
- * 3. Fallback: Mistral → Together AI → Fallback determinista server-side
+ * 1a. Investigación con grounding (texto) — Gemini 2.5 Flash
+ * 1b. Estructuración a JSON Schema — Gemini 2.5 Flash
+ * 2. Redacción (8 secciones, 1150-1300 palabras) — cascada Gemini → Mistral → Together
+ * 3. Fallback determinista server-side si la investigación falla
  * 
  * El navegador NO ve claves de API ni llama a proveedores directamente.
  */
 
-import { buildResearchPrompt, buildRedactionPrompt } from "../data/executive-summary-config";
+import { buildResearchPrompt, buildResearchStructurePrompt, buildRedactionPrompt } from "../data/executive-summary-config";
 
 const API_ENDPOINT = "/api/ai/generate";
 const REQUEST_TIMEOUT_MS = 120000; // 2 llamadas + redacción = más tiempo
@@ -62,4 +63,4 @@ export async function generateExecutiveSummaryWithFallback(formData) {
 }
 
 // Exportar también las funciones de prompt por si se necesitan en el cliente
-export { buildResearchPrompt, buildRedactionPrompt };
+export { buildResearchPrompt, buildResearchStructurePrompt, buildRedactionPrompt };

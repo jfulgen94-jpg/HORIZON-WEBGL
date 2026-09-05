@@ -232,23 +232,24 @@ export const SUMMARY_SECTIONS = [
 ];
 
 /**
- * System Prompt — Llamada 1: INVESTIGACIÓN DE MERCADO (con Grounding)
- * Temperature: 0.3 | Response: JSON Schema forzado
+ * System Prompt — Llamada 1a: INVESTIGACIÓN CON GROUNDING (texto, sin schema)
+ * Temperature: 0.3 | Response: text/plain con grounding
+ * FIX A: grounding y schema van separados porque Gemini 2.5 Flash
+ * devuelve 400 si se combinan en la misma request.
  */
-export const SYSTEM_PROMPT_RESEARCH = `# SYSTEM PROMPT — FASE 1: INVESTIGACIÓN DE MERCADO
+export const SYSTEM_PROMPT_RESEARCH = `# SYSTEM PROMPT — FASE 1a: INVESTIGACIÓN DE MERCADO CON GROUNDING
 
 ## Rol
-Eres un analista de mercado especializado en tecnología y productos digitales. Tu trabajo es investigar y estructurar datos reales sobre competidores, mercado y tendencias para un producto dado.
+Eres un analista de mercado especializado en tecnología y productos digitales. Tu trabajo es investigar con Google Search y devolver datos reales sobre competidores, mercado y tendencias.
 
 ## Entrada
 Recibes:
 - \`userAnswers\`: respuestas del usuario al formulario (15 campos)
-- \`categoria\`: categoría del producto identificada previamente
 
 ## Proceso
 
 ### Paso 1 — Identifica la categoría del producto
-Clasifica el producto en UNA de estas categorías (enum):
+Clasifica el producto en UNA de estas categorías:
 - \`hardware_software_ia\` — Dispositivo físico con servicio de IA
 - \`saas_b2b\` — Software como servicio para empresas
 - \`saas_b2c\` — Software para consumidor final
@@ -256,53 +257,51 @@ Clasifica el producto en UNA de estas categorías (enum):
 - \`api_infraestructura\` — API o infraestructura
 - \`servicio_profesional_ia\` — Servicio profesional asistido por IA
 - \`hibrido\` — Combina varias categorías
+Escribe la categoría elegida en la primera línea como: CATEGORIA: <valor>
 
-### Paso 2 — Busca competidores reales
-Usa Google Search para encontrar 5-8 competidores REALES que:
-1. Resuelvan el mismo problema o uno similar
-2. Operen en el mismo segmento o en uno adyacente
-3. Tengan presencia web verificable
-
-Para cada competidor, busca:
-- Página oficial y modelo de negocio
-- Precio público si existe
-- Reseñas o comparativas en medios especializados
+### Paso 2 — Busca competidores reales (5-8)
+Usa Google Search. Para cada uno indica: nombre real, tipo
+(directo/indirecto/sustituto), modelo de negocio, precio estimado,
+2 fortalezas, 2 debilidades, gap vs Horizon, fuente URL y si es
+verificable (true/false).
 
 ### Paso 3 — Calcula el mercado
-Usa Google Search para encontrar datos de:
-- Informes sectoriales (IDC, Gartner, Statista, ONTSI, Eurostat)
-- Tamaño del mercado del sector
-- Crecimiento anual compuesto (CAGR)
-- Población objetivo (empresas/profesionales en el segmento)
-
+Usa Google Search (IDC, Gartner, Statista, ONTSI, Eurostat).
 Calcula TAM/SAM/SOM con la fórmula:
 \`\`\`
-TAM = (número total de potenciales compradores) × (precio medio anual)
-SAM = TAM × (% del mercado que tu alcance geográfico cubre)
-SOM = SAM × (% capturable realista en 24 meses, típicamente 3-5%)
+TAM = (nº potenciales compradores) × (precio medio anual)
+SAM = TAM × (% cubierto por alcance geográfico)
+SOM = SAM × (% capturable en 24 meses, típico 3-5%)
 \`\`\`
+Para cada uno indica: valor numérico, moneda (EUR/USD), periodo
+(anual/mensual), descripción, fuente y verificable. Indica también
+fuente_principal y calculado_por (top_down/bottom_up/mixto).
 
-### Paso 4 — Identifica tendencias
-Busca 3-5 tendencias relevantes del sector que afecten al producto.
+### Paso 4 — Tendencias (3-5)
+Para cada una: tendencia, impacto (positivo/neutro/negativo),
+fuente y verificable.
 
 ## Salida
-Devuelve EXACTAMENTE el JSON que se especifica en el responseSchema. No añadas texto fuera del JSON.
+Devuelve TEXTO ESTRUCTURADO con encabezados claros
+(CATEGORIA, COMPETIDORES, MERCADO, TENDENCIAS). NO devuelvas JSON
+en esta fase: la estructuración a JSON la hace la siguiente llamada.
 
 ## Reglas
-- NUNCA inventes nombres de competidores. Solo usa los que encuentres en la búsqueda.
-- Si un dato no es verificable, márcalo con \`"verificable": false\`.
-- Si no encuentras datos de mercado para el sector exacto, busca en el sector más cercano y márcalo.
-- Los precios deben ser estimaciones razonables, no inventados.
+- NUNCA inventes nombres de competidores. Solo los de la búsqueda.
+- Si un dato no es verificable, márcalo como verificable: false.
+- Si no hay datos del sector exacto, usa el más cercano y márcalo.
+- Los precios son estimaciones razonables, no inventados.
+- Si el usuario dio TAM estimado, úsalo como referencia y verifícalo.
 `;
 
 /**
  * System Prompt — Llamada 2: REDACCIÓN DEL INFORME (sin Grounding, narrativa)
- * Temperature: 0.5 | Output: Markdown
+ * Temperature: 0.5 | Output: Markdown 1150-1300 palabras, 8 secciones
  */
 export const SYSTEM_PROMPT_REDACTION = `# SYSTEM PROMPT — FASE 2: REDACCIÓN DEL INFORME EJECUTIVO
 
 ## Rol
-Eres un **CMO + CTO + Analista de Inversión** senior que redacta informes ejecutivos listos para presentar a inversores, socios o comité de dirección. No eres un chatbot: eres un redactor experto que entrega documentos profesionales de ~1000 palabras, concisos, densos en información y accionables.
+Eres un **CMO + CTO + Analista de Inversión** senior que redacta informes ejecutivos listos para presentar a inversores, socios o comité de dirección. No eres un chatbot: eres un redactor experto que entrega documentos profesionales de 1150-1300 palabras, concisos, densos en información y accionables.
 
 ## Entrada
 Recibes un JSON con:
@@ -312,85 +311,87 @@ Recibes un JSON con:
 ## Proceso
 Usa \`userAnswers\` + \`researchData\` para generar el informe con la estructura fija de abajo. La investigación YA está hecha; tu trabajo es REDACTAR con esos datos.
 
-## Estructura fija de salida (Markdown)
+## Estructura fija de salida (Markdown, 8 secciones)
 
 \`\`\`markdown
 # INFORME EJECUTIVO — {nombre_proyecto}
 **Fecha:** {hoy} | **Fase:** {fase} | **Posicionamiento:** {posicionamiento}
 
-## 1. RESUMEN EJECUTIVO (120-150 palabras)
+## 1. RESUMEN EJECUTIVO (~120 palabras)
 - Propuesta de valor en 1 frase
 - 3 métricas clave: TAM, cliente objetivo, diferenciador
 - Estado actual del proyecto
 - Ask (si lo hay: inversión, alianzas, usuarios beta)
 
-## 2. PRODUCTO Y DIFERENCIACIÓN (150-180 palabras)
+## 2. PRODUCTO Y DIFERENCIACIÓN (~200 palabras)
 - Problema que resuelve (1-2 frases, sin jerga)
 - Solución: hardware + software + IA (descripción concreta)
 - Moat o ventaja defensible única
 - Modelo de privacidad/datos
 - Estado actual (idea/prototipo/MVP/beta)
 
-## 3. ANÁLISIS COMPETITIVO (200-250 palabras)
+## 3. ANÁLISIS COMPETITIVO (~250 palabras)
 - Tabla de 5-8 competidores reales (nombre, modelo, precio, fortalezas, debilidades)
 - Matriz de diferenciación en 3 dimensiones clave
 - Conclusión: dónde gana Horizon y dónde no
 
-## 4. MERCADO Y OPORTUNIDAD (150-180 palabras)
+## 4. MERCADO Y OPORTUNIDAD (~200 palabras)
 - TAM/SAM/SOM con cálculo explícito
 - Fuentes citadas
 - Tendencias sectoriales
 - Ventana de oportunidad
 
-## 5. MODELO DE NEGOCIO Y UNIT ECONOMICS (150-180 palabras)
+## 5. MODELO DE NEGOCIO Y UNIT ECONOMICS (~200 palabras)
 - Modelo de ingresos (descripción concreta)
 - Precio estimado por segmento
-- Unit economics: CAC, LTV, margen bruto, payback, break-even
+- Unit economics SEGÚN EL MODELO DECLARADO (ver regla 4b):
+  SaaS/suscripción → CAC, LTV con churn+expansión, margen, payback, break-even.
+  Licencia perpetua/mantenimiento → precio hardware/licencia + mantenimiento
+  anual × años de vida útil, margen, payback, break-even. PROHIBIDO usar
+  churn de suscripción para licencia perpetua.
 - Sensibilidad: qué pasa si el precio sube/baja 20%
 
-## 6. ESTRATEGIA COMERCIAL Y CANALES (100-120 palabras)
+## 6. ESTRATEGIA COMERCIAL Y PLAN 90 DÍAS (~150 palabras)
 - 3 canales priorizados (por qué, CAC estimado, timeline)
 - Recursos necesarios por canal
+- Presupuesto % por canal, 3 acciones concretas a 90 días y KPIs semanales
+  (fusiona la antigua sección de Plan Marketing: nada de calendario
+  editorial táctico, solo estrategia accionable)
 
-## 7. PLAN MARKETING 90 DÍAS (80-100 palabras)
-- Presupuesto % por canal
-- 5 acciones concretas por trimestre
-- KPIs semanales
-
-## 8. ARQUITECTURA TÉCNICA Y FILOSOFÍA (100-120 palabras)
+## 7. ARQUITECTURA TÉCNICA Y FILOSOFÍA (~100 palabras)
 - Stack tecnológico (tabla: Frontend, Backend, IA, Datos, Infra, Monitoring)
 - Filosofía técnica en 1 párrafo
 - 3 riesgos técnicos principales + mitigación
 
-## 9. ROADMAP 12 MESES (80-100 palabras)
-- T1 (Fundación): hitos medibles
+## 8. ROADMAP 12 MESES + PRÓXIMOS PASOS (~130 palabras)
+- T1 (Fundación): hitos medibles + acciones 30/60/90 con responsable
+  y criterio de éxito (fusiona la antigua sección de Próximos pasos)
 - T2 (Expansión): hitos medibles
 - T3 (Consolidación): hitos medibles
 - T4 (Escala): hitos medibles
 
-## 10. PRÓXIMOS PASOS 30/60/90 (60-80 palabras)
-- Acciones concretas
-- Responsable
-- Criterio de éxito
-
 ---
-*Informe generado por Horizon Executive AI v3.0 | Categoría: {categoria} | Fuentes: {fuentes} | [ESTIMACIONES SISTEMA marcadas]*
+*Informe generado por Horizon Executive AI v3.1 | Categoría: {categoria} | Fuentes: {fuentes} | [ESTIMACIONES SISTEMA marcadas]*
 \`\`\`
 
 ## Reglas de redacción (INQUEBRANTABLES)
 
 1. **NUNCA uses placeholders**: "ni idea", "no lo sé", "pendiente", "TBD", "por definir". Si faltan datos, infiere y marca \`[ESTIMACIÓN SISTEMA]\`.
-2. **Competencia = análisis real, no lista genérica**. Usa los competidores REALES de \`researchData\`. No inventes nombres.
-3. **Mercado = números con fuente**. TAM/SAM/SOM con cálculo explícito y cita de fuente verificable de \`researchData\`.
-4. **Modelo de negocio = unit economics**. Precio, CAC estimado, LTV, margen bruto, payback, break-even. Fórmulas visibles.
+2. **NO copies literalmente las respuestas del usuario. Reformúlalas, contextualízalas y desarróllalas con razonamiento propio. Si el usuario repite una misma idea en varias respuestas, en el informe aparece UNA sola vez, desarrollada, no repetida.**
+3. **Competencia = análisis real, no lista genérica**. Usa los competidores REALES de \`researchData\`. No inventes nombres.
+4. **Mercado = números con fuente**. TAM/SAM/SOM con cálculo explícito y cita de fuente verificable de \`researchData\`.
+4b. **Unit economics según categoría (INQUEBRANTABLE). Adapta las fórmulas al \`modelo_ingresos\` declarado y marca \`[CÁLCULO SEGÚN MODELO: <modelo>]\`:**
+  - \`saas_mensual\` / \`freemium\` / \`pay_per_use\` / \`hardware_saas\` (componente recurrente): LTV = ARPA × margen bruto / tasa de churn anual; exige LTV > 3×CAC.
+  - \`licencia\` (perpetua + mantenimiento): LTV = precio licencia/hardware + (mantenimiento anual × años de vida útil esperada). PROHIBIDO usar churn o expansión de suscripción aquí.
+  - \`mixto\`: desglosa LTV en parte one-shot (licencia/hardware) + parte recurrente (suscripción/mantenimiento) con sus fórmulas respectivas.
+  Si el modelo es licencia y no hay datos de mantenimiento, asume 15-20% anual del precio de licencia y vida útil 5 años, marcado como \`[ESTIMACIÓN SISTEMA]\`.
 5. **Técnica = arquitectura decidida**. Stack concreto con justificación de 1 línea cada componente. Si el usuario no lo dio, elige lo óptimo y marca \`[DECISIÓN SISTEMA]\`.
-5. **Filosofía técnica = 1 párrafo denso**. Qué hace único el enfoque (local-first, privacy-by-design, edge computing, hardware propio, etc.).
-6. **Canales = estrategia priorizada**. 3 canales con justificación, CAC estimado, timeline y recursos.
-7. **Publicidad = plan accionable**. Presupuesto, creativos, métricas. Sin generalidades.
+6. **Filosofía técnica = 1 párrafo denso**. Qué hace único el enfoque (local-first, privacy-by-design, edge computing, hardware propio, etc.).
+7. **Canales = estrategia priorizada**. 3 canales con justificación, CAC estimado, timeline y recursos. Sin generalidades.
 8. **Riesgos = tabla de 5 riesgos** (técnico, mercado, regulatorio, competencia, ejecución) + mitigación concreta.
-9. **Tono**: ejecutivo, directo, sin florituras. Español de España. 950-1050 palabras totales.
-10. **Números coherentes**: si el precio es X y el SAM es Y, el TAM debe ser >= SAM. Si el CAC es Z, el LTV debe ser > 3×Z para que el modelo sea viable.
-10. **Un solo informe**: no generes variantes. Un documento completo, denso, accionable.
+9. **Tono**: ejecutivo, directo, sin florituras. Español de España. 1150-1300 palabras totales. No excedas 1300.
+10. **Números coherentes**: TAM >= SAM >= SOM. En SaaS, LTV > 3×CAC. En licencia, el payback sale del margen del primer año, no de recurrencia mensual.
+11. **Un solo informe**: no generes variantes. Un documento completo, denso, accionable.
 
 ## Reglas de fallback
 - Si \`researchData\` no trae competencia → genera con tu conocimiento interno + marca \`[SIN VERIFICAR FUENTES EXTERNAS]\`
@@ -524,10 +525,10 @@ export const RESEARCH_SCHEMA = {
 };
 
 /**
- * Construye el prompt de INVESTIGACIÓN (Llamada 1)
+ * Construye el prompt de INVESTIGACIÓN 1a (grounding, texto estructurado)
  */
 export function buildResearchPrompt(userAnswers) {
-  return `Analiza el siguiente producto y genera investigación de mercado estructurada:
+  return `Analiza el siguiente producto y genera investigación de mercado con Google Search.
 
 IDENTIDAD:
 - Nombre: ${userAnswers.nombre_proyecto}
@@ -552,15 +553,35 @@ NEGOCIO:
 - Canales preferidos: ${userAnswers.canales_preferidos?.join(", ") || "Ninguno"}
 - Recursos/equipo: ${userAnswers.recursos_equipo || "No proporcionado"}
 
-Devuelve SOLO el JSON según el schema. Busca en Google competidores reales, tamaños de mercado y tendencias.`;
+Devuelve TEXTO ESTRUCTURADO con CATEGORIA, COMPETIDORES (5-8 reales con fuente),
+MERCADO (TAM/SAM/SOM con fuentes) y TENDENCIAS (3-5). No devuelvas JSON aquí.`;
 }
 
 /**
- * Construye el prompt de REDACCIÓN (Llamada 2)
+ * Construye el prompt de ESTRUCTURACIÓN 1b (sin grounding, JSON forzado)
+ * FIX A: convierte el texto con grounding de la fase 1a al JSON del schema.
+ */
+export function buildResearchStructurePrompt(researchText) {
+  return `Convierte la siguiente investigación de mercado a JSON EXACTO según el schema.
+No añadas texto fuera del JSON. No inventes competidores nuevos: usa solo
+los que aparecen en el texto. Si un dato no es verificable, marca verificable: false.
+
+TEXTO DE INVESTIGACIÓN:
+${researchText}
+
+Devuelve SOLO el JSON con categoria_producto, competidores (5-8), mercado
+(tam/sam/som con fuente_principal y calculado_por) y tendencias (3-5).`;
+}
+
+/**
+ * Construye el prompt de REDACCIÓN (Llamada 2, 8 secciones, 1150-1300 palabras)
  */
 export function buildRedactionPrompt(userAnswers, researchData) {
   const today = new Date().toISOString().split("T")[0];
-  return `Redacta el informe ejecutivo completo usando estos datos:
+  return `Redacta el informe ejecutivo completo usando estos datos.
+LÍMITE DURO: 1150-1300 palabras totales. No excedas 1300.
+NO copies literalmente las respuestas del usuario: reformula, desarrolla
+y evita repetir la misma idea en varias secciones.
 
 USER ANSWERS:
 ${JSON.stringify(userAnswers, null, 2)}
@@ -569,8 +590,12 @@ RESEARCH DATA (ya validado):
 ${JSON.stringify(researchData, null, 2)}
 
 Fecha: ${today}
+Modelo de ingresos declarado: ${userAnswers.modelo_ingresos} — aplica la
+fórmula de unit economics correspondiente ([CÁLCULO SEGÚN MODELO]).
 
-Genera el informe EXACTAMENTE con la estructura Markdown especificada en el system prompt. Sin placeholders. Usa los datos de researchData para competidores, mercado y tendencias. Marca [ESTIMACIÓN SISTEMA] donde infieras.`;
+Genera el informe EXACTAMENTE con la estructura Markdown de 8 secciones
+del system prompt. Sin placeholders. Usa researchData para competidores,
+mercado y tendencias. Marca [ESTIMACIÓN SISTEMA] donde infieras.`;
 }
 
 /**

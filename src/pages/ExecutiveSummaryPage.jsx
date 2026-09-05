@@ -355,8 +355,8 @@ export default function ExecutiveSummaryPage() {
             Resumen Ejecutivo de Marketing y Negocio
           </h1>
           <p className="text-white/60 text-sm max-w-2xl leading-relaxed">
-            Completa los 4 bloques del formulario (15 preguntas) para compilar un dossier exhaustivo de 10 secciones
-            con investigación de mercado real, análisis competitivo, unit economics y roadmap.
+            Completa los 4 bloques del formulario (15 preguntas) para compilar un dossier exhaustivo de 8 secciones
+            (1150-1300 palabras) con investigación de mercado real, análisis competitivo, unit economics y roadmap.
           </p>
         </div>
 
@@ -557,7 +557,7 @@ export default function ExecutiveSummaryPage() {
                   </span>
                 </div>
                 <p className="text-xs text-white/50">
-                  Dossier completo de 10 secciones con investigación real, listo para comités de inversión.
+                  Dossier completo de 8 secciones (1150-1300 palabras) con investigación real, listo para comités de inversión.
                 </p>
               </div>
 
