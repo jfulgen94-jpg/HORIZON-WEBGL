@@ -37,14 +37,14 @@ const PROVIDER_TIMEOUT_MS = 60000; // 60s por llamada individual
 const PROVIDERS = [
   {
     id: "gemini",
-    name: "Gemini 2.5 Flash",
-    endpoint: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    name: "Gemini 3.6 Flash",
+    endpoint: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent",
     keyEnv: "GEMINI_API_KEY",
     supportsGrounding: true,
     supportsSchema: true,
     buildBody: (prompt, options = {}) => {
       // F-1: nunca enviar responseSchema (ni siquiera null) salvo JSON con schema real.
-      // Gemini 2.5 Flash devuelve 400 si combina grounding con generación controlada.
+      // Gemini devuelve 400 si combina grounding con generación controlada.
       const generationConfig = {
         temperature: options.temperature ?? 0.3,
         maxOutputTokens: options.maxTokens ?? 8192,
@@ -228,7 +228,7 @@ ${unitEconomicsBlock}
 |---|---|---|
 | Frontend | React 18 + Vite + Tailwind | DX, performance, ecosistema |
 | Backend | Node.js (Vercel Functions) / Python FastAPI | Serverless nativo, IA nativa |
-| IA | Gemini 2.5 Flash (research) + local LLM opcional | Coste/latencia óptimo, grounding |
+| IA | Gemini 3.6 Flash (research) + local LLM opcional | Coste/latencia óptimo, grounding |
 | Datos | DuckDB/PostgreSQL + vector store | Analítica + RAG |
 | Infra | Vercel + Cloudflare R2 | Edge, coste variable, soberanía EU |
 | Monitoring | Vercel Analytics + Sentry | Sin cookies, observabilidad |
