@@ -1,3 +1,4 @@
+import { useSEO } from "../hooks/useSEO";
 import { Link } from "react-router-dom";
 
 const FOROS = [

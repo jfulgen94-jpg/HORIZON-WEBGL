@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EmptyState from "../components/EmptyState";
 
 export default function ForoAplicaciones() {
   return (
@@ -10,10 +11,12 @@ export default function ForoAplicaciones() {
         </Link>
         <h1 className="font-display text-4xl text-white mb-4">Aplicaciones y Proyectos</h1>
         <p className="text-white/50 max-w-2xl mb-12">Publica tu app, agente de IA, librería o herramienta. Comparte el código, el demo y el stack.</p>
-        <div className="border border-white/[0.08] rounded-2xl p-8 text-center">
-          <p className="text-white/30 text-lg mb-2">Próximamente</p>
-          <p className="text-white/20 text-sm">El foro de aplicaciones se abrirá cuando la comunidad esté lista.</p>
-        </div>
+        <EmptyState
+          eyebrow="Comunidad"
+          title="Aplicaciones construidas con IA"
+          description="Un espacio para compartir proyectos reales que otros profesionales puedan explorar, aprender y replicar. Aquí se publican apps, flujos de trabajo y herramientas creadas con IA aplicada a cada sector."
+          expectation="El contenido se publicará cuando se habilite la sección de proyectos."
+        />
       </div>
     </div>
   );

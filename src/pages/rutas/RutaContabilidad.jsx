@@ -1338,7 +1338,7 @@ Genera la ficha técnica formal de presentación de "Balance Inteligente v1" par
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link 
-              to="/foro"
+              to="/comunidad/debate"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
               style={{ background: C.emerald, color: "white" }}
             >

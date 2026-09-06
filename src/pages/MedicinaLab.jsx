@@ -919,7 +919,7 @@ export default function MedicinaLab() {
             <Link to="/taller" className="text-sm text-accent hover:text-accent-light border border-accent/30 hover:border-accent/60 px-4 py-2 rounded-xl transition-all">
               Ver casos en el Taller â†’
             </Link>
-            <Link to="/foro" className="text-sm text-white/50 hover:text-white border border-white/10 hover:border-white/20 px-4 py-2 rounded-xl transition-all">
+            <Link to="/comunidad/debate" className="text-sm text-white/50 hover:text-white border border-white/10 hover:border-white/20 px-4 py-2 rounded-xl transition-all">
               Publicar un proyecto
             </Link>
           </div>

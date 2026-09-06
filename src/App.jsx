@@ -81,7 +81,6 @@ export default function App() {
             <Route path="comunidad/aplicaciones" element={<ForoAplicaciones />} />
             <Route path="comunidad/profesionales" element={<ForoProfesionales />} />
             <Route path="comunidad/debate" element={<ForoDebate />} />
-            <Route path="foro" element={<ForoDebate />} />
             <Route path="marketing/:slug" element={<MarketingPlan />} />
             <Route path="privacidad" element={<Privacidad />} />
             <Route path="terminos" element={<Terminos />} />

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EmptyState from "../components/EmptyState";
 
 export default function ForoDebate() {
   return (
@@ -10,10 +11,12 @@ export default function ForoDebate() {
         </Link>
         <h1 className="font-display text-4xl text-white mb-4">Foro General de Debate</h1>
         <p className="text-white/50 max-w-2xl mb-12">Preguntas, reflexiones y debate abierto sobre IA, programación y datos.</p>
-        <div className="border border-white/[0.08] rounded-2xl p-8 text-center">
-          <p className="text-white/30 text-lg mb-2">Próximamente</p>
-          <p className="text-white/20 text-sm">El foro de debate se abrirá cuando la comunidad esté lista.</p>
-        </div>
+        <EmptyState
+          eyebrow="Comunidad"
+          title="Debate sobre IA aplicada"
+          description="Un foro abierto para discutir metodologías, resolver dudas técnicas y debatir buenas prácticas en la aplicación de IA a cada profesión. Moderación basada en el Manifiesto de Horizon."
+          expectation="El debate se abrirá cuando se implemente la infraestructura de publicación."
+        />
       </div>
     </div>
   );

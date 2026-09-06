@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div data-od-id="home">
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-6 pt-32 pb-24 overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center px-6 pt-32 pb-24 overflow-hidden">
         {/* WebGL Aurora Background */}
         <HeroCanvas />
         {/* Fallback gradient (visible when WebGL not supported) */}
@@ -32,7 +32,7 @@ export default function Home() {
           </p>
 
           {/* Metrics bar */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 mb-12 animate-fade-up-2">
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 sm:gap-12 mb-12 animate-fade-up-2">
             {[
               { value: "8", label: "Laboratorios" },
               { value: "18", label: "Proyectos" },

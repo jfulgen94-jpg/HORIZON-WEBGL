@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import { GLOSSARY } from "../data/glossary-data";
 import { useSEO } from "../hooks/useSEO";
+import EmptyState from "../components/EmptyState";
 
 const TABS = ["FAQ", "Biblioteca", "Prompts", "Glosario", "Guías base", "Recursos"];
 
@@ -217,10 +218,12 @@ export default function Biblioteca() {
 
         {/* Recursos */}
         {activeTab === "Recursos" && (
-          <div className="border border-white/[0.08] rounded-2xl p-8 text-center">
-            <p className="text-white/30 text-lg mb-2">Próximamente</p>
-            <p className="text-white/20 text-sm">Enlaces y recursos externos organizados por categoría.</p>
-          </div>
+          <EmptyState
+            eyebrow="Biblioteca"
+            title="Recursos curados por sector"
+            description="Enlaces a documentación oficial, guías prácticas, herramientas y fuentes verificadas organizadas por sector profesional. Cada recurso incluye una descripción breve y su nivel de complejidad."
+            expectation="Los recursos se publicarán por sectores a medida que se validen."
+          />
         )}
       </div>
     </div>

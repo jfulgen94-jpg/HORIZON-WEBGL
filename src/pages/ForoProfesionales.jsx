@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import EmptyState from "../components/EmptyState";
 
 export default function ForoProfesionales() {
   return (
@@ -10,10 +11,12 @@ export default function ForoProfesionales() {
         </Link>
         <h1 className="font-display text-4xl text-white mb-4">Profesionales y Colaboraciones</h1>
         <p className="text-white/50 max-w-2xl mb-12">Portal de expertos en programación, datos e IA. Publica tu perfil o busca colaboradores.</p>
-        <div className="border border-white/[0.08] rounded-2xl p-8 text-center">
-          <p className="text-white/30 text-lg mb-2">Próximamente</p>
-          <p className="text-white/20 text-sm">El directorio de profesionales se abrirá pronto.</p>
-        </div>
+        <EmptyState
+          eyebrow="Comunidad"
+          title="Red de profesionales de IA"
+          description="Un directorio donde los profesionales que usan IA en su trabajo diario pueden conectar, compartir experiencias y encontrar colaboradores por sector y especialidad."
+          expectation="La red se activará cuando se implemente el sistema de perfiles."
+        />
       </div>
     </div>
   );

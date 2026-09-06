@@ -6,6 +6,13 @@ import { ArrowLeft } from "lucide-react";
 import { Copy } from "lucide-react";
 import { Check } from "lucide-react";
 
+// ─── Approved palette (Sprint 3, S3-03 Option A) ─────────────────────────────
+// Light "paper" subtheme — deliberate design decision, not a bug.
+// The 8 /ruta/* pages are reading/working surfaces; this light family matches
+// the beige chrome (#F5F1E8 header/footer). The dark tokens (--surface-base,
+// --text-primary, etc.) belong to the showcase pages (Home, Labs, Taller...).
+// Do NOT realign this palette to the dark system; use these tokens when building
+// new surfaces for /ruta/* and /wizard/*.
 export const C = {
   bg:      "#F9F6EF",
   dark:    "#111111",

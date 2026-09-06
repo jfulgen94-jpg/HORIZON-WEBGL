@@ -68,12 +68,10 @@ export default function LabCard({ lab, variant = "grid", index = 0 }) {
   const Icon = ICONS[lab.icon] || ICONS["cog"];
 
   return (
-    <Link
-      to={lab.route}
+    <div
       className={clsx(
         "group relative flex flex-col justify-between rounded-2xl border transition-all duration-200",
         "bg-[#161C27] border-white/[0.08] hover:border-white/[0.18] hover:shadow-card-hover hover:-translate-y-0.5",
-        "focus-visible:outline-accent",
         isBento
           ? "col-span-2 row-span-2 p-7 sm:p-8 min-h-[240px] lg:min-h-[320px]"
           : "p-5 sm:p-6 min-h-[180px]",
@@ -82,6 +80,11 @@ export default function LabCard({ lab, variant = "grid", index = 0 }) {
       style={{ "--lab-color": lab.color }}
       data-od-id={`lab-card-${lab.id}`}
     >
+      <Link
+        to={lab.route}
+        aria-label={`Explorar ${lab.name}`}
+        className="absolute inset-0 rounded-2xl focus-visible:outline-accent"
+      />
       {/* Top accent line */}
       <div
         className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -149,6 +152,7 @@ export default function LabCard({ lab, variant = "grid", index = 0 }) {
       {/* Actions */}
       <div className="flex gap-2 mt-4">
         <span
+          aria-hidden="true"
           className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-md transition-colors"
           style={{
             color: lab.color,
@@ -158,10 +162,13 @@ export default function LabCard({ lab, variant = "grid", index = 0 }) {
         >
           Explorar <ArrowRight size={11} />
         </span>
-        <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-white/30 px-3 py-1.5 rounded-md border border-transparent hover:border-white/10 hover:text-white/50 transition-colors">
+        <Link
+          to={lab.wizardRoute}
+          className="relative inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-white/30 px-3 py-1.5 rounded-md border border-transparent hover:border-white/10 hover:text-white/50 transition-colors"
+        >
           Wizard
-        </span>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 }

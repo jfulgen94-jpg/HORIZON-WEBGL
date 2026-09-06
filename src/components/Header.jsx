@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 
@@ -15,6 +15,43 @@ const NAV_ITEMS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const toggleRef = useRef(null);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Tab") {
+        const focusable = menuRef.current?.querySelectorAll('a, button');
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      toggleRef.current?.focus();
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      const firstLink = menuRef.current?.querySelector("a");
+      firstLink?.focus();
+    }
+  }, [menuOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#F5F1E8]/95 backdrop-blur-sm">
@@ -68,56 +105,63 @@ export default function Header() {
 
         {/* Mobile toggle */}
         <button
+          ref={toggleRef}
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
         >
-          <span className={clsx("w-5 h-0.5 bg-[#111111] transition-all", menuOpen && "rotate-45 translate-y-2")} />
-          <span className={clsx("w-5 h-0.5 bg-[#111111] transition-opacity", menuOpen && "opacity-0")} />
-          <span className={clsx("w-5 h-0.5 bg-[#111111] transition-all", menuOpen && "-rotate-45 -translate-y-2")} />
+          <span className={clsx("w-5 h-0.5 bg-[#111111] transition-all duration-200", menuOpen && "rotate-45 translate-y-2")} />
+          <span className={clsx("w-5 h-0.5 bg-[#111111] transition-opacity duration-200", menuOpen && "opacity-0")} />
+          <span className={clsx("w-5 h-0.5 bg-[#111111] transition-all duration-200", menuOpen && "-rotate-45 -translate-y-2")} />
         </button>
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div id="mobile-menu" className="md:hidden border-t border-[#111111]/10 bg-[#F5F1E8] px-6 py-6 animate-slide-down">
-          <nav className="flex flex-col gap-4">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setMenuOpen(false)}
-                className={clsx(
-                  "font-mono text-[11px] uppercase tracking-widest",
-                  location.pathname === item.path
-                    ? "text-[#3B6FD4]"
-                    : "text-[#111111]/60"
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="flex gap-4 pt-4 border-t border-[#111111]/10">
-              <Link
-                to="/manifiesto"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 inline-flex items-center justify-center font-mono text-[11px] uppercase tracking-widest text-[#111111]/60"
-              >
-                Manifiesto
-              </Link>
-              <Link
-                to="/areas"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 inline-flex items-center justify-center bg-[#3B6FD4] text-white px-4 py-2 rounded-lg font-mono text-[11px] uppercase tracking-wider"
-              >
-                Explorar
-              </Link>
-            </div>
-          </nav>
-        </div>
-      )}
+      <div
+        id="mobile-menu"
+        ref={menuRef}
+        className={clsx(
+          "md:hidden border-t border-[#111111]/10 bg-[#F5F1E8] px-6 py-6",
+          menuOpen ? "animate-slide-down" : "hidden"
+        )}
+        aria-hidden={!menuOpen}
+      >
+        <nav className="flex flex-col gap-4" aria-label="Menú principal">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              onClick={() => setMenuOpen(false)}
+              className={clsx(
+                "font-mono text-[11px] uppercase tracking-widest",
+                location.pathname === item.path
+                  ? "text-[#3B6FD4]"
+                  : "text-[#111111]/60"
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="flex gap-4 pt-4 border-t border-[#111111]/10">
+            <Link
+              to="/manifiesto"
+              onClick={() => setMenuOpen(false)}
+              className="flex-1 inline-flex items-center justify-center font-mono text-[11px] uppercase tracking-widest text-[#111111]/60"
+            >
+              Manifiesto
+            </Link>
+            <Link
+              to="/areas"
+              onClick={() => setMenuOpen(false)}
+              className="flex-1 inline-flex items-center justify-center bg-[#3B6FD4] text-white px-4 py-2 rounded-lg font-mono text-[11px] uppercase tracking-wider"
+            >
+              Explorar
+            </Link>
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }
